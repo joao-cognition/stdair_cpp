@@ -11,6 +11,9 @@ namespace stdair {
   public:      
     /** Destructor. */
     virtual ~FacAbstract();
+
+    /** Destroy all the objects instantiated by this factory. */
+    virtual void clean() {}
       
   protected:
     /** Default Constructor.

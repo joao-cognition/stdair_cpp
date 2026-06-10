@@ -6,7 +6,7 @@
 // //////////////////////////////////////////////////////////////////////
 // STL
 #include <iosfwd>
-#include <list>
+#include <vector>
 
 namespace stdair {
 
@@ -20,11 +20,14 @@ namespace stdair {
   class FacSupervisor {
   public:
     /**
-     * Define the pool (list) of factories.
-     */ 
-    typedef std::list<FacAbstract*> PersistentBomFactoryPool_T;
-    typedef std::list<FacAbstract*> CloneBomFactoryPool_T; 
-    typedef std::list<FacServiceAbstract*> ServiceFactoryPool_T;
+     * Define the pool (vector) of factories.
+     *
+     * The pointers are non-owning: the factories are static-local
+     * (Meyer's) singletons whose lifetime is managed by the runtime.
+     */
+    typedef std::vector<FacAbstract*> PersistentBomFactoryPool_T;
+    typedef std::vector<FacAbstract*> CloneBomFactoryPool_T;
+    typedef std::vector<FacServiceAbstract*> ServiceFactoryPool_T;
 
     /**
      * Provide the unique (static) instance of the FacSupervisor object.
@@ -39,7 +42,7 @@ namespace stdair {
      *
      * When a concrete Factory is firstly instantiated
      * this factory have to register itself to the FacSupervisor
-     * @param FacAbstract* The concrete Factory to register.
+     * @param FacAbstract* The concrete Factory to register (non-owning).
      */
     void registerPersistentBomFactory (FacAbstract*);
 
@@ -48,7 +51,7 @@ namespace stdair {
      *
      * When a concrete Factory is firstly instantiated
      * this factory have to register itself to the FacSupervisor
-     * @param FacAbstract* The concrete Factory to register.
+     * @param FacAbstract* The concrete Factory to register (non-owning).
      */
     void registerCloneBomFactory (FacAbstract*);
 
@@ -57,7 +60,7 @@ namespace stdair {
      *
      * When a concrete Factory is firstly instantiated
      * this factory have to register itself to the FacSupervisor.
-     * @param FacServiceAbstract& the concrete Factory to register.
+     * @param FacServiceAbstract* The concrete Factory to register (non-owning).
      */
     void registerServiceFactory (FacServiceAbstract*);  
 
@@ -96,19 +99,19 @@ namespace stdair {
     static void cleanDBSessionManager();
 
     /**
-     * Clean the static instance.
-     * As the static instance (singleton) is deleted, all the other
-     * registered objects will be deleted in turn.
+     * Clean all the layers (BOM and service), as well as the Logger
+     * and DBSessionManager static instances.
      */
     static void cleanAll();
 
     /**
      * Destructor.
-     *
-     * That destructors is applied on the static instance. It then
-     * deletes in turn all the other registered objects.
      */
     ~FacSupervisor();
+
+    // Copy is not allowed (singleton)
+    FacSupervisor (const FacSupervisor&) = delete;
+    FacSupervisor& operator= (const FacSupervisor&) = delete;
 
 
   protected:
@@ -118,14 +121,8 @@ namespace stdair {
      * This constructor is protected to ensure the singleton pattern.
      */
     FacSupervisor() {}
-    FacSupervisor (const FacSupervisor&) {}
 
   private:
-    /**
-     * The unique instance.
-     */
-    static FacSupervisor* _instance;    
-
     /**
      * List of instantiated persistent factory for the BOM layer.
      */

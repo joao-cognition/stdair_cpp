@@ -29,9 +29,6 @@ namespace stdair {
 
     /**
      * Destructor.
-     *
-     * The Destruction put the _instance to NULL
-     * in order to be clean for the next FacSTDAIRServiceContext::instance().
      */
     ~FacSTDAIRServiceContext();
 
@@ -52,12 +49,6 @@ namespace stdair {
      * This constructor is protected in order to ensure the singleton pattern.
      */
     FacSTDAIRServiceContext() {}
-
-  private:
-    /**
-     * The unique instance.
-     */
-    static FacSTDAIRServiceContext* _instance;
   };
 
 }

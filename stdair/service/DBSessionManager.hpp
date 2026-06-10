@@ -4,6 +4,8 @@
 // //////////////////////////////////////////////////////////////////////
 // Import section
 // //////////////////////////////////////////////////////////////////////
+// STL
+#include <memory>
 // StdAir
 #include <stdair/stdair_db.hpp>
 
@@ -32,8 +34,13 @@ namespace stdair {
     /** Default constructors are private so that only the required 
         constructor can be used. */
     DBSessionManager ();
-    /** Default copy constructor. It must not be used. */
-    DBSessionManager (const DBSessionManager&);
+
+  public:
+    /** Copy is not allowed. */
+    DBSessionManager (const DBSessionManager&) = delete;
+    DBSessionManager& operator= (const DBSessionManager&) = delete;
+
+  private:
     /** Destructor. */
     ~DBSessionManager ();
 
@@ -57,7 +64,7 @@ namespace stdair {
     
   private:
     /** Database session handler. */
-    DBSession_T* _dbSession;
+    std::unique_ptr<DBSession_T> _dbSession;
   };
 
 }

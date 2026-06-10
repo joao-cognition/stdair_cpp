@@ -5,19 +5,19 @@
 // Import section
 // //////////////////////////////////////////////////////////////////////
 // STL
+#include <memory>
 #include <vector>
+// StdAir
+#include <stdair/service/ServiceAbstract.hpp>
 
 namespace stdair {
-
-  // Forward declarations
-  class ServiceAbstract;
 
   /** Base class for the (Service) Factory layer. */
   class FacServiceAbstract {
   public:
     
     /** Define the list (pool) of Service objects. */
-    typedef std::vector<ServiceAbstract*> ServicePool_T;
+    typedef std::vector<std::unique_ptr<ServiceAbstract>> ServicePool_T;
     
     /** Destructor. */
     virtual ~FacServiceAbstract();

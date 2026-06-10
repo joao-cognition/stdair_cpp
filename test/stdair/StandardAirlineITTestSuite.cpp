@@ -9,12 +9,12 @@
 #include <sstream>
 #include <fstream>
 #include <string>
+#include <type_traits>
 // Boost MPL
 #include <boost/mpl/push_back.hpp>
 #include <boost/mpl/vector.hpp>
 #include <boost/mpl/at.hpp>
 #include <boost/mpl/assert.hpp>
-#include <boost/type_traits/is_same.hpp>
 // Boost Unit Test Framework (UTF)
 #define BOOST_TEST_DYN_LINK
 #define BOOST_TEST_MAIN
@@ -124,13 +124,12 @@ BOOST_AUTO_TEST_CASE (mpl_structure_test) {
   typedef boost::mpl::push_back<MPL_BookingClass,
                                 stdair_test::Cabin>::type types;
   
-  if (boost::is_same<stdair_test::BookingClass,
-                     stdair_test::Cabin::child>::value == false) {
+  if (std::is_same_v<stdair_test::BookingClass, stdair_test::Cabin::child> == false) {
     BOOST_ERROR ("The two types mut be equal, but are not");
   }
   
-  if (boost::is_same<boost::mpl::at_c<types, 1>::type,
-                     stdair_test::Cabin>::value == false) {
+  if (std::is_same_v<boost::mpl::at_c<types, 1>::type,
+                     stdair_test::Cabin> == false) {
     BOOST_ERROR ("The type must be stdair_test::Cabin, but is not");
   }
 }
@@ -226,7 +225,7 @@ BOOST_AUTO_TEST_CASE (bom_structure_instantiation_test) {
          lInventoryList.begin(); itInv != lInventoryList.end();
        ++itInv, ++idx) {
     const myprovider::Inventory* lInv_ptr = *itInv;
-    BOOST_REQUIRE (lInv_ptr != NULL);
+    BOOST_REQUIRE (lInv_ptr != nullptr);
     
     BOOST_CHECK_EQUAL (lInventoryKeyArray[idx], lInv_ptr->describeKey());
     BOOST_CHECK_MESSAGE (lInventoryKeyArray[idx] == lInv_ptr->describeKey(),
@@ -280,7 +279,7 @@ BOOST_AUTO_TEST_CASE (bom_structure_serialisation_test) {
   STDAIR_LOG_DEBUG ("There should be an Inventory object corresponding to the '"
                     << lBAInvKeyStr << "' key.");
 
-  BOOST_REQUIRE_MESSAGE (lBAInv_ptr != NULL,
+  BOOST_REQUIRE_MESSAGE (lBAInv_ptr != nullptr,
                          "An Inventory object should exist with the key, '"
                          << lBAInvKeyStr << "'.");
 
@@ -334,7 +333,7 @@ BOOST_AUTO_TEST_CASE (bom_structure_serialisation_test) {
   STDAIR_LOG_DEBUG ("There should be an Inventory object corresponding to the '"
                     << lBAInvKeyStr << "' key in the restored BOM root.");
 
-  BOOST_CHECK_MESSAGE (lRestoredBAInv_ptr != NULL,
+  BOOST_CHECK_MESSAGE (lRestoredBAInv_ptr != nullptr,
                        "An Inventory object should exist with the key, '"
                        << lBAInvKeyStr << "' in the restored BOM root.");
 
@@ -411,7 +410,7 @@ BOOST_AUTO_TEST_CASE (bom_structure_clone_test) {
   STDAIR_LOG_DEBUG ("There should be an Inventory object corresponding to the '"
                     << lBAInvKeyStr << "' key in the clone BOM root.");
 
-  BOOST_CHECK_MESSAGE (lCloneBAInv_ptr != NULL,
+  BOOST_CHECK_MESSAGE (lCloneBAInv_ptr != nullptr,
                        "An Inventory object should exist with the key, '"
                        << lBAInvKeyStr << "' in the clone BOM root.");
 

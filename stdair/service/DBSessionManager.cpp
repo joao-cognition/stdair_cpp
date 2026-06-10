@@ -3,6 +3,7 @@
 // //////////////////////////////////////////////////////////////////////
 // STL
 #include <cassert>
+#include <memory>
 #include <string>
 #include <sstream>
 // SOCI
@@ -17,13 +18,7 @@
 namespace stdair {
   
   // //////////////////////////////////////////////////////////////////////
-  DBSessionManager::DBSessionManager () : _dbSession (NULL) {
-  }
-
-  // //////////////////////////////////////////////////////////////////////
-  DBSessionManager::DBSessionManager (const DBSessionManager&)
-    : _dbSession (NULL) {
-    assert (false);
+  DBSessionManager::DBSessionManager () {
   }
 
   // //////////////////////////////////////////////////////////////////////
@@ -43,7 +38,7 @@ namespace stdair {
     const std::string lDBSessionConnectionString (oStr.str());
 
     // Instanciate the database session: nothing else is performed at that stage
-    _dbSession = new DBSession_T;
+    _dbSession = std::make_unique<DBSession_T>();
     
     try {
       // Open the connection to the database
@@ -64,7 +59,7 @@ namespace stdair {
     
   // //////////////////////////////////////////////////////////////////////
   void DBSessionManager::dbFinalise () {
-    delete _dbSession; _dbSession = NULL;
+    _dbSession.reset();
   }
   
   // //////////////////////////////////////////////////////////////////////
@@ -85,10 +80,10 @@ namespace stdair {
   
   // //////////////////////////////////////////////////////////////////////
   DBSession_T& DBSessionManager::getDBSession() const {
-    if (_dbSession == NULL) {
+    if (!_dbSession) {
       throw NonInitialisedDBSessionManagerException ("");
     }
-    assert (_dbSession != NULL);
+    assert (_dbSession != nullptr);
     return *_dbSession;
   }
   
