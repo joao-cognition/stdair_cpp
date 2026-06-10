@@ -6,11 +6,10 @@
 // //////////////////////////////////////////////////////////////////////
 // STL
 #include <iosfwd>
+#include <type_traits>
 #include <list>
 #include <map>
 // Boost
-#include <boost/static_assert.hpp>
-#include <boost/type_traits/is_same.hpp>
 // StdAir
 #include <stdair/bom/BomHolder.hpp>
 #include <stdair/bom/BomManager.hpp>
@@ -33,7 +32,7 @@ namespace stdair {
     /**
      * Retrieve a pointer on the holder of children (OBJECT2 type) for
      * the parent (OBJECT1 type). If the holder does not exist,
-     * return NULL.
+     * return nullptr.
      *
      * @param typename OBJECT1& Parent object.
      * @return typename BomHolder<OBJECT2>* BomHolder for the children objects.
@@ -243,10 +242,12 @@ namespace stdair {
     // <SegmentDate, SegmentDate>
     // <AirlineFeature, Inventory>
     //
-    BOOST_STATIC_ASSERT ((boost::is_same<OBJECT1, SegmentDate>::value == false
-                          || boost::is_same<OBJECT2, SegmentDate>::value == false));
-    BOOST_STATIC_ASSERT ((boost::is_same<OBJECT1, Inventory>::value == false
-                          || boost::is_same<OBJECT2, AirlineFeature>::value == false));         
+    static_assert (std::is_same_v<OBJECT1, SegmentDate> == false
+                          || std::is_same_v<OBJECT2, SegmentDate> == false,
+                   "Type constraint violated");
+    static_assert (std::is_same_v<OBJECT1, Inventory> == false
+                          || std::is_same_v<OBJECT2, AirlineFeature> == false,
+                   "Type constraint violated");         
 
 
     BomHolder<OBJECT2>* lBomHolder_ptr =
@@ -273,12 +274,14 @@ namespace stdair {
     // <SegmentDate, SegmentDate>
     // <AirlineFeature, Inventory>
     // 
-    BOOST_STATIC_ASSERT ((boost::is_same<OBJECT1, SegmentDate>::value == false
-                          || boost::is_same<OBJECT2, SegmentDate>::value == false));
-    BOOST_STATIC_ASSERT ((boost::is_same<OBJECT1, Inventory>::value == false
-                          || boost::is_same<OBJECT2, AirlineFeature>::value == false));
+    static_assert (std::is_same_v<OBJECT1, SegmentDate> == false
+                          || std::is_same_v<OBJECT2, SegmentDate> == false,
+                   "Type constraint violated");
+    static_assert (std::is_same_v<OBJECT1, Inventory> == false
+                          || std::is_same_v<OBJECT2, AirlineFeature> == false,
+                   "Type constraint violated");
     
-    BomHolder<OBJECT2>* lBomHolder_ptr = NULL;
+    BomHolder<OBJECT2>* lBomHolder_ptr = nullptr;
 
     // Find the corresponding BomHolder within the object1, if existing.
     HolderMap_T::const_iterator itHolder =
@@ -302,12 +305,14 @@ namespace stdair {
     // <SegmentDate, SegmentDate>
     // <AirlineFeature, Inventory>
     // 
-    BOOST_STATIC_ASSERT ((boost::is_same<OBJECT1, SegmentDate>::value == false
-                          || boost::is_same<OBJECT2, SegmentDate>::value == false));
-    BOOST_STATIC_ASSERT ((boost::is_same<OBJECT1, Inventory>::value == false
-                          || boost::is_same<OBJECT2, AirlineFeature>::value == false));       
+    static_assert (std::is_same_v<OBJECT1, SegmentDate> == false
+                          || std::is_same_v<OBJECT2, SegmentDate> == false,
+                   "Type constraint violated");
+    static_assert (std::is_same_v<OBJECT1, Inventory> == false
+                          || std::is_same_v<OBJECT2, AirlineFeature> == false,
+                   "Type constraint violated");       
 
-    BomHolder<OBJECT2>* lBomHolder_ptr = NULL;
+    BomHolder<OBJECT2>* lBomHolder_ptr = nullptr;
 
     // Find the corresponding BomHolder within the object1. If it does
     // not exist, then create one.
@@ -321,7 +326,7 @@ namespace stdair {
       lBomHolder_ptr = static_cast<BomHolder<OBJECT2>*> (itHolder->second);
     }
 
-    assert (lBomHolder_ptr != NULL);
+    assert (lBomHolder_ptr != nullptr);
 
     return *lBomHolder_ptr;
   }
@@ -338,10 +343,12 @@ namespace stdair {
     // <SegmentDate, SegmentDate>
     // <AirlineFeature, Inventory>
     // 
-    BOOST_STATIC_ASSERT ((boost::is_same<OBJECT1, SegmentDate>::value == false
-                          || boost::is_same<OBJECT2, SegmentDate>::value == false));
-    BOOST_STATIC_ASSERT ((boost::is_same<OBJECT1, Inventory>::value == false
-                          || boost::is_same<OBJECT2, AirlineFeature>::value == false));
+    static_assert (std::is_same_v<OBJECT1, SegmentDate> == false
+                          || std::is_same_v<OBJECT2, SegmentDate> == false,
+                   "Type constraint violated");
+    static_assert (std::is_same_v<OBJECT1, Inventory> == false
+                          || std::is_same_v<OBJECT2, AirlineFeature> == false,
+                   "Type constraint violated");
     
     ioBomHolder._bomList.push_back (&ioObject2);
   }
@@ -359,10 +366,12 @@ namespace stdair {
     // <SegmentDate, SegmentDate>
     // <AirlineFeature, Inventory>
     // 
-    BOOST_STATIC_ASSERT ((boost::is_same<OBJECT1, SegmentDate>::value == false
-                          || boost::is_same<OBJECT2, SegmentDate>::value == false));
-    BOOST_STATIC_ASSERT ((boost::is_same<OBJECT1, Inventory>::value == false
-                          || boost::is_same<OBJECT2, AirlineFeature>::value == false));
+    static_assert (std::is_same_v<OBJECT1, SegmentDate> == false
+                          || std::is_same_v<OBJECT2, SegmentDate> == false,
+                   "Type constraint violated");
+    static_assert (std::is_same_v<OBJECT1, Inventory> == false
+                          || std::is_same_v<OBJECT2, AirlineFeature> == false,
+                   "Type constraint violated");
 
     BomHolder<OBJECT2>& lBomHolder = getBomHolder<OBJECT2> (ioObject1);
 
@@ -382,10 +391,12 @@ namespace stdair {
     // <SegmentDate, SegmentDate>
     // <AirlineFeature, Inventory>
     // 
-    BOOST_STATIC_ASSERT ((boost::is_same<OBJECT1, SegmentDate>::value == false
-                          || boost::is_same<OBJECT2, SegmentDate>::value == false));
-    BOOST_STATIC_ASSERT ((boost::is_same<OBJECT1, Inventory>::value == false
-                          || boost::is_same<OBJECT2, AirlineFeature>::value == false));
+    static_assert (std::is_same_v<OBJECT1, SegmentDate> == false
+                          || std::is_same_v<OBJECT2, SegmentDate> == false,
+                   "Type constraint violated");
+    static_assert (std::is_same_v<OBJECT1, Inventory> == false
+                          || std::is_same_v<OBJECT2, AirlineFeature> == false,
+                   "Type constraint violated");
 
     const bool insertionSucceeded =
       ioBomHolder._bomMap.insert (typename std::map<const MapKey_T, OBJECT2*>::
@@ -403,7 +414,7 @@ namespace stdair {
              ioBomHolder._bomMap.begin(); 
            iter != ioBomHolder._bomMap.end(); ++iter, ++idx) {
         const OBJECT2* lCurrentObject_ptr = iter->second;
-        assert (lCurrentObject_ptr != NULL);
+        assert (lCurrentObject_ptr != nullptr);
 
         if (idx != 0) {
           oStr << "; ";
@@ -429,10 +440,12 @@ namespace stdair {
     // <SegmentDate, SegmentDate>
     // <AirlineFeature, Inventory>
     // 
-    BOOST_STATIC_ASSERT ((boost::is_same<OBJECT1, SegmentDate>::value == false
-                          || boost::is_same<OBJECT2, SegmentDate>::value == false));
-    BOOST_STATIC_ASSERT ((boost::is_same<OBJECT1, Inventory>::value == false
-                          || boost::is_same<OBJECT2, AirlineFeature>::value == false));         
+    static_assert (std::is_same_v<OBJECT1, SegmentDate> == false
+                          || std::is_same_v<OBJECT2, SegmentDate> == false,
+                   "Type constraint violated");
+    static_assert (std::is_same_v<OBJECT1, Inventory> == false
+                          || std::is_same_v<OBJECT2, AirlineFeature> == false,
+                   "Type constraint violated");         
 
     BomHolder<OBJECT2>& lBomHolder = getBomHolder<OBJECT2> (ioObject1);
 
@@ -451,10 +464,12 @@ namespace stdair {
     // <SegmentDate, SegmentDate>
     // <AirlineFeature, Inventory>
     // 
-    BOOST_STATIC_ASSERT ((boost::is_same<OBJECT1, SegmentDate>::value == false
-                          || boost::is_same<OBJECT2, SegmentDate>::value == false));
-    BOOST_STATIC_ASSERT ((boost::is_same<OBJECT1, Inventory>::value == false
-                          || boost::is_same<OBJECT2, AirlineFeature>::value == false));   
+    static_assert (std::is_same_v<OBJECT1, SegmentDate> == false
+                          || std::is_same_v<OBJECT2, SegmentDate> == false,
+                   "Type constraint violated");
+    static_assert (std::is_same_v<OBJECT1, Inventory> == false
+                          || std::is_same_v<OBJECT2, AirlineFeature> == false,
+                   "Type constraint violated");   
     
     const MapKey_T& lKey = ioObject2.describeKey();
     addToMap (ioObject1, ioObject2, lKey);
@@ -472,10 +487,12 @@ namespace stdair {
     // <SegmentDate, SegmentDate>
     // <AirlineFeature, Inventory>
     // 
-    BOOST_STATIC_ASSERT ((boost::is_same<OBJECT1, SegmentDate>::value == false
-                          || boost::is_same<OBJECT2, SegmentDate>::value == false));
-    BOOST_STATIC_ASSERT ((boost::is_same<OBJECT1, Inventory>::value == false
-                          || boost::is_same<OBJECT2, AirlineFeature>::value == false));                
+    static_assert (std::is_same_v<OBJECT1, SegmentDate> == false
+                          || std::is_same_v<OBJECT2, SegmentDate> == false,
+                   "Type constraint violated");
+    static_assert (std::is_same_v<OBJECT1, Inventory> == false
+                          || std::is_same_v<OBJECT2, AirlineFeature> == false,
+                   "Type constraint violated");                
     
     BomHolder<OBJECT2>& lBomHolder = getBomHolder<OBJECT2> (ioObject1);
 
@@ -495,10 +512,12 @@ namespace stdair {
     // <SegmentDate, SegmentDate>
     // <AirlineFeature, Inventory>
     // 
-    BOOST_STATIC_ASSERT ((boost::is_same<OBJECT1, SegmentDate>::value == false
-                          || boost::is_same<OBJECT2, SegmentDate>::value == false));
-    BOOST_STATIC_ASSERT ((boost::is_same<OBJECT1, Inventory>::value == false
-                          || boost::is_same<OBJECT2, AirlineFeature>::value == false));          
+    static_assert (std::is_same_v<OBJECT1, SegmentDate> == false
+                          || std::is_same_v<OBJECT2, SegmentDate> == false,
+                   "Type constraint violated");
+    static_assert (std::is_same_v<OBJECT1, Inventory> == false
+                          || std::is_same_v<OBJECT2, AirlineFeature> == false,
+                   "Type constraint violated");          
     
     const MapKey_T& lKey = ioObject2.describeKey();
     addToListAndMap<OBJECT1, OBJECT2> (ioObject1, ioObject2, lKey);

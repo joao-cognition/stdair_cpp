@@ -25,8 +25,8 @@ namespace stdair {
 
   // //////////////////////////////////////////////////////////////////////
   STDAIR_ServiceContext::STDAIR_ServiceContext()
-    : _cloneBomRoot (NULL), 
-      _persistentBomRoot (NULL),
+    : _cloneBomRoot (nullptr), 
+      _persistentBomRoot (nullptr),
       _initType (ServiceInitialisationType::NOT_YET_INITIALISED) {
     // Build the BomRoot object
     init();
@@ -91,19 +91,19 @@ namespace stdair {
 
   // //////////////////////////////////////////////////////////////////////
   BomRoot& STDAIR_ServiceContext::getPersistentBomRoot() const {
-    assert (_persistentBomRoot != NULL);
+    assert (_persistentBomRoot != nullptr);
     return *_persistentBomRoot;
   }  
   
   // //////////////////////////////////////////////////////////////////////
   BomRoot& STDAIR_ServiceContext::getCloneBomRoot() const {
-    assert (_cloneBomRoot != NULL);
+    assert (_cloneBomRoot != nullptr);
     return *_cloneBomRoot;
   }  
 
   // //////////////////////////////////////////////////////////////////////
   ConfigHolderStruct& STDAIR_ServiceContext::getConfigHolder() const { 
-    assert (_configHolderPtr != NULL);
+    assert (_configHolderPtr != nullptr);
     return *_configHolderPtr;
   } 
 }

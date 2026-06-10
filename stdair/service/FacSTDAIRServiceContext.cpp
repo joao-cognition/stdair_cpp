@@ -3,6 +3,7 @@
 // //////////////////////////////////////////////////////////////////////
 // STL
 #include <cassert>
+#include <memory>
 // StdAir
 #include <stdair/service/FacSupervisor.hpp>
 #include <stdair/service/FacSTDAIRServiceContext.hpp>
@@ -10,36 +11,29 @@
 
 namespace stdair {
 
-  FacSTDAIRServiceContext* FacSTDAIRServiceContext::_instance = NULL;
-
   // //////////////////////////////////////////////////////////////////////
   FacSTDAIRServiceContext::~FacSTDAIRServiceContext() {
-    _instance = NULL;
   }
 
   // //////////////////////////////////////////////////////////////////////
   FacSTDAIRServiceContext& FacSTDAIRServiceContext::instance() {
-
-    if (_instance == NULL) {
-      _instance = new FacSTDAIRServiceContext();
-      assert (_instance != NULL);
-      
-      FacSupervisor::instance().registerServiceFactory (_instance);
-    }
-    return *_instance;
+    static FacSTDAIRServiceContext inst;
+    static bool lRegistered =
+      (FacSupervisor::instance().registerServiceFactory (&inst), true);
+    (void) lRegistered;
+    return inst;
   }
 
   // //////////////////////////////////////////////////////////////////////
   STDAIR_ServiceContext& FacSTDAIRServiceContext::create() {
-    STDAIR_ServiceContext* aServiceContext_ptr = NULL;
+    std::unique_ptr<STDAIR_ServiceContext> aServiceContext_ptr (
+      new STDAIR_ServiceContext ());
+    STDAIR_ServiceContext& lServiceContext = *aServiceContext_ptr;
 
-    aServiceContext_ptr = new STDAIR_ServiceContext ();
-    assert (aServiceContext_ptr != NULL);
+    // The new object is added to the service pool
+    _pool.push_back (std::move (aServiceContext_ptr));
 
-    // The new object is added to the Bom pool
-    _pool.push_back (aServiceContext_ptr);
-
-    return *aServiceContext_ptr;
+    return lServiceContext;
   }
 
 }

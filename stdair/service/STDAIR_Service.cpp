@@ -42,7 +42,7 @@ namespace bpt {
 namespace stdair {
 
   // //////////////////////////////////////////////////////////////////////
-  STDAIR_Service::STDAIR_Service() : _stdairServiceContext (NULL) {
+  STDAIR_Service::STDAIR_Service() {
 
     // Initialise the service context
     initServiceContext();
@@ -52,14 +52,7 @@ namespace stdair {
   }
 
   // //////////////////////////////////////////////////////////////////////
-  STDAIR_Service::STDAIR_Service (const STDAIR_Service& iService) 
-    : _stdairServiceContext (NULL) {
-    assert (false);
-  }
-
-  // //////////////////////////////////////////////////////////////////////
-  STDAIR_Service::STDAIR_Service (const BasLogParams& iLogParams)  
-    : _stdairServiceContext (NULL) {
+  STDAIR_Service::STDAIR_Service (const BasLogParams& iLogParams)   {
 
     // Initialise the service context
     initServiceContext();
@@ -73,8 +66,7 @@ namespace stdair {
 
   // //////////////////////////////////////////////////////////////////////
   STDAIR_Service::STDAIR_Service (const BasLogParams& iLogParams,
-                                  const BasDBParams& iDBParams) 
-    : _stdairServiceContext (NULL) { 
+                                  const BasDBParams& iDBParams)  { 
 
     // Initialise the service context
     initServiceContext();
@@ -98,11 +90,7 @@ namespace stdair {
   // //////////////////////////////////////////////////////////////////////
   void STDAIR_Service::initServiceContext() {
     // Initialise the service context
-    STDAIR_ServiceContext& lSTDAIR_ServiceContext = 
-      FacSTDAIRServiceContext::instance().create();
-
-    // Store the stdair service context
-    _stdairServiceContext = &lSTDAIR_ServiceContext;
+    _stdairServiceContext.reset (new STDAIR_ServiceContext());
   }
 
   // //////////////////////////////////////////////////////////////////////
@@ -115,7 +103,7 @@ namespace stdair {
     DBSessionManager::init (iDBParams);
 
     // Store the database parameters into the StdAir service context
-    assert (_stdairServiceContext != NULL);
+    assert (_stdairServiceContext != nullptr);
     STDAIR_ServiceContext& lSTDAIR_ServiceContext = *_stdairServiceContext;
     lSTDAIR_ServiceContext.setDBParams (iDBParams);
   }
@@ -127,7 +115,7 @@ namespace stdair {
   // //////////////////////////////////////////////////////////////////////
   BomRoot& STDAIR_Service::getBomRoot() const {
     // Retrieve the StdAir service context
-    assert (_stdairServiceContext != NULL);
+    assert (_stdairServiceContext != nullptr);
     const STDAIR_ServiceContext& lSTDAIR_ServiceContext = 
       *_stdairServiceContext;
     // Return the clone built-in Bom root
@@ -137,7 +125,7 @@ namespace stdair {
   // //////////////////////////////////////////////////////////////////////
   BomRoot& STDAIR_Service::getPersistentBomRoot() const {
     // Retrieve the StdAir service context
-    assert (_stdairServiceContext != NULL);
+    assert (_stdairServiceContext != nullptr);
     const STDAIR_ServiceContext& lSTDAIR_ServiceContext = 
       *_stdairServiceContext;
     // Return the persistent built-in Bom root
@@ -152,7 +140,7 @@ namespace stdair {
   // //////////////////////////////////////////////////////////////////////
   const BasDBParams& STDAIR_Service::getDBParams() const {
     // Retrieve the StdAir service context
-    assert (_stdairServiceContext != NULL);
+    assert (_stdairServiceContext != nullptr);
     const STDAIR_ServiceContext& lSTDAIR_ServiceContext = 
       *_stdairServiceContext;
     return lSTDAIR_ServiceContext.getDBParams();
@@ -162,7 +150,7 @@ namespace stdair {
   const ServiceInitialisationType& STDAIR_Service::
   getServiceInitialisationType() const {
     // Retrieve the StdAir service context
-    assert (_stdairServiceContext != NULL);
+    assert (_stdairServiceContext != nullptr);
     const STDAIR_ServiceContext& lSTDAIR_ServiceContext = 
       *_stdairServiceContext;
     return lSTDAIR_ServiceContext.getServiceInitialisationType();
@@ -171,7 +159,7 @@ namespace stdair {
   // //////////////////////////////////////////////////////////////////////
   void STDAIR_Service::buildSampleBom() {
     // Retrieve the StdAir service context
-    assert (_stdairServiceContext != NULL);
+    assert (_stdairServiceContext != nullptr);
     const STDAIR_ServiceContext& lSTDAIR_ServiceContext = 
       *_stdairServiceContext;
 
@@ -186,7 +174,7 @@ namespace stdair {
   void STDAIR_Service::
   buildDummyInventory (const CabinCapacity_T& iCabinCapacity) {
     // Retrieve the StdAir service context
-    assert (_stdairServiceContext != NULL);
+    assert (_stdairServiceContext != nullptr);
     const STDAIR_ServiceContext& lSTDAIR_ServiceContext = 
       *_stdairServiceContext;
 
@@ -203,7 +191,7 @@ namespace stdair {
   void STDAIR_Service::
   buildDummyLegSegmentAccesses (BomRoot& iBomRoot) {
     // Retrieve the StdAir service context
-    assert (_stdairServiceContext != NULL);
+    assert (_stdairServiceContext != nullptr);
 
     // Delegate the building process to the dedicated command
     CmdBomManager::buildDummyLegSegmentAccesses (iBomRoot);
@@ -244,7 +232,7 @@ namespace stdair {
     std::ostringstream oStr;
 
     // Retrieve the StdAir service context
-    assert (_stdairServiceContext != NULL);
+    assert (_stdairServiceContext != nullptr);
     const STDAIR_ServiceContext& lSTDAIR_ServiceContext = 
       *_stdairServiceContext;
 
@@ -265,7 +253,7 @@ namespace stdair {
     std::ostringstream oStr;
 
     // Retrieve the StdAir service context
-    assert (_stdairServiceContext != NULL);
+    assert (_stdairServiceContext != nullptr);
     const STDAIR_ServiceContext& lSTDAIR_ServiceContext = 
       *_stdairServiceContext;
 
@@ -279,7 +267,7 @@ namespace stdair {
 						  iDepartureDate);
 
     // Dump the content of the whole BOM tree into the string
-    if (lFlightDate_ptr != NULL) {
+    if (lFlightDate_ptr != nullptr) {
       BomJSONExport::jsonExportFlightDateObjects (oStr, *lFlightDate_ptr);
       
     } else {
@@ -342,7 +330,7 @@ namespace stdair {
   jsonImportConfiguration (const JSONString& iJSONString) const {  
 
     // Retrieve the StdAir service context
-    assert (_stdairServiceContext != NULL);
+    assert (_stdairServiceContext != nullptr);
     const STDAIR_ServiceContext& lSTDAIR_ServiceContext = 
       *_stdairServiceContext;
 
@@ -359,7 +347,7 @@ namespace stdair {
   jsonExportConfiguration () const {  
 
     // Retrieve the StdAir service context
-    assert (_stdairServiceContext != NULL);
+    assert (_stdairServiceContext != nullptr);
     const STDAIR_ServiceContext& lSTDAIR_ServiceContext = 
       *_stdairServiceContext;
 
@@ -375,7 +363,7 @@ namespace stdair {
   void STDAIR_Service::importINIConfig (const ConfigINIFile& iConfigINIFile) {  
 
     // Retrieve the StdAir service context
-    assert (_stdairServiceContext != NULL);
+    assert (_stdairServiceContext != nullptr);
     const STDAIR_ServiceContext& lSTDAIR_ServiceContext = 
       *_stdairServiceContext;
 
@@ -392,7 +380,7 @@ namespace stdair {
 					  const std::string& iPath) {  
 
     // Retrieve the StdAir service context
-    assert (_stdairServiceContext != NULL);
+    assert (_stdairServiceContext != nullptr);
     const STDAIR_ServiceContext& lSTDAIR_ServiceContext = 
       *_stdairServiceContext;
 
@@ -408,7 +396,7 @@ namespace stdair {
   void STDAIR_Service::updateAirlineFeatures () { 
 
     // Retrieve the StdAir service context
-    assert (_stdairServiceContext != NULL);
+    assert (_stdairServiceContext != nullptr);
     const STDAIR_ServiceContext& lSTDAIR_ServiceContext = 
       *_stdairServiceContext;
 
@@ -430,7 +418,7 @@ namespace stdair {
     std::ostringstream oStr;
 
     // Retrieve the StdAir service context
-    assert (_stdairServiceContext != NULL);
+    assert (_stdairServiceContext != nullptr);
     const STDAIR_ServiceContext& lSTDAIR_ServiceContext = *_stdairServiceContext;
 
     // Retrieve the BOM tree root
@@ -447,7 +435,7 @@ namespace stdair {
     std::ostringstream oStr;
 
     // Retrieve the StdAir service context
-    assert (_stdairServiceContext != NULL);
+    assert (_stdairServiceContext != nullptr);
     const STDAIR_ServiceContext& lSTDAIR_ServiceContext = *_stdairServiceContext;
 
     // Retrieve the BOM tree root
@@ -466,7 +454,7 @@ namespace stdair {
     std::ostringstream oStr;
 
     // Retrieve the StdAir service context
-    assert (_stdairServiceContext != NULL);
+    assert (_stdairServiceContext != nullptr);
     const STDAIR_ServiceContext& lSTDAIR_ServiceContext = *_stdairServiceContext;
 
     // Retrieve the BOM tree root
@@ -478,7 +466,7 @@ namespace stdair {
                                                   iFlightNumber,
                                                   iDepartureDate);    
     
-    return (lFlightDate_ptr != NULL);
+    return (lFlightDate_ptr != nullptr);
   }
 
   // //////////////////////////////////////////////////////////////////////
@@ -488,7 +476,7 @@ namespace stdair {
     std::ostringstream oStr;
 
     // Retrieve the StdAir service context
-    assert (_stdairServiceContext != NULL);
+    assert (_stdairServiceContext != nullptr);
     const STDAIR_ServiceContext& lSTDAIR_ServiceContext = *_stdairServiceContext;
 
     // Retrieve the BOM tree root
@@ -508,7 +496,7 @@ namespace stdair {
   std::string STDAIR_Service::configDisplay () const {
 
     // Retrieve the StdAir service context
-    assert (_stdairServiceContext != NULL);    
+    assert (_stdairServiceContext != nullptr);    
     const STDAIR_ServiceContext& lSTDAIR_ServiceContext = 
       *_stdairServiceContext;
 
@@ -525,7 +513,7 @@ namespace stdair {
   std::string STDAIR_Service::csvDisplay () const {
 
     // Retrieve the StdAir service context
-    assert (_stdairServiceContext != NULL);    
+    assert (_stdairServiceContext != nullptr);    
     const STDAIR_ServiceContext& lSTDAIR_ServiceContext = 
       *_stdairServiceContext;
 
@@ -542,7 +530,7 @@ namespace stdair {
     std::ostringstream oStr;
 
     // Retrieve the StdAir service context
-    assert (_stdairServiceContext != NULL);
+    assert (_stdairServiceContext != nullptr);
     
     // Dump the content of the whole BOM tree into the string
     BomDisplay::csvDisplay (oStr, iBomRoot);
@@ -558,7 +546,7 @@ namespace stdair {
     std::ostringstream oStr;
 
     // Retrieve the StdAir service context
-    assert (_stdairServiceContext != NULL);
+    assert (_stdairServiceContext != nullptr);
     const STDAIR_ServiceContext& lSTDAIR_ServiceContext = *_stdairServiceContext;
 
     // Retrieve the BOM tree root
@@ -571,7 +559,7 @@ namespace stdair {
 						  iDepartureDate);
 
     // Dump the content of the whole BOM tree into the string
-    if (lFlightDate_ptr != NULL) {
+    if (lFlightDate_ptr != nullptr) {
       BomDisplay::csvDisplay (oStr, *lFlightDate_ptr);
       
     } else {
@@ -601,7 +589,7 @@ namespace stdair {
     std::ostringstream oStr;
 
     // Retrieve the StdAir service context
-    assert (_stdairServiceContext != NULL);
+    assert (_stdairServiceContext != nullptr);
     const STDAIR_ServiceContext& lSTDAIR_ServiceContext = *_stdairServiceContext;
 
     // Retrieve the BOM tree root
@@ -627,6 +615,9 @@ namespace stdair {
 
   // //////////////////////////////////////////////////////////////////////
   void STDAIR_Service::finalise() {
+    // Release the service context
+    _stdairServiceContext.reset();
+
     // Clean all the objects
     FacSupervisor::cleanAll();
   } 
@@ -635,7 +626,7 @@ namespace stdair {
   void STDAIR_Service::clonePersistentBom () {  
 
     // Retrieve the StdAir service context
-    assert (_stdairServiceContext != NULL);
+    assert (_stdairServiceContext != nullptr);
     STDAIR_ServiceContext& lSTDAIR_ServiceContext = *_stdairServiceContext; 
 
     // Clean all the cloned objects

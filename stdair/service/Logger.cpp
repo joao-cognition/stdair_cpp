@@ -16,13 +16,6 @@ namespace stdair {
   }
 
   // //////////////////////////////////////////////////////////////////////
-  Logger::Logger (const Logger&)
-    : _level (LOG::DEBUG), _logStream (&std::cout),
-      _hasBeenInitialised (false) {
-    assert (false);
-  }
-
-  // //////////////////////////////////////////////////////////////////////
   Logger::~Logger() {
     // std::cout << "In Logger destructor" << std::endl;
   }
@@ -53,7 +46,7 @@ namespace stdair {
   // //////////////////////////////////////////////////////////////////////
   BasLogParams Logger::getLogParams() {
     std::ostream* oStream_ptr = instance()._logStream;
-    assert (oStream_ptr != NULL);
+    assert (oStream_ptr != nullptr);
     return BasLogParams (instance()._level, *oStream_ptr);
   }
 

@@ -24,16 +24,14 @@ namespace stdair {
     // Browse the list of node and reset each one.
     const NestingNodeList_T& lNestingNodeList =
       BomManager::getList<NestingNode> (lYieldBasedNS);
-    for (NestingNodeList_T::const_iterator itNode = lNestingNodeList.begin();
-         itNode != lNestingNodeList.end(); ++itNode) {
-      stdair::NestingNode* lNode_ptr = *itNode;
-      assert (lNode_ptr != NULL);
+    for (stdair::NestingNode* lNode_ptr : lNestingNodeList) {
+      assert (lNode_ptr != nullptr);
 
       lNode_ptr->setYield (-1.0);
 
       // Clear the list of booking classes of the node
       const HolderMap_T& lHolderMap = lNode_ptr->getHolderMap();
-      HolderMap_T::const_iterator itHolder = lHolderMap.find (&typeid (BookingClass));
+      auto itHolder = lHolderMap.find (&typeid (BookingClass));
     
       if (itHolder == lHolderMap.end()) {
         const std::string lName (typeid (BookingClass).name());
@@ -44,7 +42,7 @@ namespace stdair {
       
       BomHolder<BookingClass>* lBomHolder_ptr = 
         static_cast<BomHolder<BookingClass>*> (itHolder->second);
-      assert (lBomHolder_ptr != NULL);
+      assert (lBomHolder_ptr != nullptr);
       
       BookingClassList_T& lBCList = lBomHolder_ptr->_bomList;
       lBCList.clear();

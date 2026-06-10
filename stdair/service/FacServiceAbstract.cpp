@@ -16,15 +16,7 @@ namespace stdair {
 
   // //////////////////////////////////////////////////////////////////////
   void FacServiceAbstract::clean() {
-    for (ServicePool_T::iterator itService = _pool.begin();
-         itService != _pool.end(); itService++) {
-      ServiceAbstract* currentService_ptr = *itService;
-      assert (currentService_ptr != NULL);
-      
-      delete (currentService_ptr); currentService_ptr = NULL;
-    }
-    
-    // Empty the pool of Service Factories
+    // Empty the pool: unique_ptr handles the deletion of the objects
     _pool.clear();
   }
 

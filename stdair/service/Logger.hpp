@@ -58,7 +58,7 @@ namespace stdair {
     template <typename T>
     void log (const LOG::EN_LogLevel iLevel, const int iLineNumber,
               const std::string& iFileName, const T& iToBeLogged) {
-      assert (_logStream != NULL);
+      assert (_logStream != nullptr);
       if (iLevel <= _level) {
         *_logStream << "[" << LOG::_logLevels[iLevel] << "]" << iFileName << ":"
                     << iLineNumber << ": " << iToBeLogged << std::endl;
@@ -107,9 +107,10 @@ namespace stdair {
      */
     Logger();
     /**
-     * Default copy constructor. It must not be used.
+     * Copy is not allowed.
      */
-    Logger (const Logger&);
+    Logger (const Logger&) = delete;
+    Logger& operator= (const Logger&) = delete;
     /**
      * Destructor.
      */

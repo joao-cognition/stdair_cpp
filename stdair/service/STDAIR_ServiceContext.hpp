@@ -111,10 +111,13 @@ namespace stdair {
      */
     STDAIR_ServiceContext (const STDAIR_ServiceContext&);
 
+  public:
     /**
      * Destructor.
      */
     ~STDAIR_ServiceContext();
+
+  private:
 
     /**
      * Initialisation.

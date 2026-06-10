@@ -16,6 +16,7 @@
 // Import section
 // //////////////////////////////////////////////////////////////////////
 // STL
+#include <memory>
 #include <string>
 // StdAir
 #include <stdair/stdair_inventory_types.hpp>
@@ -83,6 +84,10 @@ namespace stdair {
      * @brief Destructor.
      */
     ~STDAIR_Service();
+
+    // Copy is not allowed
+    STDAIR_Service (const STDAIR_Service&) = delete;
+    STDAIR_Service& operator= (const STDAIR_Service&) = delete;
     
 
   public:
@@ -441,14 +446,6 @@ namespace stdair {
   private:
     // /////// Construction and Destruction helper methods ///////
     /**
-     * @brief Default copy constructor.
-     *
-     * @param[in] const STDAIR_Service& Reference on the
-     *            STDAIR_Service handler to be copied.
-     */
-    STDAIR_Service (const STDAIR_Service&);
-    
-    /**
      * @brief Initialise the (TRADEMGEN) service context (i.e., the
      * STDAIR_ServiceContext object).
      */
@@ -544,7 +541,7 @@ namespace stdair {
     /**
      * Stdair context.
      */
-    STDAIR_ServiceContext* _stdairServiceContext;
+    std::unique_ptr<STDAIR_ServiceContext> _stdairServiceContext;
   };  
 
   // ////////////////////////////////////////////////////////////////////
@@ -553,7 +550,7 @@ namespace stdair {
 					  const std::string& iPath) {  
 
     // Retrieve the StdAir service context
-    assert (_stdairServiceContext != NULL);
+    assert (_stdairServiceContext != nullptr);
     const STDAIR_ServiceContext& lSTDAIR_ServiceContext = 
       *_stdairServiceContext;
 
