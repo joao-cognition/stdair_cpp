@@ -1,5 +1,5 @@
-#ifndef __STDAIR_BAS_JSONCOMMAND_HPP
-#define __STDAIR_BAS_JSONCOMMAND_HPP
+#ifndef STDAIR_BAS_JSONCOMMAND_HPP
+#define STDAIR_BAS_JSONCOMMAND_HPP
 
 // //////////////////////////////////////////////////////////////////////
 // Import section
@@ -16,7 +16,7 @@ namespace stdair {
    */
   struct JSonCommand : public StructAbstract {
   public:
-    typedef enum { 
+    enum EN_JSonCommand { 
       LIST = 0,
       FLIGHT_DATE,
       EVENT_LIST,
@@ -26,7 +26,7 @@ namespace stdair {
       STATUS,
       CONFIG,	
       LAST_VALUE
-    } EN_JSonCommand;
+    };
 
     /**
      * Get the command value from parsing a single char (e.g., "list", 
@@ -100,4 +100,4 @@ namespace stdair {
   };
 
 }
-#endif // __STDAIR_BAS_JSONCOMMAND_HPP
+#endif // STDAIR_BAS_JSONCOMMAND_HPP

@@ -1,6 +1,6 @@
 // //////////////////////////////////////////////////////////////////////
-#ifndef __STDAIR_BOM_BOMIDTYPES_HPP
-#define __STDAIR_BOM_BOMIDTYPES_HPP
+#ifndef STDAIR_BOM_BOMIDTYPES_HPP
+#define STDAIR_BOM_BOMIDTYPES_HPP
 
 // //////////////////////////////////////////////////////////////////////
 // Import section
@@ -18,10 +18,10 @@ namespace stdair {
   class BookingClass;
 
   /** Define the booking class ID. */
-  typedef struct BomID<BookingClass> BookingClassID_T;
+  using BookingClassID_T = struct BomID<BookingClass>;
 
   /** Define the list of booking class ID's. */
-  typedef std::list<BookingClassID_T> BookingClassIDList_T;
+  using BookingClassIDList_T = std::list<BookingClassID_T>;
 }
-#endif // __STDAIR_BOM_BOMIDTYPES_HPP
+#endif // STDAIR_BOM_BOMIDTYPES_HPP
 

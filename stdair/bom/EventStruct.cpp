@@ -3,12 +3,7 @@
 // //////////////////////////////////////////////////////////////////////
 // STL
 #include <cassert>
-// Boost
-#if BOOST_VERSION_MACRO >= 103900
-#include <boost/make_shared.hpp>
-#else  // BOOST_VERSION_MACRO >= 103900
-#include <boost/shared_ptr.hpp>
-#endif // BOOST_VERSION_MACRO >= 103900
+#include <memory>
 // StdAir
 #include <stdair/basic/BasConst_General.hpp>
 #include <stdair/basic/BasConst_Event.hpp>
@@ -33,13 +28,10 @@ namespace stdair {
     : _eventType (iEventType) {
 
     //
-    assert (ioRequestPtr != NULL);
-#if BOOST_VERSION_MACRO >= 103900
-    _bookingRequest = boost::make_shared<BookingRequestStruct> (*ioRequestPtr);
-#else  // BOOST_VERSION_MACRO >= 103900
-    _bookingRequest = ioRequestPtr;
-#endif // BOOST_VERSION_MACRO >= 103900
-    assert (_bookingRequest != NULL);
+    assert (ioRequestPtr != nullptr);
+    const auto lBookingRequest_ptr =
+      std::make_shared<BookingRequestStruct> (*ioRequestPtr);
+    _payload = lBookingRequest_ptr;
     
     /**
      * Compute and store the number of milliseconds between the
@@ -47,7 +39,7 @@ namespace stdair {
      * (as of Feb. 2011, that date is set to Jan. 1, 2010).
      */
     const Duration_T lDuration =
-      _bookingRequest->getRequestDateTime() - DEFAULT_EVENT_OLDEST_DATETIME;
+      lBookingRequest_ptr->getRequestDateTime() - DEFAULT_EVENT_OLDEST_DATETIME;
     _eventTimeStamp = lDuration.total_milliseconds();
   }
   
@@ -57,13 +49,10 @@ namespace stdair {
     : _eventType (iEventType) {
 
     //
-    assert (ioCancellationPtr != NULL);
-#if BOOST_VERSION_MACRO >= 103900
-    _cancellation = boost::make_shared<CancellationStruct> (*ioCancellationPtr);
-#else  // BOOST_VERSION_MACRO >= 103900
-    _cancellation = ioCancellationPtr;
-#endif // BOOST_VERSION_MACRO >= 103900
-    assert (_cancellation != NULL);
+    assert (ioCancellationPtr != nullptr);
+    const auto lCancellation_ptr =
+      std::make_shared<CancellationStruct> (*ioCancellationPtr);
+    _payload = lCancellation_ptr;
     
     /**
      * Compute and store the number of milliseconds between the
@@ -71,7 +60,8 @@ namespace stdair {
      * (as of Feb. 2011, that date is set to Jan. 1, 2010).
      */
     const Duration_T lDuration =
-      _cancellation->getCancellationDateTime() - DEFAULT_EVENT_OLDEST_DATETIME;
+      lCancellation_ptr->getCancellationDateTime()
+      - DEFAULT_EVENT_OLDEST_DATETIME;
     _eventTimeStamp = lDuration.total_milliseconds();
   }
 
@@ -83,14 +73,9 @@ namespace stdair {
     : _eventType (iEventType) {
 
     //
-    assert (ioOptimisationNotificationPtr != NULL);
-#if BOOST_VERSION_MACRO >= 103900
-    _optimisationNotification =
-      boost::make_shared<OptimisationNotificationStruct> (*ioOptimisationNotificationPtr);
-#else  // BOOST_VERSION_MACRO >= 103900
-    _optimisationNotification = ioOptimisationNotificationPtr;
-#endif // BOOST_VERSION_MACRO >= 103900
-    assert (_optimisationNotification != NULL);
+    assert (ioOptimisationNotificationPtr != nullptr);
+    _payload = std::make_shared<OptimisationNotificationStruct>
+      (*ioOptimisationNotificationPtr);
     
     /**
      * Compute and store the number of milliseconds between the
@@ -107,14 +92,9 @@ namespace stdair {
     : _eventType (iEventType) {
 
     //
-    assert (ioSnapshotPtr != NULL);
-
-#if BOOST_VERSION_MACRO >= 103900
-    _snapshot = boost::make_shared<SnapshotStruct> (*ioSnapshotPtr);
-#else  // BOOST_VERSION_MACRO >= 103900
-    _snapshot = ioSnapshotPtr;
-#endif // BOOST_VERSION_MACRO >= 103900
-    assert (_snapshot != NULL);
+    assert (ioSnapshotPtr != nullptr);
+    const auto lSnapshot_ptr = std::make_shared<SnapshotStruct> (*ioSnapshotPtr);
+    _payload = lSnapshot_ptr;
     
     /**
      * Compute and store the number of milliseconds between the
@@ -122,7 +102,7 @@ namespace stdair {
      * (as of Feb. 2011, that date is set to Jan. 1, 2010).
      */
     const Duration_T lDuration =
-      _snapshot->getSnapshotTime() - DEFAULT_EVENT_OLDEST_DATETIME;
+      lSnapshot_ptr->getSnapshotTime() - DEFAULT_EVENT_OLDEST_DATETIME;
     _eventTimeStamp = lDuration.total_milliseconds();
   }
   
@@ -132,14 +112,9 @@ namespace stdair {
     : _eventType (iEventType) {
 
     //
-    assert (ioRMEventPtr != NULL);
-
-#if BOOST_VERSION_MACRO >= 103900
-    _rmEvent = boost::make_shared<RMEventStruct> (*ioRMEventPtr);
-#else  // BOOST_VERSION_MACRO >= 103900
-    _rmEvent = ioRMEventPtr;
-#endif // BOOST_VERSION_MACRO >= 103900
-    assert (_rmEvent != NULL);
+    assert (ioRMEventPtr != nullptr);
+    const auto lRMEvent_ptr = std::make_shared<RMEventStruct> (*ioRMEventPtr);
+    _payload = lRMEvent_ptr;
     
     /**
      * Compute and store the number of milliseconds between the
@@ -147,7 +122,7 @@ namespace stdair {
      * (as of Feb. 2011, that date is set to Jan. 1, 2010).
      */
     const Duration_T lDuration =
-      _rmEvent->getRMEventTime() - DEFAULT_EVENT_OLDEST_DATETIME;
+      lRMEvent_ptr->getRMEventTime() - DEFAULT_EVENT_OLDEST_DATETIME;
     _eventTimeStamp = lDuration.total_milliseconds();
   }  
 
@@ -157,14 +132,10 @@ namespace stdair {
     : _eventType (iEventType) {
 
     //
-    assert (ioBreakPointPtr != NULL);
-
-#if BOOST_VERSION_MACRO >= 103900
-    _breakPoint = boost::make_shared<BreakPointStruct> (*ioBreakPointPtr);
-#else  // BOOST_VERSION_MACRO >= 103900
-    _breakPoint = ioBreakPointPtr;
-#endif // BOOST_VERSION_MACRO >= 103900
-    assert (_breakPoint != NULL);
+    assert (ioBreakPointPtr != nullptr);
+    const auto lBreakPoint_ptr =
+      std::make_shared<BreakPointStruct> (*ioBreakPointPtr);
+    _payload = lBreakPoint_ptr;
     
     /**
      * Compute and store the number of milliseconds between the
@@ -172,7 +143,7 @@ namespace stdair {
      * (as of Feb. 2011, that date is set to Jan. 1, 2010).
      */
     const Duration_T lDuration =
-      _breakPoint->getBreakPointTime() - DEFAULT_EVENT_OLDEST_DATETIME;
+      lBreakPoint_ptr->getBreakPointTime() - DEFAULT_EVENT_OLDEST_DATETIME;
     _eventTimeStamp = lDuration.total_milliseconds();
   }
 
@@ -181,62 +152,16 @@ namespace stdair {
     : _eventType (iEventStruct._eventType),
       _eventTimeStamp (iEventStruct._eventTimeStamp) {
 
-    //
-    if (iEventStruct._bookingRequest != NULL) {
-#if BOOST_VERSION_MACRO >= 103900
-      _bookingRequest =
-        boost::make_shared<BookingRequestStruct>(*iEventStruct._bookingRequest);
-#else  // BOOST_VERSION_MACRO >= 103900
-      _bookingRequest = iEventStruct._bookingRequest;
-#endif // BOOST_VERSION_MACRO >= 103900
-    }
-
-    //
-    if (iEventStruct._cancellation != NULL) {
-#if BOOST_VERSION_MACRO >= 103900
-      _cancellation =
-        boost::make_shared<CancellationStruct>(*iEventStruct._cancellation);
-#else  // BOOST_VERSION_MACRO >= 103900
-      _cancellation = iEventStruct._cancellation;
-#endif // BOOST_VERSION_MACRO >= 103900
-    }
-
-    //
-    if (iEventStruct._optimisationNotification != NULL) {
-#if BOOST_VERSION_MACRO >= 103900
-      _optimisationNotification =
-        boost::make_shared<OptimisationNotificationStruct> (*iEventStruct._optimisationNotification);
-#else  // BOOST_VERSION_MACRO >= 103900
-      _optimisationNotification = iEventStruct._optimisationNotification;
-#endif // BOOST_VERSION_MACRO >= 103900
-    }
-
-    //
-    if (iEventStruct._snapshot != NULL) {
-#if BOOST_VERSION_MACRO >= 103900
-      _snapshot = boost::make_shared<SnapshotStruct> (*iEventStruct._snapshot);
-#else  // BOOST_VERSION_MACRO >= 103900
-      _snapshot = iEventStruct._snapshot;
-#endif // BOOST_VERSION_MACRO >= 103900
-    }
-
-    //
-    if (iEventStruct._rmEvent != NULL) {
-#if BOOST_VERSION_MACRO >= 103900
-      _rmEvent = boost::make_shared<RMEventStruct> (*iEventStruct._rmEvent);
-#else  // BOOST_VERSION_MACRO >= 103900
-      _rmEvent = iEventStruct._rmEvent;
-#endif // BOOST_VERSION_MACRO >= 103900
-    } 
-
-    //
-    if (iEventStruct._breakPoint != NULL) {
-#if BOOST_VERSION_MACRO >= 103900
-      _breakPoint = boost::make_shared<BreakPointStruct> (*iEventStruct._breakPoint);
-#else  // BOOST_VERSION_MACRO >= 103900
-      _breakPoint = iEventStruct._breakPoint;
-#endif // BOOST_VERSION_MACRO >= 103900
-    }
+    // Deep-copy the payload, so that each EventStruct owns its own copy
+    std::visit ([this](const auto& iPayloadPtr) {
+      using PtrType = std::decay_t<decltype (iPayloadPtr)>;
+      if constexpr (std::is_same_v<PtrType, std::monostate> == false) {
+        if (iPayloadPtr != nullptr) {
+          using PayloadType = typename PtrType::element_type;
+          _payload = std::make_shared<PayloadType> (*iPayloadPtr);
+        }
+      }
+    }, iEventStruct._payload);
   }
   
   // //////////////////////////////////////////////////////////////////////
@@ -244,7 +169,7 @@ namespace stdair {
   }
 
   // //////////////////////////////////////////////////////////////////////
-  void EventStruct::fromStream (std::istream& ioIn) {
+  void EventStruct::fromStream (std::istream& /*ioIn*/) {
   }
 
   // //////////////////////////////////////////////////////////////////////
@@ -262,39 +187,33 @@ namespace stdair {
     //
     switch (_eventType) {
     case EventType::BKG_REQ: {
-      assert (_bookingRequest != NULL);
       oStr << ", " << EventType::getLabel(_eventType)
-	   << ", " << _bookingRequest->describe();
+	   << ", " << getBookingRequest().describe();
       break;
     }
     case EventType::CX: {
-      assert (_cancellation != NULL);
       oStr << ", " << EventType::getLabel(_eventType)
-	   << ", " << _cancellation->describe();
+	   << ", " << getCancellation().describe();
       break;
     }
     case EventType::OPT_NOT_4_FD: {
-      assert (_optimisationNotification != NULL);
       oStr << ", " << EventType::getLabel(_eventType)
-           << ", " << _optimisationNotification->describe();
+           << ", " << getOptimisationNotificationStruct().describe();
       break;
     }
     case EventType::SNAPSHOT: {
-      assert (_snapshot != NULL);
       oStr << ", " << EventType::getLabel(_eventType)
-         << ", " << _snapshot->describe();
+         << ", " << getSnapshotStruct().describe();
       break;
     }
     case EventType::RM: {
-      assert (_rmEvent != NULL);
       oStr << ", " << EventType::getLabel(_eventType)
-         << ", " << _rmEvent->describe();
+         << ", " << getRMEvent().describe();
       break;
     } 
     case EventType::BRK_PT: {
-      assert (_breakPoint != NULL);
       oStr << ", " << EventType::getLabel(_eventType)
-           << ", " << _breakPoint->describe(); 
+           << ", " << getBreakPoint().describe(); 
       break;
     }
     default: {
@@ -314,39 +233,26 @@ namespace stdair {
     //
     switch (_eventType) {
     case EventType::BKG_REQ: {
-      assert (_bookingRequest != NULL);
-      return _bookingRequest->getRequestDateTime();
-      break;
+      return getBookingRequest().getRequestDateTime();
     }
     case EventType::CX: {
-      assert (_cancellation != NULL);
-      return _cancellation->getCancellationDateTime() ;
-      break;
+      return getCancellation().getCancellationDateTime();
     }
     case EventType::OPT_NOT_4_FD: {
-      assert (_optimisationNotification != NULL);
-      return _optimisationNotification->getNotificationDateTime();
-      break;
+      return getOptimisationNotificationStruct().getNotificationDateTime();
     }
     case EventType::SNAPSHOT: {
-      assert (_snapshot != NULL);
-      return _snapshot->getSnapshotTime();
-      break;
+      return getSnapshotStruct().getSnapshotTime();
     }
     case EventType::RM: {
-      assert (_rmEvent != NULL);
-      return _rmEvent->getRMEventTime();
-      break;
+      return getRMEvent().getRMEventTime();
     } 
     case EventType::BRK_PT: {
-      assert (_breakPoint != NULL);
-      return _breakPoint->getBreakPointTime();
-      break;
+      return getBreakPoint().getBreakPointTime();
     }
     default: {
-      assert(false); 
-      return lDateTime;
-      break;
+      throw EventException ("Unknown event type: the event date-time "
+                            "cannot be retrieved");
     }
     }
 

@@ -1,16 +1,19 @@
-#ifndef __STDAIR_BAS_EVENTSTRUCT_HPP
-#define __STDAIR_BAS_EVENTSTRUCT_HPP
+#ifndef STDAIR_BAS_EVENTSTRUCT_HPP
+#define STDAIR_BAS_EVENTSTRUCT_HPP
 
 // //////////////////////////////////////////////////////////////////////
 // Import section
 // //////////////////////////////////////////////////////////////////////
 // STL
 #include <iosfwd>
+#include <memory>
 #include <string>
+#include <variant>
 // StdAir
 #include <stdair/stdair_basic_types.hpp>
 #include <stdair/stdair_date_time_types.hpp>
 #include <stdair/stdair_event_types.hpp>
+#include <stdair/stdair_exceptions.hpp>
 #include <stdair/basic/StructAbstract.hpp>
 #include <stdair/basic/EventType.hpp>
 #include <stdair/bom/EventTypes.hpp>
@@ -35,6 +38,19 @@ namespace stdair {
    */
   struct EventStruct : public StructAbstract {
 
+    /**
+     * Payload of the event: one of the event-specific structures.
+     */
+    using EventPayload_T = std::variant<
+        std::monostate,
+        std::shared_ptr<BookingRequestStruct>,
+        std::shared_ptr<CancellationStruct>,
+        std::shared_ptr<OptimisationNotificationStruct>,
+        std::shared_ptr<SnapshotStruct>,
+        std::shared_ptr<RMEventStruct>,
+        std::shared_ptr<BreakPointStruct>
+    >;
+
     // ///////////// Getters ///////////
   public:
     /** Get the event type */
@@ -54,22 +70,20 @@ namespace stdair {
      * Get a reference on the booking request referred to by event.
      *
      * \note When that event is not of type booking request
-     *       (EventType::BKG_REQ), an assertion fails.
+     *       (EventType::BKG_REQ), an EventException is thrown.
      */
     const BookingRequestStruct& getBookingRequest() const {
-      assert (_bookingRequest != NULL);
-      return *_bookingRequest;
+      return getPayload<BookingRequestStruct> ("booking request");
     }
 
     /**
      * Get a reference on the cancellation referred to by event.
      *
      * \note When that event is not of type cancellation
-     *       (EventType::CX), an assertion fails.
+     *       (EventType::CX), an EventException is thrown.
      */
     const CancellationStruct& getCancellation() const {
-      assert (_cancellation != NULL);
-      return *_cancellation;
+      return getPayload<CancellationStruct> ("cancellation");
     }
 
     /**
@@ -77,47 +91,42 @@ namespace stdair {
      *
      * \note When that event is not of type optimisation notification
      * for optimisation notification (EventType::OPT_NOT_4_FD), an
-     * assertion fails.
+     * EventException is thrown.
      */
     const OptimisationNotificationStruct&
     getOptimisationNotificationStruct() const {
-      assert (_optimisationNotification != NULL);
-      return *_optimisationNotification;
+      return getPayload<OptimisationNotificationStruct> ("optimisation "
+                                                         "notification");
     }
     
     /**
      * Get a reference on the snapshot referred to by event.
      *
-     * \note When that event is not of type snapshot 
-     * for snapshot (EventType::OPT_NOT_4_FD), an
-     * assertion fails.
+     * \note When that event is not of type snapshot
+     * (EventType::SNAPSHOT), an EventException is thrown.
      */
     const SnapshotStruct& getSnapshotStruct() const {
-      assert (_snapshot != NULL);
-      return *_snapshot;
+      return getPayload<SnapshotStruct> ("snapshot");
     }
     
     /**
      * Get a reference on the RM event referred to by the generic event.
      *
      * \note When that event is not of type RM event
-     * for snapshot (EventType::OPT_NOT_4_FD), an
-     * assertion fails.
+     * (EventType::RM), an EventException is thrown.
      */
     const RMEventStruct& getRMEvent() const {
-      assert (_rmEvent != NULL);
-      return *_rmEvent;
+      return getPayload<RMEventStruct> ("RM event");
     }   
 
     /**
      * Get a reference on the break point referred to by event.
      *
-     * \note When that event is not of type booking break point
-     *       (EventType::BRK_PT), an assertion fails.
+     * \note When that event is not of type break point
+     *       (EventType::BRK_PT), an EventException is thrown.
      */
     const BreakPointStruct& getBreakPoint() const {
-      assert (_breakPoint != NULL);
-      return *_breakPoint;
+      return getPayload<BreakPointStruct> ("break point");
     }
 
     // ////////// Display methods //////////
@@ -165,6 +174,23 @@ namespace stdair {
      */
     void incrementEventTimeStamp();
     
+    // ////////////////// Helpers //////////////////
+  private:
+    /**
+     * Retrieve the payload of the given type, throwing an
+     * EventException when the event does not hold such a payload.
+     */
+    template <typename PayloadType>
+    const PayloadType& getPayload (const char* iPayloadName) const {
+      const auto* lPayloadPtr_ptr =
+        std::get_if<std::shared_ptr<PayloadType>> (&_payload);
+      if (lPayloadPtr_ptr == nullptr || *lPayloadPtr_ptr == nullptr) {
+        throw EventException (std::string ("The event does not hold a ")
+                              + iPayloadName + " payload");
+      }
+      return **lPayloadPtr_ptr;
+    }
+
     // ////////////////// Attributes //////////////////
   private:
     /**
@@ -180,35 +206,11 @@ namespace stdair {
     LongDuration_T _eventTimeStamp;
     
     /**
-     * Pointer to the booking request referred to by the event.
+     * Payload of the event (booking request, cancellation,
+     * optimisation notification, snapshot, RM event or break point).
      */
-    BookingRequestPtr_T _bookingRequest;
-    
-    /**
-     * Pointer to the cancellation referred to by the event.
-     */
-    CancellationPtr_T _cancellation;
-
-    /**
-     * Pointer to the optimisation notification referred to by the event.
-     */
-    OptimisationNotificationPtr_T _optimisationNotification;
-
-    /**
-     * Pointer to the snapshot referred to by the event.
-     */
-    SnapshotPtr_T _snapshot;
-
-    /**
-     * Pointer to the RM event referred to by the event.
-     */
-    RMEventPtr_T _rmEvent; 
-
-    /**
-     * Pointer to the break point referred to by the event.
-     */
-    BreakPointPtr_T _breakPoint;
+    EventPayload_T _payload;
   };
 
 }
-#endif // __STDAIR_BAS_EVENTSTRUCT_HPP
+#endif // STDAIR_BAS_EVENTSTRUCT_HPP

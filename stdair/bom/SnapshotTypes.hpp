@@ -1,12 +1,12 @@
 // //////////////////////////////////////////////////////////////////////
-#ifndef __STDAIR_BOM_SNAPSHOTTYPES_HPP
-#define __STDAIR_BOM_SNAPSHOTTYPES_HPP
+#ifndef STDAIR_BOM_SNAPSHOTTYPES_HPP
+#define STDAIR_BOM_SNAPSHOTTYPES_HPP
 
 // //////////////////////////////////////////////////////////////////////
 // Import section
 // //////////////////////////////////////////////////////////////////////
-// Boost
-#include <boost/shared_ptr.hpp>
+// STL
+#include <memory>
 
 namespace stdair {
 
@@ -15,8 +15,8 @@ namespace stdair {
   
   // ///////////// Type definitions //////////////
   /** Define the smart pointer to a snapshot . */
-  typedef boost::shared_ptr<SnapshotStruct> SnapshotPtr_T;
+  using SnapshotPtr_T = std::shared_ptr<SnapshotStruct>;
   
 }
-#endif // __STDAIR_BOM_SNAPSHOTTYPES_HPP
+#endif // STDAIR_BOM_SNAPSHOTTYPES_HPP
 

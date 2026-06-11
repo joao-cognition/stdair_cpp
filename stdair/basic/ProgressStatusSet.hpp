@@ -1,5 +1,5 @@
-#ifndef __STDAIR_BAS_PROGRESSSTATUSSET_HPP
-#define __STDAIR_BAS_PROGRESSSTATUSSET_HPP
+#ifndef STDAIR_BAS_PROGRESSSTATUSSET_HPP
+#define STDAIR_BAS_PROGRESSSTATUSSET_HPP
 
 // //////////////////////////////////////////////////////////////////////
 // Import section
@@ -130,4 +130,4 @@ namespace stdair {
   };
 
 }
-#endif // __STDAIR_BAS_PROGRESSSTATUSSET_HPP
+#endif // STDAIR_BAS_PROGRESSSTATUSSET_HPP

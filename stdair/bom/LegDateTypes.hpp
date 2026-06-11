@@ -1,6 +1,6 @@
 // //////////////////////////////////////////////////////////////////////
-#ifndef __STDAIR_BOM_LEGDATETYPES_HPP
-#define __STDAIR_BOM_LEGDATETYPES_HPP
+#ifndef STDAIR_BOM_LEGDATETYPES_HPP
+#define STDAIR_BOM_LEGDATETYPES_HPP
 
 // //////////////////////////////////////////////////////////////////////
 // Import section
@@ -17,10 +17,10 @@ namespace stdair {
   class LegDate;
   
   /** Define the leg-date list. */
-  typedef std::list<LegDate*> LegDateList_T;
+  using LegDateList_T = std::list<LegDate*>;
 
   /** Define the leg-date map. */
-  typedef std::map<const MapKey_T, LegDate*> LegDateMap_T;
+  using LegDateMap_T = std::map<const MapKey_T, LegDate*>;
 }
-#endif // __STDAIR_BOM_LEGDATETYPES_HPP
+#endif // STDAIR_BOM_LEGDATETYPES_HPP
 

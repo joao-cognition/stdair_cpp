@@ -1,5 +1,5 @@
-#ifndef __STDAIR_BAS_BASCONST_INVENTORY_HPP
-#define __STDAIR_BAS_BASCONST_INVENTORY_HPP
+#ifndef STDAIR_BAS_BASCONST_INVENTORY_HPP
+#define STDAIR_BAS_BASCONST_INVENTORY_HPP
 
 // //////////////////////////////////////////////////////////////////////
 // Import section
@@ -149,4 +149,4 @@ namespace stdair {
   extern const PartnershipTechnique DEFAULT_PARTNERSHIP_TECHNIQUE;
 
 }
-#endif // __STDAIR_BAS_BASCONST_INVENTORY_HPP
+#endif // STDAIR_BAS_BASCONST_INVENTORY_HPP

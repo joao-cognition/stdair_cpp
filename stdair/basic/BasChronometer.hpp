@@ -1,5 +1,5 @@
-#ifndef __STDAIR_BAS_BASCHRONOMETER_HPP
-#define __STDAIR_BAS_BASCHRONOMETER_HPP
+#ifndef STDAIR_BAS_BASCHRONOMETER_HPP
+#define STDAIR_BAS_BASCHRONOMETER_HPP
 
 // //////////////////////////////////////////////////////////////////////
 // Import section
@@ -38,4 +38,4 @@ namespace stdair {
   };
 
 }
-#endif // __STDAIR_BAS_BASCHRONOMETER_HPP
+#endif // STDAIR_BAS_BASCHRONOMETER_HPP

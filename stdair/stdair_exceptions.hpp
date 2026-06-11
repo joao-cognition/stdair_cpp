@@ -1,5 +1,5 @@
-#ifndef __STDAIR_STDAIR_EXCEPTIONS_HPP
-#define __STDAIR_STDAIR_EXCEPTIONS_HPP
+#ifndef STDAIR_STDAIR_EXCEPTIONS_HPP
+#define STDAIR_STDAIR_EXCEPTIONS_HPP
 
 // //////////////////////////////////////////////////////////////////////
 // Import section
@@ -30,12 +30,12 @@ namespace stdair {
     /**
      * Destructor.
      */
-    virtual ~RootException() throw() {}
+    ~RootException() noexcept override = default;
     
     /**
      * Give the details of the exception.
      */
-    const char* what() const throw() {
+    const char* what() const noexcept override {
       return _what.c_str();
     }
     
@@ -225,4 +225,4 @@ namespace stdair {
   };
 
 }
-#endif // __STDAIR_STDAIR_EXCEPTIONS_HPP
+#endif // STDAIR_STDAIR_EXCEPTIONS_HPP

@@ -1,5 +1,5 @@
-#ifndef __STDAIR_BAS_YIELDRANGE_HPP
-#define __STDAIR_BAS_YIELDRANGE_HPP
+#ifndef STDAIR_BAS_YIELDRANGE_HPP
+#define STDAIR_BAS_YIELDRANGE_HPP
 
 // //////////////////////////////////////////////////////////////////////
 // Import section
@@ -87,4 +87,4 @@ namespace stdair {
     Yield_T _lowerYield;
   };
 }
-#endif // __STDAIR_BAS_YIELDRANGE_HPP
+#endif // STDAIR_BAS_YIELDRANGE_HPP

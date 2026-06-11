@@ -1,5 +1,5 @@
-#ifndef __STDAIR_STDAIR_FARE_TYPES_HPP
-#define __STDAIR_STDAIR_FARE_TYPES_HPP
+#ifndef STDAIR_STDAIR_FARE_TYPES_HPP
+#define STDAIR_STDAIR_FARE_TYPES_HPP
 
 // //////////////////////////////////////////////////////////////////////
 // Import section
@@ -9,7 +9,7 @@ namespace stdair {
 
   // //////// Type definitions /////////
   /** Define a number of fare rules. */
-  typedef double NbOfFareRules_T;
+  using NbOfFareRules_T = double;
 
 }
-#endif // __STDAIR_STDAIR_FARE_TYPES_HPP
+#endif // STDAIR_STDAIR_FARE_TYPES_HPP

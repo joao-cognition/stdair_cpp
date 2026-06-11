@@ -1,5 +1,5 @@
-#ifndef __STDAIR_BOM_ONDDATEKEY_HPP
-#define __STDAIR_BOM_ONDDATEKEY_HPP
+#ifndef STDAIR_BOM_ONDDATEKEY_HPP
+#define STDAIR_BOM_ONDDATEKEY_HPP
 
 // //////////////////////////////////////////////////////////////////////
 // Import section
@@ -40,6 +40,8 @@ namespace stdair {
      * Copy constructor.
      */
     OnDDateKey (const OnDDateKey&);
+    /** Default copy assignment operator. */
+    OnDDateKey& operator= (const OnDDateKey&) = default;
 
     /**
      * Destructor.
@@ -67,7 +69,7 @@ namespace stdair {
     /**
      * Get the number of segments.
      */
-    const short getNbOfSegments () const {
+    short getNbOfSegments () const {
       return _OnDStringList.size();
     }
         
@@ -123,4 +125,4 @@ namespace stdair {
   };
 
 }
-#endif // __STDAIR_BOM_ONDDATEKEY_HPP
+#endif // STDAIR_BOM_ONDDATEKEY_HPP

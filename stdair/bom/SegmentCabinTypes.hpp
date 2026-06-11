@@ -1,6 +1,6 @@
 // //////////////////////////////////////////////////////////////////////
-#ifndef __STDAIR_BOM_SEGMENTCABINTYPES_HPP
-#define __STDAIR_BOM_SEGMENTCABINTYPES_HPP
+#ifndef STDAIR_BOM_SEGMENTCABINTYPES_HPP
+#define STDAIR_BOM_SEGMENTCABINTYPES_HPP
 
 // //////////////////////////////////////////////////////////////////////
 // Import section
@@ -17,11 +17,11 @@ namespace stdair {
   class SegmentCabin;
   
   /** Define the segment-cabin list. */
-  typedef std::list<SegmentCabin*> SegmentCabinList_T;
+  using SegmentCabinList_T = std::list<SegmentCabin*>;
 
   /** Define the segment-cabin map. */
-  typedef std::map<const MapKey_T, SegmentCabin*> SegmentCabinMap_T;
+  using SegmentCabinMap_T = std::map<const MapKey_T, SegmentCabin*>;
 
 }
-#endif // __STDAIR_BOM_SEGMENTCABINTYPES_HPP
+#endif // STDAIR_BOM_SEGMENTCABINTYPES_HPP
 

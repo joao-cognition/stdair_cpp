@@ -1,5 +1,5 @@
-#ifndef __STDAIR_BOM_CLASSAVAILABILITYSTRUCT_HPP
-#define __STDAIR_BOM_CLASSAVAILABILITYSTRUCT_HPP
+#ifndef STDAIR_BOM_CLASSAVAILABILITYSTRUCT_HPP
+#define STDAIR_BOM_CLASSAVAILABILITYSTRUCT_HPP
 
 // //////////////////////////////////////////////////////////////////////
 // Import section
@@ -18,13 +18,13 @@ namespace stdair {
   /**
    * Define (booking class, availability) map.
    */
-  typedef std::map<const ClassCode_T, Availability_T> ClassAvailabilityMap_T;
+  using ClassAvailabilityMap_T = std::map<const ClassCode_T, Availability_T>;
 
   /**
    * Define list of (booking class, availability) maps.
    */
   struct ClassAvailabilityStruct;
-  typedef std::list<ClassAvailabilityStruct> ClassAvailabilityMapHolder_T;
+  using ClassAvailabilityMapHolder_T = std::list<ClassAvailabilityStruct>;
 
   /**
    * @brief Structure holding the elements of a travel solution.
@@ -94,4 +94,4 @@ namespace stdair {
   };
 
 }
-#endif // __STDAIR_BOM_CLASSAVAILABILITYSTRUCT_HPP
+#endif // STDAIR_BOM_CLASSAVAILABILITYSTRUCT_HPP

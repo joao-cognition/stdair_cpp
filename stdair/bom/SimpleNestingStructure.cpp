@@ -21,20 +21,20 @@ namespace stdair {
     
   // ////////////////////////////////////////////////////////////////////
   SimpleNestingStructure::SimpleNestingStructure () : 
-    _key (DEFAULT_NESTING_STRUCTURE_CODE), _parent (NULL) {
+    _key (DEFAULT_NESTING_STRUCTURE_CODE), _parent (nullptr) {
     assert (false);
   }
 
   // ////////////////////////////////////////////////////////////////////
   SimpleNestingStructure::
-  SimpleNestingStructure (const SimpleNestingStructure& iSimpleNestingStructure)
-  : _key (DEFAULT_NESTING_STRUCTURE_CODE), _parent (NULL) {
+  SimpleNestingStructure (const SimpleNestingStructure& /*iSimpleNestingStructure*/)
+  : BomAbstract(), _key (DEFAULT_NESTING_STRUCTURE_CODE), _parent (nullptr) {
     assert (false);
   }
 
   // ////////////////////////////////////////////////////////////////////
   SimpleNestingStructure::SimpleNestingStructure (const Key_T& iKey)
-  : _key (iKey), _parent (NULL) {
+  : _key (iKey), _parent (nullptr) {
   }
     
   // ////////////////////////////////////////////////////////////////////

@@ -10,12 +10,12 @@ namespace stdair {
 
   // ////////////////////////////////////////////////////////////////////
   FlightPeriod::FlightPeriod (const Key_T& iKey)
-    : _key (iKey), _parent (NULL) {
+    : _key (iKey), _parent (nullptr) {
   }  
 
   // ////////////////////////////////////////////////////////////////////
   FlightPeriod::FlightPeriod (const FlightPeriod& iFlightPeriod)
-    : _key (iFlightPeriod.getKey()), _parent (NULL)  {
+    : BomAbstract(), _key (iFlightPeriod.getKey()), _parent (nullptr)  {
   }
 
   // ////////////////////////////////////////////////////////////////////

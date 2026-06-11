@@ -1,6 +1,6 @@
 // //////////////////////////////////////////////////////////////////////
-#ifndef __STDAIR_BASIC_DICTIONARYMANAGER_HPP
-#define __STDAIR_BASIC_DICTIONARYMANAGER_HPP
+#ifndef STDAIR_BASIC_DICTIONARYMANAGER_HPP
+#define STDAIR_BASIC_DICTIONARYMANAGER_HPP
 
 // //////////////////////////////////////////////////////////////////////
 // Import section
@@ -14,7 +14,7 @@ namespace stdair {
   /**
    * Dictionary key.
    */
-  typedef unsigned short DictionaryKey_T;
+  using DictionaryKey_T = unsigned short;
   
   /**
    * @brief Class wrapper of dictionary business methods.
@@ -25,12 +25,12 @@ namespace stdair {
     /**
      * Convert from key to value.
      */
-    static const stdair::Probability_T keyToValue (const DictionaryKey_T);
+    static stdair::Probability_T keyToValue (const DictionaryKey_T);
     
     /**
      * Convert from value to key.
      */
-    static const DictionaryKey_T valueToKey (const stdair::Probability_T);
+    static DictionaryKey_T valueToKey (const stdair::Probability_T);
   };
 }
-#endif // __STDAIR_BASIC_DICTIONARYMANAGER_HPP
+#endif // STDAIR_BASIC_DICTIONARYMANAGER_HPP

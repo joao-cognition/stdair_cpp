@@ -1,5 +1,5 @@
-#ifndef __STDAIR_BOM_CANCELLATIONSTRUCT_HPP
-#define __STDAIR_BOM_CANCELLATIONSTRUCT_HPP
+#ifndef STDAIR_BOM_CANCELLATIONSTRUCT_HPP
+#define STDAIR_BOM_CANCELLATIONSTRUCT_HPP
 
 // //////////////////////////////////////////////////////////////////////
 // Import section
@@ -123,4 +123,4 @@ namespace stdair {
   };
 
 }
-#endif // __STDAIR_BOM_CANCELLATIONSTRUCT_HPP
+#endif // STDAIR_BOM_CANCELLATIONSTRUCT_HPP

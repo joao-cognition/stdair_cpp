@@ -19,19 +19,19 @@ namespace stdair {
 
   // ////////////////////////////////////////////////////////////////////
   SegmentSnapshotTable::SegmentSnapshotTable()
-    : _key (DEFAULT_TABLE_ID), _parent (NULL) {
+    : _key (DEFAULT_TABLE_ID), _parent (nullptr) {
     assert (false);
   }
   
   // ////////////////////////////////////////////////////////////////////
   SegmentSnapshotTable::SegmentSnapshotTable (const SegmentSnapshotTable&)
-    : _key (DEFAULT_TABLE_ID), _parent (NULL) {
+    : BomAbstract(), _key (DEFAULT_TABLE_ID), _parent (nullptr) {
     assert (false);
   }
   
   // ////////////////////////////////////////////////////////////////////
   SegmentSnapshotTable::
-  SegmentSnapshotTable (const Key_T& iKey) : _key (iKey), _parent (NULL) {
+  SegmentSnapshotTable (const Key_T& iKey) : _key (iKey), _parent (nullptr) {
   }
 
   // ////////////////////////////////////////////////////////////////////
@@ -463,7 +463,7 @@ namespace stdair {
   // ////////////////////////////////////////////////////////////////////
   template<class Archive>
   void SegmentSnapshotTable::serialize (Archive& ioArchive,
-                                   const unsigned int iFileVersion) {
+                                   const unsigned int /*iFileVersion*/) {
     ioArchive & _key;
   }
 

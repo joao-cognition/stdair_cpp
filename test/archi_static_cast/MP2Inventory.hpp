@@ -1,5 +1,5 @@
-#ifndef __MYPROVIDER_INVENTORY_HPP
-#define __MYPROVIDER_INVENTORY_HPP
+#ifndef MYPROVIDER_INVENTORY_HPP
+#define MYPROVIDER_INVENTORY_HPP
 
 // //////////////////////////////////////////////////////////////////////
 // Import section
@@ -66,4 +66,4 @@ namespace myprovider {
   };
   
 }
-#endif // __MYPROVIDER_INVENTORY_HPP
+#endif // MYPROVIDER_INVENTORY_HPP

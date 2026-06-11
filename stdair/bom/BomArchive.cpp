@@ -29,7 +29,7 @@
 namespace stdair {
 
   // ////////////////////////////////////////////////////////////////////
-  void BomArchive::archive (const BomRoot& iBomRoot) {
+  void BomArchive::archive (const BomRoot& /*iBomRoot*/) {
   }
 
   // ////////////////////////////////////////////////////////////////////
@@ -41,7 +41,7 @@ namespace stdair {
   }
     
   // ////////////////////////////////////////////////////////////////////
-  void BomArchive::restore (const std::string& iArchive,
+  void BomArchive::restore (const std::string& /*iArchive*/,
                             Inventory& ioInventory) {
     std::istringstream iStr;
     boost::archive::text_iarchive ia (iStr);
@@ -49,7 +49,7 @@ namespace stdair {
   }
     
   // ////////////////////////////////////////////////////////////////////
-  void BomArchive::archive (const FlightDate& iFlightDate) {
+  void BomArchive::archive (const FlightDate& /*iFlightDate*/) {
   }
     
 }

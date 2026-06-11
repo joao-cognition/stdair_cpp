@@ -1,5 +1,5 @@
-#ifndef __STDAIR_BAS_RANDOMGENERATION_HPP
-#define __STDAIR_BAS_RANDOMGENERATION_HPP
+#ifndef STDAIR_BAS_RANDOMGENERATION_HPP
+#define STDAIR_BAS_RANDOMGENERATION_HPP
 
 // //////////////////////////////////////////////////////////////////////
 // Import section
@@ -113,4 +113,4 @@ namespace stdair {
   };
 
 }
-#endif // __STDAIR_BAS_RANDOMGENERATION_HPP
+#endif // STDAIR_BAS_RANDOMGENERATION_HPP

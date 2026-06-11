@@ -16,17 +16,17 @@ namespace stdair {
 
   // ////////////////////////////////////////////////////////////////////
   FlightDate::FlightDate()
-    : _key (DEFAULT_FLIGHT_NUMBER, DEFAULT_DEPARTURE_DATE), _parent (NULL) {
+    : _key (DEFAULT_FLIGHT_NUMBER, DEFAULT_DEPARTURE_DATE), _parent (nullptr) {
     // That constructor is used by the serialisation process
   }
   
   // ////////////////////////////////////////////////////////////////////
   FlightDate::FlightDate (const FlightDate& iFlightDate)
-    : _key (iFlightDate._key), _parent (NULL) {
+    : BomAbstract(), _key (iFlightDate._key), _parent (nullptr) {
   }
   
   // ////////////////////////////////////////////////////////////////////
-  FlightDate::FlightDate (const Key_T& iKey) : _key (iKey), _parent (NULL) {
+  FlightDate::FlightDate (const Key_T& iKey) : _key (iKey), _parent (nullptr) {
   }
 
   // ////////////////////////////////////////////////////////////////////
@@ -37,7 +37,7 @@ namespace stdair {
   const AirlineCode_T& FlightDate::getAirlineCode() const {
     const Inventory* lInventory_ptr =
       static_cast<const Inventory*> (getParent());
-    assert (lInventory_ptr != NULL);
+    assert (lInventory_ptr != nullptr);
     return lInventory_ptr->getAirlineCode();
   }
 

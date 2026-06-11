@@ -1,5 +1,5 @@
-#ifndef __STDAIR_STDAIR_DB_HPP
-#define __STDAIR_STDAIR_DB_HPP
+#ifndef STDAIR_STDAIR_DB_HPP
+#define STDAIR_STDAIR_DB_HPP
 
 // //////////////////////////////////////////////////////////////////////
 // Import section
@@ -17,13 +17,13 @@ namespace stdair {
 
   // //////// Type definitions /////////
   /** Database session handler. */
-  typedef soci::session DBSession_T;
+  using DBSession_T = soci::session;
   
   /** Database request statement handler. */
-  typedef soci::statement DBRequestStatement_T;
+  using DBRequestStatement_T = soci::statement;
   
   /** Define the name of an database connection. */
-  typedef std::string DBConnectionName_T;
+  using DBConnectionName_T = std::string;
   
 }
-#endif // __STDAIR_STDAIR_DB_HPP
+#endif // STDAIR_STDAIR_DB_HPP

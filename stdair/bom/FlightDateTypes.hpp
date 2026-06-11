@@ -1,6 +1,6 @@
 // //////////////////////////////////////////////////////////////////////
-#ifndef __STDAIR_BOM_FLIGHTDATETYPES_HPP
-#define __STDAIR_BOM_FLIGHTDATETYPES_HPP
+#ifndef STDAIR_BOM_FLIGHTDATETYPES_HPP
+#define STDAIR_BOM_FLIGHTDATETYPES_HPP
 
 // //////////////////////////////////////////////////////////////////////
 // Import section
@@ -18,11 +18,11 @@ namespace stdair {
 
   // //////////////////////// Type definitions /////////////////////////
   /** Define the flight-date list. */
-  typedef std::list<FlightDate*> FlightDateList_T;
+  using FlightDateList_T = std::list<FlightDate*>;
 
   /** Define the flight-date map. */
-  typedef std::map<const MapKey_T, FlightDate*> FlightDateMap_T;
+  using FlightDateMap_T = std::map<const MapKey_T, FlightDate*>;
 
 }
-#endif // __STDAIR_BOM_FLIGHTDATETYPES_HPP
+#endif // STDAIR_BOM_FLIGHTDATETYPES_HPP
 

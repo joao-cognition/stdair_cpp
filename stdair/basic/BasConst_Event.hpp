@@ -1,5 +1,5 @@
-#ifndef __STDAIR_BAS_BASCONST_EVENT_HPP
-#define __STDAIR_BAS_BASCONST_EVENT_HPP
+#ifndef STDAIR_BAS_BASCONST_EVENT_HPP
+#define STDAIR_BAS_BASCONST_EVENT_HPP
 
 // //////////////////////////////////////////////////////////////////////
 // Import section
@@ -26,4 +26,4 @@ namespace stdair {
   extern const Percentage_T MAXIMUM_PROGRESS_STATUS;
 
 }
-#endif // __STDAIR_BAS_BASCONST_EVENT_HPP
+#endif // STDAIR_BAS_BASCONST_EVENT_HPP

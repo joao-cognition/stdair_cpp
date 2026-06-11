@@ -1,5 +1,5 @@
-#ifndef __STDAIR_BOM_SEGMENTPERIOD_HPP
-#define __STDAIR_BOM_SEGMENTPERIOD_HPP
+#ifndef STDAIR_BOM_SEGMENTPERIOD_HPP
+#define STDAIR_BOM_SEGMENTPERIOD_HPP
 
 // //////////////////////////////////////////////////////////////////////
 // Import section
@@ -20,7 +20,7 @@ namespace stdair {
   public:
     // Type definitions.
     /** Definition allowing to retrieve the associated BOM key type. */
-    typedef SegmentPeriodKey Key_T;
+    using Key_T = SegmentPeriodKey;
 
   public:
     // /////////// Getters /////////////
@@ -28,7 +28,7 @@ namespace stdair {
     const Key_T& getKey() const { return _key; }
 
     /** Get the parent object. */
-    BomAbstract* const getParent() const { return _parent; }
+    BomAbstract* getParent() const { return _parent; }
     
     /** Get the boarding point (part of the primary key). */
     const AirportCode_T& getBoardingPoint () const {
@@ -101,7 +101,7 @@ namespace stdair {
 
     /** Read a Business Object from an input stream.
         @param istream& the input stream. */
-    void fromStream (std::istream& ioIn) { }
+    void fromStream (std::istream& /*ioIn*/) { }
 
    /** Get the serialised version of the Business Object. */
     std::string toString() const;
@@ -144,5 +144,5 @@ namespace stdair {
   };
 
 }
-#endif // __STDAIR_BOM_SEGMENTPERIOD_HPP
+#endif // STDAIR_BOM_SEGMENTPERIOD_HPP
 

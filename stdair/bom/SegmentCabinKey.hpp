@@ -1,5 +1,5 @@
-#ifndef __STDAIR_BOM_SEGMENTCABINKEY_HPP
-#define __STDAIR_BOM_SEGMENTCABINKEY_HPP
+#ifndef STDAIR_BOM_SEGMENTCABINKEY_HPP
+#define STDAIR_BOM_SEGMENTCABINKEY_HPP
 
 // //////////////////////////////////////////////////////////////////////
 // Import section
@@ -112,4 +112,4 @@ namespace stdair {
   };
 
 }
-#endif // __STDAIR_BOM_SEGMENTCABINKEY_HPP
+#endif // STDAIR_BOM_SEGMENTCABINKEY_HPP

@@ -1,5 +1,5 @@
-#ifndef __STDAIR_STDAIR_MATHS_TYPES_HPP
-#define __STDAIR_STDAIR_MATHS_TYPES_HPP
+#ifndef STDAIR_STDAIR_MATHS_TYPES_HPP
+#define STDAIR_STDAIR_MATHS_TYPES_HPP
 
 // //////////////////////////////////////////////////////////////////////
 // Import section
@@ -21,82 +21,82 @@ namespace stdair {
   /**
    * Define the replication number.
    */
-  typedef unsigned int ReplicationNumber_T;
+  using ReplicationNumber_T = unsigned int;
 
   /**
    * Define the seed type of an Exponential function.
    */
-  typedef unsigned long int ExponentialSeed_T;
+  using ExponentialSeed_T = unsigned long int;
 
   /**
    * Define the seed type of an Uniform function.
    */
-  typedef unsigned long int UniformSeed_T;
+  using UniformSeed_T = unsigned long int;
 
   /**
    * Seed for the random generation, so that it can be reproductible.
    */
-  typedef unsigned long int RandomSeed_T;
+  using RandomSeed_T = unsigned long int;
   
   /**
    * Random number generator.
    */
-  typedef boost::minstd_rand BaseGenerator_T;
+  using BaseGenerator_T = boost::minstd_rand;
 
   /**
    * Uniform distribution of real numbers (by default, double).
    */
-  typedef boost::uniform_real<> UniformDistribution_T;
+  using UniformDistribution_T = boost::uniform_real<>;
 
   /**
    * Uniform random generator.
    */
-  typedef boost::variate_generator<BaseGenerator_T&,
-                                   UniformDistribution_T> UniformGenerator_T;
+  using UniformGenerator_T =
+    boost::variate_generator<BaseGenerator_T&, UniformDistribution_T>;
 
   /**
    * Normal distribution of real numbers (by default, double).
    */
-  typedef boost::normal_distribution<> NormalDistribution_T;
+  using NormalDistribution_T = boost::normal_distribution<>;
 
   /**
    * Nornal random generator.
    */
-  typedef boost::variate_generator<BaseGenerator_T&,
-                                   NormalDistribution_T> NormalGenerator_T;
+  using NormalGenerator_T =
+    boost::variate_generator<BaseGenerator_T&, NormalDistribution_T>;
 
   /** Type definiton for the exponential distribution (characteristics). */
-  typedef boost::exponential_distribution<> ExponentialDistribution_T;
+  using ExponentialDistribution_T = boost::exponential_distribution<>;
 
 
   /** Type definition for the exponential distribution random generator. */
-  typedef boost::variate_generator<BaseGenerator_T&,
-                                   ExponentialDistribution_T> ExponentialGenerator_T;
+  using ExponentialGenerator_T =
+    boost::variate_generator<BaseGenerator_T&, ExponentialDistribution_T>;
 
   /**
    * Define a mean value (e.g., 20.2).
    */
-  typedef double MeanValue_T;
+  using MeanValue_T = double;
 
   /**
    * Define a standard deviation value (e.g., 1.5).
    */
-  typedef double StdDevValue_T;
+  using StdDevValue_T = double;
 
   /**
    * Define a couple (mean, standart deviation) (e.g., (20.2,1.5)).
    */
-  typedef std::pair<MeanValue_T, StdDevValue_T> MeanStdDevPair_T;
+  using MeanStdDevPair_T = std::pair<MeanValue_T, StdDevValue_T>;
 
   /**
    * Define a vector of couple (mean, standart deviation)
    */ 
-  typedef std::vector<MeanStdDevPair_T> MeanStdDevPairVector_T;
+  using MeanStdDevPairVector_T = std::vector<MeanStdDevPair_T>;
 
   /**
    * Probability.
    */
-  typedef float Probability_T; 
+  using Probability_T = float;
   
 }
-#endif // __STDAIR_STDAIR_MATHS_TYPES_HPP
+#endif // STDAIR_STDAIR_MATHS_TYPES_HPP

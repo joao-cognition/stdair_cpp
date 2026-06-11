@@ -1,5 +1,5 @@
-#ifndef __STDAIR_BOM_FARETIMEPERIOD_HPP
-#define __STDAIR_BOM_FARETIMEPERIOD_HPP
+#ifndef STDAIR_BOM_FARETIMEPERIOD_HPP
+#define STDAIR_BOM_FARETIMEPERIOD_HPP
 
 // //////////////////////////////////////////////////////////////////////
 // Import section
@@ -25,7 +25,7 @@ namespace stdair {
     /**
      * Definition allowing to retrieve the associated BOM key type.
      */
-    typedef TimePeriodKey Key_T;
+    using Key_T = TimePeriodKey;
   
   public:
     // /////////// Display support methods /////////
@@ -44,7 +44,7 @@ namespace stdair {
      *
      * @param istream& the input stream.
      */
-    void fromStream (std::istream& ioIn) {
+    void fromStream (std::istream& /*ioIn*/) {
     }
 
     /**
@@ -71,7 +71,7 @@ namespace stdair {
     /**
      * Get a reference on the parent object instance.
      */
-    BomAbstract* const getParent() const {
+    BomAbstract* getParent() const {
       return _parent;
     }
 
@@ -145,5 +145,5 @@ namespace stdair {
   };
 
 }
-#endif // __STDAIR_BOM_FARETIMEPERIOD_HPP
+#endif // STDAIR_BOM_FARETIMEPERIOD_HPP
 

@@ -1,5 +1,5 @@
-#ifndef __STDAIR_BOM_AIRLINECLASSLISTKEY_HPP
-#define __STDAIR_BOM_AIRLINECLASSLISTKEY_HPP
+#ifndef STDAIR_BOM_AIRLINECLASSLISTKEY_HPP
+#define STDAIR_BOM_AIRLINECLASSLISTKEY_HPP
 
 // //////////////////////////////////////////////////////////////////////
 // Import section
@@ -122,4 +122,4 @@ namespace stdair  {
   };
 
 }
-#endif // __STDAIR_BOM_AIRLINECLASSLISTKEY_HPP
+#endif // STDAIR_BOM_AIRLINECLASSLISTKEY_HPP

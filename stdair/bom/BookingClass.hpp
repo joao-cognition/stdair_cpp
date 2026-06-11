@@ -1,5 +1,5 @@
-#ifndef __STDAIR_BOM_BOOKINGCLASS_HPP
-#define __STDAIR_BOM_BOOKINGCLASS_HPP
+#ifndef STDAIR_BOM_BOOKINGCLASS_HPP
+#define STDAIR_BOM_BOOKINGCLASS_HPP
 
 // //////////////////////////////////////////////////////////////////////
 // Import section
@@ -29,7 +29,7 @@ namespace stdair {
   public:
     // ////////// Type definitions ////////////
     /** Definition allowing to retrieve the associated BOM key type. */
-    typedef BookingClassKey Key_T;
+    using Key_T = BookingClassKey;
 
   public:
     // /////////// Getters ////////////
@@ -44,7 +44,7 @@ namespace stdair {
     }
 
     /** Get the parent object. */
-    BomAbstract* const getParent() const {
+    BomAbstract* getParent() const {
       return _parent;
     }
 
@@ -229,7 +229,7 @@ namespace stdair {
 
     /** Read a Business Object from an input stream.
         @param istream& the input stream. */
-    void fromStream (std::istream& ioIn) {
+    void fromStream (std::istream& /*ioIn*/) {
     }
 
     /** Get the serialised version of the Business Object. */
@@ -360,4 +360,4 @@ namespace stdair {
   };
 
 }
-#endif // __STDAIR_BOM_BOOKINGCLASS_HPP
+#endif // STDAIR_BOM_BOOKINGCLASS_HPP

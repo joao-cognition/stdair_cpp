@@ -1,13 +1,14 @@
-#ifndef __STDAIR_FAC_FACCLONEBOM_HPP
-#define __STDAIR_FAC_FACCLONEBOM_HPP
+#ifndef STDAIR_FAC_FACCLONEBOM_HPP
+#define STDAIR_FAC_FACCLONEBOM_HPP
 
 // //////////////////////////////////////////////////////////////////////
 // Import section
 // //////////////////////////////////////////////////////////////////////
 // STL
 #include <cassert>
+#include <memory>
 #include <string>
-#include <list>
+#include <vector>
 // StdAir 
 #include <stdair/factory/FacAbstract.hpp>
 #include <stdair/service/FacSupervisor.hpp>
@@ -22,8 +23,19 @@ namespace stdair {
   class FacCloneBom : public FacAbstract {
 
     /// Internal type definitions.
-    typedef std::list<BOM*> BomPool_T;
-    typedef typename BOM::Key_T Key_T;
+    /**
+     * Deleter granted access to the protected destructor of the BOM
+     * objects, thanks to the friendship between the BOM classes and
+     * FacCloneBom.
+     */
+    struct BomDeleter {
+      void operator() (BOM* ioBom_ptr) const {
+        delete ioBom_ptr;
+      }
+    };
+    using BomUniquePtr_T = std::unique_ptr<BOM, BomDeleter>;
+    using BomPool_T = std::vector<BomUniquePtr_T>;
+    using Key_T = typename BOM::Key_T;
 
 
   public:
@@ -51,23 +63,18 @@ namespace stdair {
     /**
      * Destructor.
      */
-    ~FacCloneBom() {
+    ~FacCloneBom() override {
       clean();
     }
 
     /**
      * Destroyed all the object instantiated by this factory.
      */
-    void clean();
+    void clean() override;
     
 
   private:
     // ///////////////////// Attributes //////////////////
-    /**
-     * The unique instance.
-     */
-    static FacCloneBom* _instance;
-
     /**
      * List of instantiated Business Objects.
      */
@@ -76,43 +83,26 @@ namespace stdair {
 
 
   // ////////////////////////////////////////////////////////////////////
-  template <typename BOM> FacCloneBom<BOM>* FacCloneBom<BOM>::_instance = NULL;
-  
-  // ////////////////////////////////////////////////////////////////////
   template <typename BOM> FacCloneBom<BOM>& FacCloneBom<BOM>::instance () {
-    if (_instance == NULL) {
-      _instance = new FacCloneBom ();
-      assert (_instance != NULL);
-
-      FacSupervisor::instance().registerCloneBomFactory (_instance);
-    }
-    return *_instance;
+    static FacCloneBom lInstance;
+    static const bool lRegistered =
+      (FacSupervisor::instance().registerCloneBomFactory (&lInstance),
+       true);
+    (void) lRegistered;
+    return lInstance;
   }
 
   // ////////////////////////////////////////////////////////////////////
   template <typename BOM> void FacCloneBom<BOM>::clean () {
-    // Destroy all the objects
-    for (typename BomPool_T::iterator itBom = _pool.begin();
-         itBom != _pool.end(); ++itBom) {
-      BOM* currentBom_ptr = *itBom;
-      assert (currentBom_ptr != NULL);
-      delete currentBom_ptr; currentBom_ptr = NULL;
-    }
-
-    // Empty the pool.
+    // Destroy all the objects and empty the pool
     _pool.clear();
-
-    // Reset the static instance.
-    _instance = NULL;
   }
   
   // ////////////////////////////////////////////////////////////////////
   template <typename BOM> BOM& FacCloneBom<BOM>::clone (const BOM& iBom) {
-    BOM* oBom_ptr = new BOM (iBom);
-    assert (oBom_ptr != NULL);
-    _pool.push_back (oBom_ptr);
-    return *oBom_ptr;
+    _pool.push_back (BomUniquePtr_T (new BOM (iBom)));
+    return *_pool.back();
   }
   
 }
-#endif // __STDAIR_FAC_FACCLONEBOM_HPP
+#endif // STDAIR_FAC_FACCLONEBOM_HPP

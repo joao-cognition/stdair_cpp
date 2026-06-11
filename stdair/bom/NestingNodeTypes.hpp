@@ -1,6 +1,6 @@
 // //////////////////////////////////////////////////////////////////////
-#ifndef __STDAIR_BOM_NESTINGNODETYPES_HPP
-#define __STDAIR_BOM_NESTINGNODETYPES_HPP
+#ifndef STDAIR_BOM_NESTINGNODETYPES_HPP
+#define STDAIR_BOM_NESTINGNODETYPES_HPP
 
 // //////////////////////////////////////////////////////////////////////
 // Import section
@@ -17,10 +17,10 @@ namespace stdair {
   class NestingNode;
 
   /** Define the fare family list. */
-  typedef std::list<NestingNode*> NestingNodeList_T;
+  using NestingNodeList_T = std::list<NestingNode*>;
 
   /** Define the fare family map. */
-  typedef std::map<const MapKey_T, NestingNode*> NestingNodeMap_T;
+  using NestingNodeMap_T = std::map<const MapKey_T, NestingNode*>;
   
 }
-#endif // __STDAIR_BOM_NESTINGNODETYPES_HPP
+#endif // STDAIR_BOM_NESTINGNODETYPES_HPP

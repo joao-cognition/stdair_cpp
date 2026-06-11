@@ -19,9 +19,9 @@ namespace stdair {
     for (ServicePool_T::iterator itService = _pool.begin();
          itService != _pool.end(); itService++) {
       ServiceAbstract* currentService_ptr = *itService;
-      assert (currentService_ptr != NULL);
+      assert (currentService_ptr != nullptr);
       
-      delete (currentService_ptr); currentService_ptr = NULL;
+      delete (currentService_ptr); currentService_ptr = nullptr;
     }
     
     // Empty the pool of Service Factories

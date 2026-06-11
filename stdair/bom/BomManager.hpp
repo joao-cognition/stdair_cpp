@@ -1,5 +1,5 @@
-#ifndef __STDAIR_BOM_BOMMANAGER_HPP
-#define __STDAIR_BOM_BOMMANAGER_HPP
+#ifndef STDAIR_BOM_BOMMANAGER_HPP
+#define STDAIR_BOM_BOMMANAGER_HPP
 
 // //////////////////////////////////////////////////////////////////////
 // Import section
@@ -9,9 +9,7 @@
 #include <string>
 #include <list>
 #include <map>
-// Boost
-#include <boost/static_assert.hpp>
-#include <boost/type_traits/is_same.hpp>
+#include <type_traits>
 // StdAir
 #include <stdair/stdair_exceptions.hpp>
 #include <stdair/bom/BomAbstract.hpp>
@@ -108,10 +106,12 @@ namespace stdair {
     // <SegmentDate, SegmentDate>
     // <AirlineFeature, Inventory>
     // 
-    BOOST_STATIC_ASSERT ((boost::is_same<OBJECT1, SegmentDate>::value == false
-                          || boost::is_same<OBJECT2, SegmentDate>::value == false));
-    BOOST_STATIC_ASSERT ((boost::is_same<OBJECT1, Inventory>::value == false
-                          || boost::is_same<OBJECT2, AirlineFeature>::value == false));
+    static_assert (!std::is_same_v<OBJECT1, SegmentDate>
+                   || !std::is_same_v<OBJECT2, SegmentDate>,
+                   "SegmentDate-to-SegmentDate links must use the dedicated routing helpers");
+    static_assert (!std::is_same_v<OBJECT1, Inventory>
+                   || !std::is_same_v<OBJECT2, AirlineFeature>,
+                   "Inventory-to-AirlineFeature links must use the dedicated helpers");
 
     const HolderMap_T& lHolderMap = iObject1.getHolderMap();
     
@@ -126,7 +126,7 @@ namespace stdair {
     
     const BomHolder<OBJECT2>* lBomHolder_ptr = 
       static_cast<const BomHolder<OBJECT2>*> (itHolder->second);
-    assert (lBomHolder_ptr != NULL);
+    assert (lBomHolder_ptr != nullptr);
 
     return *lBomHolder_ptr;
   }
@@ -144,8 +144,9 @@ namespace stdair {
     // following list of couple types:
     // <AirlineFeature, Inventory>
     //
-    BOOST_STATIC_ASSERT ((boost::is_same<OBJECT1, Inventory>::value == false
-                          || boost::is_same<OBJECT2, AirlineFeature>::value == false));
+    static_assert (!std::is_same_v<OBJECT1, Inventory>
+                   || !std::is_same_v<OBJECT2, AirlineFeature>,
+                   "Inventory-to-AirlineFeature links must use the dedicated helpers");
     
   const BomHolder<OBJECT2>& lBomHolder = getBomHolder<OBJECT2> (iObject1);
     return lBomHolder._bomList;
@@ -164,10 +165,12 @@ namespace stdair {
     // <SegmentDate, SegmentDate>
     // <AirlineFeature, Inventory>
     // 
-    BOOST_STATIC_ASSERT ((boost::is_same<OBJECT1, SegmentDate>::value == false
-                          || boost::is_same<OBJECT2, SegmentDate>::value == false));
-    BOOST_STATIC_ASSERT ((boost::is_same<OBJECT1, Inventory>::value == false
-                          || boost::is_same<OBJECT2, AirlineFeature>::value == false));
+    static_assert (!std::is_same_v<OBJECT1, SegmentDate>
+                   || !std::is_same_v<OBJECT2, SegmentDate>,
+                   "SegmentDate-to-SegmentDate links must use the dedicated routing helpers");
+    static_assert (!std::is_same_v<OBJECT1, Inventory>
+                   || !std::is_same_v<OBJECT2, AirlineFeature>,
+                   "Inventory-to-AirlineFeature links must use the dedicated helpers");
     
     const BomHolder<OBJECT2>& lBomHolder = getBomHolder<OBJECT2> (iObject1);
     return lBomHolder._bomMap;
@@ -188,7 +191,7 @@ namespace stdair {
     }
     const BomHolder<OBJECT2>* lBomHolder_ptr = 
       static_cast<const BomHolder<OBJECT2>*> (itHolder->second);
-    assert (lBomHolder_ptr != NULL);
+    assert (lBomHolder_ptr != nullptr);
 
     return !lBomHolder_ptr->_bomList.empty();
   }
@@ -208,7 +211,7 @@ namespace stdair {
     }
     const BomHolder<OBJECT2>* lBomHolder_ptr = 
       static_cast<const BomHolder<OBJECT2>*> (itHolder->second);
-    assert (lBomHolder_ptr != NULL);
+    assert (lBomHolder_ptr != nullptr);
 
     return !lBomHolder_ptr->_bomMap.empty();
   }
@@ -230,7 +233,7 @@ namespace stdair {
   PARENT& BomManager::getParent (const CHILD& iChild) {
     
     PARENT* const lParent_ptr = getParentPtr<PARENT> (iChild);
-    assert (lParent_ptr != NULL);
+    assert (lParent_ptr != nullptr);
     return *lParent_ptr; 
   }
   
@@ -246,10 +249,11 @@ namespace stdair {
     // following list of couple types:
     // <SegmentDate, SegmentDate>
     // 
-    BOOST_STATIC_ASSERT ((boost::is_same<OBJECT1, SegmentDate>::value == false
-                          || boost::is_same<OBJECT2, SegmentDate>::value == false));
+    static_assert (!std::is_same_v<OBJECT1, SegmentDate>
+                   || !std::is_same_v<OBJECT2, SegmentDate>,
+                   "SegmentDate-to-SegmentDate links must use the dedicated routing helpers");
     
-    OBJECT2* oBom_ptr = NULL;
+    OBJECT2* oBom_ptr = nullptr;
     
     const HolderMap_T& lHolderMap = iObject1.getHolderMap();
 
@@ -260,16 +264,16 @@ namespace stdair {
     
       BomHolder<OBJECT2>* const lBomHolder_ptr = 
         static_cast<BomHolder<OBJECT2>* const> (itHolder->second);
-      assert (lBomHolder_ptr != NULL);
+      assert (lBomHolder_ptr != nullptr);
 
       //
-      typedef typename BomHolder<OBJECT2>::BomMap_T BomMap_T;
+      using BomMap_T = typename BomHolder<OBJECT2>::BomMap_T;
       BomMap_T& lBomMap =  lBomHolder_ptr->_bomMap;
       typename BomMap_T::iterator itBom = lBomMap.find (iKey);
 
       if (itBom != lBomMap.end()) {
         oBom_ptr = itBom->second;
-        assert (oBom_ptr != NULL);
+        assert (oBom_ptr != nullptr);
       }
     }
 
@@ -288,27 +292,30 @@ namespace stdair {
     // following list of couple types:
     // <SegmentDate, SegmentDate>
     // 
-    BOOST_STATIC_ASSERT ((boost::is_same<OBJECT1, SegmentDate>::value == false
-                          || boost::is_same<OBJECT2, SegmentDate>::value == false));
+    static_assert (!std::is_same_v<OBJECT1, SegmentDate>
+                   || !std::is_same_v<OBJECT2, SegmentDate>,
+                   "SegmentDate-to-SegmentDate links must use the dedicated routing helpers");
     
-    OBJECT2* oBom_ptr = NULL;
+    OBJECT2* oBom_ptr = nullptr;
     
-    typedef std::map<const MapKey_T, OBJECT2*> BomMap_T;
+    using BomMap_T = std::map<const MapKey_T, OBJECT2*>;
     const BomMap_T& lBomMap = getMap<OBJECT2> (iObject1);
     
     typename BomMap_T::const_iterator itBom = lBomMap.find (iKey);
 
     if (itBom == lBomMap.end()) {
       const std::string lName (typeid (OBJECT2).name());
-      
-      STDAIR_LOG_ERROR ("Cannot find the objet of type " << lName
-                        << " with key " << iKey << " within: " 
-                        << iObject1.describeKey());
-      assert (false);
+
+      std::ostringstream oStr;
+      oStr << "Cannot find the objet of type " << lName
+           << " with key " << iKey << " within: "
+           << iObject1.describeKey();
+      STDAIR_LOG_ERROR (oStr.str());
+      throw KeyNotFoundException (oStr.str());
     }
     
     oBom_ptr = itBom->second;
-    assert (oBom_ptr != NULL);
+    assert (oBom_ptr != nullptr);
 
     return *oBom_ptr;
   }
@@ -355,7 +362,7 @@ namespace stdair {
   // Segment Date list (containing its marketing segment dates). 
   template<> 
   inline bool BomManager::hasMap<SegmentDate,SegmentDate>
-  (const SegmentDate& ioSegmentDate) {
+  (const SegmentDate& /*ioSegmentDate*/) {
     
     const bool hasMap = false;
     return hasMap;
@@ -372,7 +379,7 @@ namespace stdair {
   // <AirlineFeature,Inventory>.
   template<> 
   inline bool BomManager::hasList<AirlineFeature,Inventory>
-  (const Inventory& ioInventory) {
+  (const Inventory& /*ioInventory*/) {
     
     const bool hasList = false;
     return hasList;
@@ -382,7 +389,7 @@ namespace stdair {
   // <AirlineFeature,Inventory>.
   template<> 
   inline bool BomManager::hasMap<AirlineFeature,Inventory>
-  (const Inventory& ioInventory) {
+  (const Inventory& /*ioInventory*/) {
     
     const bool hasMap = false;
     return hasMap;
@@ -392,7 +399,7 @@ namespace stdair {
   // <AirlineFeature,Inventory>.
   template<> 
   inline AirlineFeature* BomManager::getObjectPtr<AirlineFeature,Inventory>
-  (const Inventory& iInventory, const MapKey_T& iKey) {
+  (const Inventory& iInventory, const MapKey_T& /*iKey*/) {
 
     AirlineFeature* lAirlineFeature_ptr = iInventory.getAirlineFeature ();
 
@@ -407,11 +414,11 @@ namespace stdair {
 
     AirlineFeature* lAirlineFeature_ptr =
       getObjectPtr<AirlineFeature,Inventory> (iInventory, iKey);
-    assert (lAirlineFeature_ptr != NULL);
+    assert (lAirlineFeature_ptr != nullptr);
     
     return *lAirlineFeature_ptr;
   }
 
   
 }
-#endif // __STDAIR_BOM_BOMMANAGER_HPP
+#endif // STDAIR_BOM_BOMMANAGER_HPP

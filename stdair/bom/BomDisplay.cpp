@@ -79,7 +79,7 @@ namespace stdair {
     for (InventoryList_T::const_iterator itInv = lInventoryList.begin();
          itInv != lInventoryList.end(); ++itInv, ++invIdx) {
       const Inventory* lInv_ptr = *itInv;
-      assert (lInv_ptr != NULL);
+      assert (lInv_ptr != nullptr);
 
       // Retrieve the inventory key (airline code)
       const AirlineCode_T& lAirlineCode = lInv_ptr->getAirlineCode();
@@ -125,7 +125,7 @@ namespace stdair {
     for (FlightDateMap_T::const_iterator itFD = lFlightDateList.begin();
          itFD != lFlightDateList.end(); ++itFD, ++departureDateIdx) {
       const FlightDate* lFD_ptr = itFD->second;
-      assert (lFD_ptr != NULL);
+      assert (lFD_ptr != nullptr);
       
       // Retrieve the key of the flight-date
       const FlightNumber_T& lFlightNumber = lFD_ptr->getFlightNumber();
@@ -165,7 +165,7 @@ namespace stdair {
     for (AirportPairList_T::const_iterator itAir = lAirportPairList.begin();
          itAir != lAirportPairList.end(); ++itAir ) {
       const AirportPair* lAir_ptr = *itAir;      
-      assert (lAir_ptr != NULL);
+      assert (lAir_ptr != nullptr);
 
       // Check whether there are date-period objects
       assert (BomManager::hasList<DatePeriod> (*lAir_ptr) == true);
@@ -177,7 +177,7 @@ namespace stdair {
       for (DatePeriodList_T::const_iterator itDP = lDatePeriodList.begin();
            itDP != lDatePeriodList.end(); ++itDP) {
         const DatePeriod* lDP_ptr = *itDP;
-        assert (lDP_ptr != NULL);
+        assert (lDP_ptr != nullptr);
       
         // Display the date-period object
         oStream << lAir_ptr->describeKey()
@@ -214,7 +214,7 @@ namespace stdair {
     for (InventoryList_T::const_iterator itInv = lInventoryList.begin();
          itInv != lInventoryList.end(); ++itInv) {
       const Inventory* lInv_ptr = *itInv;
-      assert (lInv_ptr != NULL);
+      assert (lInv_ptr != nullptr);
 
       // Display the inventory
       csvDisplay (oStream, *lInv_ptr);
@@ -245,7 +245,7 @@ namespace stdair {
     for (FlightDateList_T::const_iterator itFD = lFlightDateList.begin();
          itFD != lFlightDateList.end(); ++itFD) {
       const FlightDate* lFD_ptr = *itFD;
-      assert (lFD_ptr != NULL);
+      assert (lFD_ptr != nullptr);
       
       // Display the flight-date
       csvDisplay (oStream, *lFD_ptr);
@@ -266,7 +266,7 @@ namespace stdair {
         oStream << "Partner inventory:" << std::endl;
         oStream << "-------------------------------------------------" << std::endl;
         const Inventory* lInv_ptr = *itInv;
-        assert (lInv_ptr != NULL);
+        assert (lInv_ptr != nullptr);
       
         // Display the inventory
         csvDisplay (oStream, *lInv_ptr);      
@@ -291,7 +291,7 @@ namespace stdair {
         oStream << "Airline, Date, Origin-Destination, Segments, " << std::endl;
        
         const OnDDate* lOnDDate_ptr = *itOnD;
-        assert (lOnDDate_ptr != NULL);
+        assert (lOnDDate_ptr != nullptr);
 
         // Display the O&D date
         csvDisplay (oStream, *lOnDDate_ptr);
@@ -420,7 +420,7 @@ namespace stdair {
     for (LegDateList_T::const_iterator itLD = lLegDateList.begin();
          itLD != lLegDateList.end(); ++itLD) {
       const LegDate* lLD_ptr = *itLD;
-      assert (lLD_ptr != NULL);
+      assert (lLD_ptr != nullptr);
       
       oStream << lAirlineCode << lFlightNumber << " "
               << lFlightDateDate << ", ";
@@ -471,7 +471,7 @@ namespace stdair {
     for (SegmentDateList_T::const_iterator itSD = lSegmentDateList.begin();
          itSD != lSegmentDateList.end(); ++itSD) {
       const SegmentDate* lSD_ptr = *itSD;
-      assert (lSD_ptr != NULL);
+      assert (lSD_ptr != nullptr);
       
       // Retrieve the key of the segment-date, as well as its dates
       const Date_T& lSegmentDateDate = lSD_ptr->getBoardingDate();
@@ -498,7 +498,7 @@ namespace stdair {
 
       // Check if the current segment is operated by another segment date. 
       const SegmentDate* lOperatingSD_ptr = lSD_ptr->getOperatingSegmentDate ();
-      if (lOperatingSD_ptr != NULL) {
+      if (lOperatingSD_ptr != nullptr) {
 
         const FlightDate* lOperatingFD_ptr = BomManager::getParentPtr<FlightDate>(*lOperatingSD_ptr);
         const Inventory* lOperatingInv_ptr = BomManager::getParentPtr<Inventory>(*lOperatingFD_ptr);
@@ -543,7 +543,7 @@ namespace stdair {
     for (LegDateList_T::const_iterator itLD = lLegDateList.begin();
          itLD != lLegDateList.end(); ++itLD) {
       const LegDate* lLD_ptr = *itLD;
-      assert (lLD_ptr != NULL);
+      assert (lLD_ptr != nullptr);
 
       // Retrieve the key of the leg-date, as well as its off point
       const Date_T& lLegDateDate = lLD_ptr->getBoardingDate();
@@ -556,7 +556,7 @@ namespace stdair {
       for (LegCabinList_T::const_iterator itLC = lLegCabinList.begin();
            itLC != lLegCabinList.end(); ++itLC) {
         const LegCabin* lLC_ptr = *itLC;
-        assert (lLC_ptr != NULL);
+        assert (lLC_ptr != nullptr);
       
         oStream << lAirlineCode << lFlightNumber << " "
                 << lFlightDateDate << ", ";
@@ -591,7 +591,7 @@ namespace stdair {
     
   // ////////////////////////////////////////////////////////////////////
   void BomDisplay::csvSegmentCabinDisplay (std::ostream& oStream,
-                                           const FlightDate& iFlightDate) {
+                                           const FlightDate& /*iFlightDate*/) {
     // Save the formatting flags for the given STL output stream
     FlagSaver flagSaver (oStream);
 
@@ -632,7 +632,7 @@ namespace stdair {
     for (SegmentDateList_T::const_iterator itSD = lSegmentDateList.begin();
          itSD != lSegmentDateList.end(); ++itSD) {
       const SegmentDate* lSD_ptr = *itSD;
-      assert (lSD_ptr != NULL);
+      assert (lSD_ptr != nullptr);
       
       // Retrieve the key of the segment-date, as well as its dates
       const Date_T& lSegmentDateDate = lSD_ptr->getBoardingDate();
@@ -645,7 +645,7 @@ namespace stdair {
       for (SegmentCabinList_T::const_iterator itSC = lSegmentCabinList.begin();
            itSC != lSegmentCabinList.end(); ++itSC) {
         const SegmentCabin* lSC_ptr = *itSC;
-        assert (lSC_ptr != NULL);
+        assert (lSC_ptr != nullptr);
         
         // Retrieve the key of the segment-cabin
         const CabinCode_T& lCabinCode = lSC_ptr->getCabinCode();
@@ -661,7 +661,7 @@ namespace stdair {
         for (FareFamilyList_T::const_iterator itFF = lFareFamilyList.begin();
              itFF != lFareFamilyList.end(); ++itFF) {
           const FareFamily* lFF_ptr = *itFF;
-          assert (lFF_ptr != NULL);
+          assert (lFF_ptr != nullptr);
 
           oStream << lAirlineCode << lFlightNumber << " "
                   << lFlightDateDate << ", ";
@@ -715,7 +715,7 @@ namespace stdair {
     for (LegDateList_T::const_iterator itLD = lLegDateList.begin();
          itLD != lLegDateList.end(); ++itLD) {
       const LegDate* lLD_ptr = *itLD;
-      assert (lLD_ptr != NULL);
+      assert (lLD_ptr != nullptr);
       
       // Retrieve the key of the leg-date, as well as its off point
       const Date_T& lLegDateDate = lLD_ptr->getBoardingDate();
@@ -728,7 +728,7 @@ namespace stdair {
       for (LegCabinList_T::const_iterator itLC = lLegCabinList.begin();
            itLC != lLegCabinList.end(); ++itLC) {
         const LegCabin* lLC_ptr = *itLC;
-        assert (lLC_ptr != NULL);
+        assert (lLC_ptr != nullptr);
 
         // Check whether there are bucket objects
         if (BomManager::hasList<Bucket> (*lLC_ptr) == false) {
@@ -743,7 +743,7 @@ namespace stdair {
         for (BucketList_T::const_iterator itBuck = lBucketList.begin();
              itBuck != lBucketList.end(); ++itBuck) {
           const Bucket* lBucket_ptr = *itBuck;
-          assert (lBucket_ptr != NULL);
+          assert (lBucket_ptr != nullptr);
 
           oStream << lAirlineCode << lFlightNumber << " "
                   << lFlightDateDate << ", ";
@@ -831,7 +831,7 @@ namespace stdair {
     for (SegmentDateList_T::const_iterator itSD = lSegmentDateList.begin();
          itSD != lSegmentDateList.end(); ++itSD) {
       const SegmentDate* lSD_ptr = *itSD;
-      assert (lSD_ptr != NULL);
+      assert (lSD_ptr != nullptr);
       
       // Retrieve the key of the segment-date, as well as its dates
       const Date_T& lSegmentDateDate = lSD_ptr->getBoardingDate();
@@ -844,7 +844,7 @@ namespace stdair {
       for (SegmentCabinList_T::const_iterator itSC = lSegmentCabinList.begin();
            itSC != lSegmentCabinList.end(); ++itSC) {
         const SegmentCabin* lSC_ptr = *itSC;
-        assert (lSC_ptr != NULL);
+        assert (lSC_ptr != nullptr);
         
         // Retrieve the key of the segment-cabin
         const CabinCode_T& lCabinCode = lSC_ptr->getCabinCode();
@@ -869,7 +869,7 @@ namespace stdair {
           for (FareFamilyList_T::const_iterator itFF = lFareFamilyList.begin();
                itFF != lFareFamilyList.end(); ++itFF) {
             const FareFamily* lFF_ptr = *itFF;
-            assert (lFF_ptr != NULL);
+            assert (lFF_ptr != nullptr);
 
             // Retrieve the key of the segment-cabin
             lFamilyCode = lFF_ptr->getFamilyCode();
@@ -885,7 +885,7 @@ namespace stdair {
                    lBookingClassList.begin();
                  itBC != lBookingClassList.end(); ++itBC) {
               const BookingClass* lBC_ptr = *itBC;
-              assert (lBC_ptr != NULL);
+              assert (lBC_ptr != nullptr);
 
               //
               csvBookingClassDisplay (oStream, *lBC_ptr, oFFLeadingStr.str());
@@ -909,7 +909,7 @@ namespace stdair {
                lBookingClassList.begin();
              itBC != lBookingClassList.end(); ++itBC) {
           const BookingClass* lBC_ptr = *itBC;
-          assert (lBC_ptr != NULL);
+          assert (lBC_ptr != nullptr);
 
           //
           csvBookingClassDisplay (oStream, *lBC_ptr, oFFLeadingStr.str());
@@ -951,7 +951,7 @@ namespace stdair {
     for (DatePeriodList_T::const_iterator itDP = iDatePeriodList.begin();
          itDP != iDatePeriodList.end(); ++itDP) {
       const DatePeriod* lDP_ptr = *itDP;
-      assert (lDP_ptr != NULL);
+      assert (lDP_ptr != nullptr);
       
       // Display the date-period object
       csvDateDisplay (oStream, *lDP_ptr);
@@ -985,7 +985,7 @@ namespace stdair {
     for (AirportPairList_T::const_iterator itAir = lAirportPairList.begin();
          itAir != lAirportPairList.end(); ++itAir ) {
       const AirportPair* lAir_ptr = *itAir;
-      assert (lAir_ptr != NULL);
+      assert (lAir_ptr != nullptr);
 
       // Display the airport pair object
       csvAirportPairDisplay (oStream, *lAir_ptr);
@@ -1016,7 +1016,7 @@ namespace stdair {
     for (DatePeriodList_T::const_iterator itDP = lDatePeriodList.begin();
          itDP != lDatePeriodList.end(); ++itDP) {
       const DatePeriod* lDP_ptr = *itDP;
-      assert (lDP_ptr != NULL);
+      assert (lDP_ptr != nullptr);
       
       // Display the date-period object
       csvDateDisplay (oStream, *lDP_ptr);
@@ -1048,7 +1048,7 @@ namespace stdair {
     for (PosChannelList_T::const_iterator itPC = lPosChannelList.begin();
          itPC != lPosChannelList.end(); ++itPC) {
       const PosChannel* lPC_ptr = *itPC;
-      assert (lPC_ptr != NULL);
+      assert (lPC_ptr != nullptr);
       
       // Display the pos-channel object
       csvPosChannelDisplay (oStream, *lPC_ptr);
@@ -1079,7 +1079,7 @@ namespace stdair {
     for (TimePeriodList_T::const_iterator itTP = lTimePeriodList.begin();
          itTP != lTimePeriodList.end(); ++itTP) {
       const TimePeriod* lTP_ptr = *itTP;
-      assert (lTP_ptr != NULL);
+      assert (lTP_ptr != nullptr);
       
       // Display the time-period object
       csvTimeDisplay (oStream, *lTP_ptr);
@@ -1118,13 +1118,13 @@ namespace stdair {
     }
 
     // Browse the fare/yield-feature objects
-    typedef typename BomHolder<FEATURE_TYPE>::BomList_T FeaturesList_T;
+    using FeaturesList_T = typename BomHolder<FEATURE_TYPE>::BomList_T;
     const FeaturesList_T& lFeaturesList =
       BomManager::getList<FEATURE_TYPE> (iTimePeriod);
     for (typename FeaturesList_T::const_iterator itFF = lFeaturesList.begin();
          itFF != lFeaturesList.end(); ++itFF) {
       const FEATURE_TYPE* lFF_ptr = *itFF;
-      assert (lFF_ptr != NULL);
+      assert (lFF_ptr != nullptr);
 
       // Display the fare-features object
       csvFeaturesDisplay (oStream, *lFF_ptr);
@@ -1157,7 +1157,7 @@ namespace stdair {
            lAirlineClassListList.begin();
          itACL != lAirlineClassListList.end(); ++itACL) {
       const AirlineClassList* lACL_ptr = *itACL;
-      assert (lACL_ptr != NULL);
+      assert (lACL_ptr != nullptr);
 
       // Display the airlineClassList object
       csvAirlineClassDisplay(oStream, *lACL_ptr);

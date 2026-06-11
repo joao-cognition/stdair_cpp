@@ -1,14 +1,14 @@
 // //////////////////////////////////////////////////////////////////////
-#ifndef __STDAIR_BOM_CONFIGHOLDERTYPES_HPP
-#define __STDAIR_BOM_CONFIGHOLDERTYPES_HPP
+#ifndef STDAIR_BOM_CONFIGHOLDERTYPES_HPP
+#define STDAIR_BOM_CONFIGHOLDERTYPES_HPP
 
 // //////////////////////////////////////////////////////////////////////
 // Import section
 // //////////////////////////////////////////////////////////////////////
 // STL
 #include <list>
-// Boost
-#include <boost/shared_ptr.hpp>
+// STL
+#include <memory>
 
 namespace stdair {
 
@@ -17,8 +17,8 @@ namespace stdair {
   
   // ///////////// Type definitions //////////////
   /** Define the smart pointer to a Config Holder structure. */
-  typedef boost::shared_ptr<ConfigHolderStruct> ConfigHolderPtr_T;
+  using ConfigHolderPtr_T = std::shared_ptr<ConfigHolderStruct>;
   
 }
-#endif // __STDAIR_BOM_CONFIGHOLDERTYPES_HPP
+#endif // STDAIR_BOM_CONFIGHOLDERTYPES_HPP
 

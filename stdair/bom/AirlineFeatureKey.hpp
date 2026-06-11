@@ -1,5 +1,5 @@
-#ifndef __STDAIR_BOM_AIRLINEFEATUREKEY_HPP
-#define __STDAIR_BOM_AIRLINEFEATUREKEY_HPP
+#ifndef STDAIR_BOM_AIRLINEFEATUREKEY_HPP
+#define STDAIR_BOM_AIRLINEFEATUREKEY_HPP
 
 // //////////////////////////////////////////////////////////////////////
 // Import section
@@ -49,4 +49,4 @@ namespace stdair {
   };
 
 }
-#endif // __STDAIR_BOM_AIRLINEFEATUREKEY_HPP
+#endif // STDAIR_BOM_AIRLINEFEATUREKEY_HPP

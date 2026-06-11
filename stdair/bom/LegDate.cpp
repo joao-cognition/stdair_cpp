@@ -16,14 +16,15 @@
 namespace stdair {
 
   // ////////////////////////////////////////////////////////////////////
-  LegDate::LegDate() : _key (DEFAULT_ORIGIN), _parent (NULL) {
+  LegDate::LegDate() : _key (DEFAULT_ORIGIN), _parent (nullptr) {
     assert (false);
   }
 
   // ////////////////////////////////////////////////////////////////////
   LegDate::LegDate (const LegDate& iLegDate) :
+    BomAbstract(),
     _key (iLegDate._key),
-    _parent (NULL),
+    _parent (nullptr),
     _offPoint (iLegDate._offPoint),
     _boardingDate (iLegDate._boardingDate),
     _boardingTime (iLegDate._boardingTime),
@@ -36,7 +37,7 @@ namespace stdair {
 
   // ////////////////////////////////////////////////////////////////////
   LegDate::LegDate (const Key_T& iKey) 
-    : _key (iKey), _parent (NULL), _distance (DEFAULT_DISTANCE_VALUE),
+    : _key (iKey), _parent (nullptr), _distance (DEFAULT_DISTANCE_VALUE),
       _capacity (DEFAULT_CABIN_CAPACITY) {
   }
 
@@ -48,7 +49,7 @@ namespace stdair {
   const AirlineCode_T& LegDate::getAirlineCode() const {
     const FlightDate* lFlightDate_ptr =
       static_cast<const FlightDate*> (getParent());
-    assert (lFlightDate_ptr != NULL);
+    assert (lFlightDate_ptr != nullptr);
     return lFlightDate_ptr->getAirlineCode();
   }
 
@@ -63,7 +64,7 @@ namespace stdair {
   const std::string LegDate::describeRoutingKey() const {  
     const FlightDate* lFlightDate_ptr =
       static_cast<const FlightDate*> (getParent());
-    assert (lFlightDate_ptr != NULL); 
+    assert (lFlightDate_ptr != nullptr); 
     std::ostringstream oStr;
     oStr << _operatingAirlineCode << DEFAULT_KEY_FLD_DELIMITER
 	 << _operatingFlightNumber << DEFAULT_KEY_FLD_DELIMITER
@@ -112,11 +113,11 @@ namespace stdair {
   void LegDate::updateDistanceFromElapsedTime() {
     //
     const double lElapseInHours =
-      static_cast<const double> (_elapsedTime.hours());
+      static_cast<double> (_elapsedTime.hours());
 
     // Normally, Distance_T is an unsigned long int
     const Distance_T lDistance =
-      static_cast<const Distance_T> (DEFAULT_FLIGHT_SPEED * lElapseInHours);
+      static_cast<Distance_T> (DEFAULT_FLIGHT_SPEED * lElapseInHours);
     
     _distance = lDistance;
   }

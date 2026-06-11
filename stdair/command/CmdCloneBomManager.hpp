@@ -1,5 +1,5 @@
-#ifndef __STDAIR_CMD_CMDCLONEBOMMANAGER_HPP
-#define __STDAIR_CMD_CMDCLONEBOMMANAGER_HPP
+#ifndef STDAIR_CMD_CMDCLONEBOMMANAGER_HPP
+#define STDAIR_CMD_CMDCLONEBOMMANAGER_HPP
 
 // //////////////////////////////////////////////////////////////////////
 // Import section
@@ -235,4 +235,4 @@ namespace stdair {
 
   };
 }
-#endif // ___STDAIR_CMD_CMDCLONEBOMMANAGER_HPP
+#endif // _STDAIR_CMD_CMDCLONEBOMMANAGER_HPP

@@ -1,6 +1,6 @@
 // //////////////////////////////////////////////////////////////////////
-#ifndef __STDAIR_BOM_AIRLINEFEATURETYPES_HPP
-#define __STDAIR_BOM_AIRLINEFEATURETYPES_HPP
+#ifndef STDAIR_BOM_AIRLINEFEATURETYPES_HPP
+#define STDAIR_BOM_AIRLINEFEATURETYPES_HPP
 
 // //////////////////////////////////////////////////////////////////////
 // Import section
@@ -17,11 +17,11 @@ namespace stdair {
   class AirlineFeature;
 
   /** Define the airline feature list. */
-  typedef std::list<AirlineFeature*> AirlineFeatureList_T;
+  using AirlineFeatureList_T = std::list<AirlineFeature*>;
 
   /** Define the airline feature map. */
-  typedef std::map<const MapKey_T, AirlineFeature*> AirlineFeatureMap_T;
+  using AirlineFeatureMap_T = std::map<const MapKey_T, AirlineFeature*>;
 
 }
-#endif // __STDAIR_BOM_AIRLINEFEATURETYPES_HPP
+#endif // STDAIR_BOM_AIRLINEFEATURETYPES_HPP
 

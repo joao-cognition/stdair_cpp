@@ -1,6 +1,6 @@
 // //////////////////////////////////////////////////////////////////////
-#ifndef __STDAIR_BOM_FAREFAMILYTYPES_HPP
-#define __STDAIR_BOM_FAREFAMILYTYPES_HPP
+#ifndef STDAIR_BOM_FAREFAMILYTYPES_HPP
+#define STDAIR_BOM_FAREFAMILYTYPES_HPP
 
 // //////////////////////////////////////////////////////////////////////
 // Import section
@@ -17,9 +17,9 @@ namespace stdair {
   class FareFamily;
 
   /** Define the fare family list. */
-  typedef std::list<FareFamily*> FareFamilyList_T;
+  using FareFamilyList_T = std::list<FareFamily*>;
 
   /** Define the fare family map. */
-  typedef std::map<const MapKey_T, FareFamily*> FareFamilyMap_T;      
+  using FareFamilyMap_T = std::map<const MapKey_T, FareFamily*>;
 }
-#endif // __STDAIR_BOM_FAREFAMILYTYPES_HPP
+#endif // STDAIR_BOM_FAREFAMILYTYPES_HPP

@@ -20,18 +20,18 @@ namespace stdair {
             CHANGE_FEES,
             NON_REFUNDABLE,
             NO_STAY_DURATION),
-      _parent (NULL)  {
+      _parent (nullptr)  {
     // That constructor is used by the serialisation process
   }
 
   // ////////////////////////////////////////////////////////////////////
   FareFeatures::FareFeatures (const FareFeatures& iFeatures)
-    : _key (iFeatures.getKey()), _parent (NULL)  {
+    : BomAbstract(), _key (iFeatures.getKey()), _parent (nullptr)  {
   }
 
   // ////////////////////////////////////////////////////////////////////
   FareFeatures::FareFeatures (const Key_T& iKey)
-    : _key (iKey), _parent (NULL)  {
+    : _key (iKey), _parent (nullptr)  {
   }
 
   // ////////////////////////////////////////////////////////////////////

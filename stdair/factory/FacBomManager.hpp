@@ -1,5 +1,5 @@
-#ifndef __STDAIR_FAC_FACBOMMANAGER_HPP
-#define __STDAIR_FAC_FACBOMMANAGER_HPP
+#ifndef STDAIR_FAC_FACBOMMANAGER_HPP
+#define STDAIR_FAC_FACBOMMANAGER_HPP
 
 // //////////////////////////////////////////////////////////////////////
 // Import section
@@ -8,9 +8,7 @@
 #include <iosfwd>
 #include <list>
 #include <map>
-// Boost
-#include <boost/static_assert.hpp>
-#include <boost/type_traits/is_same.hpp>
+#include <type_traits>
 // StdAir
 #include <stdair/bom/BomHolder.hpp>
 #include <stdair/bom/BomManager.hpp>
@@ -243,10 +241,12 @@ namespace stdair {
     // <SegmentDate, SegmentDate>
     // <AirlineFeature, Inventory>
     //
-    BOOST_STATIC_ASSERT ((boost::is_same<OBJECT1, SegmentDate>::value == false
-                          || boost::is_same<OBJECT2, SegmentDate>::value == false));
-    BOOST_STATIC_ASSERT ((boost::is_same<OBJECT1, Inventory>::value == false
-                          || boost::is_same<OBJECT2, AirlineFeature>::value == false));         
+    static_assert (!std::is_same_v<OBJECT1, SegmentDate>
+                   || !std::is_same_v<OBJECT2, SegmentDate>,
+                   "SegmentDate-to-SegmentDate links must use the dedicated routing helpers");
+    static_assert (!std::is_same_v<OBJECT1, Inventory>
+                   || !std::is_same_v<OBJECT2, AirlineFeature>,
+                   "Inventory-to-AirlineFeature links must use the dedicated helpers");         
 
 
     BomHolder<OBJECT2>* lBomHolder_ptr =
@@ -273,12 +273,14 @@ namespace stdair {
     // <SegmentDate, SegmentDate>
     // <AirlineFeature, Inventory>
     // 
-    BOOST_STATIC_ASSERT ((boost::is_same<OBJECT1, SegmentDate>::value == false
-                          || boost::is_same<OBJECT2, SegmentDate>::value == false));
-    BOOST_STATIC_ASSERT ((boost::is_same<OBJECT1, Inventory>::value == false
-                          || boost::is_same<OBJECT2, AirlineFeature>::value == false));
+    static_assert (!std::is_same_v<OBJECT1, SegmentDate>
+                   || !std::is_same_v<OBJECT2, SegmentDate>,
+                   "SegmentDate-to-SegmentDate links must use the dedicated routing helpers");
+    static_assert (!std::is_same_v<OBJECT1, Inventory>
+                   || !std::is_same_v<OBJECT2, AirlineFeature>,
+                   "Inventory-to-AirlineFeature links must use the dedicated helpers");
     
-    BomHolder<OBJECT2>* lBomHolder_ptr = NULL;
+    BomHolder<OBJECT2>* lBomHolder_ptr = nullptr;
 
     // Find the corresponding BomHolder within the object1, if existing.
     HolderMap_T::const_iterator itHolder =
@@ -302,12 +304,14 @@ namespace stdair {
     // <SegmentDate, SegmentDate>
     // <AirlineFeature, Inventory>
     // 
-    BOOST_STATIC_ASSERT ((boost::is_same<OBJECT1, SegmentDate>::value == false
-                          || boost::is_same<OBJECT2, SegmentDate>::value == false));
-    BOOST_STATIC_ASSERT ((boost::is_same<OBJECT1, Inventory>::value == false
-                          || boost::is_same<OBJECT2, AirlineFeature>::value == false));       
+    static_assert (!std::is_same_v<OBJECT1, SegmentDate>
+                   || !std::is_same_v<OBJECT2, SegmentDate>,
+                   "SegmentDate-to-SegmentDate links must use the dedicated routing helpers");
+    static_assert (!std::is_same_v<OBJECT1, Inventory>
+                   || !std::is_same_v<OBJECT2, AirlineFeature>,
+                   "Inventory-to-AirlineFeature links must use the dedicated helpers");       
 
-    BomHolder<OBJECT2>* lBomHolder_ptr = NULL;
+    BomHolder<OBJECT2>* lBomHolder_ptr = nullptr;
 
     // Find the corresponding BomHolder within the object1. If it does
     // not exist, then create one.
@@ -321,7 +325,7 @@ namespace stdair {
       lBomHolder_ptr = static_cast<BomHolder<OBJECT2>*> (itHolder->second);
     }
 
-    assert (lBomHolder_ptr != NULL);
+    assert (lBomHolder_ptr != nullptr);
 
     return *lBomHolder_ptr;
   }
@@ -330,7 +334,7 @@ namespace stdair {
   // Private method.
   template <typename OBJECT1, typename OBJECT2>
   void FacBomManager::addToList (BomHolder<OBJECT2>& ioBomHolder,
-                                 OBJECT1& ioObject1, OBJECT2& ioObject2) {
+                                 OBJECT1& /*ioObject1*/, OBJECT2& ioObject2) {
 
     //
     // Compile time assertation: this function must never be called with the
@@ -338,10 +342,12 @@ namespace stdair {
     // <SegmentDate, SegmentDate>
     // <AirlineFeature, Inventory>
     // 
-    BOOST_STATIC_ASSERT ((boost::is_same<OBJECT1, SegmentDate>::value == false
-                          || boost::is_same<OBJECT2, SegmentDate>::value == false));
-    BOOST_STATIC_ASSERT ((boost::is_same<OBJECT1, Inventory>::value == false
-                          || boost::is_same<OBJECT2, AirlineFeature>::value == false));
+    static_assert (!std::is_same_v<OBJECT1, SegmentDate>
+                   || !std::is_same_v<OBJECT2, SegmentDate>,
+                   "SegmentDate-to-SegmentDate links must use the dedicated routing helpers");
+    static_assert (!std::is_same_v<OBJECT1, Inventory>
+                   || !std::is_same_v<OBJECT2, AirlineFeature>,
+                   "Inventory-to-AirlineFeature links must use the dedicated helpers");
     
     ioBomHolder._bomList.push_back (&ioObject2);
   }
@@ -359,10 +365,12 @@ namespace stdair {
     // <SegmentDate, SegmentDate>
     // <AirlineFeature, Inventory>
     // 
-    BOOST_STATIC_ASSERT ((boost::is_same<OBJECT1, SegmentDate>::value == false
-                          || boost::is_same<OBJECT2, SegmentDate>::value == false));
-    BOOST_STATIC_ASSERT ((boost::is_same<OBJECT1, Inventory>::value == false
-                          || boost::is_same<OBJECT2, AirlineFeature>::value == false));
+    static_assert (!std::is_same_v<OBJECT1, SegmentDate>
+                   || !std::is_same_v<OBJECT2, SegmentDate>,
+                   "SegmentDate-to-SegmentDate links must use the dedicated routing helpers");
+    static_assert (!std::is_same_v<OBJECT1, Inventory>
+                   || !std::is_same_v<OBJECT2, AirlineFeature>,
+                   "Inventory-to-AirlineFeature links must use the dedicated helpers");
 
     BomHolder<OBJECT2>& lBomHolder = getBomHolder<OBJECT2> (ioObject1);
 
@@ -382,10 +390,12 @@ namespace stdair {
     // <SegmentDate, SegmentDate>
     // <AirlineFeature, Inventory>
     // 
-    BOOST_STATIC_ASSERT ((boost::is_same<OBJECT1, SegmentDate>::value == false
-                          || boost::is_same<OBJECT2, SegmentDate>::value == false));
-    BOOST_STATIC_ASSERT ((boost::is_same<OBJECT1, Inventory>::value == false
-                          || boost::is_same<OBJECT2, AirlineFeature>::value == false));
+    static_assert (!std::is_same_v<OBJECT1, SegmentDate>
+                   || !std::is_same_v<OBJECT2, SegmentDate>,
+                   "SegmentDate-to-SegmentDate links must use the dedicated routing helpers");
+    static_assert (!std::is_same_v<OBJECT1, Inventory>
+                   || !std::is_same_v<OBJECT2, AirlineFeature>,
+                   "Inventory-to-AirlineFeature links must use the dedicated helpers");
 
     const bool insertionSucceeded =
       ioBomHolder._bomMap.insert (typename std::map<const MapKey_T, OBJECT2*>::
@@ -399,16 +409,15 @@ namespace stdair {
            << "' object. That map already contains: '";
 
       unsigned int idx = 0;
-      for (typename std::map<const MapKey_T, OBJECT2*>::const_iterator iter =
-             ioBomHolder._bomMap.begin(); 
-           iter != ioBomHolder._bomMap.end(); ++iter, ++idx) {
-        const OBJECT2* lCurrentObject_ptr = iter->second;
-        assert (lCurrentObject_ptr != NULL);
+      for (const auto& [lCurrentKey, lCurrentObject_ptr] :
+             ioBomHolder._bomMap) {
+        assert (lCurrentObject_ptr != nullptr);
 
         if (idx != 0) {
           oStr << "; ";
         }
         oStr << lCurrentObject_ptr->describeKey();
+        ++idx;
       }
       oStr << "'";
 
@@ -429,10 +438,12 @@ namespace stdair {
     // <SegmentDate, SegmentDate>
     // <AirlineFeature, Inventory>
     // 
-    BOOST_STATIC_ASSERT ((boost::is_same<OBJECT1, SegmentDate>::value == false
-                          || boost::is_same<OBJECT2, SegmentDate>::value == false));
-    BOOST_STATIC_ASSERT ((boost::is_same<OBJECT1, Inventory>::value == false
-                          || boost::is_same<OBJECT2, AirlineFeature>::value == false));         
+    static_assert (!std::is_same_v<OBJECT1, SegmentDate>
+                   || !std::is_same_v<OBJECT2, SegmentDate>,
+                   "SegmentDate-to-SegmentDate links must use the dedicated routing helpers");
+    static_assert (!std::is_same_v<OBJECT1, Inventory>
+                   || !std::is_same_v<OBJECT2, AirlineFeature>,
+                   "Inventory-to-AirlineFeature links must use the dedicated helpers");         
 
     BomHolder<OBJECT2>& lBomHolder = getBomHolder<OBJECT2> (ioObject1);
 
@@ -451,10 +462,12 @@ namespace stdair {
     // <SegmentDate, SegmentDate>
     // <AirlineFeature, Inventory>
     // 
-    BOOST_STATIC_ASSERT ((boost::is_same<OBJECT1, SegmentDate>::value == false
-                          || boost::is_same<OBJECT2, SegmentDate>::value == false));
-    BOOST_STATIC_ASSERT ((boost::is_same<OBJECT1, Inventory>::value == false
-                          || boost::is_same<OBJECT2, AirlineFeature>::value == false));   
+    static_assert (!std::is_same_v<OBJECT1, SegmentDate>
+                   || !std::is_same_v<OBJECT2, SegmentDate>,
+                   "SegmentDate-to-SegmentDate links must use the dedicated routing helpers");
+    static_assert (!std::is_same_v<OBJECT1, Inventory>
+                   || !std::is_same_v<OBJECT2, AirlineFeature>,
+                   "Inventory-to-AirlineFeature links must use the dedicated helpers");   
     
     const MapKey_T& lKey = ioObject2.describeKey();
     addToMap (ioObject1, ioObject2, lKey);
@@ -472,10 +485,12 @@ namespace stdair {
     // <SegmentDate, SegmentDate>
     // <AirlineFeature, Inventory>
     // 
-    BOOST_STATIC_ASSERT ((boost::is_same<OBJECT1, SegmentDate>::value == false
-                          || boost::is_same<OBJECT2, SegmentDate>::value == false));
-    BOOST_STATIC_ASSERT ((boost::is_same<OBJECT1, Inventory>::value == false
-                          || boost::is_same<OBJECT2, AirlineFeature>::value == false));                
+    static_assert (!std::is_same_v<OBJECT1, SegmentDate>
+                   || !std::is_same_v<OBJECT2, SegmentDate>,
+                   "SegmentDate-to-SegmentDate links must use the dedicated routing helpers");
+    static_assert (!std::is_same_v<OBJECT1, Inventory>
+                   || !std::is_same_v<OBJECT2, AirlineFeature>,
+                   "Inventory-to-AirlineFeature links must use the dedicated helpers");                
     
     BomHolder<OBJECT2>& lBomHolder = getBomHolder<OBJECT2> (ioObject1);
 
@@ -495,10 +510,12 @@ namespace stdair {
     // <SegmentDate, SegmentDate>
     // <AirlineFeature, Inventory>
     // 
-    BOOST_STATIC_ASSERT ((boost::is_same<OBJECT1, SegmentDate>::value == false
-                          || boost::is_same<OBJECT2, SegmentDate>::value == false));
-    BOOST_STATIC_ASSERT ((boost::is_same<OBJECT1, Inventory>::value == false
-                          || boost::is_same<OBJECT2, AirlineFeature>::value == false));          
+    static_assert (!std::is_same_v<OBJECT1, SegmentDate>
+                   || !std::is_same_v<OBJECT2, SegmentDate>,
+                   "SegmentDate-to-SegmentDate links must use the dedicated routing helpers");
+    static_assert (!std::is_same_v<OBJECT1, Inventory>
+                   || !std::is_same_v<OBJECT2, AirlineFeature>,
+                   "Inventory-to-AirlineFeature links must use the dedicated helpers");          
     
     const MapKey_T& lKey = ioObject2.describeKey();
     addToListAndMap<OBJECT1, OBJECT2> (ioObject1, ioObject2, lKey);
@@ -559,4 +576,4 @@ namespace stdair {
 
 // ////////////////////////////////////////////////////////////////////
 
-#endif // __STDAIR_FAC_FACBOMMANAGER_HPP
+#endif // STDAIR_FAC_FACBOMMANAGER_HPP

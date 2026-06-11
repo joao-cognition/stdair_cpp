@@ -1,6 +1,6 @@
 // //////////////////////////////////////////////////////////////////////
-#ifndef __STDAIR_BOM_AIRPORTPAIRTYPES_HPP
-#define __STDAIR_BOM_AIRPORTPAIRTYPES_HPP
+#ifndef STDAIR_BOM_AIRPORTPAIRTYPES_HPP
+#define STDAIR_BOM_AIRPORTPAIRTYPES_HPP
 
 // //////////////////////////////////////////////////////////////////////
 // Import section
@@ -17,14 +17,14 @@ namespace stdair {
   class AirportPair;
   
   /** Define the airport-pair list. */
-  typedef std::list<AirportPair*> AirportPairList_T;
+  using AirportPairList_T = std::list<AirportPair*>;
 
   /** Define the airport-pair map. */
-  typedef std::map<const MapKey_T, AirportPair*> AirportPairMap_T;
+  using AirportPairMap_T = std::map<const MapKey_T, AirportPair*>;
 
   /** Define the list of pair<MapKey_T, AirportPair>. */
-  typedef std::pair<MapKey_T, AirportPair*> AirportPairWithKey_T;
-  typedef std::list<AirportPairWithKey_T> AirportPairDetailedList_T;
+  using AirportPairWithKey_T = std::pair<MapKey_T, AirportPair*>;
+  using AirportPairDetailedList_T = std::list<AirportPairWithKey_T>;
 }
-#endif // __STDAIR_BOM_AIRPORTPAIRTYPES_HPP
+#endif // STDAIR_BOM_AIRPORTPAIRTYPES_HPP
 

@@ -1,14 +1,14 @@
 // //////////////////////////////////////////////////////////////////////
-#ifndef __STDAIR_BOM_BOOKINGREQUESTTYPES_HPP
-#define __STDAIR_BOM_BOOKINGREQUESTTYPES_HPP
+#ifndef STDAIR_BOM_BOOKINGREQUESTTYPES_HPP
+#define STDAIR_BOM_BOOKINGREQUESTTYPES_HPP
 
 // //////////////////////////////////////////////////////////////////////
 // Import section
 // //////////////////////////////////////////////////////////////////////
 // STL
 #include <string>
-// Boost
-#include <boost/shared_ptr.hpp>
+// STL
+#include <memory>
 
 namespace stdair {
 
@@ -17,12 +17,12 @@ namespace stdair {
   
   // ///////////// Type definitions //////////////
   /** Define the smart pointer to a booking request. */
-  typedef boost::shared_ptr<BookingRequestStruct> BookingRequestPtr_T;
+  using BookingRequestPtr_T = std::shared_ptr<BookingRequestStruct>;
   
   /** Define the hash key for the demand generator. */
-  typedef std::string DemandGeneratorKey_T;
+  using DemandGeneratorKey_T = std::string;
 
   
 }
-#endif // __STDAIR_BOM_BOOKINGREQUESTTYPES_HPP
+#endif // STDAIR_BOM_BOOKINGREQUESTTYPES_HPP
 

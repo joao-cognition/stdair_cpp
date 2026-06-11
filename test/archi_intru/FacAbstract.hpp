@@ -1,5 +1,5 @@
-#ifndef __INTRUSIVE_FAC_FACABSTRACT_HPP
-#define __INTRUSIVE_FAC_FACABSTRACT_HPP
+#ifndef INTRUSIVE_FAC_FACABSTRACT_HPP
+#define INTRUSIVE_FAC_FACABSTRACT_HPP
 
 // //////////////////////////////////////////////////////////////////////
 // Import section
@@ -19,4 +19,4 @@ namespace stdair {
     FacAbstract() {}
   };
 }
-#endif // __INTRUSIVE_FAC_FACABSTRACT_HPP
+#endif // INTRUSIVE_FAC_FACABSTRACT_HPP

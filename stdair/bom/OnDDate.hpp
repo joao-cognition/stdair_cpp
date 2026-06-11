@@ -1,5 +1,5 @@
-#ifndef __STDAIR_BOM_ONDDATE_HPP
-#define __STDAIR_BOM_ONDDATE_HPP
+#ifndef STDAIR_BOM_ONDDATE_HPP
+#define STDAIR_BOM_ONDDATE_HPP
 
 // //////////////////////////////////////////////////////////////////////
 // Import section
@@ -41,7 +41,7 @@ namespace stdair {
     /**
      * Definition allowing to retrieve the associated BOM key type.
      */
-    typedef OnDDateKey Key_T;
+    using Key_T = OnDDateKey;
 
     
   public:
@@ -52,7 +52,7 @@ namespace stdair {
     }
 
     /** Get the parent object. */
-    BomAbstract* const getParent() const {
+    BomAbstract* getParent() const {
       return _parent;
     }
 
@@ -121,7 +121,7 @@ namespace stdair {
     /**
      * Get the number of segments of the O&D.
      */
-    const short getNbOfSegments () const {
+    short getNbOfSegments () const {
       return _key.getNbOfSegments();
     }
 
@@ -153,7 +153,7 @@ namespace stdair {
      *
      * @param istream& the input stream.
      */
-    void fromStream (std::istream& ioIn) {
+    void fromStream (std::istream& /*ioIn*/) {
     }
 
     /**
@@ -243,4 +243,4 @@ namespace stdair {
   };
 
 }
-#endif // __STDAIR_BOM_ONDDATE_HPP
+#endif // STDAIR_BOM_ONDDATE_HPP

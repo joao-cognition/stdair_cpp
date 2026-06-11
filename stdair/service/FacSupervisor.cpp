@@ -12,22 +12,17 @@
 
 namespace stdair {
 
-  FacSupervisor* FacSupervisor::_instance = NULL;
-
   // //////////////////////////////////////////////////////////////////////
   FacSupervisor& FacSupervisor::instance() {
-    if (_instance == NULL) {
-      _instance = new FacSupervisor();
-    }
-
-    return *_instance;
+    static FacSupervisor lInstance;
+    return lInstance;
   }
 
   // //////////////////////////////////////////////////////////////////////
   FacSupervisor::~FacSupervisor() {
-    cleanPersistentBomLayer();
-    cleanCloneBomLayer();
-    cleanServiceLayer();
+    // The registered factories are Meyer's singletons: they clean their
+    // own pools of objects when they are themselves destroyed, at the
+    // end of the program.
   }  
 
   // //////////////////////////////////////////////////////////////////////
@@ -47,43 +42,26 @@ namespace stdair {
 
   // //////////////////////////////////////////////////////////////////////
   void FacSupervisor::cleanPersistentBomLayer() { 
-    for (PersistentBomFactoryPool_T::const_iterator itFactory = _persistentBomPool.begin();
-         itFactory != _persistentBomPool.end(); itFactory++) {
-      const FacAbstract* currentFactory_ptr = *itFactory;
-      assert (currentFactory_ptr != NULL);
-
-      delete (currentFactory_ptr); currentFactory_ptr = NULL;
+    for (FacAbstract* lCurrentFactory_ptr : _persistentBomPool) {
+      assert (lCurrentFactory_ptr != nullptr);
+      lCurrentFactory_ptr->clean();
     }
-    // Empty the pool of BOM factories
-    _persistentBomPool.clear();
   }
 
   // //////////////////////////////////////////////////////////////////////
   void FacSupervisor::cleanCloneBomLayer() {
-    for (CloneBomFactoryPool_T::const_iterator itFactory = _cloneBomPool.begin();
-         itFactory != _cloneBomPool.end(); itFactory++) {
-      const FacAbstract* currentFactory_ptr = *itFactory;
-      assert (currentFactory_ptr != NULL);
-
-      delete (currentFactory_ptr); currentFactory_ptr = NULL;
+    for (FacAbstract* lCurrentFactory_ptr : _cloneBomPool) {
+      assert (lCurrentFactory_ptr != nullptr);
+      lCurrentFactory_ptr->clean();
     }
-
-    // Empty the pool of BOM factories
-    _cloneBomPool.clear();
   }
 
   // //////////////////////////////////////////////////////////////////////
   void FacSupervisor::cleanServiceLayer() {
-    for (ServiceFactoryPool_T::const_iterator itFactory = _svcPool.begin();
-         itFactory != _svcPool.end(); itFactory++) {
-      const FacServiceAbstract* currentFactory_ptr = *itFactory;
-      assert (currentFactory_ptr != NULL);
-      
-      delete (currentFactory_ptr); currentFactory_ptr = NULL;
+    for (FacServiceAbstract* lCurrentFactory_ptr : _svcPool) {
+      assert (lCurrentFactory_ptr != nullptr);
+      lCurrentFactory_ptr->clean();
     }
-    
-    // Empty the pool of Service Factories
-    _svcPool.clear();
   }
 
   // //////////////////////////////////////////////////////////////////////
@@ -107,10 +85,11 @@ namespace stdair {
     // Clean the static instance of the log service
     cleanLoggerService();
 
-    // Clean the static instance of the FacSupervisor.
-    // This in turn will invoke the destructor (~FacSupervisor() method)
-    // of the static instance, thus cleaning both the BOM and service layers.
-    delete _instance; _instance = NULL;
+    // Clean both the BOM and service layers.
+    FacSupervisor& lInstance = instance();
+    lInstance.cleanPersistentBomLayer();
+    lInstance.cleanCloneBomLayer();
+    lInstance.cleanServiceLayer();
   }
 
 }

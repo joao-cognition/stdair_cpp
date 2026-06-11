@@ -1,5 +1,5 @@
-#ifndef __STDAIR_BOM_NESTINGNODE_HPP
-#define __STDAIR_BOM_NESTINGNODE_HPP
+#ifndef STDAIR_BOM_NESTINGNODE_HPP
+#define STDAIR_BOM_NESTINGNODE_HPP
 
 // //////////////////////////////////////////////////////////////////////
 // Import section
@@ -36,7 +36,7 @@ namespace stdair {
     /**
      * Definition allowing to retrieve the associated BOM key type.
      */
-    typedef NestingNodeKey Key_T;
+    using Key_T = NestingNodeKey;
       
   public:
     // /////////////////// Getters ////////////////////////
@@ -46,7 +46,7 @@ namespace stdair {
     }
 
     /** Get the parent object. */
-    BomAbstract* const getParent() const {
+    BomAbstract* getParent() const {
       return _parent;
     }
 
@@ -86,7 +86,7 @@ namespace stdair {
      *
      * @param istream& the input stream.
      */
-    void fromStream (std::istream& ioIn) {
+    void fromStream (std::istream& /*ioIn*/) {
     }
 
     /**
@@ -170,4 +170,4 @@ namespace stdair {
 
   };
 }
-#endif // __STDAIR_BOM_NESTINGNODE_HPP
+#endif // STDAIR_BOM_NESTINGNODE_HPP

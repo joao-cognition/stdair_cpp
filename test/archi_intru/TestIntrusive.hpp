@@ -1,5 +1,5 @@
-#ifndef __INTRUSIVE_TST_TESTINTRUSIVE_HPP
-#define __INTRUSIVE_TST_TESTINTRUSIVE_HPP
+#ifndef INTRUSIVE_TST_TESTINTRUSIVE_HPP
+#define INTRUSIVE_TST_TESTINTRUSIVE_HPP
 
 // //////////////////////////////////////////////////////////////////////
 // Import section
@@ -63,4 +63,4 @@ private:
   stdair::FlightDateChildSet _flightDateChildSet;
 };
 
-#endif // __INTRUSIVE_TST_TESTINTRUSIVE_HPP
+#endif // INTRUSIVE_TST_TESTINTRUSIVE_HPP

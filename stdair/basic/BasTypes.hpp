@@ -1,6 +1,6 @@
 // //////////////////////////////////////////////////////////////////////
-#ifndef __STDAIR_BAS_BASTYPES_HPP
-#define __STDAIR_BAS_BASTYPES_HPP
+#ifndef STDAIR_BAS_BASTYPES_HPP
+#define STDAIR_BAS_BASTYPES_HPP
 
 // //////////////////////////////////////////////////////////////////////
 // Import section
@@ -11,4 +11,4 @@
 namespace stdair {
 
 }
-#endif // __STDAIR_BAS_BASTYPES_HPP
+#endif // STDAIR_BAS_BASTYPES_HPP

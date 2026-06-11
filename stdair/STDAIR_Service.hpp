@@ -9,8 +9,8 @@
  *
  *         Install the StdAir library for Airline IT Standard C++ fundaments.
  */
-#ifndef __STDAIR_STDAIR_HPP
-#define __STDAIR_STDAIR_HPP
+#ifndef STDAIR_STDAIR_HPP
+#define STDAIR_STDAIR_HPP
 
 // //////////////////////////////////////////////////////////////////////
 // Import section
@@ -18,6 +18,7 @@
 // STL
 #include <string>
 // StdAir
+#include <stdair/stdair_exceptions.hpp>
 #include <stdair/stdair_inventory_types.hpp>
 #include <stdair/stdair_service_types.hpp>
 #include <stdair/stdair_file.hpp>
@@ -553,7 +554,10 @@ namespace stdair {
 					  const std::string& iPath) {  
 
     // Retrieve the StdAir service context
-    assert (_stdairServiceContext != NULL);
+    if (_stdairServiceContext == nullptr) {
+      throw NonInitialisedServiceException ("The StdAir service has not "
+                                            "been initialised");
+    }
     const STDAIR_ServiceContext& lSTDAIR_ServiceContext = 
       *_stdairServiceContext;
 
@@ -567,4 +571,4 @@ namespace stdair {
   // ////////////////////////////////////////////////////////////////////
 
 }
-#endif // __STDAIR_STDAIR_HPP
+#endif // STDAIR_STDAIR_HPP

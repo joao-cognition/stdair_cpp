@@ -1,5 +1,5 @@
-#ifndef __STDAIR_STDAIR_EVENT_TYPES_HPP
-#define __STDAIR_STDAIR_EVENT_TYPES_HPP
+#ifndef STDAIR_STDAIR_EVENT_TYPES_HPP
+#define STDAIR_STDAIR_EVENT_TYPES_HPP
 
 // //////////////////////////////////////////////////////////////////////
 // Import section
@@ -11,13 +11,13 @@ namespace stdair {
 
   // //////// Type definitions /////////
   /** Define the name of an event. */
-  typedef std::string EventName_T;
+  using EventName_T = std::string;
 
   /** Define a number of events. */
-  typedef double NbOfEvents_T;
+  using NbOfEvents_T = double;
 
   /** Define a key string of an event generator. */
-  typedef std::string EventGeneratorKey_T;
+  using EventGeneratorKey_T = std::string;
 
 }
-#endif // __STDAIR_STDAIR_EVENT_TYPES_HPP
+#endif // STDAIR_STDAIR_EVENT_TYPES_HPP

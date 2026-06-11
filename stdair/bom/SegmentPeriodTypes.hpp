@@ -1,6 +1,6 @@
 // //////////////////////////////////////////////////////////////////////
-#ifndef __STDAIR_BOM_SEGMENTPERIODTYPES_HPP
-#define __STDAIR_BOM_SEGMENTPERIODTYPES_HPP
+#ifndef STDAIR_BOM_SEGMENTPERIODTYPES_HPP
+#define STDAIR_BOM_SEGMENTPERIODTYPES_HPP
 
 // //////////////////////////////////////////////////////////////////////
 // Import section
@@ -17,14 +17,14 @@ namespace stdair {
   class SegmentPeriod;
   
   /** Define the segment-period list. */
-  typedef std::list<SegmentPeriod*> SegmentPeriodList_T;
+  using SegmentPeriodList_T = std::list<SegmentPeriod*>;
 
   /** Define the segment-period map. */
-  typedef std::map<const MapKey_T, SegmentPeriod*> SegmentPeriodMap_T;
+  using SegmentPeriodMap_T = std::map<const MapKey_T, SegmentPeriod*>;
 
   /** Define the list of pair<MapKey_T, SegmentPeriod>. */
-  typedef std::pair<MapKey_T, SegmentPeriod*> SegmentPeriodWithKey_T;
-  typedef std::list<SegmentPeriodWithKey_T> SegmentPeriodDetailedList_T;
+  using SegmentPeriodWithKey_T = std::pair<MapKey_T, SegmentPeriod*>;
+  using SegmentPeriodDetailedList_T = std::list<SegmentPeriodWithKey_T>;
 }
-#endif // __STDAIR_BOM_SEGMENTPERIODTYPES_HPP
+#endif // STDAIR_BOM_SEGMENTPERIODTYPES_HPP
 

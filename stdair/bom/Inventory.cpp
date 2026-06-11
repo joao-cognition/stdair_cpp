@@ -15,23 +15,23 @@ namespace stdair {
   // ////////////////////////////////////////////////////////////////////
   Inventory::Inventory() :
     _key (DEFAULT_AIRLINE_CODE),
-    _parent (NULL),
-    _airlineFeature (NULL) {
+    _parent (nullptr),
+    _airlineFeature (nullptr) {
     // That constructor is used by the serialisation process
   }
 
   // ////////////////////////////////////////////////////////////////////
   Inventory::Inventory (const Inventory& iInventory)
-    : _key (iInventory._key),
-      _parent (NULL),
-      _airlineFeature (NULL) {
+    : BomAbstract(), _key (iInventory._key),
+      _parent (nullptr),
+      _airlineFeature (nullptr) {
   }
 
   // ////////////////////////////////////////////////////////////////////
   Inventory::Inventory (const Key_T& iKey) :
     _key (iKey),
-    _parent (NULL),
-    _airlineFeature (NULL) {
+    _parent (nullptr),
+    _airlineFeature (nullptr) {
   }
 
   // ////////////////////////////////////////////////////////////////////
@@ -62,35 +62,35 @@ namespace stdair {
   // ////////////////////////////////////////////////////////////////////
   ForecastingMethod::EN_ForecastingMethod Inventory::
   getForecastingMethod() const {
-    assert (_airlineFeature != NULL);
+    assert (_airlineFeature != nullptr);
     return _airlineFeature->getForecastingMethod();
   }
 
   // ////////////////////////////////////////////////////////////////////
   UnconstrainingMethod::EN_UnconstrainingMethod Inventory::
   getUnconstrainingMethod() const {
-    assert (_airlineFeature != NULL);
+    assert (_airlineFeature != nullptr);
     return _airlineFeature->getUnconstrainingMethod();
   }
   
   // ////////////////////////////////////////////////////////////////////
   PreOptimisationMethod::EN_PreOptimisationMethod Inventory::
   getPreOptimisationMethod() const {
-    assert (_airlineFeature != NULL);
+    assert (_airlineFeature != nullptr);
     return _airlineFeature->getPreOptimisationMethod();
   }
   
   // ////////////////////////////////////////////////////////////////////
   OptimisationMethod::EN_OptimisationMethod Inventory::
   getOptimisationMethod() const {
-    assert (_airlineFeature != NULL);
+    assert (_airlineFeature != nullptr);
     return _airlineFeature->getOptimisationMethod();
   }
   
   // ////////////////////////////////////////////////////////////////////
   PartnershipTechnique::EN_PartnershipTechnique Inventory::
   getPartnershipTechnique() const {
-    assert (_airlineFeature != NULL);
+    assert (_airlineFeature != nullptr);
     return _airlineFeature->getPartnershipTechnique();
   }
 

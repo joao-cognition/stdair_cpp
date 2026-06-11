@@ -1,5 +1,5 @@
-#ifndef __STDAIR_SVC_FACSTDAIRSERVICECONTEXT_HPP
-#define __STDAIR_SVC_FACSTDAIRSERVICECONTEXT_HPP
+#ifndef STDAIR_SVC_FACSTDAIRSERVICECONTEXT_HPP
+#define STDAIR_SVC_FACSTDAIRSERVICECONTEXT_HPP
 
 // //////////////////////////////////////////////////////////////////////
 // Import section
@@ -29,11 +29,8 @@ namespace stdair {
 
     /**
      * Destructor.
-     *
-     * The Destruction put the _instance to NULL
-     * in order to be clean for the next FacSTDAIRServiceContext::instance().
      */
-    ~FacSTDAIRServiceContext();
+    ~FacSTDAIRServiceContext() override;
 
     /**
      * Create a new STDAIR_ServiceContext object.
@@ -52,13 +49,7 @@ namespace stdair {
      * This constructor is protected in order to ensure the singleton pattern.
      */
     FacSTDAIRServiceContext() {}
-
-  private:
-    /**
-     * The unique instance.
-     */
-    static FacSTDAIRServiceContext* _instance;
   };
 
 }
-#endif // __STDAIR_SVC_FACSTDAIRSERVICECONTEXT_HPP
+#endif // STDAIR_SVC_FACSTDAIRSERVICECONTEXT_HPP

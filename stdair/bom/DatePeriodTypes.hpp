@@ -1,6 +1,6 @@
 // //////////////////////////////////////////////////////////////////////
-#ifndef __STDAIR_BOM_DATEPERIODTYPES_HPP
-#define __STDAIR_BOM_DATEPERIODTYPES_HPP
+#ifndef STDAIR_BOM_DATEPERIODTYPES_HPP
+#define STDAIR_BOM_DATEPERIODTYPES_HPP
 
 // //////////////////////////////////////////////////////////////////////
 // Import section
@@ -17,14 +17,14 @@ namespace stdair {
   class DatePeriod;
   
   /** Define the date-period list. */
-  typedef std::list<DatePeriod*> DatePeriodList_T;
+  using DatePeriodList_T = std::list<DatePeriod*>;
 
   /** Define the date-period  map. */
-  typedef std::map<const MapKey_T, DatePeriod*> DatePeriodMap_T;
+  using DatePeriodMap_T = std::map<const MapKey_T, DatePeriod*>;
 
   /** Define the list of pair<MapKey_T, DatePeriod>. */
-  typedef std::pair<MapKey_T, DatePeriod*> DatePeriodWithKey_T;
-  typedef std::list<DatePeriodWithKey_T> DatePeriodDetailedList_T;
+  using DatePeriodWithKey_T = std::pair<MapKey_T, DatePeriod*>;
+  using DatePeriodDetailedList_T = std::list<DatePeriodWithKey_T>;
 }
-#endif // __STDAIR_BOM_DATEPERIODTYPES_HPP
+#endif // STDAIR_BOM_DATEPERIODTYPES_HPP
 

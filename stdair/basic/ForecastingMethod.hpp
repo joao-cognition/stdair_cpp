@@ -1,5 +1,5 @@
-#ifndef __STDAIR_BAS_FORECASTINGMETHOD_HPP
-#define __STDAIR_BAS_FORECASTINGMETHOD_HPP
+#ifndef STDAIR_BAS_FORECASTINGMETHOD_HPP
+#define STDAIR_BAS_FORECASTINGMETHOD_HPP
 
 // //////////////////////////////////////////////////////////////////////
 // Import section
@@ -14,14 +14,14 @@ namespace stdair {
   /** Enumeration of forecasting methods. */
   struct ForecastingMethod : public StructAbstract {
   public:
-    typedef enum {
+    enum EN_ForecastingMethod {
       Q_FORECASTING = 0,
       HYBRID_FORECASTING,
       OLD_QFF,
       NEW_QFF,
       BASED_FORECASTING,
       LAST_VALUE
-    } EN_ForecastingMethod;
+    };
 
     /** Get the label as a string (e.g., "Q Forecasting", "Hybrid Forecasting",
         "Old QFF" or "New QFF"). */
@@ -59,6 +59,8 @@ namespace stdair {
     ForecastingMethod (const char iMethod);
     /** Default copy constructor. */
     ForecastingMethod (const ForecastingMethod&);
+    /** Default copy assignment operator. */
+    ForecastingMethod& operator= (const ForecastingMethod&) = default;
 
   private:
     /** Default constructor. */
@@ -79,4 +81,4 @@ namespace stdair {
   };
 
 }
-#endif // __STDAIR_BAS_FORECASTINGMETHOD_HPP
+#endif // STDAIR_BAS_FORECASTINGMETHOD_HPP

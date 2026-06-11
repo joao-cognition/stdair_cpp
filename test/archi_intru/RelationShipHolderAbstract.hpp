@@ -1,5 +1,5 @@
-#ifndef __INTRUSIVE_BOM_RELATIONSHIPHOLDERABSTRACT_HPP
-#define __INTRUSIVE_BOM_RELATIONSHIPHOLDERABSTRACT_HPP
+#ifndef INTRUSIVE_BOM_RELATIONSHIPHOLDERABSTRACT_HPP
+#define INTRUSIVE_BOM_RELATIONSHIPHOLDERABSTRACT_HPP
 
 // //////////////////////////////////////////////////////////////////////
 // Import section
@@ -129,4 +129,4 @@ operator>> (std::basic_istream<charT, traits>& ioIn,
   return ioIn;
 }
 
-#endif // __INTRUSIVE_BOM_RELATIONSHIPHOLDERABSTRACT_HPP
+#endif // INTRUSIVE_BOM_RELATIONSHIPHOLDERABSTRACT_HPP

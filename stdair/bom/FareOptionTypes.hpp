@@ -1,6 +1,6 @@
 // //////////////////////////////////////////////////////////////////////
-#ifndef __STDAIR_BOM_FAREOPTIONTYPES_HPP
-#define __STDAIR_BOM_FAREOPTIONTYPES_HPP
+#ifndef STDAIR_BOM_FAREOPTIONTYPES_HPP
+#define STDAIR_BOM_FAREOPTIONTYPES_HPP
 
 // //////////////////////////////////////////////////////////////////////
 // Import section
@@ -18,8 +18,8 @@ namespace stdair {
   struct FareOptionStruct;
   
   /** Define the booking class list. */
-  typedef std::list<FareOptionStruct> FareOptionList_T;
+  using FareOptionList_T = std::list<FareOptionStruct>;
 
 }
-#endif // __STDAIR_BOM_FAREOPTIONTYPES_HPP
+#endif // STDAIR_BOM_FAREOPTIONTYPES_HPP
 

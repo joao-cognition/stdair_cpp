@@ -38,7 +38,7 @@ namespace stdair {
   }
 
   // ////////////////////////////////////////////////////////////////////
-  void VirtualClassStruct::fromStream (std::istream& ioIn) {
+  void VirtualClassStruct::fromStream (std::istream& /*ioIn*/) {
   }
   
   // ////////////////////////////////////////////////////////////////////
@@ -69,7 +69,7 @@ namespace stdair {
         ++itBC;
         for (; itBC != _bookingClassList.end(); ++ itBC) {
           lBC_ptr = *itBC;
-          assert(lBC_ptr != NULL);
+          assert(lBC_ptr != nullptr);
           const GeneratedDemandVector_T& lCurrentDemandVector = 
             lBC_ptr->getGeneratedDemandVector();
           const unsigned int& lCurrentDemandVectorSize = 

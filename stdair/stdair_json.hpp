@@ -1,5 +1,5 @@
-#ifndef __STDAIR_STDAIR_JSON_HPP
-#define __STDAIR_STDAIR_JSON_HPP
+#ifndef STDAIR_STDAIR_JSON_HPP
+#define STDAIR_STDAIR_JSON_HPP
 
 // //////////////////////////////////////////////////////////////////////
 // Import section
@@ -45,4 +45,4 @@ namespace stdair {
   };
 
 }
-#endif // __STDAIR_STDAIR_JSON_HPP
+#endif // STDAIR_STDAIR_JSON_HPP

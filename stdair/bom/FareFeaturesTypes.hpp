@@ -1,6 +1,6 @@
 // //////////////////////////////////////////////////////////////////////
-#ifndef __STDAIR_BOM_FAREFEATURESTYPES_HPP
-#define __STDAIR_BOM_FAREFEATURESTYPES_HPP
+#ifndef STDAIR_BOM_FAREFEATURESTYPES_HPP
+#define STDAIR_BOM_FAREFEATURESTYPES_HPP
 
 // //////////////////////////////////////////////////////////////////////
 // Import section
@@ -17,14 +17,14 @@ namespace stdair {
   class FareFeatures;
   
   /** Define the date-period list. */
-  typedef std::list<FareFeatures*> FareFeaturesList_T;
+  using FareFeaturesList_T = std::list<FareFeatures*>;
 
   /** Define the date-period  map. */
-  typedef std::map<const MapKey_T, FareFeatures*> FareFeaturesMap_T;
+  using FareFeaturesMap_T = std::map<const MapKey_T, FareFeatures*>;
 
   /** Define the list of pair<MapKey_T, FareFeatures>. */
-  typedef std::pair<MapKey_T, FareFeatures*> FareFeaturesWithKey_T;
-  typedef std::list<FareFeaturesWithKey_T> FareFeaturesDetailedList_T;
+  using FareFeaturesWithKey_T = std::pair<MapKey_T, FareFeatures*>;
+  using FareFeaturesDetailedList_T = std::list<FareFeaturesWithKey_T>;
 }
-#endif // __STDAIR_BOM_FAREFEATURESTYPES_HPP
+#endif // STDAIR_BOM_FAREFEATURESTYPES_HPP
 

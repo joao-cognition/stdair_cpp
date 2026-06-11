@@ -36,7 +36,7 @@ namespace stdair {
       for (InventoryList_T::const_iterator itInv = lInventoryList.begin();
 	   itInv != lInventoryList.end(); ++itInv) {
 	const Inventory* lInv_ptr = *itInv;
-	assert (lInv_ptr != NULL);
+	assert (lInv_ptr != nullptr);
 
 	// Clone the current inventory
 	Inventory& lCloneInventory = cloneInventory (*lInv_ptr, ioCloneBomRoot);
@@ -57,7 +57,7 @@ namespace stdair {
              lAirportPairList.begin();
 	   itAirportPair != lAirportPairList.end(); ++itAirportPair) {
 	const AirportPair* lAirportPair_ptr = *itAirportPair;
-	assert (lAirportPair_ptr != NULL);
+	assert (lAirportPair_ptr != nullptr);
 
 	// Clone the current airport pair
 	AirportPair& lCloneAirportPair = cloneAirportPair (*lAirportPair_ptr);
@@ -86,7 +86,7 @@ namespace stdair {
       for (FlightDateList_T::const_iterator itFD = lFlightDateList.begin();
 	   itFD != lFlightDateList.end(); ++itFD) {
 	const FlightDate* lFD_ptr = *itFD;
-	assert (lFD_ptr != NULL);
+	assert (lFD_ptr != nullptr);
       
 	// Clone the current flight-date
 	FlightDate& lCloneFD = cloneFlightDate (*lFD_ptr);
@@ -107,7 +107,7 @@ namespace stdair {
              lPartnerInventoryList.begin();
            itInv != lPartnerInventoryList.end(); ++itInv) {           
         const Inventory* lInv_ptr = *itInv;
-        assert (lInv_ptr != NULL);
+        assert (lInv_ptr != nullptr);
 	
         // Clone the current partnership inventory
         Inventory& lClonePartnerInventory = cloneInventory (*lInv_ptr,
@@ -130,7 +130,7 @@ namespace stdair {
       for (OnDDateList_T::const_iterator itOnD = lOnDDateList.begin();
            itOnD != lOnDDateList.end(); ++itOnD) {
         const OnDDate* lOnDDate_ptr = *itOnD;
-        assert (lOnDDate_ptr != NULL);
+        assert (lOnDDate_ptr != nullptr);
 
         // Clone the current O&D date
 	OnDDate& lCloneOnDDate = cloneOnDDate (*lOnDDate_ptr);
@@ -151,7 +151,7 @@ namespace stdair {
              lFlightPeriodList.begin();
 	   itFlightPeriod != lFlightPeriodList.end(); ++itFlightPeriod) {
 	const FlightPeriod* lFlightPeriod_ptr = *itFlightPeriod;
-	assert (lFlightPeriod_ptr != NULL);
+	assert (lFlightPeriod_ptr != nullptr);
 
 	// Clone the current flight period
 	FlightPeriod& lCloneFlightPeriod = cloneFlightPeriod (*lFlightPeriod_ptr);
@@ -164,7 +164,7 @@ namespace stdair {
     const AirlineFeature* lAirlineFeature_ptr =
       BomManager::getObjectPtr<AirlineFeature,Inventory> (iInventory,
                                                           iInventory.getAirlineCode());
-    if (lAirlineFeature_ptr != NULL) {
+    if (lAirlineFeature_ptr != nullptr) {
       // Clone the current airline feature object
       AirlineFeature& lCloneAirlineFeature =
         cloneAirlineFeature (*lAirlineFeature_ptr);
@@ -223,7 +223,7 @@ namespace stdair {
       for (LegDateList_T::const_iterator itLD = lLegDateList.begin();
 	   itLD != lLegDateList.end(); ++itLD) {
 	const LegDate* lLD_ptr = *itLD;
-	assert (lLD_ptr != NULL); 
+	assert (lLD_ptr != nullptr); 
 
 	// Clone the current leg-date
 	LegDate& lCloneLegDate = cloneLegDate (*lLD_ptr);
@@ -243,7 +243,7 @@ namespace stdair {
       for (SegmentDateList_T::const_iterator itSD = lSegmentDateList.begin();
 	   itSD != lSegmentDateList.end(); ++itSD) {
 	const SegmentDate* lSD_ptr = *itSD;
-	assert (lSD_ptr != NULL);	
+	assert (lSD_ptr != nullptr);	
 
 	// Clone the current segment-date
 	SegmentDate& lCloneSegmentDate = cloneSegmentDate (*lSD_ptr);
@@ -274,7 +274,7 @@ namespace stdair {
       for (LegCabinList_T::const_iterator itLC = lLegCabinList.begin();
            itLC != lLegCabinList.end(); ++itLC) {
         const LegCabin* lLC_ptr = *itLC;
-        assert (lLC_ptr != NULL);
+        assert (lLC_ptr != nullptr);
 
         // Clone the current leg-cabin	
         LegCabin& lCloneLegCabin = cloneLegCabin (*lLC_ptr);
@@ -304,7 +304,7 @@ namespace stdair {
       for (BucketList_T::const_iterator itBucket = lBucketList.begin();
            itBucket != lBucketList.end(); ++itBucket) {
         const Bucket* lBucket_ptr = *itBucket;
-        assert (lBucket_ptr != NULL);
+        assert (lBucket_ptr != nullptr);
 
         // Clone the current bucket
         Bucket& lCloneBucket = cloneBucket (*lBucket_ptr);
@@ -348,7 +348,7 @@ namespace stdair {
       for (SegmentCabinList_T::const_iterator itSC = lSegmentCabinList.begin();
            itSC != lSegmentCabinList.end(); ++itSC) {
         const SegmentCabin* lSC_ptr = *itSC;
-        assert (lSC_ptr != NULL);
+        assert (lSC_ptr != nullptr);
 
         // Clone the current segment-cabin	
         SegmentCabin& lCloneSegmentCabin = cloneSegmentCabin (*lSC_ptr);
@@ -378,7 +378,7 @@ namespace stdair {
       for (FareFamilyList_T::const_iterator itCloneFF = lCloneFFList.begin();
 	   itCloneFF != lCloneFFList.end(); ++itCloneFF) {
 	const FareFamily* lCloneFF_ptr = *itCloneFF;
-	assert (lCloneFF_ptr != NULL);
+	assert (lCloneFF_ptr != nullptr);
 
 	// Browse the list of booking classes 
 	const bool hasBookingClasslist = 
@@ -390,7 +390,7 @@ namespace stdair {
 		 lCloneBCList.begin();
 	       itCloneBC != lCloneBCList.end(); ++itCloneBC) {
 	    const BookingClass* lCloneBC_ptr = *itCloneBC;
-	    assert (lCloneBC_ptr != NULL);
+	    assert (lCloneBC_ptr != nullptr);
 		
 	    // Link the booking-class to the segment-cabin
 	    stdair::FacBomManager::addToListAndMap (iCloneSegmentCabin, 
@@ -425,7 +425,7 @@ namespace stdair {
       for (FareFamilyList_T::const_iterator itFF = lFareFamilyList.begin();
            itFF != lFareFamilyList.end(); ++itFF) {
         const FareFamily* lFF_ptr = *itFF;
-        assert (lFF_ptr != NULL);
+        assert (lFF_ptr != nullptr);
 
         // Clone the current fare-family	
         FareFamily& lCloneFareFamily = cloneFareFamily (*lFF_ptr);
@@ -457,7 +457,7 @@ namespace stdair {
              lBookingClassList.begin();
            itBookingClass != lBookingClassList.end(); ++itBookingClass) {
         const BookingClass* lBC_ptr = *itBookingClass;
-        assert (lBC_ptr != NULL);
+        assert (lBC_ptr != nullptr);
 
         // Clone the current booking class
         BookingClass& lCloneBookingClass = cloneBookingClass (*lBC_ptr);
@@ -503,7 +503,7 @@ namespace stdair {
              lDatePeriodList.begin();
            itDatePeriod != lDatePeriodList.end(); ++itDatePeriod) {
         const DatePeriod* lDatePeriod_ptr = *itDatePeriod;
-        assert (lDatePeriod_ptr != NULL);
+        assert (lDatePeriod_ptr != nullptr);
 
         // Clone the current date-period	
         DatePeriod& lCloneDatePeriod = cloneDatePeriod (*lDatePeriod_ptr);
@@ -536,7 +536,7 @@ namespace stdair {
              lPosChannelList.begin();
            itPosChannel != lPosChannelList.end(); ++itPosChannel) {
         const PosChannel* lPosChannel_ptr = *itPosChannel;
-        assert (lPosChannel_ptr != NULL);
+        assert (lPosChannel_ptr != nullptr);
 
         // Clone the current pos-channel	
         PosChannel& lClonePosChannel = clonePosChannel (*lPosChannel_ptr);
@@ -570,7 +570,7 @@ namespace stdair {
              lTimePeriodList.begin();
            itTimePeriod != lTimePeriodList.end(); ++itTimePeriod) {
         const TimePeriod* lTimePeriod_ptr = *itTimePeriod;
-        assert (lTimePeriod_ptr != NULL);
+        assert (lTimePeriod_ptr != nullptr);
 
         // Clone the current time-period	
         TimePeriod& lCloneTimePeriod = cloneTimePeriod (*lTimePeriod_ptr);
@@ -602,7 +602,7 @@ namespace stdair {
       for (FareFeaturesList_T::const_iterator itFF = lFareFeaturesList.begin();
            itFF != lFareFeaturesList.end(); ++itFF) {
         const FareFeatures* lFF_ptr = *itFF;
-        assert (lFF_ptr != NULL);
+        assert (lFF_ptr != nullptr);
 
         // Clone the current fare-feature	
         FareFeatures& lCloneFareFeatures = 
@@ -623,7 +623,7 @@ namespace stdair {
              lYieldFeaturesList.begin();
            itYF != lYieldFeaturesList.end(); ++itYF) {
         const YieldFeatures* lYF_ptr = *itYF;
-        assert (lYF_ptr != NULL);
+        assert (lYF_ptr != nullptr);
 
         // Clone the current yield-feature	
         YieldFeatures& lCloneYieldFeatures = 
@@ -658,7 +658,7 @@ namespace stdair {
              lAirlineClassList.begin();
            itACList != lAirlineClassList.end(); ++itACList) {
         const AirlineClassList* lACList_ptr = *itACList;
-        assert (lACList_ptr != NULL);
+        assert (lACList_ptr != nullptr);
 
         // Clone the current airline-class list	
         AirlineClassList& lCloneAirlineClassList =
@@ -707,7 +707,7 @@ namespace stdair {
              lSegmentPeriodList.begin();
            itSegmentPeriod != lSegmentPeriodList.end(); ++itSegmentPeriod) {
         const SegmentPeriod* lSegmentPeriod_ptr = *itSegmentPeriod;
-        assert (lSegmentPeriod_ptr != NULL);
+        assert (lSegmentPeriod_ptr != nullptr);
 
         // Clone the current airline-class list	
         SegmentPeriod& lCloneSegmentPeriod =

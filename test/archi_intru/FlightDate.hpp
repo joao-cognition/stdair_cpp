@@ -1,5 +1,5 @@
-#ifndef __INTRUSIVE_BOM_FLIGHTDATE_HPP
-#define __INTRUSIVE_BOM_FLIGHTDATE_HPP
+#ifndef INTRUSIVE_BOM_FLIGHTDATE_HPP
+#define INTRUSIVE_BOM_FLIGHTDATE_HPP
 
 // //////////////////////////////////////////////////////////////////////
 // Import section
@@ -72,4 +72,4 @@ namespace stdair {
   typedef bi::set<FlightDate, FlightDateSetMemberOption> FlightDateChildSet;
   
 }
-#endif // __INTRUSIVE_BOM_FLIGHTDATE_HPP
+#endif // INTRUSIVE_BOM_FLIGHTDATE_HPP

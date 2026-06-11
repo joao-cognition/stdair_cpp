@@ -1,5 +1,5 @@
-#ifndef __STDAIR_FAC_FACABSTRACT_HPP
-#define __STDAIR_FAC_FACABSTRACT_HPP
+#ifndef STDAIR_FAC_FACABSTRACT_HPP
+#define STDAIR_FAC_FACABSTRACT_HPP
 
 // //////////////////////////////////////////////////////////////////////
 // Import section
@@ -11,6 +11,9 @@ namespace stdair {
   public:      
     /** Destructor. */
     virtual ~FacAbstract();
+
+    /** Destroy all the objects instantiated by this factory. */
+    virtual void clean() {}
       
   protected:
     /** Default Constructor.
@@ -18,4 +21,4 @@ namespace stdair {
     FacAbstract() {}
   };
 }
-#endif // __STDAIR_FAC_FACABSTRACT_HPP
+#endif // STDAIR_FAC_FACABSTRACT_HPP

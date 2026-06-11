@@ -1,5 +1,5 @@
-#ifndef __SIMFQT_BOM_DATEPERIODKEY_HPP
-#define __SIMFQT_BOM_DATEPERIODKEY_HPP
+#ifndef SIMFQT_BOM_DATEPERIODKEY_HPP
+#define SIMFQT_BOM_DATEPERIODKEY_HPP
 
 // //////////////////////////////////////////////////////////////////////
 // Import section
@@ -67,4 +67,4 @@ namespace stdair  {
   };
 
 }
-#endif // __SIMFQT_BOM_DATEPERIODKEY_HPP
+#endif // SIMFQT_BOM_DATEPERIODKEY_HPP

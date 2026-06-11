@@ -15,18 +15,18 @@ namespace stdair {
 
   // ////////////////////////////////////////////////////////////////////
   OnDDate::OnDDate()
-    : _key (DEFAULT_OND_STRING_LIST), _parent (NULL) {
+    : _key (DEFAULT_OND_STRING_LIST), _parent (nullptr) {
     assert (false);
   }
   
   // ////////////////////////////////////////////////////////////////////
   OnDDate::OnDDate (const OnDDate& iOnDDate)
-    : _key (iOnDDate.getKey()), _parent (NULL) {
+    : BomAbstract(), _key (iOnDDate.getKey()), _parent (nullptr) {
   }
   
   // ////////////////////////////////////////////////////////////////////
   OnDDate::OnDDate (const Key_T& iKey)
-  : _key (iKey), _parent (NULL) {
+  : _key (iKey), _parent (nullptr) {
   }
 
   // ////////////////////////////////////////////////////////////////////
@@ -44,7 +44,7 @@ namespace stdair {
   const AirlineCode_T& OnDDate::getAirlineCode() const {
     const Inventory* lInventory_ptr =
       static_cast<const Inventory*> (getParent());
-    assert (lInventory_ptr != NULL);
+    assert (lInventory_ptr != nullptr);
     return lInventory_ptr->getAirlineCode();
   }
 

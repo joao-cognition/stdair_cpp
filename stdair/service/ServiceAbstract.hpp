@@ -1,5 +1,5 @@
-#ifndef __STDAIR_SVC_SERVICEABSTRACT_HPP
-#define __STDAIR_SVC_SERVICEABSTRACT_HPP
+#ifndef STDAIR_SVC_SERVICEABSTRACT_HPP
+#define STDAIR_SVC_SERVICEABSTRACT_HPP
 
 // //////////////////////////////////////////////////////////////////////
 // Import section
@@ -25,14 +25,14 @@ namespace stdair {
      *
      * @param ostream& the output stream.
      */
-    virtual void toStream (std::ostream& ioOut) const {}
+    virtual void toStream (std::ostream& /*ioOut*/) const {}
 
     /**
      * Read a Business Object from an input stream.
      *
      * @param istream& the input stream.
      */
-    virtual void fromStream (std::istream& ioIn) {}
+    virtual void fromStream (std::istream& /*ioIn*/) {}
     
     /**
      * Display of the structure.
@@ -90,4 +90,4 @@ operator>> (std::basic_istream<charT, traits>& ioIn,
   return ioIn;
 }
 
-#endif // __STDAIR_SVC_SERVICEABSTRACT_HPP
+#endif // STDAIR_SVC_SERVICEABSTRACT_HPP

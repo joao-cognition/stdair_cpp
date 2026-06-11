@@ -1,5 +1,5 @@
-#ifndef __STDAIR_BAS_SERVICEINITIALISATIONTYPE_HPP
-#define __STDAIR_BAS_SERVICEINITIALISATIONTYPE_HPP
+#ifndef STDAIR_BAS_SERVICEINITIALISATIONTYPE_HPP
+#define STDAIR_BAS_SERVICEINITIALISATIONTYPE_HPP
 
 // //////////////////////////////////////////////////////////////////////
 // Import section
@@ -16,12 +16,12 @@ namespace stdair {
    */
   struct ServiceInitialisationType : public StructAbstract {
   public:
-    typedef enum {
+    enum EN_ServiceInitialisationType {
       NOT_YET_INITIALISED = 0,
       FILE_PARSING,
       BUILTIN_SAMPLE,
       LAST_VALUE
-    } EN_ServiceInitialisationType;
+    };
 
     /**
      * Get the label as a string (e.g., "Not yet initialised", "File parsing"
@@ -94,6 +94,8 @@ namespace stdair {
      * Default copy constructor.
      */
     ServiceInitialisationType (const ServiceInitialisationType&);
+    /** Default copy assignment operator. */
+    ServiceInitialisationType& operator= (const ServiceInitialisationType&) = default;
 
   private:
     /**
@@ -121,4 +123,4 @@ namespace stdair {
   };
 
 }
-#endif // __STDAIR_BAS_SERVICEINITIALISATIONTYPE_HPP
+#endif // STDAIR_BAS_SERVICEINITIALISATIONTYPE_HPP

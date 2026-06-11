@@ -4,11 +4,9 @@
 // STL
 #include <cassert>
 #include <sstream>
-#if BOOST_VERSION_MACRO >= 104100
 #include <boost/property_tree/ptree.hpp>
 #include <boost/property_tree/json_parser.hpp>
 namespace bpt = boost::property_tree;
-#endif // BOOST_VERSION_MACRO >= 104100
 #include <boost/foreach.hpp>
 // StdAir
 #include <stdair/stdair_exceptions.hpp>
@@ -44,7 +42,7 @@ namespace stdair {
   }
 
   // ////////////////////////////////////////////////////////////////////
-  void ConfigHolderStruct::fromStream (std::istream& ioIn) {
+  void ConfigHolderStruct::fromStream (std::istream& /*ioIn*/) {
   }
   
   // ////////////////////////////////////////////////////////////////////
@@ -134,10 +132,8 @@ namespace stdair {
   // ////////////////////////////////////////////////////////////////////
   const std::string ConfigHolderStruct::jsonExport() const {    
     std::ostringstream oStr; 
-#if BOOST_VERSION_MACRO >= 104100
     // Write the property tree into the JSON stream.
     write_json (oStr, _pt);
-#endif // BOOST_VERSION_MACRO >= 104100
     return oStr.str();
   }
   
@@ -156,7 +152,6 @@ namespace stdair {
     // Are there any more children to browse?
     bool isThereAnyChild = false;
 
-#if BOOST_VERSION_MACRO >= 104100
 
     // Browse the children nodes
     BOOST_FOREACH(boost::property_tree::ptree::value_type itChild, iConfigPropertyTree) {
@@ -185,7 +180,6 @@ namespace stdair {
       const bool hasInsertionBeenSuccessful = addValue (lValue, iPath);
       assert (hasInsertionBeenSuccessful == true);   
     } 
-#endif // BOOST_VERSION_MACRO >= 104100
   }
 
   // ////////////////////////////////////////////////////////////////////
@@ -194,7 +188,6 @@ namespace stdair {
     bool hasInsertionBeenSuccessful = true;
     // Create the given specified path and add the corresponding given value,
     // or replace the value if the path already exists. 
-#if BOOST_VERSION_MACRO >= 104100
 
     try {
       std::size_t found;
@@ -212,7 +205,6 @@ namespace stdair {
     } catch (bpt::ptree_bad_data& bptException) {
       hasInsertionBeenSuccessful = false;
     }
-#endif // BOOST_VERSION_MACRO >= 104100
 
     return hasInsertionBeenSuccessful;
   } 
@@ -220,7 +212,6 @@ namespace stdair {
   // ////////////////////////////////////////////////////////////////////
   void ConfigHolderStruct::updateAirlineFeatures (BomRoot& iBomRoot) {  
 
-#if BOOST_VERSION_MACRO >= 104100
     AirlineCode_T lAirlineCode ("");
 
     // Browse the children nodes
@@ -232,7 +223,7 @@ namespace stdair {
       if (hasAirlineCodeBeenRetrieved == true) {
 	AirlineFeature* lAirlineFeature_ptr = 
 	  BomRetriever::retrieveAirlineFeatureFromKey (iBomRoot, lAirlineCode);
-	if (lAirlineFeature_ptr != NULL) { 
+	if (lAirlineFeature_ptr != nullptr) { 
 
 	  try {
 
@@ -299,7 +290,6 @@ namespace stdair {
 	}
       }
     }
-#endif // BOOST_VERSION_MACRO >= 104100
   }
 }
 

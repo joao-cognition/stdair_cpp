@@ -1,5 +1,5 @@
-#ifndef __INTRUSIVE_BOM_INTRUSIVEHELPER_HPP
-#define __INTRUSIVE_BOM_INTRUSIVEHELPER_HPP
+#ifndef INTRUSIVE_BOM_INTRUSIVEHELPER_HPP
+#define INTRUSIVE_BOM_INTRUSIVEHELPER_HPP
 
 // //////////////////////////////////////////////////////////////////////
 // Import section
@@ -14,7 +14,7 @@
 template <typename NODE>
 struct delete_disposer {
   void operator() (NODE* oNODE_ptr) {
-    delete oNODE_ptr; oNODE_ptr = NULL;
+    delete oNODE_ptr; oNODE_ptr = nullptr;
   }
 };
 
@@ -41,4 +41,4 @@ struct StrExpEqual {
    }
 };
 
-#endif // __INTRUSIVE_BOM_INTRUSIVEHELPER_HPP
+#endif // INTRUSIVE_BOM_INTRUSIVEHELPER_HPP

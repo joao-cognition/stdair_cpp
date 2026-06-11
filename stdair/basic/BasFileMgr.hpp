@@ -1,5 +1,5 @@
-#ifndef __STDAIR_BAS_BASFILEMGR_HPP
-#define __STDAIR_BAS_BASFILEMGR_HPP
+#ifndef STDAIR_BAS_BASFILEMGR_HPP
+#define STDAIR_BAS_BASFILEMGR_HPP
 
 // //////////////////////////////////////////////////////////////////////
 // Import section
@@ -19,4 +19,4 @@ namespace stdair {
   };
 
 }
-#endif // __STDAIR_BAS_BASFILEMGR_HPP
+#endif // STDAIR_BAS_BASFILEMGR_HPP

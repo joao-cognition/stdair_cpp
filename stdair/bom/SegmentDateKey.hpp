@@ -1,5 +1,5 @@
-#ifndef __STDAIR_BOM_SEGMENTDATEKEY_HPP
-#define __STDAIR_BOM_SEGMENTDATEKEY_HPP
+#ifndef STDAIR_BOM_SEGMENTDATEKEY_HPP
+#define STDAIR_BOM_SEGMENTDATEKEY_HPP
 
 // //////////////////////////////////////////////////////////////////////
 // Import section
@@ -40,6 +40,8 @@ namespace stdair {
      * Copy constructor.
      */
     SegmentDateKey (const SegmentDateKey&);
+    /** Default copy assignment operator. */
+    SegmentDateKey& operator= (const SegmentDateKey&) = default;
     /**
      * Destructor.
      */
@@ -116,4 +118,4 @@ namespace stdair {
   };
 
 }
-#endif // __STDAIR_BOM_SEGMENTDATEKEY_HPP
+#endif // STDAIR_BOM_SEGMENTDATEKEY_HPP

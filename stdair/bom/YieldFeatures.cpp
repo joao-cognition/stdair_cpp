@@ -15,18 +15,18 @@ namespace stdair {
   YieldFeatures::YieldFeatures()
     : _key (TRIP_TYPE_ONE_WAY,
             DEFAULT_PREFERRED_CABIN),
-      _parent (NULL)  {
+      _parent (nullptr)  {
     // That constructor is used by the serialisation process
   }
 
   // ////////////////////////////////////////////////////////////////////
   YieldFeatures::YieldFeatures (const YieldFeatures& iFeatures)
-    : _key (iFeatures.getKey()), _parent (NULL)  {
+    : BomAbstract(), _key (iFeatures.getKey()), _parent (nullptr)  {
   }
 
   // ////////////////////////////////////////////////////////////////////
   YieldFeatures::YieldFeatures (const Key_T& iKey)
-    : _key (iKey), _parent (NULL)  {
+    : _key (iKey), _parent (nullptr)  {
   }
 
   // ////////////////////////////////////////////////////////////////////

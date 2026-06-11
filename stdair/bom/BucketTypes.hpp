@@ -1,6 +1,6 @@
 // //////////////////////////////////////////////////////////////////////
-#ifndef __STDAIR_BOM_BUCKETTYPES_HPP
-#define __STDAIR_BOM_BUCKETTYPES_HPP
+#ifndef STDAIR_BOM_BUCKETTYPES_HPP
+#define STDAIR_BOM_BUCKETTYPES_HPP
 
 // //////////////////////////////////////////////////////////////////////
 // Import section
@@ -17,11 +17,11 @@ namespace stdair {
   class Bucket;
 
   /** Define the bucket list. */
-  typedef std::list<Bucket*> BucketList_T;
+  using BucketList_T = std::list<Bucket*>;
   
   /** Define the bucket map. */
-  typedef std::map<const MapKey_T, Bucket*> BucketMap_T;
+  using BucketMap_T = std::map<const MapKey_T, Bucket*>;
   
 }
-#endif // __STDAIR_BOM_BUCKETTYPES_HPP
+#endif // STDAIR_BOM_BUCKETTYPES_HPP
 

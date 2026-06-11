@@ -42,7 +42,7 @@ namespace stdair {
   }
 
   // ////////////////////////////////////////////////////////////////////
-  void AirlineClassListKey::fromStream (std::istream& ioIn) {
+  void AirlineClassListKey::fromStream (std::istream& /*ioIn*/) {
   }
 
   // ////////////////////////////////////////////////////////////////////
@@ -84,7 +84,7 @@ namespace stdair {
   // ////////////////////////////////////////////////////////////////////
   template<class Archive>
   void AirlineClassListKey::serialize (Archive& ioArchive,
-                                       const unsigned int iFileVersion) {
+                                       const unsigned int /*iFileVersion*/) {
     /**
      * \note Boost.Serialisation knows how to deal with STL containers
      *       (here, vectors), but not with vectors of std::string

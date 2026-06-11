@@ -1,5 +1,5 @@
-#ifndef __STDAIR_BAS_BASCONST_BOOKINGCLASS_HPP
-#define __STDAIR_BAS_BASCONST_BOOKINGCLASS_HPP
+#ifndef STDAIR_BAS_BASCONST_BOOKINGCLASS_HPP
+#define STDAIR_BAS_BASCONST_BOOKINGCLASS_HPP
 
 // //////////////////////////////////////////////////////////////////////
 // Import section
@@ -101,4 +101,4 @@ namespace stdair {
   extern const double DEFAULT_EPSILON_VALUE;
 
 }
-#endif // __STDAIR_BAS_BASCONST_BOOKINGCLASS_HPP
+#endif // STDAIR_BAS_BASCONST_BOOKINGCLASS_HPP

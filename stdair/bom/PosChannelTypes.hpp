@@ -1,6 +1,6 @@
 // //////////////////////////////////////////////////////////////////////
-#ifndef __STDAIR_BOM_POSCHANNELTYPES_HPP
-#define __STDAIR_BOM_POSCHANNELTYPES_HPP
+#ifndef STDAIR_BOM_POSCHANNELTYPES_HPP
+#define STDAIR_BOM_POSCHANNELTYPES_HPP
 
 // //////////////////////////////////////////////////////////////////////
 // Import section
@@ -17,13 +17,13 @@ namespace stdair {
   class PosChannel;
   
   /** Define the fare-point_of_sale list. */
-  typedef std::list<PosChannel*> PosChannelList_T;
+  using PosChannelList_T = std::list<PosChannel*>;
 
   /** Define the fare-point_of_sale map. */
-  typedef std::map<const MapKey_T, PosChannel*> PosChannelMap_T;
+  using PosChannelMap_T = std::map<const MapKey_T, PosChannel*>;
 
   /** Define the list of pair<MapKey_T, PosChannel>. */
-  typedef std::pair<MapKey_T, PosChannel*> PosChannelWithKey_T;
-  typedef std::list<PosChannelWithKey_T> PosChannelDetailedList_T;
+  using PosChannelWithKey_T = std::pair<MapKey_T, PosChannel*>;
+  using PosChannelDetailedList_T = std::list<PosChannelWithKey_T>;
 }
-#endif // __STDAIR_BOM_POSCHANNELTYPES_HPP
+#endif // STDAIR_BOM_POSCHANNELTYPES_HPP

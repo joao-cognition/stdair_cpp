@@ -1,5 +1,5 @@
-#ifndef __MYPROVIDER_INVENTORY_HPP
-#define __MYPROVIDER_INVENTORY_HPP
+#ifndef MYPROVIDER_INVENTORY_HPP
+#define MYPROVIDER_INVENTORY_HPP
 /*!
  * \page test_archi_inv_hpp Specific Implementation of an Airline Inventory
  * \code
@@ -45,4 +45,4 @@ namespace myprovider {
 /*!
  * \endcode
  */
-#endif // __MYPROVIDER_INVENTORY_HPP
+#endif // MYPROVIDER_INVENTORY_HPP

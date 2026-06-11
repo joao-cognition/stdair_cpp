@@ -1,5 +1,5 @@
-#ifndef __STDAIR_BAS_BASLOGPARAMS_HPP
-#define __STDAIR_BAS_BASLOGPARAMS_HPP
+#ifndef STDAIR_BAS_BASLOGPARAMS_HPP
+#define STDAIR_BAS_BASLOGPARAMS_HPP
 
 // //////////////////////////////////////////////////////////////////////
 // Import section
@@ -37,7 +37,7 @@ namespace stdair {
     /**
      * State whether or not multiple initialisations are to be forced.
      */
-    const bool getForcedInitialisationFlag() const {
+    bool getForcedInitialisationFlag() const {
       return _forceMultipleInit;
     }
     
@@ -136,4 +136,4 @@ namespace stdair {
   };
 
 }
-#endif // __STDAIR_BAS_BASLOGPARAMS_HPP
+#endif // STDAIR_BAS_BASLOGPARAMS_HPP

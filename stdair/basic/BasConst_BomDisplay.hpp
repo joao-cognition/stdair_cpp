@@ -1,5 +1,5 @@
-#ifndef __STDAIR_BAS_BASCONST_BOMMANAGER_HPP
-#define __STDAIR_BAS_BASCONST_BOMMANAGER_HPP
+#ifndef STDAIR_BAS_BASCONST_BOMMANAGER_HPP
+#define STDAIR_BAS_BASCONST_BOMMANAGER_HPP
 
 // //////////////////////////////////////////////////////////////////////
 // Import section
@@ -27,4 +27,4 @@ namespace stdair {
   extern const boost::char_separator<char> DEFAULT_KEY_TOKEN_DELIMITER;
       
 }
-#endif // __STDAIR_BAS_BASCONST_BOMMANAGER_HPP
+#endif // STDAIR_BAS_BASCONST_BOMMANAGER_HPP

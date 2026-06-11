@@ -1,5 +1,5 @@
-#ifndef __STDAIR_BAS_BASCOMPARSERTYPES_HPP
-#define __STDAIR_BAS_BASCOMPARSERTYPES_HPP
+#ifndef STDAIR_BAS_BASCOMPARSERTYPES_HPP
+#define STDAIR_BAS_BASCOMPARSERTYPES_HPP
 
 // //////////////////////////////////////////////////////////////////////
 // Import section
@@ -23,8 +23,8 @@ namespace stdair {
   // ////////////////////////////////////////////////////////////////////
   // The types of iterator, scanner and rule are then derived from
   // the parsing unit.
-  typedef std::istreambuf_iterator<char> base_iterator_t;
-  typedef boost::spirit::multi_pass<base_iterator_t> iterator_t;  
+  using base_iterator_t = std::istreambuf_iterator<char>;
+  using iterator_t = boost::spirit::multi_pass<base_iterator_t>;
 
   // ////////////////////////////////////////////////////////////////////
   //
@@ -32,23 +32,23 @@ namespace stdair {
   //
   // ////////////////////////////////////////////////////////////////////
   /** 1-digit-integer parser */
-  typedef boost::spirit::qi::int_parser<unsigned int, 10, 1, 1> int1_p_t;
+  using int1_p_t = boost::spirit::qi::int_parser<unsigned int, 10, 1, 1>;
     
   /** 2-digit-integer parser */
-  typedef boost::spirit::qi::uint_parser<int, 10, 2, 2> uint2_p_t;
+  using uint2_p_t = boost::spirit::qi::uint_parser<int, 10, 2, 2>;
     
   /** 4-digit-integer parser */
-  typedef boost::spirit::qi::uint_parser<int, 10, 4, 4> uint4_p_t;
+  using uint4_p_t = boost::spirit::qi::uint_parser<int, 10, 4, 4>;
 
   /** Up-to-4-digit-integer parser */
-  typedef boost::spirit::qi::uint_parser<int, 10, 1, 4> uint1_4_p_t;
+  using uint1_4_p_t = boost::spirit::qi::uint_parser<int, 10, 1, 4>;
 
   /** Date & time element parsers. */
-  typedef boost::spirit::qi::uint_parser<hour_t, 10, 2, 2> hour_p_t;
-  typedef boost::spirit::qi::uint_parser<minute_t, 10, 2, 2> minute_p_t;
-  typedef boost::spirit::qi::uint_parser<second_t, 10, 2, 2> second_p_t;
-  typedef boost::spirit::qi::uint_parser<year_t, 10, 4, 4> year_p_t;
-  typedef boost::spirit::qi::uint_parser<month_t, 10, 2, 2> month_p_t;
-  typedef boost::spirit::qi::uint_parser<day_t, 10, 2, 2> day_p_t;
+  using hour_p_t = boost::spirit::qi::uint_parser<hour_t, 10, 2, 2>;
+  using minute_p_t = boost::spirit::qi::uint_parser<minute_t, 10, 2, 2>;
+  using second_p_t = boost::spirit::qi::uint_parser<second_t, 10, 2, 2>;
+  using year_p_t = boost::spirit::qi::uint_parser<year_t, 10, 4, 4>;
+  using month_p_t = boost::spirit::qi::uint_parser<month_t, 10, 2, 2>;
+  using day_p_t = boost::spirit::qi::uint_parser<day_t, 10, 2, 2>;
 }
-#endif // __STDAIR_BAS_BASCOMPARSERTYPES_HPP
+#endif // STDAIR_BAS_BASCOMPARSERTYPES_HPP

@@ -1,6 +1,6 @@
 // //////////////////////////////////////////////////////////////////////
-#ifndef __STDAIR_BOM_SIMPLENESTINGSTRUCTURETYPES_HPP
-#define __STDAIR_BOM_SIMPLENESTINGSTRUCTURETYPES_HPP
+#ifndef STDAIR_BOM_SIMPLENESTINGSTRUCTURETYPES_HPP
+#define STDAIR_BOM_SIMPLENESTINGSTRUCTURETYPES_HPP
 
 // //////////////////////////////////////////////////////////////////////
 // Import section
@@ -17,10 +17,11 @@ namespace stdair {
   class SimpleNestingStructure;
 
   /** Define the fare family list. */
-  typedef std::list<SimpleNestingStructure*> SimpleNestingStructureList_T;
+  using SimpleNestingStructureList_T = std::list<SimpleNestingStructure*>;
 
   /** Define the fare family map. */
-  typedef std::map<const MapKey_T, SimpleNestingStructure*> SimpleNestingStructureMap_T;
+  using SimpleNestingStructureMap_T =
+    std::map<const MapKey_T, SimpleNestingStructure*>;
   
 }
-#endif // __STDAIR_BOM_SIMPLENESTINGSTRUCTURETYPES_HPP
+#endif // STDAIR_BOM_SIMPLENESTINGSTRUCTURETYPES_HPP

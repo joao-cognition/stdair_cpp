@@ -3,8 +3,8 @@
  * the GNU Readline library.  This application interactively allows users
  * to manipulate files and their modes.
  */
-#ifndef __AIRINV_READLINE_AUTOCOMP_HPP
-#define __AIRINV_READLINE_AUTOCOMP_HPP
+#ifndef AIRINV_READLINE_AUTOCOMP_HPP
+#define AIRINV_READLINE_AUTOCOMP_HPP
 
 // STL
 #include <string>
@@ -32,13 +32,13 @@ int com_help (char*);
 int com_cd (char*);
 int com_quit (char*);
 
-typedef int (*pt2Func) (char*);
+using pt2Func = int (*)(char*);
 
 /**
  * A structure which contains information on the commands this program
  * can understand.
  */
-typedef struct {
+struct COMMAND {
   /**
    * User printable name of the function.
    */
@@ -53,7 +53,7 @@ typedef struct {
    * Documentation for this function.
    */
   char *doc;
-} COMMAND;
+};
 
 COMMAND commands[] = {
   { "cd", (*com_cd)(), "Change to directory DIR" },
@@ -67,7 +67,7 @@ COMMAND commands[] = {
   { "rename", com_rename, "Rename FILE to NEWNAME" },
   { "stat", com_stat, "Print out statistics on FILE" },
   { "view", com_view, "View the contents of FILE" },
-  { (char*) NULL, (pt2Func) NULL, (char*) NULL }
+  { (char*) nullptr, (pt2Func) nullptr, (char*) nullptr }
 };
 
 // Forward declarations
@@ -142,7 +142,7 @@ COMMAND* find_command (char* name) {
     }
   }
 
-  return (COMMAND*) NULL;
+  return (COMMAND*) nullptr;
 }
 
 /**
@@ -200,7 +200,7 @@ void initialize_readline() {
 char** fileman_completion (char* text, int start, int end) {
   char **matches;
 
-  matches = (char**) NULL;
+  matches = (char**) nullptr;
 
   /**
    * If this word is at the start of the line, then it is a command
@@ -243,7 +243,7 @@ char* command_generator (char* text, int state) {
   }
 
   /* If no names matched, then return NULL. */
-  return (char*) NULL;
+  return (char*) nullptr;
 }
 
 /* **************************************************************** */

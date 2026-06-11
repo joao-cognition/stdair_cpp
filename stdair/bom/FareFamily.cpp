@@ -15,21 +15,21 @@
 namespace stdair {
 
   // ////////////////////////////////////////////////////////////////////
-  FareFamily::FareFamily() : _key (DEFAULT_FARE_FAMILY_CODE), _parent (NULL) {
+  FareFamily::FareFamily() : _key (DEFAULT_FARE_FAMILY_CODE), _parent (nullptr) {
     assert (false);
   }
 
   // ////////////////////////////////////////////////////////////////////
   FareFamily::FareFamily (const FareFamily& iFareFamily)
-    : _key (iFareFamily._key),
-      _parent (NULL),
+    : BomAbstract(), _key (iFareFamily._key),
+      _parent (nullptr),
       _frat5Curve (iFareFamily._frat5Curve),
       _disutilityCurve (iFareFamily._disutilityCurve),
       _meanStdDev (iFareFamily._meanStdDev) {
   }
 
   // ////////////////////////////////////////////////////////////////////
-  FareFamily::FareFamily (const Key_T& iKey) : _key (iKey), _parent (NULL) {
+  FareFamily::FareFamily (const Key_T& iKey) : _key (iKey), _parent (nullptr) {
   }
 
   // ////////////////////////////////////////////////////////////////////
@@ -60,7 +60,7 @@ namespace stdair {
   // ////////////////////////////////////////////////////////////////////
   template<class Archive>
   void FareFamily::serialize (Archive& ioArchive,
-                              const unsigned int iFileVersion) {
+                              const unsigned int /*iFileVersion*/) {
     ioArchive & _key;
   }
 

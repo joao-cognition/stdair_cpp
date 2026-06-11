@@ -1,5 +1,5 @@
-#ifndef __STDAIR_DBA_DBAAIRLINE_HPP
-#define __STDAIR_DBA_DBAAIRLINE_HPP
+#ifndef STDAIR_DBA_DBAAIRLINE_HPP
+#define STDAIR_DBA_DBAAIRLINE_HPP
 
 // //////////////////////////////////////////////////////////////////////
 // Import section
@@ -20,7 +20,7 @@ namespace soci {
   template <>
   struct type_conversion<stdair::AirlineStruct> {
 
-    typedef values base_type;
+    using base_type = values;
 
     /** Fill an Airline object from the database values. */
     static void from_base (values const& iAirlineValues,
@@ -34,4 +34,4 @@ namespace soci {
                          indicator& ioIndicator);
   };
 }
-#endif // __STDAIR_DBA_DBAAIRLINE_HPP
+#endif // STDAIR_DBA_DBAAIRLINE_HPP

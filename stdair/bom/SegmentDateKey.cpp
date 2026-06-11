@@ -42,7 +42,7 @@ namespace stdair {
   }
 
   // ////////////////////////////////////////////////////////////////////
-  void SegmentDateKey::fromStream (std::istream& ioIn) {
+  void SegmentDateKey::fromStream (std::istream& /*ioIn*/) {
   }
 
   // ////////////////////////////////////////////////////////////////////
@@ -70,7 +70,7 @@ namespace stdair {
   // ////////////////////////////////////////////////////////////////////
   template<class Archive>
   void SegmentDateKey::serialize (Archive& ioArchive,
-                                  const unsigned int iFileVersion) {
+                                  const unsigned int /*iFileVersion*/) {
     ioArchive & _boardingPoint & _offPoint;
   }
 

@@ -5,26 +5,16 @@
 #include <cassert>
 #include <string>
 #include <sstream>
-#if BOOST_VERSION_MACRO >= 104100
 // Boost Property Tree
 #include <boost/property_tree/ptree.hpp>
 #include <boost/property_tree/ini_parser.hpp>
-#endif // BOOST_VERSION_MACRO >= 104100
 // StdAir
 #include <stdair/basic/BasFileMgr.hpp>
 #include <stdair/bom/BomINIImport.hpp>
 #include <stdair/bom/ConfigHolderStruct.hpp>
 #include <stdair/service/Logger.hpp>
 
-#if BOOST_VERSION_MACRO >= 104100
 namespace bpt = boost::property_tree;
-#else // BOOST_VERSION_MACRO >= 104100
-namespace boost {
-  namespace property_tree {
-    typedef std::string ptree;
-  }
-}
-#endif // BOOST_VERSION_MACRO >= 104100
 
 namespace stdair {
 
@@ -46,7 +36,6 @@ namespace stdair {
     STDAIR_LOG_DEBUG ("Load the config input file '" << lFilename
                       << "' content into the configuration holder.");
     
-#if BOOST_VERSION_MACRO >= 104100
 
     // Transform the INI file into a BOOST property tree.
     bpt::ptree pt;
@@ -54,7 +43,6 @@ namespace stdair {
     // Add the property tree to the configuration structure.
     iConfigHolder.add(pt);
 
-#endif // BOOST_VERSION_MACRO >= 104100  
   }
   
 }

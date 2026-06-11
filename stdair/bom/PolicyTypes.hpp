@@ -1,6 +1,6 @@
 // //////////////////////////////////////////////////////////////////////
-#ifndef __STDAIR_BOM_POLICYTYPES_HPP
-#define __STDAIR_BOM_POLICYTYPES_HPP
+#ifndef STDAIR_BOM_POLICYTYPES_HPP
+#define STDAIR_BOM_POLICYTYPES_HPP
 
 // //////////////////////////////////////////////////////////////////////
 // Import section
@@ -17,10 +17,10 @@ namespace stdair {
   class Policy;
 
   /** Define the fare family list. */
-  typedef std::list<Policy*> PolicyList_T;
+  using PolicyList_T = std::list<Policy*>;
 
   /** Define the fare family map. */
-  typedef std::map<const MapKey_T, Policy*> PolicyMap_T;
+  using PolicyMap_T = std::map<const MapKey_T, Policy*>;
   
 }
-#endif // __STDAIR_BOM_POLICYTYPES_HPP
+#endif // STDAIR_BOM_POLICYTYPES_HPP

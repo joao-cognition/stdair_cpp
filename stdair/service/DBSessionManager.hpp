@@ -1,5 +1,5 @@
-#ifndef __STDAIR_SVC_DBSESSIONMANAGER_HPP
-#define __STDAIR_SVC_DBSESSIONMANAGER_HPP
+#ifndef STDAIR_SVC_DBSESSIONMANAGER_HPP
+#define STDAIR_SVC_DBSESSIONMANAGER_HPP
 
 // //////////////////////////////////////////////////////////////////////
 // Import section
@@ -61,4 +61,4 @@ namespace stdair {
   };
 
 }
-#endif // __STDAIR_SVC_DBSESSIONMANAGER_HPP
+#endif // STDAIR_SVC_DBSESSIONMANAGER_HPP

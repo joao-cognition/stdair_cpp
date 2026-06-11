@@ -1,6 +1,6 @@
 // //////////////////////////////////////////////////////////////////////
-#ifndef __STDAIR_BOM_INVENTORYTYPES_HPP
-#define __STDAIR_BOM_INVENTORYTYPES_HPP
+#ifndef STDAIR_BOM_INVENTORYTYPES_HPP
+#define STDAIR_BOM_INVENTORYTYPES_HPP
 
 // //////////////////////////////////////////////////////////////////////
 // Import section
@@ -17,10 +17,10 @@ namespace stdair {
   class Inventory;
 
   /** Define the Inventory list. */
-  typedef std::list<Inventory*> InventoryList_T;
+  using InventoryList_T = std::list<Inventory*>;
 
   /** Define the Inventory map. */
-  typedef std::map<const MapKey_T, Inventory*> InventoryMap_T;
+  using InventoryMap_T = std::map<const MapKey_T, Inventory*>;
   
 }
-#endif // __STDAIR_BOM_INVENTORYTYPES_HPP
+#endif // STDAIR_BOM_INVENTORYTYPES_HPP

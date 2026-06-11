@@ -1,6 +1,6 @@
 // //////////////////////////////////////////////////////////////////////
-#ifndef __STDAIR_BOM_LEGCABINTYPES_HPP
-#define __STDAIR_BOM_LEGCABINTYPES_HPP
+#ifndef STDAIR_BOM_LEGCABINTYPES_HPP
+#define STDAIR_BOM_LEGCABINTYPES_HPP
 
 // //////////////////////////////////////////////////////////////////////
 // Import section
@@ -17,11 +17,11 @@ namespace stdair {
   class LegCabin;
 
   /** Define the leg-cabin list. */
-  typedef std::list<LegCabin*> LegCabinList_T;
+  using LegCabinList_T = std::list<LegCabin*>;
 
   /** Define the leg-cabin map. */
-  typedef std::map<const MapKey_T, LegCabin*> LegCabinMap_T;
+  using LegCabinMap_T = std::map<const MapKey_T, LegCabin*>;
 
 }
-#endif // __STDAIR_BOM_LEGCABINTYPES_HPP
+#endif // STDAIR_BOM_LEGCABINTYPES_HPP
 

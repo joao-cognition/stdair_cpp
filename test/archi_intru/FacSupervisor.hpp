@@ -1,5 +1,5 @@
-#ifndef __INTRUSIVE_SVC_FACSUPERVISOR_HPP
-#define __INTRUSIVE_SVC_FACSUPERVISOR_HPP
+#ifndef INTRUSIVE_SVC_FACSUPERVISOR_HPP
+#define INTRUSIVE_SVC_FACSUPERVISOR_HPP
 
 // //////////////////////////////////////////////////////////////////////
 // Import section
@@ -70,4 +70,4 @@ namespace stdair {
     FacRelationShipRootPool_T _facRelationShipRootPool;
   };
 }  
-#endif // __INTRUSIVE_SVC_FACSUPERVISOR_HPP
+#endif // INTRUSIVE_SVC_FACSUPERVISOR_HPP

@@ -1,5 +1,5 @@
-#ifndef __STDAIR_BOM_BOMDISPLAY_HPP
-#define __STDAIR_BOM_BOMDISPLAY_HPP
+#ifndef STDAIR_BOM_BOMDISPLAY_HPP
+#define STDAIR_BOM_BOMDISPLAY_HPP
 
 // //////////////////////////////////////////////////////////////////////
 // Import section
@@ -313,4 +313,4 @@ namespace stdair {
   };
   
 }
-#endif // __STDAIR_BOM_BOMDISPLAY_HPP
+#endif // STDAIR_BOM_BOMDISPLAY_HPP

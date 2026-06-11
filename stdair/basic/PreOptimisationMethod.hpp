@@ -1,5 +1,5 @@
-#ifndef __STDAIR_BAS_PREOPTIMISATIONMETHOD_HPP
-#define __STDAIR_BAS_PREOPTIMISATIONMETHOD_HPP
+#ifndef STDAIR_BAS_PREOPTIMISATIONMETHOD_HPP
+#define STDAIR_BAS_PREOPTIMISATIONMETHOD_HPP
 
 // //////////////////////////////////////////////////////////////////////
 // Import section
@@ -14,12 +14,12 @@ namespace stdair {
   /** Enumeration of PreOptimisation methods. */
   struct PreOptimisationMethod : public StructAbstract {
   public:
-    typedef enum {
+    enum EN_PreOptimisationMethod {
       NONE = 0,
       FA,
       MRT,
       LAST_VALUE
-    } EN_PreOptimisationMethod;
+    };
 
     /** Get the label as a string (e.g., MRT or FA). */
     static const std::string& getLabel (const EN_PreOptimisationMethod&);
@@ -53,6 +53,8 @@ namespace stdair {
     PreOptimisationMethod (const char iMethod);
     /** Default copy constructor. */
     PreOptimisationMethod (const PreOptimisationMethod&);
+    /** Default copy assignment operator. */
+    PreOptimisationMethod& operator= (const PreOptimisationMethod&) = default;
 
   private:
     /** Default constructor. */
@@ -73,4 +75,4 @@ namespace stdair {
   };
 
 }
-#endif // __STDAIR_BAS_PREOPTIMISATIONMETHOD_HPP
+#endif // STDAIR_BAS_PREOPTIMISATIONMETHOD_HPP

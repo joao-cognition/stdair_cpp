@@ -1,5 +1,5 @@
-#ifndef __STDAIR_BOM_TRAVELSOLUTIONSTRUCT_HPP
-#define __STDAIR_BOM_TRAVELSOLUTIONSTRUCT_HPP
+#ifndef STDAIR_BOM_TRAVELSOLUTIONSTRUCT_HPP
+#define STDAIR_BOM_TRAVELSOLUTIONSTRUCT_HPP
 
 // //////////////////////////////////////////////////////////////////////
 // Import section
@@ -66,7 +66,7 @@ namespace stdair {
 
     /** Get the chosen fare option. */
     const FareOptionStruct& getChosenFareOption() const {
-      assert (_chosenFareOption != NULL);
+      assert (_chosenFareOption != nullptr);
       return *_chosenFareOption;
     }
     
@@ -192,4 +192,4 @@ namespace stdair {
   };
 
 }
-#endif // __STDAIR_BOM_TRAVELSOLUTIONSTRUCT_HPP
+#endif // STDAIR_BOM_TRAVELSOLUTIONSTRUCT_HPP

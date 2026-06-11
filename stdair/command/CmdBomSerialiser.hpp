@@ -1,5 +1,5 @@
-#ifndef __STDAIR_CMD_CMDBOMSERIALISER_HPP
-#define __STDAIR_CMD_CMDBOMSERIALISER_HPP
+#ifndef STDAIR_CMD_CMDBOMSERIALISER_HPP
+#define STDAIR_CMD_CMDBOMSERIALISER_HPP
 
 // //////////////////////////////////////////////////////////////////////
 // Import section
@@ -29,4 +29,4 @@ namespace stdair {
     //
   };
 }
-#endif // ___STDAIR_CMD_CMDBOMSERIALISER_HPP
+#endif // _STDAIR_CMD_CMDBOMSERIALISER_HPP

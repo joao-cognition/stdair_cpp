@@ -1,5 +1,5 @@
-#ifndef __STDAIR_BAS_BASCONST_SELLUPCURVES_HPP
-#define __STDAIR_BAS_BASCONST_SELLUPCURVES_HPP
+#ifndef STDAIR_BAS_BASCONST_SELLUPCURVES_HPP
+#define STDAIR_BAS_BASCONST_SELLUPCURVES_HPP
 
 // //////////////////////////////////////////////////////////////////////
 // Import section
@@ -37,4 +37,4 @@ namespace stdair {
     static FFDisutilityCurve_T createFFDisutilityCurveF();
   };
 }
-#endif // __STDAIR_BAS_BASCONST_SELLUPCURVES_HPP
+#endif // STDAIR_BAS_BASCONST_SELLUPCURVES_HPP

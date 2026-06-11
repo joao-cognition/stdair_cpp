@@ -1,5 +1,5 @@
-#ifndef __STDAIR_BAS_DEMANDGENERATIONMETHOD_HPP
-#define __STDAIR_BAS_DEMANDGENERATIONMETHOD_HPP
+#ifndef STDAIR_BAS_DEMANDGENERATIONMETHOD_HPP
+#define STDAIR_BAS_DEMANDGENERATIONMETHOD_HPP
 
 // //////////////////////////////////////////////////////////////////////
 // Import section
@@ -16,11 +16,11 @@ namespace stdair {
    */
   struct DemandGenerationMethod : public StructAbstract {
   public:
-    typedef enum {
+    enum EN_DemandGenerationMethod {
       POI_PRO = 0,
       STA_ORD,
       LAST_VALUE
-    } EN_DemandGenerationMethod;
+    };
 
     /**
      * Get the label as a string (e.g., "PoissonProcess" or "StatisticsOrder").
@@ -118,4 +118,4 @@ namespace stdair {
   };
 
 }
-#endif // __STDAIR_BAS_DEMANDGENERATIONMETHOD_HPP
+#endif // STDAIR_BAS_DEMANDGENERATIONMETHOD_HPP

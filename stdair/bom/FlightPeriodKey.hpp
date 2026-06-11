@@ -1,5 +1,5 @@
-#ifndef __STDAIR_BOM_FLIGHTPERIODKEY_HPP
-#define __STDAIR_BOM_FLIGHTPERIODKEY_HPP
+#ifndef STDAIR_BOM_FLIGHTPERIODKEY_HPP
+#define STDAIR_BOM_FLIGHTPERIODKEY_HPP
 
 // //////////////////////////////////////////////////////////////////////
 // Import section
@@ -20,6 +20,8 @@ namespace stdair {
     /** Constructors. */
     FlightPeriodKey (const FlightNumber_T&, const PeriodStruct&);
     FlightPeriodKey (const FlightPeriodKey&);
+    /** Default copy assignment operator. */
+    FlightPeriodKey& operator= (const FlightPeriodKey&) = default;
     /** Destructor. */
     ~FlightPeriodKey ();
     
@@ -61,4 +63,4 @@ namespace stdair {
   };
 
 }
-#endif // __STDAIR_BOM_FLIGHTPERIODKEY_HPP
+#endif // STDAIR_BOM_FLIGHTPERIODKEY_HPP

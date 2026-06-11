@@ -22,6 +22,7 @@ namespace stdair {
 
   // ////////////////////////////////////////////////////////////////////
   AirlineFeature::AirlineFeature (const AirlineFeature& iAirlineFeature) :
+    BomAbstract(),
     _key (iAirlineFeature._key),
     _forecastingMethod (iAirlineFeature._forecastingMethod),
     _unconstrainingMethod (iAirlineFeature._unconstrainingMethod),

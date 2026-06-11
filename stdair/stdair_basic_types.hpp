@@ -1,5 +1,5 @@
-#ifndef __STDAIR_STDAIR_BASIC_TYPES_HPP
-#define __STDAIR_STDAIR_BASIC_TYPES_HPP
+#ifndef STDAIR_STDAIR_BASIC_TYPES_HPP
+#define STDAIR_STDAIR_BASIC_TYPES_HPP
 
 // //////////////////////////////////////////////////////////////////////
 // Import section
@@ -13,143 +13,143 @@ namespace stdair {
   // //////////////////////////////////////////////////////////////////////
   // Basic types
   /** Location code (3-letter-code, e.g., LON). */
-  typedef std::string LocationCode_T;
+  using LocationCode_T = std::string;
   
   /** Define a distance (kilometers). */
-  typedef unsigned long int Distance_T;
+  using Distance_T = unsigned long int;
 
   /** Define the Airport Code type (3-letter-code, e.g., LHR). */
-  typedef LocationCode_T AirportCode_T;
+  using AirportCode_T = LocationCode_T;
 
   /** City code */
-  typedef LocationCode_T CityCode_T;
+  using CityCode_T = LocationCode_T;
 
   /** Define the key description. */
-  typedef std::string KeyDescription_T;
+  using KeyDescription_T = std::string;
   
   /** Define the Airline Code type (2-letter-code, e.g., BA). */
-  typedef std::string AirlineCode_T;
+  using AirlineCode_T = std::string;
 
   /** Define the type for flight numbers. */
-  typedef unsigned short FlightNumber_T;
+  using FlightNumber_T = unsigned short;
 
   /** Define the type for data table numbers. */
-  typedef unsigned short TableID_T;
+  using TableID_T = unsigned short;
 
   /** Define the cabin code (class of service, e.g., first, business,
       economy). */
-  typedef std::string CabinCode_T;
+  using CabinCode_T = std::string;
 
   /** Define the code of the fare family (e.g., 1, 2, 3, etc.). */
-  typedef std::string FamilyCode_T;
+  using FamilyCode_T = std::string;
 
   /** Define the code of the policy (e.g., 1, 2, 3, etc.). */
-  typedef std::string PolicyCode_T;
+  using PolicyCode_T = std::string;
 
   /** Define the code of the nesting structure (e.g., "default"). */
-  typedef std::string NestingStructureCode_T;
+  using NestingStructureCode_T = std::string;
 
   /** Define the code of the nesting node (e.g., 1, 2, 3, etc). */
-  typedef std::string NestingNodeCode_T;
+  using NestingNodeCode_T = std::string;
 
   /** Define the booking class code (product segment class, e.g., H,
       B, K, etc.). */
-  typedef std::string ClassCode_T;
+  using ClassCode_T = std::string;
 
   /** Define a identity number. */
-  typedef unsigned long Identity_T;
+  using Identity_T = unsigned long;
 
   /** Type of trip type (RO=outbound of round-trip, RI=inbound of round-trip, 
       OW=one way). */
-  typedef std::string TripType_T;
+  using TripType_T = std::string;
 
   /** Monetary value */
-  typedef double MonetaryValue_T;
+  using MonetaryValue_T = double;
   
   /** Real number */
-  typedef double RealNumber_T;
+  using RealNumber_T = double;
   
   /** Define a percentage value (between 0 and 100%). */
-  typedef double Percentage_T;
+  using Percentage_T = double;
 
   /** Define a price value (e.g., 1000.0 Euros). */
-  typedef double PriceValue_T;
+  using PriceValue_T = double;
 
   /** Define a yield value (e.g., 1000.0 Euros). */
-  typedef double YieldValue_T;
+  using YieldValue_T = double;
 
   /** Define a price currency (e.g., EUR for Euros). */
-  typedef std::string PriceCurrency_T;
+  using PriceCurrency_T = std::string;
 
   /** Define an amount of revenue. */
-  typedef double Revenue_T;
+  using Revenue_T = double;
 
   /** Define the name of a multiplier. */
-  typedef double Multiplier_T;
+  using Multiplier_T = double;
   
   /** Define the number of seats (it can be non integer, because the
       overbooking can be applied at booking class or PNR level). */
-  typedef double NbOfSeats_T;
+  using NbOfSeats_T = double;
 
   /** Count */
-  typedef unsigned int Count_T;
+  using Count_T = unsigned int;
   
   /** Number of passengers (in a group) for a booking. */
-  typedef short PartySize_T;
+  using PartySize_T = short;
 
   /** Define a number of requests. */
-  typedef double NbOfRequests_T;
+  using NbOfRequests_T = double;
 
   /** Define a number of bookings. */
-  typedef NbOfRequests_T NbOfBookings_T;
+  using NbOfBookings_T = NbOfRequests_T;
 
   /** Define a number of cancellations. */
-  typedef NbOfRequests_T NbOfCancellations_T;
+  using NbOfCancellations_T = NbOfRequests_T;
 
   /** Define a number of travel solutions
       (in a travel solution block). */
-  typedef unsigned short NbOfTravelSolutions_T;
+  using NbOfTravelSolutions_T = unsigned short;
 
   /** Define the list of class codes as a string. */
-  typedef std::string ClassList_String_T;
+  using ClassList_String_T = std::string;
 
   /** Define a number of segment-dates (in a path). */
-  typedef unsigned short NbOfSegments_T;
+  using NbOfSegments_T = unsigned short;
 
   /** Define a number of airlines (in a path). */
-  typedef unsigned short NbOfAirlines_T;
+  using NbOfAirlines_T = unsigned short;
 
   /** Define an availability. */
-  typedef double Availability_T;
+  using Availability_T = double;
 
   /** Define the price of a travel solution. */
-  typedef double Fare_T;
+  using Fare_T = double;
 
   /** Define the censorship flag. */
-  typedef bool Flag_T;
+  using Flag_T = bool;
 
   /** Define the unsigned index type. */
-  typedef unsigned int UnsignedIndex_T;
+  using UnsignedIndex_T = unsigned int;
 
   /** Define the number of booking classes. */
-  typedef unsigned int NbOfClasses_T;
+  using NbOfClasses_T = unsigned int;
 
   /** Define the number of fare families. */
-  typedef unsigned int NbOfFareFamilies_T;
+  using NbOfFareFamilies_T = unsigned int;
 
   // ///////////// Technical ////////////////
   /** File or directory name.
       <br>It may contain paths, relative or absolute (e.g., /foo/bar
       or C:\foo\bar). */
-  typedef std::string Filename_T;
+  using Filename_T = std::string;
   
   /** Define the file address type (e.g. "a_directory/a_filename").
       <br>NOTE: That type should be deprecated. */
-  typedef std::string FileAddress_T;
+  using FileAddress_T = std::string;
 
   /** Progress status (usually, a percentage expressed as a floating
       point number). */
-  typedef float ProgressPercentage_T;
+  using ProgressPercentage_T = float;
 
 }
-#endif // __STDAIR_STDAIR_BASIC_TYPES_HPP
+#endif // STDAIR_STDAIR_BASIC_TYPES_HPP

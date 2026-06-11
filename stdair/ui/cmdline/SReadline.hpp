@@ -51,22 +51,22 @@ namespace {
   /**
    * @brief Tokens in a single variation of a user command
    */
-  typedef std::vector<std::string> TokensStorage;
+  using TokensStorage = std::vector<std::string>;
 
   /**
    * @brief Set of variations of user commands
    */
-  typedef std::vector<TokensStorage> CompletionsStorage;
+  using CompletionsStorage = std::vector<TokensStorage>;
 
   /**
    * @brief Pressed key callback. Must return 0 if OK, != 0 otherwise
    */
-  typedef boost::function<int (int, int)> KeyCallback;
+  using KeyCallback = boost::function<int (int, int)>;
 
   /**
    * @brief A set of keys binding
    */
-  typedef std::map<int, KeyCallback> KeysBind;
+  using KeysBind = std::map<int, KeyCallback>;
 
   /**
    * Default value for the history length.
@@ -167,7 +167,7 @@ namespace {
   // See description near the prototype
   template <typename  ContainerType>
   void SplitTokens (const std::string& Source, ContainerType& Container) {
-    typedef boost::tokenizer<boost::char_separator<char> > TokenizerType;
+    using TokenizerType = boost::tokenizer<boost::char_separator<char> >;
 
     // Set of token separators
     boost::char_separator<char> Separators (" \t\n");
@@ -191,7 +191,7 @@ namespace {
     rl_attempted_completion_over = 1;
 
     if (Completions.empty() == true) {
-      return NULL;
+      return nullptr;
     }
 
     // Memorise all the previous tokens
@@ -221,7 +221,7 @@ namespace {
     if (FoundPretender) {
       return rl_completion_matches (text, Generator);
     }
-    return NULL;
+    return nullptr;
   }
 
   // See description near the prototype
@@ -259,7 +259,7 @@ namespace {
       }
     }
        
-    return NULL;
+    return nullptr;
   }
 
     
@@ -316,7 +316,7 @@ namespace swift {
      * @param PrintableBound if true - the printable characters are
      * bound if false - the keymap is empty
      */
-    explicit SKeymap (bool PrintableBound = false) : keymap (NULL) {
+    explicit SKeymap (bool PrintableBound = false) : keymap (nullptr) {
       if (PrintableBound == true) {
         // Printable characters are bound
         keymap = rl_make_keymap();
@@ -326,7 +326,7 @@ namespace swift {
         keymap = rl_make_bare_keymap();
       }
 
-      if (keymap == NULL) {
+      if (keymap == nullptr) {
         throw std::runtime_error ("Cannot allocate keymap.");
       }
 
@@ -340,7 +340,7 @@ namespace swift {
      * @param Pattern A keymap to be copied.
      */
     explicit SKeymap (Keymap Pattern) : keymap (rl_copy_keymap (Pattern)) {
-      if ( keymap == NULL ) {
+      if ( keymap == nullptr ) {
         throw std::runtime_error( "Cannot allocate keymap." );
       }
                 
@@ -518,14 +518,14 @@ namespace swift {
       BreakOut = true;
 
       char* ReadLine (readline (Prompt.c_str()));
-      if (ReadLine == NULL) {
+      if (ReadLine == nullptr) {
         return std::string();
       }
                 
       // It's OK
       BreakOut = false;
       std::string Input (ReadLine);
-      free (ReadLine); ReadLine = NULL;
+      free (ReadLine); ReadLine = nullptr;
 
       boost::algorithm::trim (Input);
       if (Input.empty() == false) {

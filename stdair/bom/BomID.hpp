@@ -1,5 +1,5 @@
-#ifndef __STDAIR_BOM_BOMID_HPP
-#define __STDAIR_BOM_BOMID_HPP
+#ifndef STDAIR_BOM_BOMID_HPP
+#define STDAIR_BOM_BOMID_HPP
 
 // //////////////////////////////////////////////////////////////////////
 // Import section
@@ -66,8 +66,8 @@ namespace stdair {
 
   // ////////////////////////////////////////////////////////////////////
   template <typename BOM> BOM& BomID<BOM>::getObject () const {
-    assert (_id != NULL);
+    assert (_id != nullptr);
     return *_id;
   }
 }
-#endif // __STDAIR_BOM_BOMID_HPP
+#endif // STDAIR_BOM_BOMID_HPP

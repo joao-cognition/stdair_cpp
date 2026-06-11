@@ -1,5 +1,5 @@
-#ifndef __STDAIR_BAS_FLOAT_UTILS_GOOGLE_HPP
-#define __STDAIR_BAS_FLOAT_UTILS_GOOGLE_HPP
+#ifndef STDAIR_BAS_FLOAT_UTILS_GOOGLE_HPP
+#define STDAIR_BAS_FLOAT_UTILS_GOOGLE_HPP
 
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided that the following conditions are
@@ -55,7 +55,7 @@ class TypeWithSize {
  public:
   // This prevents the user from using TypeWithSize<N> with incorrect
   // values of N.
-  typedef void UInt;
+  using UInt = void;
 };
 
 // The specialization for size 4.
@@ -66,8 +66,8 @@ class TypeWithSize<4> {
   //
   // As base/basictypes.h doesn't compile on Windows, we cannot use
   // uint32, uint64, and etc here.
-  typedef int Int;
-  typedef unsigned int UInt;
+  using Int = int;
+  using UInt = unsigned int;
 };
 
 // The specialization for size 8.
@@ -75,11 +75,11 @@ template <>
 class TypeWithSize<8> {
  public:
 #if GTEST_OS_WINDOWS
-  typedef __int64 Int;
-  typedef unsigned __int64 UInt;
+  using Int = __int64;
+  using UInt = unsigned __int64;
 #else
-  typedef long long Int;  // NOLINT
-  typedef unsigned long long UInt;  // NOLINT
+  using Int = long long;  // NOLINT
+  using UInt = unsigned long long;  // NOLINT
 #endif  // GTEST_OS_WINDOWS
 };
 
@@ -118,7 +118,7 @@ class FloatingPoint {
  public:
   // Defines the unsigned integer type that has the same size as the
   // floating point number.
-  typedef typename TypeWithSize<sizeof(RawType)>::UInt Bits;
+  using Bits = typename TypeWithSize<sizeof(RawType)>::UInt;
 
   // Constants.
 
@@ -260,4 +260,4 @@ class FloatingPoint {
   FloatingPointUnion u_;
 };
 
-#endif // __STDAIR_BAS_FLOAT_UTILS_GOOGLE_HPP
+#endif // STDAIR_BAS_FLOAT_UTILS_GOOGLE_HPP

@@ -38,7 +38,7 @@ namespace stdair {
   }
 
   // ////////////////////////////////////////////////////////////////////
-  void BucketKey::fromStream (std::istream& ioIn) {
+  void BucketKey::fromStream (std::istream& /*ioIn*/) {
   }
 
   // ////////////////////////////////////////////////////////////////////
@@ -65,7 +65,7 @@ namespace stdair {
   // ////////////////////////////////////////////////////////////////////
   template<class Archive>
   void BucketKey::serialize (Archive& ioArchive,
-                                 const unsigned int iFileVersion) {
+                                 const unsigned int /*iFileVersion*/) {
     ioArchive & _seatIndex;
   }
 

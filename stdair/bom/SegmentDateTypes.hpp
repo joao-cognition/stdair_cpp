@@ -1,6 +1,6 @@
 // //////////////////////////////////////////////////////////////////////
-#ifndef __STDAIR_BOM_SEGMENTDATETYPES_HPP
-#define __STDAIR_BOM_SEGMENTDATETYPES_HPP
+#ifndef STDAIR_BOM_SEGMENTDATETYPES_HPP
+#define STDAIR_BOM_SEGMENTDATETYPES_HPP
 
 // //////////////////////////////////////////////////////////////////////
 // Import section
@@ -17,11 +17,11 @@ namespace stdair {
   class SegmentDate;
   
   /** Define the segment-date list. */
-  typedef std::list<SegmentDate*> SegmentDateList_T;
+  using SegmentDateList_T = std::list<SegmentDate*>;
 
   /** Define the segment-date map. */
-  typedef std::map<const MapKey_T, SegmentDate*> SegmentDateMap_T;
+  using SegmentDateMap_T = std::map<const MapKey_T, SegmentDate*>;
 }
 
-#endif // __STDAIR_BOM_SEGMENTDATETYPES_HPP
+#endif // STDAIR_BOM_SEGMENTDATETYPES_HPP
 

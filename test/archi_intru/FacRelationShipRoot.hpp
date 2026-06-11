@@ -1,5 +1,5 @@
-#ifndef __INTRUSIVE_FAC_FACRELATIONSHIPROOT_HPP
-#define __INTRUSIVE_FAC_FACRELATIONSHIPROOT_HPP
+#ifndef INTRUSIVE_FAC_FACRELATIONSHIPROOT_HPP
+#define INTRUSIVE_FAC_FACRELATIONSHIPROOT_HPP
 
 // //////////////////////////////////////////////////////////////////////
 // Import section
@@ -38,9 +38,9 @@ namespace stdair {
         <br>The singleton is instantiated when first used.
         @return FacRelationShipRoot& */
     static FacRelationShipRoot& instance () {
-      if (_instance == NULL) {
+      if (_instance == nullptr) {
         _instance = new FacRelationShipRoot ();
-        assert (_instance != NULL);
+        assert (_instance != nullptr);
         
         FacSupervisor::instance().registerFacRelationShipRoot (_instance);
       }
@@ -101,7 +101,7 @@ namespace stdair {
   // ////////////////////////////////////////////////////////////////////
   template <typename FIRST_BOM, typename SECOND_BOM>
   FacRelationShipRoot<FIRST_BOM, SECOND_BOM>*
-  FacRelationShipRoot<FIRST_BOM, SECOND_BOM>::_instance = NULL;
+  FacRelationShipRoot<FIRST_BOM, SECOND_BOM>::_instance = nullptr;
   
 }
-#endif // __INTRUSIVE_FAC_FACRELATIONSHIPROOT_HPP
+#endif // INTRUSIVE_FAC_FACRELATIONSHIPROOT_HPP

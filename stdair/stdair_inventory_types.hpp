@@ -1,5 +1,5 @@
-#ifndef __STDAIR_STDAIR_INVENTORY_TYPES_HPP
-#define __STDAIR_STDAIR_INVENTORY_TYPES_HPP
+#ifndef STDAIR_STDAIR_INVENTORY_TYPES_HPP
+#define STDAIR_STDAIR_INVENTORY_TYPES_HPP
 
 // //////////////////////////////////////////////////////////////////////
 // Import section
@@ -20,168 +20,171 @@ namespace stdair {
 
   // //////// Type definitions /////////
   /** Define the type for network ID. */
-  typedef std::string NetworkID_T;
+  using NetworkID_T = std::string;
 
   /** Define a list of airline code. */
-  typedef std::vector<AirlineCode_T> AirlineCodeList_T;
+  using AirlineCodeList_T = std::vector<AirlineCode_T>;
 
   /** Define the list of list of class codes as a string. */
-  typedef std::vector<ClassList_String_T> ClassList_StringList_T;
+  using ClassList_StringList_T = std::vector<ClassList_String_T>;
 
   /** Define a list of class code. */
-  typedef std::vector<ClassCode_T> ClassCodeList_T;
+  using ClassCodeList_T = std::vector<ClassCode_T>;
 
   /** Define the sub-class code (e.g., 0, 1, 2, etc.). The subclass is
       a sub-structure for the booking class, allowing to have specific
       rules for some criteria like POS. */
-  typedef unsigned short SubclassCode_T;
+  using SubclassCode_T = unsigned short;
 
   /** Define the flight path code (code made by a suite of flight numbers). */
-  typedef std::string FlightPathCode_T;
+  using FlightPathCode_T = std::string;
 
   /** Map between the cabin codes and the booking class codes within
       each cabin. */
-  typedef std::map<CabinCode_T, ClassList_String_T> CabinBookingClassMap_T;
+  using CabinBookingClassMap_T = std::map<CabinCode_T, ClassList_String_T>;
 
   /** Curve key for FRAT5 or FF Disutility. */
-  typedef std::string CurveKey_T;
+  using CurveKey_T = std::string;
   
   /** Define the cabin capacity (resource, e.g., 200 seats).
       <br>The capacity is expressed as a double to cope with overbooking. */
-  typedef double CabinCapacity_T;
+  using CabinCapacity_T = double;
 
   /** Define a number of flight dates. */
-  typedef double NbOfFlightDates_T;
+  using NbOfFlightDates_T = double;
 
   /** Define the commited space of a cabin. */
-  typedef double CommittedSpace_T;
+  using CommittedSpace_T = double;
 
   /** Define the unsold protection (UPR). */
-  typedef double UPR_T;
+  using UPR_T = double;
 
   /** Define the value of the booking limit. */
-  typedef double BookingLimit_T;
+  using BookingLimit_T = double;
 
   /** Define the value of the authorization level. */
-  typedef double AuthorizationLevel_T;
+  using AuthorizationLevel_T = double;
 
   /** Define the value of the adjustment for cabin capacity. */
-  typedef double CapacityAdjustment_T;
+  using CapacityAdjustment_T = double;
 
   /** Define the number of seat which could not be used for the booking. */
-  typedef double BlockSpace_T;
+  using BlockSpace_T = double;
 
   /** Define an availability status (AVS). */
-  typedef bool AvailabilityStatus_T;
+  using AvailabilityStatus_T = bool;
 
   /** Define a list of availabilities. */
-  typedef std::vector<Availability_T> BucketAvailabilities_T;
+  using BucketAvailabilities_T = std::vector<Availability_T>;
 
   /** Define a number of yields. */
-  typedef double NbOfYields_T;
+  using NbOfYields_T = double;
 
   /** Define a number of InventoryControlRules. */
-  typedef double NbOfInventoryControlRules_T;
+  using NbOfInventoryControlRules_T = double;
 
   /** Define availibility of booking limit. */
-  typedef bool CensorshipFlag_T;
+  using CensorshipFlag_T = bool;
 
   /** Define the type of day-to-departure. */
-  typedef short DTD_T;
+  using DTD_T = short;
   
   /** Define the type of data collection point. */
-  typedef short DCP_T;
+  using DCP_T = short;
   
   /** Define the type of data collection point list. */
-  typedef std::list<DCP_T> DCPList_T;
+  using DCPList_T = std::list<DCP_T>;
 
   /** Define the DTD (days to departure) frat5 coef map. */
-  typedef std::map<DTD_T, RealNumber_T> DTDFratMap_T;
+  using DTDFratMap_T = std::map<DTD_T, RealNumber_T>;
 
   /** Define the DTD (days to departure) probability map. */
-  typedef std::map<FloatDuration_T, float> DTDProbMap_T;
+  using DTDProbMap_T = std::map<FloatDuration_T, float>;
   
   /** Define the list of censorship flags (une list per booking
       class, one censorship flag per DCP). */
-  typedef std::vector<CensorshipFlag_T> CensorshipFlagList_T;
+  using CensorshipFlagList_T = std::vector<CensorshipFlag_T>;
 
   /** Define the bookingRatio (for instance OnD bookings
       over whole class bookings). */
-  typedef double BookingRatio_T;
+  using BookingRatio_T = double;
 
   /** Define the yield of a virtual class. */
-  typedef double Yield_T;
+  using Yield_T = double;
 
   /** Define the yield level (yield as an integer). */
-  typedef unsigned int YieldLevel_T;
+  using YieldLevel_T = unsigned int;
 
   /** Define the <YieldLevel, demand> demand map. */
-  typedef std::map<YieldLevel_T, MeanStdDevPair_T> YieldLevelDemandMap_T;
+  using YieldLevelDemandMap_T = std::map<YieldLevel_T, MeanStdDevPair_T>;
 
   /** Define the <Yield, demand> pair type.*/
-  typedef std::pair<Yield_T, MeanStdDevPair_T> YieldDemandPair_T;
+  using YieldDemandPair_T = std::pair<Yield_T, MeanStdDevPair_T>;
 
   /** Define the Bid-Price. */
-  typedef double BidPrice_T;
+  using BidPrice_T = double;
 
   /** Define a Bid-Price Vector. */
-  typedef std::vector<BidPrice_T> BidPriceVector_T;
+  using BidPriceVector_T = std::vector<BidPrice_T>;
 
   /** Define the current index of a Bid-Price Vector (for a given LegCabin). */
-  typedef unsigned int SeatIndex_T;
+  using SeatIndex_T = unsigned int;
   
   /** Mode of inventory control. */
-  typedef std::string ControlMode_T;
+  using ControlMode_T = std::string;
 
   /** Define the rate of overbooking */
-  typedef double OverbookingRate_T;
+  using OverbookingRate_T = double;
 
   /** Define the Booking Limit.
       <br>It is a double, as it allows for overbooking. */
-  typedef double BookingLimit_T;
+  using BookingLimit_T = double;
 
   /** Define the Protection Level.
       <br>It is a double, as it allows for overbooking. */
-  typedef double ProtectionLevel_T;
+  using ProtectionLevel_T = double;
 
   /** Define the list of EMSR values for the EMSR algorithm. */
-  typedef std::vector<double> EmsrValueList_T;
+  using EmsrValueList_T = std::vector<double>;
 
   /** Define the vector of booking limits.
       <br> It is a vector of double. */
-  typedef std::vector<double> BookingLimitVector_T;
+  using BookingLimitVector_T = std::vector<double>;
 
   /** Define the vector of protection levels.
       <br> It is a vector of double. */
-  typedef std::vector<double> ProtectionLevelVector_T;
+  using ProtectionLevelVector_T = std::vector<double>;
 
   /** Define a snapshot block. */
-  typedef boost::multi_array<double, 2> SnapshotBlock_T;
+  using SnapshotBlock_T = boost::multi_array<double, 2>;
 
   /** Define a range for array view. */
-  typedef SnapshotBlock_T::index_range SnapshotBlockRange_T;
+  using SnapshotBlockRange_T = SnapshotBlock_T::index_range;
 
   /** Define a view for a given DTD. */
-  typedef SnapshotBlock_T::array_view<1>::type SegmentCabinDTDSnapshotView_T;
+  using SegmentCabinDTDSnapshotView_T = SnapshotBlock_T::array_view<1>::type;
 
   /** Define a view for a given range of DTD. */
-  typedef SnapshotBlock_T::array_view<2>::type SegmentCabinDTDRangeSnapshotView_T;
+  using SegmentCabinDTDRangeSnapshotView_T =
+    SnapshotBlock_T::array_view<2>::type;
   
   /** Define a const view for a given DTD. */
-  typedef SnapshotBlock_T::const_array_view<1>::type ConstSegmentCabinDTDSnapshotView_T;
+  using ConstSegmentCabinDTDSnapshotView_T =
+    SnapshotBlock_T::const_array_view<1>::type;
 
   /** Define a const view for a given range of DTD. */
-  typedef SnapshotBlock_T::const_array_view<2>::type ConstSegmentCabinDTDRangeSnapshotView_T;
+  using ConstSegmentCabinDTDRangeSnapshotView_T =
+    SnapshotBlock_T::const_array_view<2>::type;
   
   /** Define the segment ID within a snapshot data table. */
-  typedef unsigned short SegmentDataID_T;
+  using SegmentDataID_T = unsigned short;
   
   /** Define the leg ID within a snapshot data table. */
-  typedef unsigned short LegDataID_T;
+  using LegDataID_T = unsigned short;
 
   /** Define the index type of a class within a
       snapshot block of a leg/segment. */
-  typedef unsigned short ClassIndex_T;
+  using ClassIndex_T = unsigned short;
 
 }
-#endif // __STDAIR_STDAIR_INVENTORY_TYPES_HPP
+#endif // STDAIR_STDAIR_INVENTORY_TYPES_HPP

@@ -1,5 +1,5 @@
-#ifndef __STDAIR_BOM_FLIGHTDATEKEY_HPP
-#define __STDAIR_BOM_FLIGHTDATEKEY_HPP
+#ifndef STDAIR_BOM_FLIGHTDATEKEY_HPP
+#define STDAIR_BOM_FLIGHTDATEKEY_HPP
 
 // //////////////////////////////////////////////////////////////////////
 // Import section
@@ -45,6 +45,8 @@ namespace stdair {
      * Copy constructor.
      */
     FlightDateKey (const FlightDateKey&);
+    /** Default copy assignment operator. */
+    FlightDateKey& operator= (const FlightDateKey&) = default;
 
     /**
      * Destructor.
@@ -124,4 +126,4 @@ namespace stdair {
   };
 
 }
-#endif // __STDAIR_BOM_FLIGHTDATEKEY_HPP
+#endif // STDAIR_BOM_FLIGHTDATEKEY_HPP

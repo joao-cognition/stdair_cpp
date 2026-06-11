@@ -1,5 +1,5 @@
-#ifndef __STDAIR_BOM_PERIODSTRUCT_HPP
-#define __STDAIR_BOM_PERIODSTRUCT_HPP
+#ifndef STDAIR_BOM_PERIODSTRUCT_HPP
+#define STDAIR_BOM_PERIODSTRUCT_HPP
 
 // //////////////////////////////////////////////////////////////////////
 // Import section
@@ -52,7 +52,7 @@ namespace stdair {
     PeriodStruct intersection (const PeriodStruct&) const;
 
     /** Return if the period is  valid (i.e., valid date range and valid DoW). */
-    const bool isValid () const;
+    bool isValid () const;
     
   public:
     /** Constructor. */
@@ -60,6 +60,8 @@ namespace stdair {
     /** Default constructors. */
     PeriodStruct ();
     PeriodStruct (const PeriodStruct&);
+    /** Default copy assignment operator. */
+    PeriodStruct& operator= (const PeriodStruct&) = default;
     /** Default destructor. */
     ~PeriodStruct () { }
 
@@ -70,4 +72,4 @@ namespace stdair {
   };
 
 }
-#endif // __STDAIR_BOM_PERIODSTRUCT_HPP
+#endif // STDAIR_BOM_PERIODSTRUCT_HPP

@@ -1,5 +1,5 @@
-#ifndef __INTRUSIVE_BOM_LEGDATE_HPP
-#define __INTRUSIVE_BOM_LEGDATE_HPP
+#ifndef INTRUSIVE_BOM_LEGDATE_HPP
+#define INTRUSIVE_BOM_LEGDATE_HPP
 
 // //////////////////////////////////////////////////////////////////////
 // Import section
@@ -59,4 +59,4 @@ namespace stdair {
   typedef bi::list<LegDate, LegDateSiblingMemberOption> LegDateSiblings;
 
 }
-#endif // __INTRUSIVE_BOM_LEGDATE_HPP
+#endif // INTRUSIVE_BOM_LEGDATE_HPP

@@ -1,11 +1,11 @@
-#ifndef __STDAIR_STDAIR_SERVICE_HPP
-#define __STDAIR_STDAIR_SERVICE_HPP
+#ifndef STDAIR_STDAIR_SERVICE_HPP
+#define STDAIR_STDAIR_SERVICE_HPP
 
 // //////////////////////////////////////////////////////////////////////
 // Import section
 // //////////////////////////////////////////////////////////////////////
-// Boost (Extended STL)
-#include <boost/shared_ptr.hpp>
+// STL
+#include <memory>
 
 namespace stdair {
 
@@ -13,7 +13,7 @@ namespace stdair {
   class STDAIR_Service;
 
   /** Pointer on the STDAIR Service handler. */
-  typedef boost::shared_ptr<STDAIR_Service> STDAIR_ServicePtr_T;
+  using STDAIR_ServicePtr_T = std::shared_ptr<STDAIR_Service>;
 
 }
-#endif // __STDAIR_STDAIR_SERVICE_HPP
+#endif // STDAIR_STDAIR_SERVICE_HPP

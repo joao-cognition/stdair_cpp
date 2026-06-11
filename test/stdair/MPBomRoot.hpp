@@ -1,5 +1,5 @@
-#ifndef __MYPROVIDER_BOMROOT_HPP
-#define __MYPROVIDER_BOMROOT_HPP
+#ifndef MYPROVIDER_BOMROOT_HPP
+#define MYPROVIDER_BOMROOT_HPP
 /*!
  * \page test_archi_root_hpp Specific Implementation of a BOM Root
  * \code
@@ -43,4 +43,4 @@ namespace myprovider {
 /*!
  * \endcode
  */
-#endif // __MYPROVIDER_BOMROOT_HPP
+#endif // MYPROVIDER_BOMROOT_HPP

@@ -39,7 +39,7 @@ namespace stdair {
   }
   
   // ////////////////////////////////////////////////////////////////////
-  void BomRootKey::fromStream (std::istream& ioIn) {
+  void BomRootKey::fromStream (std::istream& /*ioIn*/) {
   }
   
   // ////////////////////////////////////////////////////////////////////
@@ -66,7 +66,7 @@ namespace stdair {
   // ////////////////////////////////////////////////////////////////////
   template<class Archive>
   void BomRootKey::serialize (Archive& ioArchive,
-                              const unsigned int iFileVersion) {
+                              const unsigned int /*iFileVersion*/) {
     ioArchive & _id;
   }
 

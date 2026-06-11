@@ -53,7 +53,7 @@ namespace stdair {
   // //////////////////////////////////////////////////////////////////////
   BasLogParams Logger::getLogParams() {
     std::ostream* oStream_ptr = instance()._logStream;
-    assert (oStream_ptr != NULL);
+    assert (oStream_ptr != nullptr);
     return BasLogParams (instance()._level, *oStream_ptr);
   }
 

@@ -69,7 +69,7 @@ namespace stdair {
   }
 
   // ////////////////////////////////////////////////////////////////////
-  const bool PeriodStruct::isValid () const {
+  bool PeriodStruct::isValid () const {
     if (_dateRange.is_null() == false && _dow.isValid()) {
       return true;
     }

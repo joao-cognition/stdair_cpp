@@ -1,5 +1,5 @@
-#ifndef __STDAIR_BOM_TIMEPERIODKEY_HPP
-#define __STDAIR_BOM_TIMEPERIODKEY_HPP
+#ifndef STDAIR_BOM_TIMEPERIODKEY_HPP
+#define STDAIR_BOM_TIMEPERIODKEY_HPP
 
 // //////////////////////////////////////////////////////////////////////
 // Import section
@@ -80,4 +80,4 @@ namespace stdair {
   };
 
 }
-#endif // __STDAIR_BOM_TIMEPERIODKEY_HPP
+#endif // STDAIR_BOM_TIMEPERIODKEY_HPP

@@ -19,17 +19,7 @@
 #define BOOST_TEST_DYN_LINK
 #define BOOST_TEST_MAIN
 #define BOOST_TEST_MODULE StdAirTest
-#if BOOST_VERSION_MACRO >= 103900
 #include <boost/test/unit_test.hpp>
-#else  // BOOST_VERSION_MACRO >= 103900
-#include <boost/test/test_tools.hpp>
-#include <boost/test/results_reporter.hpp>
-#include <boost/test/unit_test_suite.hpp>
-#include <boost/test/output_test_stream.hpp>
-#include <boost/test/unit_test_log.hpp>
-#include <boost/test/framework.hpp>
-#include <boost/test/detail/unit_test_parameters.hpp>
-#endif // BOOST_VERSION_MACRO >= 103900
 // Boost Serialisation
 #include <boost/archive/text_oarchive.hpp>
 #include <boost/archive/text_iarchive.hpp>
@@ -49,7 +39,6 @@
 
 namespace boost_utf = boost::unit_test;
 
-#if BOOST_VERSION_MACRO >= 103900
 
 // (Boost) Unit Test XML Report
 std::ofstream utfReportStream ("StandardAirlineITTestSuite_utfresults.xml");
@@ -61,11 +50,7 @@ struct UnitTestConfig {
   /** Constructor. */
   UnitTestConfig() {
     boost_utf::unit_test_log.set_stream (utfReportStream);
-#if BOOST_VERSION_MACRO >= 105900
     boost_utf::unit_test_log.set_format (boost_utf::OF_XML);
-#else
-    boost_utf::unit_test_log.set_format (boost_utf::XML);
-#endif
     boost_utf::unit_test_log.set_threshold_level (boost_utf::log_test_units);
     // boost_utf::unit_test_log.set_threshold_level (boost_utf::log_successful_tests);
   }
@@ -226,7 +211,7 @@ BOOST_AUTO_TEST_CASE (bom_structure_instantiation_test) {
          lInventoryList.begin(); itInv != lInventoryList.end();
        ++itInv, ++idx) {
     const myprovider::Inventory* lInv_ptr = *itInv;
-    BOOST_REQUIRE (lInv_ptr != NULL);
+    BOOST_REQUIRE (lInv_ptr != nullptr);
     
     BOOST_CHECK_EQUAL (lInventoryKeyArray[idx], lInv_ptr->describeKey());
     BOOST_CHECK_MESSAGE (lInventoryKeyArray[idx] == lInv_ptr->describeKey(),
@@ -280,7 +265,7 @@ BOOST_AUTO_TEST_CASE (bom_structure_serialisation_test) {
   STDAIR_LOG_DEBUG ("There should be an Inventory object corresponding to the '"
                     << lBAInvKeyStr << "' key.");
 
-  BOOST_REQUIRE_MESSAGE (lBAInv_ptr != NULL,
+  BOOST_REQUIRE_MESSAGE (lBAInv_ptr != nullptr,
                          "An Inventory object should exist with the key, '"
                          << lBAInvKeyStr << "'.");
 
@@ -334,7 +319,7 @@ BOOST_AUTO_TEST_CASE (bom_structure_serialisation_test) {
   STDAIR_LOG_DEBUG ("There should be an Inventory object corresponding to the '"
                     << lBAInvKeyStr << "' key in the restored BOM root.");
 
-  BOOST_CHECK_MESSAGE (lRestoredBAInv_ptr != NULL,
+  BOOST_CHECK_MESSAGE (lRestoredBAInv_ptr != nullptr,
                        "An Inventory object should exist with the key, '"
                        << lBAInvKeyStr << "' in the restored BOM root.");
 
@@ -411,7 +396,7 @@ BOOST_AUTO_TEST_CASE (bom_structure_clone_test) {
   STDAIR_LOG_DEBUG ("There should be an Inventory object corresponding to the '"
                     << lBAInvKeyStr << "' key in the clone BOM root.");
 
-  BOOST_CHECK_MESSAGE (lCloneBAInv_ptr != NULL,
+  BOOST_CHECK_MESSAGE (lCloneBAInv_ptr != nullptr,
                        "An Inventory object should exist with the key, '"
                        << lBAInvKeyStr << "' in the clone BOM root.");
 
@@ -422,12 +407,6 @@ BOOST_AUTO_TEST_CASE (bom_structure_clone_test) {
 // End the test suite
 BOOST_AUTO_TEST_SUITE_END()
 
-#else // BOOST_VERSION_MACRO >= 103900
-boost_utf::test_suite* init_unit_test_suite (int, char* []) {
-  boost_utf::test_suite* test = BOOST_TEST_SUITE ("Unit test example 1");
-  return test;
-}
-#endif // BOOST_VERSION_MACRO >= 103900
 
 /*!
  * \endcode
