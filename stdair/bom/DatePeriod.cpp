@@ -14,18 +14,18 @@ namespace stdair {
   // ////////////////////////////////////////////////////////////////////
   DatePeriod::DatePeriod()
     : _key (BOOST_DEFAULT_DATE_PERIOD),
-      _parent (NULL)  {
+      _parent (nullptr)  {
     // That constructor is used by the serialisation process
   }
 
   // ////////////////////////////////////////////////////////////////////
   DatePeriod::DatePeriod (const DatePeriod& iDatePeriod)
-    : _key (iDatePeriod.getKey()), _parent (NULL)  {
+    : BomAbstract(), _key (iDatePeriod.getKey()), _parent (nullptr)  {
   }
 
   // ////////////////////////////////////////////////////////////////////
   DatePeriod::DatePeriod (const Key_T& iKey)
-    : _key (iKey), _parent (NULL)  {
+    : _key (iKey), _parent (nullptr)  {
   }
 
   // ////////////////////////////////////////////////////////////////////

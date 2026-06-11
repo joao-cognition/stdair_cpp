@@ -19,7 +19,7 @@
 namespace bi = boost::intrusive;
 
 // //////////////////////////////////////////////////////////////////////
-TestBomUsage::TestBomUsage() : _bomRoot (NULL) {
+TestBomUsage::TestBomUsage() : _bomRoot (nullptr) {
   init();
 }
 
@@ -42,7 +42,7 @@ bool TestBomUsage::testBomBuilding() {
   bool oTestSuccessfull = true;
 
   // 0. Sanity check
-  assert (_bomRoot != NULL);
+  assert (_bomRoot != nullptr);
 
   // 1. FlightDate level
   // 1.1. BA177
@@ -78,8 +78,8 @@ bool TestBomUsage::testBomSearching() {
                                 stdair::FlightDate>::find (*_bomRoot, "BA117");
   
   // DEBUG
-  const std::string isFDNullStr = (lFlightDate_ptr == NULL)?"Yes":"No";
-  std::cout << "Is FlightDate NULL? " << isFDNullStr << std::endl;
+  const std::string isFDNullStr = (lFlightDate_ptr == nullptr)?"Yes":"No";
+  std::cout << "Is FlightDate nullptr? " << isFDNullStr << std::endl;
   
   return oTestSuccessfull;
 }

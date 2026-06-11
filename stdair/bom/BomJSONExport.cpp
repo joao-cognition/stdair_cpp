@@ -4,10 +4,8 @@
 // STL
 #include <cassert>
 #include <ostream>
-#if BOOST_VERSION_MACRO >= 103400
 // Boost ForEach
 #include <boost/foreach.hpp>
-#endif // BOOST_VERSION_MACRO >= 103400
 // StdAir
 #include <stdair/stdair_date_time_types.hpp>
 #include <stdair/basic/BasConst_BomDisplay.hpp>
@@ -42,7 +40,6 @@ namespace stdair {
       return;
     }
     
-#if BOOST_VERSION_MACRO >= 104100
     
     // Create empty property tree objects
     bpt::ptree pt;    
@@ -54,7 +51,7 @@ namespace stdair {
     for (InventoryList_T::const_iterator itInv = lInventoryList.begin();
          itInv != lInventoryList.end(); ++itInv) {
       const Inventory* lInv_ptr = *itInv;
-      assert (lInv_ptr != NULL);
+      assert (lInv_ptr != nullptr);
 
       // Retrieve the inventory key (airline code)
       const AirlineCode_T& lAirlineCode = lInv_ptr->getAirlineCode();
@@ -78,7 +75,7 @@ namespace stdair {
         for (FlightDateMap_T::const_iterator itFD = lFlightDateList.begin();
              itFD != lFlightDateList.end(); ++itFD) {
           const FlightDate* lFD_ptr = itFD->second;
-          assert (lFD_ptr != NULL);
+          assert (lFD_ptr != nullptr);
       
           // Retrieve the key of the flight-date
           const FlightNumber_T& lFlightNumber = lFD_ptr->getFlightNumber();
@@ -108,7 +105,6 @@ namespace stdair {
     
     // Write the property tree into the JSON stream.
     write_json (oStream, pt);
-#endif // BOOST_VERSION_MACRO >= 104100
   } 
 
   // ////////////////////////////////////////////////////////////////////
@@ -121,7 +117,6 @@ namespace stdair {
       return;
     }
     
-#if BOOST_VERSION_MACRO >= 104100 
 
     // Create an empty flight-dates array
     bpt::ptree lFDDatePropertyTree; 
@@ -132,7 +127,7 @@ namespace stdair {
     for (FlightDateMap_T::const_iterator itFD = lFlightDateList.begin();
          itFD != lFlightDateList.end(); ++itFD) {
       const FlightDate* lFD_ptr = itFD->second;
-      assert (lFD_ptr != NULL);
+      assert (lFD_ptr != nullptr);
       
       // Retrieve the key of the flight-date
       const FlightNumber_T& lFlightNumber = lFD_ptr->getFlightNumber();
@@ -154,7 +149,6 @@ namespace stdair {
            
       }
     }  
-#endif // BOOST_VERSION_MACRO >= 104100
 
   }
 
@@ -163,7 +157,6 @@ namespace stdair {
   jsonExportFlightDateObjects (std::ostream& oStream,
 			       const FlightDate& iFlightDate) {
 
-#if BOOST_VERSION_MACRO >= 104100 
 
     /**
      * Flight-date level 
@@ -212,7 +205,6 @@ namespace stdair {
     // Write the property tree into the JSON stream.
     write_json (oStream, pt);
 
-#endif // BOOST_VERSION_MACRO >= 104100
   }
 
   // ////////////////////////////////////////////////////////////////////
@@ -230,9 +222,8 @@ namespace stdair {
     for (LegDateList_T::const_iterator itLD = lLegDateList.begin();
          itLD != lLegDateList.end(); ++itLD) {
       const LegDate* lLD_ptr = *itLD;
-      assert (lLD_ptr != NULL);  
+      assert (lLD_ptr != nullptr);  
 
-#if BOOST_VERSION_MACRO >= 104100 
      
       // Create an empty property tree object for the current leg date
       bpt::ptree lCurrLDTree; 
@@ -284,7 +275,6 @@ namespace stdair {
       // Put the current leg date tree in the leg date list tree
       ioLegDateListTree.push_back(std::make_pair("", lCurrLDTree));
 
-#endif // BOOST_VERSION_MACRO >= 104100
     }
   }
 
@@ -303,9 +293,8 @@ namespace stdair {
     for (LegCabinList_T::const_iterator itLC = lLegCabinList.begin();
 	 itLC != lLegCabinList.end(); ++itLC) {
       const LegCabin* lLC_ptr = *itLC;
-      assert (lLC_ptr != NULL); 
+      assert (lLC_ptr != nullptr); 
 
-#if BOOST_VERSION_MACRO >= 104100
 
       // Create an empty property tree object for the current leg cabin
       bpt::ptree lCurrLCTree;
@@ -393,7 +382,6 @@ namespace stdair {
       // Put the current leg cabin tree in the leg cabin list tree
       ioLegCabinListTree.push_back(std::make_pair("", lCurrLCTree));
 
-#endif // BOOST_VERSION_MACRO >= 104100
     }
   }
 
@@ -415,9 +403,8 @@ namespace stdair {
     for (BucketList_T::const_iterator itBuck = lBucketList.begin();
 	 itBuck != lBucketList.end(); ++itBuck) {
       const Bucket* lBucket_ptr = *itBuck;
-      assert (lBucket_ptr != NULL);
+      assert (lBucket_ptr != nullptr);
 
-#if BOOST_VERSION_MACRO >= 104100
           
       // Create an empty property tree object for the current bucket
       bpt::ptree lCurrBucketTree;
@@ -439,7 +426,6 @@ namespace stdair {
       // Put the current bucket tree in the bucket list tree
       ioBucketListTree.push_back(std::make_pair("", lCurrBucketTree));
 
-#endif // BOOST_VERSION_MACRO >= 104100
     }
   }
     
@@ -458,9 +444,8 @@ namespace stdair {
     for (SegmentDateList_T::const_iterator itSD = lSegmentDateList.begin();
          itSD != lSegmentDateList.end(); ++itSD) {
       const SegmentDate* lSD_ptr = *itSD;
-      assert (lSD_ptr != NULL);
+      assert (lSD_ptr != nullptr);
       
-#if BOOST_VERSION_MACRO >= 104100
       
       // Create an empty property tree object for the current segment date
       bpt::ptree lCurrSDTree;  
@@ -481,7 +466,6 @@ namespace stdair {
       // Put segment date array in property tree  
       ioSegmentDateTree.push_back(std::make_pair("", lCurrSDTree));
       
-#endif // BOOST_VERSION_MACRO >= 104100
     } 
   }
 
@@ -500,9 +484,8 @@ namespace stdair {
     for (SegmentCabinList_T::const_iterator itSC = lSegmentCabinList.begin();
 	 itSC != lSegmentCabinList.end(); ++itSC) {
       const SegmentCabin* lSC_ptr = *itSC;
-      assert (lSC_ptr != NULL);
+      assert (lSC_ptr != nullptr);
 
-#if BOOST_VERSION_MACRO >= 104100
       // Create an empty property tree object for the current segment cabin
       bpt::ptree lSCArray;
 
@@ -513,7 +496,6 @@ namespace stdair {
       // Export the cabin tree to add fare-families and sub-classes details
       jsonExportFareFamily (ioPropertyTree, lSCArray, *lSC_ptr); 
      
-#endif // BOOST_VERSION_MACRO >= 104100
 
     }
   }
@@ -532,7 +514,7 @@ namespace stdair {
       for (FareFamilyList_T::const_iterator itFF = lFareFamilyList.begin();
 	 itFF != lFareFamilyList.end(); ++itFF) {
 	const FareFamily* lFF_ptr = *itFF;
-	assert (lFF_ptr != NULL);  
+	assert (lFF_ptr != nullptr);  
 
 	// Browse the booking-classes
 	const BookingClassList_T& lBookingClassList =
@@ -541,9 +523,8 @@ namespace stdair {
 	       lBookingClassList.begin();
 	     itBC != lBookingClassList.end(); ++itBC) {
 	  const BookingClass* lBC_ptr = *itBC;
-	  assert (lBC_ptr != NULL);
+	  assert (lBC_ptr != nullptr);
 
-#if BOOST_VERSION_MACRO >= 104100
 	  
 	  // Put family code in property tree
 	  const FamilyCode_T& lFamilyCode = lFF_ptr->getFamilyCode();
@@ -552,7 +533,6 @@ namespace stdair {
 	  // Export the cabin tree to add sub-classes details
 	  jsonExportBookingClass (ioPropertyTree, ioSCTree, *lBC_ptr);
 
-#endif // BOOST_VERSION_MACRO >= 104100  
 
 	}
       }
@@ -569,9 +549,8 @@ namespace stdair {
 	     lBookingClassList.begin();
 	   itBC != lBookingClassList.end(); ++itBC) {
 	const BookingClass* lBC_ptr = *itBC;
-	assert (lBC_ptr != NULL);
+	assert (lBC_ptr != nullptr);
 	  
-#if BOOST_VERSION_MACRO >= 104100
 	
 	// Put family code in property tree
 	ioSCTree.put ("family_code", lDefaultFamilyCode); 
@@ -579,7 +558,6 @@ namespace stdair {
 	// Export the cabin tree to add sub-classes details
 	jsonExportBookingClass (ioPropertyTree, ioSCTree, *lBC_ptr); 
 
-#endif // BOOST_VERSION_MACRO >= 104100
       }
     }
   }
@@ -594,7 +572,6 @@ namespace stdair {
      *
      */
 
-#if BOOST_VERSION_MACRO >= 104100
     
     // Put sub class in property tree
     ioSCTree.put ("class_code", iBookingClass.toString());
@@ -652,7 +629,6 @@ namespace stdair {
     // to the global tree
     ioPropertyTree.push_back(std::make_pair("", ioSCTree));
       
-#endif // BOOST_VERSION_MACRO >= 104100
   }  
 
   // ////////////////////////////////////////////////////////////////////
@@ -669,7 +645,6 @@ namespace stdair {
     const BookingRequestStruct& lBookingRequest = 
       iEventStruct.getBookingRequest(); 
 
-#if BOOST_VERSION_MACRO >= 104100  
 
     // Create an empty property tree object for the current booking request
     bpt::ptree ptBookingRequest;
@@ -741,7 +716,6 @@ namespace stdair {
     // Write the property tree into the JSON stream.
     write_json (oStream, ptBookingRequest);
   
-#endif // BOOST_VERSION_MACRO >= 104100
   } 
 
   // ////////////////////////////////////////////////////////////////////
@@ -758,7 +732,6 @@ namespace stdair {
     const BreakPointStruct& lBreakPoint = 
       iEventStruct.getBreakPoint(); 
 
-#if BOOST_VERSION_MACRO >= 104100  
 
     // Create an empty property tree object for the current break point
     bpt::ptree ptBreakPoint;     
@@ -774,7 +747,6 @@ namespace stdair {
     write_json (oStream, ptBreakPoint);
 
 
-#endif // BOOST_VERSION_MACRO >= 104100
   }  
 
 }

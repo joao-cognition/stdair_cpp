@@ -1,5 +1,5 @@
-#ifndef __STDAIR_BAS_PASSENGERTYPE_HPP
-#define __STDAIR_BAS_PASSENGERTYPE_HPP
+#ifndef STDAIR_BAS_PASSENGERTYPE_HPP
+#define STDAIR_BAS_PASSENGERTYPE_HPP
 
 // //////////////////////////////////////////////////////////////////////
 // Import section
@@ -14,12 +14,12 @@ namespace stdair {
   /** Enumeration of Frequent Flyer types. */
   struct PassengerType : public StructAbstract {
   public:
-    typedef enum { 
+    enum EN_PassengerType { 
       LEISURE = 0,
       BUSINESS,
       FIRST,
       LAST_VALUE
-    } EN_PassengerType;
+    };
 
     /** Get the label as a string (e.g., "Leisure" or "Business"). */
     static const std::string& getLabel (const EN_PassengerType&);
@@ -67,4 +67,4 @@ namespace stdair {
   };
 
 }
-#endif // __STDAIR_BAS_PASSENGERTYPE_HPP
+#endif // STDAIR_BAS_PASSENGERTYPE_HPP

@@ -16,13 +16,13 @@
 namespace stdair {
 
   // ////////////////////////////////////////////////////////////////////
-  LegCabin::LegCabin() : _key (DEFAULT_CABIN_CODE), _parent (NULL) {
+  LegCabin::LegCabin() : _key (DEFAULT_CABIN_CODE), _parent (nullptr) {
     assert (false);
   }
 
   // ////////////////////////////////////////////////////////////////////
   LegCabin::LegCabin (const LegCabin& iLegCabin)
-    : _key (iLegCabin._key), _parent (NULL),
+    : BomAbstract(), _key (iLegCabin._key), _parent (nullptr),
       _offeredCapacity (iLegCabin._offeredCapacity),
       _physicalCapacity (iLegCabin._physicalCapacity),
       _soldSeat (iLegCabin._soldSeat),
@@ -44,7 +44,7 @@ namespace stdair {
 
   // ////////////////////////////////////////////////////////////////////
   LegCabin::LegCabin (const Key_T& iKey)
-    : _key (iKey), _parent (NULL),
+    : _key (iKey), _parent (nullptr),
       _offeredCapacity (DEFAULT_CABIN_CAPACITY),
       _physicalCapacity (DEFAULT_CABIN_CAPACITY),
       _soldSeat (DEFAULT_CLASS_NB_OF_BOOKINGS),

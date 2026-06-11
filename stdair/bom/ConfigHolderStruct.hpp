@@ -1,5 +1,5 @@
-#ifndef __STDAIR_BOM_CONFIGHOLDERSTRUCT_HPP
-#define __STDAIR_BOM_CONFIGHOLDERSTRUCT_HPP
+#ifndef STDAIR_BOM_CONFIGHOLDERSTRUCT_HPP
+#define STDAIR_BOM_CONFIGHOLDERSTRUCT_HPP
 
 // //////////////////////////////////////////////////////////////////////
 // Import section
@@ -10,10 +10,8 @@
 // Boost
 #include <boost/static_assert.hpp>
 #include <boost/type_traits/is_same.hpp>
-#if BOOST_VERSION_MACRO >= 104100
 // Boost Property Tree
 #include <boost/property_tree/ptree.hpp>
-#endif // BOOST_VERSION_MACRO >= 104100
 // StdAir
 #include <stdair/stdair_file.hpp>
 #include <stdair/stdair_maths_types.hpp>
@@ -21,13 +19,7 @@
 #include <stdair/basic/StructAbstract.hpp>
 #include <stdair/bom/ConfigHolderTypes.hpp>
 
-#if BOOST_VERSION_MACRO >= 104100
 namespace bpt = boost::property_tree;
-#else // BOOST_VERSION_MACRO >= 104100
-namespace bpt {
-  typedef char ptree;
-}
-#endif // BOOST_VERSION_MACRO >= 104100
 
 namespace stdair {
 
@@ -146,7 +138,6 @@ namespace stdair {
   
     bool hasValueBeenSuccessfullyRetrieved = true;
 
-#if BOOST_VERSION_MACRO >= 104100
     try {
       // Get the value.
       // If the path key is not found, an exception is thrown.
@@ -157,7 +148,6 @@ namespace stdair {
     } catch (bpt::ptree_error& bptException) {
       hasValueBeenSuccessfullyRetrieved = false;
     }
-#endif // BOOST_VERSION_MACRO >= 104100
     
     return hasValueBeenSuccessfullyRetrieved;
     
@@ -177,7 +167,6 @@ namespace stdair {
 
     bool hasValueBeenSuccessfullyRetrieved = true;
 
-#if BOOST_VERSION_MACRO >= 104100
     
     try { 
 
@@ -195,7 +184,6 @@ namespace stdair {
     } catch (bpt::ptree_error& bptException) {
       hasValueBeenSuccessfullyRetrieved = false;
     }
-#endif // BOOST_VERSION_MACRO >= 104100
     
     return hasValueBeenSuccessfullyRetrieved;
 
@@ -204,4 +192,4 @@ namespace stdair {
 
 }
 
-#endif // __STDAIR_BOM_CONFIGHOLDERSTRUCT_HPP
+#endif // STDAIR_BOM_CONFIGHOLDERSTRUCT_HPP

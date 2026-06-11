@@ -1,6 +1,6 @@
 // //////////////////////////////////////////////////////////////////////
-#ifndef __STDAIR_BOM_YIELDSTORETYPES_HPP
-#define __STDAIR_BOM_YIELDSTORETYPES_HPP
+#ifndef STDAIR_BOM_YIELDSTORETYPES_HPP
+#define STDAIR_BOM_YIELDSTORETYPES_HPP
 
 // //////////////////////////////////////////////////////////////////////
 // Import section
@@ -17,11 +17,11 @@ namespace stdair {
   class YieldStore;
 
   /** Define the Inventory list. */
-  typedef std::list<YieldStore*> YieldStoreList_T;
+  using YieldStoreList_T = std::list<YieldStore*>;
   
   /** Define the Inventory map. */
-  typedef std::map<const MapKey_T, YieldStore*> YieldStoreMap_T;
+  using YieldStoreMap_T = std::map<const MapKey_T, YieldStore*>;
   
 }
-#endif // __STDAIR_BOM_YIELDSTORETYPES_HPP
+#endif // STDAIR_BOM_YIELDSTORETYPES_HPP
 

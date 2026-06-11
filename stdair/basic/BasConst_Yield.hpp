@@ -1,5 +1,5 @@
-#ifndef __STDAIR_BAS_BASCONST_YIELD_HPP
-#define __STDAIR_BAS_BASCONST_YIELD_HPP
+#ifndef STDAIR_BAS_BASCONST_YIELD_HPP
+#define STDAIR_BAS_BASCONST_YIELD_HPP
 
 // //////////////////////////////////////////////////////////////////////
 // Import section
@@ -45,4 +45,4 @@ namespace stdair {
   extern const OverbookingRate_T DEFAULT_YIELD_OVERBOOKING_RATE;
 
 }
-#endif // __STDAIR_BAS_BASCONST_YIELD_HPP
+#endif // STDAIR_BAS_BASCONST_YIELD_HPP

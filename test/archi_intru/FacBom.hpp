@@ -1,5 +1,5 @@
-#ifndef __INTRUSIVE_FAC_FACBOM_HPP
-#define __INTRUSIVE_FAC_FACBOM_HPP
+#ifndef INTRUSIVE_FAC_FACBOM_HPP
+#define INTRUSIVE_FAC_FACBOM_HPP
 
 // //////////////////////////////////////////////////////////////////////
 // Import section
@@ -25,9 +25,9 @@ namespace stdair {
         <br>The singleton is instantiated when first used.
         @return FacBom& */
     static FacBom& instance() {
-      if (_instance == NULL) {
+      if (_instance == nullptr) {
         _instance = new FacBom ();
-        assert (_instance != NULL);
+        assert (_instance != nullptr);
         
         FacSupervisor::instance().registerFacBom (_instance);
       }
@@ -37,7 +37,7 @@ namespace stdair {
     /** Create a BOM object for a given key. */
     BOM& create (const std::string& iKey)  {
       BOM* oBom_ptr = new BOM (iKey);
-      assert (oBom_ptr != NULL);
+      assert (oBom_ptr != nullptr);
       _pool.push_back (oBom_ptr);
       return *oBom_ptr;
     }
@@ -45,7 +45,7 @@ namespace stdair {
     /** Create a BOM object for a given key. */
     BOM& create (const int& idx)  {
       BOM* oBom_ptr = new BOM (idx);
-      assert (oBom_ptr != NULL);
+      assert (oBom_ptr != nullptr);
       _pool.push_back (oBom_ptr);
       return *oBom_ptr;
     }
@@ -65,15 +65,15 @@ namespace stdair {
       for (typename BomPool_T::iterator itBom = _pool.begin();
            itBom != _pool.end(); ++itBom) {
         BOM* currentBom_ptr = *itBom;
-        assert (currentBom_ptr != NULL);
-        delete currentBom_ptr; currentBom_ptr = NULL;
+        assert (currentBom_ptr != nullptr);
+        delete currentBom_ptr; currentBom_ptr = nullptr;
       }
       
       // Empty the pool.
       _pool.clear();
       
       // Reset the static instance.
-      _instance = NULL;
+      _instance = nullptr;
     }
     
   private:
@@ -84,7 +84,7 @@ namespace stdair {
   };
 
   // ////////////////////////////////////////////////////////////////////
-  template <typename BOM> FacBom<BOM>* FacBom<BOM>::_instance = NULL;
+  template <typename BOM> FacBom<BOM>* FacBom<BOM>::_instance = nullptr;
   
 }
-#endif // __INTRUSIVE_FAC_FACBOM_HPP
+#endif // INTRUSIVE_FAC_FACBOM_HPP

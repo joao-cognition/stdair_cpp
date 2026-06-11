@@ -1,5 +1,5 @@
-#ifndef __STDAIR_STDAIR_DATE_TIME_TYPES_HPP
-#define __STDAIR_STDAIR_DATE_TIME_TYPES_HPP
+#ifndef STDAIR_STDAIR_DATE_TIME_TYPES_HPP
+#define STDAIR_STDAIR_DATE_TIME_TYPES_HPP
 
 // //////////////////////////////////////////////////////////////////////
 // Import section
@@ -14,40 +14,40 @@ namespace stdair {
 
   // //////// Type definitions /////////
   /** Define the type for durations (e.g., elapsed in-flight time). */
-  typedef boost::posix_time::time_duration Duration_T;
+  using Duration_T = boost::posix_time::time_duration;
 
   /** Define the type for date (e.g., departure date of a flight). */
-  typedef boost::gregorian::date Date_T;
+  using Date_T = boost::gregorian::date;
     
   /** Time */
-  typedef boost::posix_time::time_duration Time_T;
+  using Time_T = boost::posix_time::time_duration;
 
   /** Define an accurate time (date+time). */
-  typedef boost::posix_time::ptime DateTime_T;
+  using DateTime_T = boost::posix_time::ptime;
 
   /** Define the Period (e.g., period during which flights depart). */
-  typedef boost::gregorian::date_period DatePeriod_T;
+  using DatePeriod_T = boost::gregorian::date_period;
 
   /** Define the Day-Of-the-Week as a string. */
-  typedef std::string DOW_String_T;
+  using DOW_String_T = std::string;
 
   /** Define the Date Offset (e.g., -1 ). */
-  typedef boost::gregorian::date_duration DateOffset_T;
+  using DateOffset_T = boost::gregorian::date_duration;
 
   /** Define a duration in number of days. */
-  typedef int DayDuration_T;
+  using DayDuration_T = int;
 
   /** Define the Saturday stay status of a travel. */
-  typedef bool SaturdayStay_T;
+  using SaturdayStay_T = bool;
   
   /** Time duration in (integer) number of seconds */
-  typedef long int IntDuration_T;
+  using IntDuration_T = long int;
 
   /** Time duration in (unsigned long long integer) number of milliseconds */
-  typedef long long int LongDuration_T;
+  using LongDuration_T = long long int;
   
   /** Duration in (float) number of time units */
-  typedef float FloatDuration_T;
+  using FloatDuration_T = float;
 
 }
-#endif // __STDAIR_STDAIR_DATE_TIME_TYPES_HPP
+#endif // STDAIR_STDAIR_DATE_TIME_TYPES_HPP

@@ -70,7 +70,7 @@ namespace stdair {
   }
 
   // ////////////////////////////////////////////////////////////////////
-  void OnDDateKey::fromStream (std::istream& ioIn) {
+  void OnDDateKey::fromStream (std::istream& /*ioIn*/) {
   }
 
   // ////////////////////////////////////////////////////////////////////
@@ -99,8 +99,8 @@ namespace stdair {
 
   // ////////////////////////////////////////////////////////////////////
   template<class Archive>
-  void OnDDateKey::serialize (Archive& ioArchive,
-                              const unsigned int iFileVersion) {
+  void OnDDateKey::serialize (Archive& /*ioArchive*/,
+                              const unsigned int /*iFileVersion*/) {
     /**
      * \note The serialised member should not be const (as, as far as
      *       I understand, they are tracked by Boost.Serialisation).

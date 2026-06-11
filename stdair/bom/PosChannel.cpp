@@ -15,18 +15,18 @@ namespace stdair {
   PosChannel::PosChannel()
     : _key (DEFAULT_POS,
             DEFAULT_CHANNEL),
-      _parent (NULL)  {
+      _parent (nullptr)  {
     // That constructor is used by the serialisation process
   }
 
   // ////////////////////////////////////////////////////////////////////
   PosChannel::PosChannel (const PosChannel& iPosChannel)
-    : _key (iPosChannel.getKey()), _parent (NULL)  {
+    : BomAbstract(), _key (iPosChannel.getKey()), _parent (nullptr)  {
   }
 
   // ////////////////////////////////////////////////////////////////////
   PosChannel::PosChannel (const Key_T& iKey)
-    : _key (iKey), _parent (NULL)  {
+    : _key (iKey), _parent (nullptr)  {
   }
 
   // ////////////////////////////////////////////////////////////////////

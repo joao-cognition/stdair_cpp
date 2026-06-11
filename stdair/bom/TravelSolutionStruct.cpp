@@ -13,12 +13,12 @@
 namespace stdair {
 
   // ////////////////////////////////////////////////////////////////////
-  TravelSolutionStruct::TravelSolutionStruct() : _chosenFareOption (NULL) {
+  TravelSolutionStruct::TravelSolutionStruct() : _chosenFareOption (nullptr) {
   }
   
   // ////////////////////////////////////////////////////////////////////
   TravelSolutionStruct::~TravelSolutionStruct() {
-    _chosenFareOption = NULL;
+    _chosenFareOption = nullptr;
   }
 
   // ////////////////////////////////////////////////////////////////////
@@ -40,7 +40,7 @@ namespace stdair {
   }
 
   // ////////////////////////////////////////////////////////////////////
-  void TravelSolutionStruct::fromStream (std::istream& ioIn) {
+  void TravelSolutionStruct::fromStream (std::istream& /*ioIn*/) {
   }
 
   // ////////////////////////////////////////////////////////////////////
@@ -85,7 +85,7 @@ namespace stdair {
     oStr << " ### ";
 
     //
-    if (_chosenFareOption != NULL) {
+    if (_chosenFareOption != nullptr) {
       oStr << "Chosen fare option: " << _chosenFareOption->describe()
            << " ## Among: ";
     } else {

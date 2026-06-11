@@ -4,8 +4,8 @@
  * @author Anh Quan Nguyen <quannaus@users.sourceforge.net>
  * @date 20/01/2010
  */
-#ifndef __STDAIR_BOM_KEYABSTRACT_HPP
-#define __STDAIR_BOM_KEYABSTRACT_HPP
+#ifndef STDAIR_BOM_KEYABSTRACT_HPP
+#define STDAIR_BOM_KEYABSTRACT_HPP
 
 // //////////////////////////////////////////////////////////////////////
 // Import section
@@ -33,14 +33,14 @@ namespace stdair {
      *
      * @param[in,out] ostream& the output stream.
      */
-    virtual void toStream (std::ostream& ioOut) const {}
+    virtual void toStream (std::ostream& /*ioOut*/) const {}
 
     /**
      * @brief Read a Business Object Key from an input stream.
      *
      * @param[in,out] istream& the input stream.
      */
-    virtual void fromStream (std::istream& ioIn) {}
+    virtual void fromStream (std::istream& /*ioIn*/) {}
 
    /**
     * @brief Get the serialised version of the Business Object Key.
@@ -106,4 +106,4 @@ operator>> (std::basic_istream<charT, traits>& ioIn,
   return ioIn;
 }
 
-#endif // __STDAIR_BOM_KEYABSTRACT_HPP
+#endif // STDAIR_BOM_KEYABSTRACT_HPP

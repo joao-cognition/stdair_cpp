@@ -25,7 +25,7 @@ namespace stdair {
   /**
    * Boost Tokeniser.
    */
-  typedef boost::tokenizer<boost::char_separator<char> > Tokeniser_T;
+  using Tokeniser_T = boost::tokenizer<boost::char_separator<char> >;
 
   /**
    * Dash delimitor for the tokenisation process.
@@ -132,7 +132,7 @@ namespace stdair {
   }
 
   // ////////////////////////////////////////////////////////////////////
-  void ParsedKey::fromStream (std::istream& ioIn) {
+  void ParsedKey::fromStream (std::istream& /*ioIn*/) {
   }
 
   // ////////////////////////////////////////////////////////////////////

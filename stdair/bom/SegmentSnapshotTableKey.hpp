@@ -1,5 +1,5 @@
-#ifndef __STDAIR_BOM_SEGMENTSNAPSHOTTABLEKEY_HPP
-#define __STDAIR_BOM_SEGMENTSNAPSHOTTABLEKEY_HPP
+#ifndef STDAIR_BOM_SEGMENTSNAPSHOTTABLEKEY_HPP
+#define STDAIR_BOM_SEGMENTSNAPSHOTTABLEKEY_HPP
 
 // //////////////////////////////////////////////////////////////////////
 // Import section
@@ -113,4 +113,4 @@ namespace stdair {
   };
 
 }
-#endif // __STDAIR_BOM_SEGMENTSNAPSHOTTABLEKEY_HPP
+#endif // STDAIR_BOM_SEGMENTSNAPSHOTTABLEKEY_HPP

@@ -39,7 +39,7 @@ namespace stdair {
   }
 
   // ////////////////////////////////////////////////////////////////////
-  void LegCabinKey::fromStream (std::istream& ioIn) {
+  void LegCabinKey::fromStream (std::istream& /*ioIn*/) {
   }
 
   // ////////////////////////////////////////////////////////////////////
@@ -66,7 +66,7 @@ namespace stdair {
   // ////////////////////////////////////////////////////////////////////
   template<class Archive>
   void LegCabinKey::serialize (Archive& ioArchive,
-                               const unsigned int iFileVersion) {
+                               const unsigned int /*iFileVersion*/) {
     /**
      * \note The serialised member should not be const (as, as far as
      *       I understand, they are tracked by Boost.Serialisation).

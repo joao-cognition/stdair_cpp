@@ -1,5 +1,5 @@
-#ifndef __MYPROVIDER_BOMROOT_HPP
-#define __MYPROVIDER_BOMROOT_HPP
+#ifndef MYPROVIDER_BOMROOT_HPP
+#define MYPROVIDER_BOMROOT_HPP
 
 // //////////////////////////////////////////////////////////////////////
 // Import section
@@ -66,4 +66,4 @@ namespace myprovider {
   };
   
 }  
-#endif // __MYPROVIDER_BOMROOT_HPP
+#endif // MYPROVIDER_BOMROOT_HPP

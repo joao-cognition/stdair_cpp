@@ -44,14 +44,14 @@ namespace stdair {
   std::string BasLogParams::toShortString() const {
     const std::string isForcedStr = (_forceMultipleInit == true)?" (forced)":"";
     std::ostringstream oStr;
-    oStr << LOG::_logLevels[_logLevel] << isForcedStr;
+    oStr << getLogLevelLabel (_logLevel) << isForcedStr;
     return oStr.str();
   }
     
   // //////////////////////////////////////////////////////////////////////
   std::string BasLogParams::toString() const {
     std::ostringstream oStr;
-    oStr << LOG::_logLevels[_logLevel];
+    oStr << getLogLevelLabel (_logLevel);
     return oStr.str();
   }
     

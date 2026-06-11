@@ -1,5 +1,5 @@
-#ifndef __STDAIR_SVC_FACSUPERVISOR_HPP
-#define __STDAIR_SVC_FACSUPERVISOR_HPP
+#ifndef STDAIR_SVC_FACSUPERVISOR_HPP
+#define STDAIR_SVC_FACSUPERVISOR_HPP
 
 // //////////////////////////////////////////////////////////////////////
 // Import section
@@ -21,10 +21,13 @@ namespace stdair {
   public:
     /**
      * Define the pool (list) of factories.
+     *
+     * The pools hold non-owning pointers: the factories themselves are
+     * Meyer's singletons, owned by their respective static local variables.
      */ 
-    typedef std::list<FacAbstract*> PersistentBomFactoryPool_T;
-    typedef std::list<FacAbstract*> CloneBomFactoryPool_T; 
-    typedef std::list<FacServiceAbstract*> ServiceFactoryPool_T;
+    using PersistentBomFactoryPool_T = std::list<FacAbstract*>;
+    using CloneBomFactoryPool_T = std::list<FacAbstract*>;
+    using ServiceFactoryPool_T = std::list<FacServiceAbstract*>;
 
     /**
      * Provide the unique (static) instance of the FacSupervisor object.
@@ -104,9 +107,6 @@ namespace stdair {
 
     /**
      * Destructor.
-     *
-     * That destructors is applied on the static instance. It then
-     * deletes in turn all the other registered objects.
      */
     ~FacSupervisor();
 
@@ -121,11 +121,6 @@ namespace stdair {
     FacSupervisor (const FacSupervisor&) {}
 
   private:
-    /**
-     * The unique instance.
-     */
-    static FacSupervisor* _instance;    
-
     /**
      * List of instantiated persistent factory for the BOM layer.
      */
@@ -143,4 +138,4 @@ namespace stdair {
 
   };
 }  
-#endif // __STDAIR_SVC_FACSUPERVISOR_HPP
+#endif // STDAIR_SVC_FACSUPERVISOR_HPP

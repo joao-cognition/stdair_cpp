@@ -1,12 +1,12 @@
 // //////////////////////////////////////////////////////////////////////
-#ifndef __STDAIR_BOM_CANCELLATIONTYPES_HPP
-#define __STDAIR_BOM_CANCELLATIONTYPES_HPP
+#ifndef STDAIR_BOM_CANCELLATIONTYPES_HPP
+#define STDAIR_BOM_CANCELLATIONTYPES_HPP
 
 // //////////////////////////////////////////////////////////////////////
 // Import section
 // //////////////////////////////////////////////////////////////////////
-// Boost
-#include <boost/shared_ptr.hpp>
+// STL
+#include <memory>
 
 namespace stdair {
 
@@ -15,8 +15,8 @@ namespace stdair {
   
   // ///////////// Type definitions //////////////
   /** Define the smart pointer to a cancellation . */
-  typedef boost::shared_ptr<CancellationStruct> CancellationPtr_T;
+  using CancellationPtr_T = std::shared_ptr<CancellationStruct>;
   
 }
-#endif // __STDAIR_BOM_CANCELLATIONTYPES_HPP
+#endif // STDAIR_BOM_CANCELLATIONTYPES_HPP
 

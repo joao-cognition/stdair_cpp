@@ -17,12 +17,12 @@
 namespace stdair {
   
   // //////////////////////////////////////////////////////////////////////
-  DBSessionManager::DBSessionManager () : _dbSession (NULL) {
+  DBSessionManager::DBSessionManager () : _dbSession (nullptr) {
   }
 
   // //////////////////////////////////////////////////////////////////////
   DBSessionManager::DBSessionManager (const DBSessionManager&)
-    : _dbSession (NULL) {
+    : _dbSession (nullptr) {
     assert (false);
   }
 
@@ -64,7 +64,7 @@ namespace stdair {
     
   // //////////////////////////////////////////////////////////////////////
   void DBSessionManager::dbFinalise () {
-    delete _dbSession; _dbSession = NULL;
+    delete _dbSession; _dbSession = nullptr;
   }
   
   // //////////////////////////////////////////////////////////////////////
@@ -85,10 +85,10 @@ namespace stdair {
   
   // //////////////////////////////////////////////////////////////////////
   DBSession_T& DBSessionManager::getDBSession() const {
-    if (_dbSession == NULL) {
+    if (_dbSession == nullptr) {
       throw NonInitialisedDBSessionManagerException ("");
     }
-    assert (_dbSession != NULL);
+    assert (_dbSession != nullptr);
     return *_dbSession;
   }
   

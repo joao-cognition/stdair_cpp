@@ -1,5 +1,5 @@
-#ifndef __STDAIR_BAS_UNCONSTRAININGMETHOD_HPP
-#define __STDAIR_BAS_UNCONSTRAININGMETHOD_HPP
+#ifndef STDAIR_BAS_UNCONSTRAININGMETHOD_HPP
+#define STDAIR_BAS_UNCONSTRAININGMETHOD_HPP
 
 // //////////////////////////////////////////////////////////////////////
 // Import section
@@ -14,10 +14,10 @@ namespace stdair {
   /** Enumeration of unconstraining methods. */
   struct UnconstrainingMethod : public StructAbstract {
   public:
-    typedef enum { 
+    enum EN_UnconstrainingMethod { 
       EM = 0,
       LAST_VALUE
-    } EN_UnconstrainingMethod;
+    };
 
     /** Get the label as a string (e.g., "Expectation-Maximisation") */
     static const std::string& getLabel (const EN_UnconstrainingMethod&);
@@ -52,6 +52,8 @@ namespace stdair {
     UnconstrainingMethod (const char iMethod);
     /** Default copy constructor. */
     UnconstrainingMethod (const UnconstrainingMethod&);
+    /** Default copy assignment operator. */
+    UnconstrainingMethod& operator= (const UnconstrainingMethod&) = default;
 
   private:
     /** Default constructor. */
@@ -72,4 +74,4 @@ namespace stdair {
   };
 
 }
-#endif // __STDAIR_BAS_UNCONSTRAININGMETHOD_HPP
+#endif // STDAIR_BAS_UNCONSTRAININGMETHOD_HPP

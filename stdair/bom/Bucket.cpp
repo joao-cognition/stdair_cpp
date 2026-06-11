@@ -16,14 +16,15 @@ namespace stdair {
 
   // ////////////////////////////////////////////////////////////////////
   Bucket::Bucket()
-    : _key (DEFAULT_SEAT_INDEX), _parent (NULL) {
+    : _key (DEFAULT_SEAT_INDEX), _parent (nullptr) {
     assert (false);
   }
 
   // ////////////////////////////////////////////////////////////////////
   Bucket::Bucket (const Bucket& iBucket) :
+    BomAbstract(),
     _key (iBucket._key),
-    _parent (NULL),
+    _parent (nullptr),
     _yieldRangeUpperValue (iBucket._yieldRangeUpperValue),
     _availability (iBucket._availability),
     _soldSeats (iBucket._soldSeats) {
@@ -31,7 +32,7 @@ namespace stdair {
   }
 
   // ////////////////////////////////////////////////////////////////////
-  Bucket::Bucket (const Key_T& iKey) : _key (iKey), _parent (NULL) {
+  Bucket::Bucket (const Key_T& iKey) : _key (iKey), _parent (nullptr) {
   }
 
   // ////////////////////////////////////////////////////////////////////
@@ -61,7 +62,7 @@ namespace stdair {
 
   // ////////////////////////////////////////////////////////////////////
   template<class Archive>
-  void Bucket::serialize (Archive& ioArchive, const unsigned int iFileVersion) {
+  void Bucket::serialize (Archive& ioArchive, const unsigned int /*iFileVersion*/) {
     ioArchive & _key;
   }
 

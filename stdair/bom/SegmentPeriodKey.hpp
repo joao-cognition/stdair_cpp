@@ -1,5 +1,5 @@
-#ifndef __STDAIR_BOM_SEGMENTPERIODKEY_HPP
-#define __STDAIR_BOM_SEGMENTPERIODKEY_HPP
+#ifndef STDAIR_BOM_SEGMENTPERIODKEY_HPP
+#define STDAIR_BOM_SEGMENTPERIODKEY_HPP
 
 // //////////////////////////////////////////////////////////////////////
 // Import section
@@ -21,6 +21,8 @@ namespace stdair {
     /** Constructors. */
     SegmentPeriodKey (const AirportCode_T&, const AirportCode_T&);
     SegmentPeriodKey (const SegmentPeriodKey&);
+    /** Default copy assignment operator. */
+    SegmentPeriodKey& operator= (const SegmentPeriodKey&) = default;
     /** Destructor. */
     ~SegmentPeriodKey ();
     
@@ -61,4 +63,4 @@ namespace stdair {
   };
 
 }
-#endif // __STDAIR_BOM_SEGMENTPERIODKEY_HPP
+#endif // STDAIR_BOM_SEGMENTPERIODKEY_HPP

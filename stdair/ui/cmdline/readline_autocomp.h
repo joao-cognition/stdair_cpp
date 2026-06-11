@@ -3,8 +3,8 @@
  * the GNU Readline library.  This application interactively allows users
  * to manipulate files and their modes.
  */
-#ifndef __AIRINV_READLINE_AUTOCOMP_HPP
-#define __AIRINV_READLINE_AUTOCOMP_HPP
+#ifndef AIRINV_READLINE_AUTOCOMP_HPP
+#define AIRINV_READLINE_AUTOCOMP_HPP
 
 #include <stdio.h>
 #include <sys/types.h>
@@ -43,7 +43,7 @@ COMMAND commands[] = {
   { "rename", com_rename, "Rename FILE to NEWNAME" },
   { "stat", com_stat, "Print out statistics on FILE" },
   { "view", com_view, "View the contents of FILE" },
-  { (char *)NULL, (Function *)NULL, (char *)NULL }
+  { (char *)nullptr, (Function *)nullptr, (char *)nullptr }
 };
 
 /* Forward declarations. */
@@ -113,7 +113,7 @@ find_command (name)
     if (strcmp (name, commands[i].name) == 0)
       return (&commands[i]);
 
-  return ((COMMAND *)NULL);
+  return ((COMMAND *)nullptr);
 }
 
 /* Strip whitespace from the start and end of STRING.  Return a pointer
@@ -171,7 +171,7 @@ fileman_completion (text, start, end)
 {
   char **matches;
 
-  matches = (char **)NULL;
+  matches = (char **)nullptr;
 
   /* If this word is at the start of the line, then it is a command
  *      to complete.  Otherwise it is the name of a file in the current
@@ -212,7 +212,7 @@ command_generator (text, state)
     }
 
   /* If no names matched, then return NULL. */
-  return ((char *)NULL);
+  return ((char *)nullptr);
 }
 
 /* **************************************************************** */
@@ -390,4 +390,4 @@ valid_argument (caller, arg)
   return (1);
 }
 
-#endif __AIRINV_READLINE_AUTOCOMP_HPP
+#endif AIRINV_READLINE_AUTOCOMP_HPP

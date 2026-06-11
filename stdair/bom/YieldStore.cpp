@@ -10,7 +10,7 @@
 namespace stdair {
 
   // ////////////////////////////////////////////////////////////////////
-  YieldStore::YieldStore (const Key_T& iKey) : _key (iKey), _parent (NULL) {
+  YieldStore::YieldStore (const Key_T& iKey) : _key (iKey), _parent (nullptr) {
   }
 
   // ////////////////////////////////////////////////////////////////////

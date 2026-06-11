@@ -17,18 +17,18 @@ namespace stdair {
     
   // ////////////////////////////////////////////////////////////////////
   Policy::Policy () : 
-    _key (DEFAULT_POLICY_CODE), _parent (NULL) {
+    _key (DEFAULT_POLICY_CODE), _parent (nullptr) {
     assert (false);
   }
 
   // ////////////////////////////////////////////////////////////////////
-  Policy::Policy (const Policy& iPolicy)
-  : _key (DEFAULT_POLICY_CODE), _parent (NULL) {
+  Policy::Policy (const Policy& /*iPolicy*/)
+  : BomAbstract(), _key (DEFAULT_POLICY_CODE), _parent (nullptr) {
     assert (false);
   }
 
   // ////////////////////////////////////////////////////////////////////
-  Policy::Policy (const Key_T& iKey) : _key (iKey), _parent (NULL) {
+  Policy::Policy (const Key_T& iKey) : _key (iKey), _parent (nullptr) {
   }
     
   // ////////////////////////////////////////////////////////////////////
@@ -54,7 +54,7 @@ namespace stdair {
   }
 
   // ////////////////////////////////////////////////////////////////////
-  const Revenue_T Policy::getTotalRevenue () const {
+  Revenue_T Policy::getTotalRevenue () const {
     Revenue_T oTotalRevenue = 0.0;
     for (YieldDemandMap_T::const_iterator itYD = _yieldDemandMap.begin();
          itYD != _yieldDemandMap.end(); ++itYD) {

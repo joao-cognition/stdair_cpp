@@ -1,5 +1,5 @@
-#ifndef __STDAIR_STDAIR_TYPES_HPP
-#define __STDAIR_STDAIR_TYPES_HPP
+#ifndef STDAIR_STDAIR_TYPES_HPP
+#define STDAIR_STDAIR_TYPES_HPP
 
 // //////////////////////////////////////////////////////////////////////
 // Import section
@@ -17,4 +17,4 @@
 #include <stdair/stdair_date_time_types.hpp>
 #include <stdair/stdair_service_types.hpp>
 
-#endif // __STDAIR_STDAIR_TYPES_HPP
+#endif // STDAIR_STDAIR_TYPES_HPP

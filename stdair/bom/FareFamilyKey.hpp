@@ -1,5 +1,5 @@
-#ifndef __STDAIR_BOM_FAREFAMILYKEY_HPP
-#define __STDAIR_BOM_FAREFAMILYKEY_HPP
+#ifndef STDAIR_BOM_FAREFAMILYKEY_HPP
+#define STDAIR_BOM_FAREFAMILYKEY_HPP
 
 // //////////////////////////////////////////////////////////////////////
 // Import section
@@ -112,4 +112,4 @@ namespace stdair {
   };
 
 }
-#endif // __STDAIR_BOM_FAREFAMILYKEY_HPP
+#endif // STDAIR_BOM_FAREFAMILYKEY_HPP

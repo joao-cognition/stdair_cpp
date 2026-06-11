@@ -15,16 +15,16 @@ namespace stdair {
 
   // ////////////////////////////////////////////////////////////////////
   SegmentDate::SegmentDate()
-    : _key (DEFAULT_ORIGIN, DEFAULT_DESTINATION), _parent (NULL),
-      _operatingSegmentDate (NULL) {
+    : _key (DEFAULT_ORIGIN, DEFAULT_DESTINATION), _parent (nullptr),
+      _operatingSegmentDate (nullptr) {
     assert (false);
   }
 
   // ////////////////////////////////////////////////////////////////////
   SegmentDate::SegmentDate (const SegmentDate& iSegmentDate)
-    : _key (iSegmentDate._key),
-      _parent (NULL),
-      _operatingSegmentDate (NULL),
+    : BomAbstract(), _key (iSegmentDate._key),
+      _parent (nullptr),
+      _operatingSegmentDate (nullptr),
       _boardingDate (iSegmentDate._boardingDate),
       _boardingTime (iSegmentDate._boardingTime),
       _offDate (iSegmentDate._offDate),
@@ -36,8 +36,8 @@ namespace stdair {
 
   // ////////////////////////////////////////////////////////////////////
   SegmentDate::SegmentDate (const Key_T& iKey)
-    : _key (iKey), _parent (NULL) ,
-      _operatingSegmentDate (NULL) {
+    : _key (iKey), _parent (nullptr) ,
+      _operatingSegmentDate (nullptr) {
   }
 
   // ////////////////////////////////////////////////////////////////////

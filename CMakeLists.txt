@@ -42,10 +42,10 @@ packaging_set_other_options (TBZ2 "TBZ2;TGZ")
 ##            Dependencies            ##
 ########################################
 #
-get_external_libs (git "boost 1.41"
-	"postgres 9" "mysql 5.0" "soci 3.0"
-	readline "doxygen 1.4"
-	"gcov 4.6.3" "lcov 1.9")
+get_external_libs (git "boost 1.74"
+	"postgres 12" "mysql 8.0" "soci 4.0"
+	readline "doxygen 1.9"
+	"gcov 11" "lcov 1.9")
 
 ##############################################
 ##           Build, Install, Export         ##

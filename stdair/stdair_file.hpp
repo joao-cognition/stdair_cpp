@@ -1,5 +1,5 @@
-#ifndef __STDAIR_STDAIR_FILE_HPP
-#define __STDAIR_STDAIR_FILE_HPP
+#ifndef STDAIR_STDAIR_FILE_HPP
+#define STDAIR_STDAIR_FILE_HPP
 
 // //////////////////////////////////////////////////////////////////////
 // Import section
@@ -120,4 +120,4 @@ namespace stdair {
   };
   
 }
-#endif // __STDAIR_STDAIR_FILE_HPP
+#endif // STDAIR_STDAIR_FILE_HPP

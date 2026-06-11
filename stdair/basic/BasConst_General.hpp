@@ -1,5 +1,5 @@
-#ifndef __STDAIR_BAS_BASCONST_GENERAL_HPP
-#define __STDAIR_BAS_BASCONST_GENERAL_HPP
+#ifndef STDAIR_BAS_BASCONST_GENERAL_HPP
+#define STDAIR_BAS_BASCONST_GENERAL_HPP
 
 // //////////////////////////////////////////////////////////////////////
 // Import section
@@ -90,4 +90,4 @@ namespace stdair {
   extern const unsigned int DEFAULT_NUMBER_OF_SUBDIVISIONS;
   
 }
-#endif // __STDAIR_BAS_BASCONST_GENERAL_HPP
+#endif // STDAIR_BAS_BASCONST_GENERAL_HPP

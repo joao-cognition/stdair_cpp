@@ -75,7 +75,7 @@ namespace stdair {
   // //////////////////////////////////////////////////////////////////////
   bool DBManagerForAirlines::
   iterateOnStatement (DBRequestStatement_T& ioStatement,
-                      AirlineStruct& ioAirline) {
+                      AirlineStruct& /*ioAirline*/) {
     bool hasStillData = false;
   
     try {

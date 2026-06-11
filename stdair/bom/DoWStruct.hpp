@@ -1,5 +1,5 @@
-#ifndef __STDAIR_BOM_DOWSTRUCT_HPP
-#define __STDAIR_BOM_DOWSTRUCT_HPP
+#ifndef STDAIR_BOM_DOWSTRUCT_HPP
+#define STDAIR_BOM_DOWSTRUCT_HPP
 
 // //////////////////////////////////////////////////////////////////////
 // Import section
@@ -18,7 +18,7 @@ namespace stdair {
   struct DoWStruct : public StructAbstract {
   public:
     /** Define the bit set representing the DoW. */
-    typedef std::vector<bool> BooleanList_T;
+    using BooleanList_T = std::vector<bool>;
 
   public:
     // //////////////// Getters ///////////////
@@ -50,7 +50,7 @@ namespace stdair {
     DoWStruct intersection (const DoWStruct&) const;
 
     /** Return if the DoW struct is valid (i.e., has at least one "true"). */
-    const bool isValid () const;
+    bool isValid () const;
     
   public:
     /** Constructor from a given bit set (e.g., "0000011" for the
@@ -59,6 +59,8 @@ namespace stdair {
     /** Default constructors. */
     DoWStruct ();
     DoWStruct (const DoWStruct&);
+    /** Default copy assignment operator. */
+    DoWStruct& operator= (const DoWStruct&) = default;
     /** Default destructor. */
     ~DoWStruct () { }
     
@@ -68,4 +70,4 @@ namespace stdair {
   };
 
 }
-#endif // __STDAIR_BOM_DOWSTRUCT_HPP
+#endif // STDAIR_BOM_DOWSTRUCT_HPP

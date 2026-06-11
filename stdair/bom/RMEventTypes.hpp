@@ -1,14 +1,14 @@
 // //////////////////////////////////////////////////////////////////////
-#ifndef __STDAIR_BOM_RMEVENTTYPES_HPP
-#define __STDAIR_BOM_RMEVENTTYPES_HPP
+#ifndef STDAIR_BOM_RMEVENTTYPES_HPP
+#define STDAIR_BOM_RMEVENTTYPES_HPP
 
 // //////////////////////////////////////////////////////////////////////
 // Import section
 // //////////////////////////////////////////////////////////////////////
 // STL
 #include <list>
-// Boost
-#include <boost/shared_ptr.hpp>
+// STL
+#include <memory>
 
 namespace stdair {
 
@@ -17,11 +17,11 @@ namespace stdair {
   
   // ///////////// Type definitions //////////////
   /** Define the smart pointer to a RM event . */
-  typedef boost::shared_ptr<RMEventStruct> RMEventPtr_T;
+  using RMEventPtr_T = std::shared_ptr<RMEventStruct>;
 
   /** Define the list of RM events. */
-  typedef std::list<RMEventStruct> RMEventList_T;
+  using RMEventList_T = std::list<RMEventStruct>;
   
 }
-#endif // __STDAIR_BOM_RMEVENTTYPES_HPP
+#endif // STDAIR_BOM_RMEVENTTYPES_HPP
 

@@ -1,5 +1,5 @@
-#ifndef __STDAIR_SVC_STDAIRSERVICECONTEXT_HPP
-#define __STDAIR_SVC_STDAIRSERVICECONTEXT_HPP
+#ifndef STDAIR_SVC_STDAIRSERVICECONTEXT_HPP
+#define STDAIR_SVC_STDAIRSERVICECONTEXT_HPP
 
 // //////////////////////////////////////////////////////////////////////
 // Import section
@@ -187,4 +187,4 @@ namespace stdair {
   };
 
 }
-#endif // __STDAIR_SVC_STDAIRSERVICECONTEXT_HPP
+#endif // STDAIR_SVC_STDAIRSERVICECONTEXT_HPP

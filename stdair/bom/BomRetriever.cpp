@@ -30,7 +30,7 @@ namespace stdair {
   Inventory* BomRetriever::
   retrieveInventoryFromLongKey (const BomRoot& iBomRoot,
                                 const std::string& iFullKeyStr) {
-    Inventory* oInventory_ptr = NULL;
+    Inventory* oInventory_ptr = nullptr;
 
     // Extract the inventory key (i.e., airline code)
     const InventoryKey& lInventoryKey =
@@ -45,7 +45,7 @@ namespace stdair {
   Inventory* BomRetriever::
   retrieveInventoryFromLongKey (const Inventory& iInventory,
                                 const std::string& iFullKeyStr) {
-    Inventory* oInventory_ptr = NULL;
+    Inventory* oInventory_ptr = nullptr;
     
     // Extract the inventory key (i.e., airline code)
     const InventoryKey& lInventoryKey =
@@ -62,7 +62,7 @@ namespace stdair {
   // ////////////////////////////////////////////////////////////////////
   Inventory* BomRetriever::retrieveInventoryFromKey (const BomRoot& iBomRoot,
                                                      const InventoryKey& iKey) {
-    Inventory* oInventory_ptr = NULL;
+    Inventory* oInventory_ptr = nullptr;
 
     //
     oInventory_ptr = iBomRoot.getInventory (iKey);
@@ -74,7 +74,7 @@ namespace stdair {
   Inventory* BomRetriever::
   retrieveInventoryFromKey (const BomRoot& iBomRoot,
                             const AirlineCode_T& iAirlineCode) {
-    Inventory* oInventory_ptr = NULL;
+    Inventory* oInventory_ptr = nullptr;
 
     //
     const InventoryKey lKey (iAirlineCode);
@@ -87,15 +87,15 @@ namespace stdair {
   AirlineFeature* BomRetriever::
   retrieveAirlineFeatureFromKey (const BomRoot& iBomRoot,
 				 const AirlineCode_T& iAirlineCode) {
-    Inventory* oInventory_ptr = NULL;
-    AirlineFeature* oAirlineFeature_ptr = NULL;
+    Inventory* oInventory_ptr = nullptr;
+    AirlineFeature* oAirlineFeature_ptr = nullptr;
 
     //
     oInventory_ptr = retrieveInventoryFromKey (iBomRoot, iAirlineCode);
-    if (oInventory_ptr == NULL) {
+    if (oInventory_ptr == nullptr) {
       return oAirlineFeature_ptr;
     }
-    assert (oInventory_ptr != NULL);
+    assert (oInventory_ptr != nullptr);
 
     oAirlineFeature_ptr = 
       BomManager::getObjectPtr<AirlineFeature,Inventory> (*oInventory_ptr,
@@ -108,15 +108,15 @@ namespace stdair {
   FlightDate* BomRetriever::
   retrieveFlightDateFromLongKey (const BomRoot& iBomRoot,
                                  const std::string& iFullKeyStr) {
-    FlightDate* oFlightDate_ptr = NULL;
+    FlightDate* oFlightDate_ptr = nullptr;
 
     // Retrieve the inventory
     Inventory* oInventory_ptr =
       BomRetriever::retrieveInventoryFromLongKey (iBomRoot, iFullKeyStr);
-    if (oInventory_ptr == NULL) {
+    if (oInventory_ptr == nullptr) {
       return oFlightDate_ptr;
     }
-    assert (oInventory_ptr != NULL);
+    assert (oInventory_ptr != nullptr);
 
     // Extract the flight-date key (i.e., flight number and date)
     const FlightDateKey& lFlightDateKey =
@@ -133,15 +133,15 @@ namespace stdair {
                                 const AirlineCode_T& iAirlineCode,
                                 const FlightNumber_T& iFlightNumber,
                                 const Date_T& iFlightDateDate) {
-    FlightDate* oFlightDate_ptr = NULL;
+    FlightDate* oFlightDate_ptr = nullptr;
 
     // Retrieve the inventory
     Inventory* oInventory_ptr =
       BomRetriever::retrieveInventoryFromKey (iBomRoot, iAirlineCode);
-    if (oInventory_ptr == NULL) {
+    if (oInventory_ptr == nullptr) {
       return oFlightDate_ptr;
     }
-    assert (oInventory_ptr != NULL);
+    assert (oInventory_ptr != nullptr);
 
     //
     oFlightDate_ptr = retrieveFlightDateFromKey (*oInventory_ptr,
@@ -154,7 +154,7 @@ namespace stdair {
   FlightDate* BomRetriever::
   retrieveFlightDateFromLongKey (const Inventory& iInventory,
                                  const std::string& iFullKeyStr) {
-    FlightDate* oFlightDate_ptr = NULL;
+    FlightDate* oFlightDate_ptr = nullptr;
 
     // Extract the flight-date key (i.e., flight number and date)
     const FlightDateKey& lFlightDateKey =
@@ -169,7 +169,7 @@ namespace stdair {
   FlightDate* BomRetriever::
   retrieveFlightDateFromKey (const Inventory& iInventory,
                              const FlightDateKey& iKey) {
-    FlightDate* oFlightDate_ptr = NULL;
+    FlightDate* oFlightDate_ptr = nullptr;
 
     //
     oFlightDate_ptr = iInventory.getFlightDate (iKey);
@@ -182,7 +182,7 @@ namespace stdair {
   retrieveFlightDateFromKey (const Inventory& iInventory,
                              const FlightNumber_T& iFlightNumber,
                              const Date_T& iFlightDateDate) {
-    FlightDate* oFlightDate_ptr = NULL;
+    FlightDate* oFlightDate_ptr = nullptr;
 
     //
     const FlightDateKey lKey (iFlightNumber, iFlightDateDate);
@@ -195,15 +195,15 @@ namespace stdair {
   SegmentDate* BomRetriever::
   retrieveSegmentDateFromLongKey (const BomRoot& iBomRoot,
                                   const std::string& iFullKeyStr) {
-    SegmentDate* oSegmentDate_ptr = NULL;
+    SegmentDate* oSegmentDate_ptr = nullptr;
 
     // Retrieve the flight-date
     FlightDate* oFlightDate_ptr =
       BomRetriever::retrieveFlightDateFromLongKey (iBomRoot, iFullKeyStr);
-    if (oFlightDate_ptr == NULL) {
+    if (oFlightDate_ptr == nullptr) {
       return oSegmentDate_ptr;
     }
-    assert (oFlightDate_ptr != NULL);
+    assert (oFlightDate_ptr != nullptr);
 
     // Extract the segment-date key (i.e., origin and destination)
     const SegmentDateKey& lSegmentDateKey =
@@ -218,7 +218,7 @@ namespace stdair {
   SegmentDate* BomRetriever::
   retrieveSegmentDateFromLongKey (const Inventory& iInventory,
                                   const std::string& iFullKeyStr) {
-    SegmentDate* oSegmentDate_ptr = NULL;
+    SegmentDate* oSegmentDate_ptr = nullptr;
 
     ParsedKey lParsedKey = BomKeyManager::extractKeys (iFullKeyStr);
 
@@ -229,7 +229,7 @@ namespace stdair {
 
     FlightDate* lFlightDate_ptr =
       retrieveFlightDateFromKey (iInventory, lParsedKey.getFlightDateKey());
-    if (lFlightDate_ptr == NULL) {
+    if (lFlightDate_ptr == nullptr) {
       STDAIR_LOG_DEBUG ("Flight-date key: "
                         << lParsedKey.getFlightDateKey().toString());
       return oSegmentDate_ptr;
@@ -237,7 +237,7 @@ namespace stdair {
 
     oSegmentDate_ptr =
       retrieveSegmentDateFromKey (*lFlightDate_ptr, lParsedKey.getSegmentKey());
-    if (oSegmentDate_ptr == NULL) {
+    if (oSegmentDate_ptr == nullptr) {
       STDAIR_LOG_DEBUG ("Segment-date key: "
                         << lParsedKey.getSegmentKey().toString());
       return oSegmentDate_ptr;
@@ -250,7 +250,7 @@ namespace stdair {
   SegmentDate* BomRetriever::
   retrieveSegmentDateFromLongKey (const FlightDate& iFlightDate,
                                   const std::string& iFullKeyStr) {
-    SegmentDate* oSegmentDate_ptr = NULL;
+    SegmentDate* oSegmentDate_ptr = nullptr;
 
     // Extract the segment-date key (i.e., origin and destination)
     const SegmentDateKey& lSegmentDateKey =
@@ -265,7 +265,7 @@ namespace stdair {
   LegDate* BomRetriever::
   retrieveOperatingLegDateFromLongKey (const FlightDate& iFlightDate,
 				       const std::string& iFullKeyStr) {
-    LegDate* oLegDate_ptr = NULL;
+    LegDate* oLegDate_ptr = nullptr;
 
     // Extract the segment-date key (i.e., origin and destination)
     const LegDateKey& lLegDateKey =
@@ -280,8 +280,8 @@ namespace stdair {
   SegmentDate* BomRetriever::
   retrievePartnerSegmentDateFromLongKey (const Inventory& iInventory,
                                          const std::string& iFullKeyStr) {
-    SegmentDate* oSegmentDate_ptr = NULL;
-    Inventory* oInventory_ptr = NULL;
+    SegmentDate* oSegmentDate_ptr = nullptr;
+    Inventory* oInventory_ptr = nullptr;
 
     // Extract the inventory key (i.e., airline code)
     const InventoryKey& lInventoryKey =
@@ -293,7 +293,7 @@ namespace stdair {
     oInventory_ptr =
       retrieveInventoryFromLongKey (iInventory, lAirlineCode);
 
-    if (oInventory_ptr != NULL) { 
+    if (oInventory_ptr != nullptr) { 
       oSegmentDate_ptr =
         retrieveSegmentDateFromLongKey (*oInventory_ptr, iFullKeyStr);
     }
@@ -306,7 +306,7 @@ namespace stdair {
   SegmentDate* BomRetriever::
   retrieveSegmentDateFromKey (const FlightDate& iFlightDate,
                               const SegmentDateKey& iKey) {
-    SegmentDate* oSegmentDate_ptr = NULL;
+    SegmentDate* oSegmentDate_ptr = nullptr;
 
     //
     oSegmentDate_ptr = iFlightDate.getSegmentDate (iKey);
@@ -319,7 +319,7 @@ namespace stdair {
   retrieveSegmentDateFromKey (const FlightDate& iFlightDate,
                               const AirportCode_T& iOrigin,
                               const AirportCode_T& iDestination) {
-    SegmentDate* oSegmentDate_ptr = NULL;
+    SegmentDate* oSegmentDate_ptr = nullptr;
 
     //
     const SegmentDateKey lKey (iOrigin, iDestination);
@@ -333,15 +333,15 @@ namespace stdair {
   retrieveBookingClassFromLongKey (const Inventory& iInventory,
                                    const std::string& iFullKeyStr,
                                    const ClassCode_T& iClassCode) {
-    BookingClass* oBookingClass_ptr = NULL;
+    BookingClass* oBookingClass_ptr = nullptr;
 
     SegmentDate* lSegmentDate_ptr = retrieveSegmentDateFromLongKey (iInventory,
                                                                     iFullKeyStr);
 
-    if (lSegmentDate_ptr == NULL) {
+    if (lSegmentDate_ptr == nullptr) {
       return oBookingClass_ptr;
     }
-    assert (lSegmentDate_ptr != NULL);
+    assert (lSegmentDate_ptr != nullptr);
 
     // 
     oBookingClass_ptr =
@@ -384,7 +384,7 @@ namespace stdair {
          itDateRange != lFareDatePeriodList.end(); ++itDateRange) {
 
       DatePeriod* lCurrentFareDatePeriod_ptr = *itDateRange ;
-      assert (lCurrentFareDatePeriod_ptr != NULL);
+      assert (lCurrentFareDatePeriod_ptr != nullptr);
 
       // Select the date-period objects having a corresponding date range
       const bool isDepartureDateValid =
@@ -411,10 +411,10 @@ namespace stdair {
     AirportPair* oAirportPair_ptr =
       BomRetriever::retrieveAirportPairFromKeySet(iBomRoot, iOrigin,
                                                  iDestination);
-    if (oAirportPair_ptr == NULL) {
+    if (oAirportPair_ptr == nullptr) {
       return;
     }
-    assert (oAirportPair_ptr != NULL);
+    assert (oAirportPair_ptr != nullptr);
 
     // Retrieve the flight date
     BomRetriever::retrieveDatePeriodListFromKey (*oAirportPair_ptr, iDepartureDate,
@@ -427,13 +427,13 @@ namespace stdair {
   retrieveDummyLegCabin (stdair::BomRoot& iBomRoot,
                          const bool isForFareFamilies) {
 
-    LegCabin* oLegCabin_ptr = NULL;
+    LegCabin* oLegCabin_ptr = nullptr;
 
     // Retrieve the Inventory
     const Inventory* lInventory_ptr = BomRetriever::
       retrieveInventoryFromKey (iBomRoot, DEFAULT_AIRLINE_CODE);
 
-    if (lInventory_ptr == NULL) {
+    if (lInventory_ptr == nullptr) {
       std::ostringstream oStr;
       oStr << "The inventory corresponding to the '"
            << DEFAULT_AIRLINE_CODE << "' airline can not be found";
@@ -441,13 +441,13 @@ namespace stdair {
     }
     
     // Retrieve the FlightDate
-    FlightDate* lFlightDate_ptr = NULL;
+    FlightDate* lFlightDate_ptr = nullptr;
     if (isForFareFamilies == true) {
       lFlightDate_ptr = BomRetriever::
         retrieveFlightDateFromKey (*lInventory_ptr, DEFAULT_FLIGHT_NUMBER_FF,
                                    DEFAULT_DEPARTURE_DATE);
       
-      if (lFlightDate_ptr == NULL) {
+      if (lFlightDate_ptr == nullptr) {
         std::ostringstream oStr;
         oStr << "The flight-date corresponding to ("
              << DEFAULT_FLIGHT_NUMBER_FF << ", "
@@ -459,7 +459,7 @@ namespace stdair {
         retrieveFlightDateFromKey (*lInventory_ptr, DEFAULT_FLIGHT_NUMBER,
                                    DEFAULT_DEPARTURE_DATE);
       
-      if (lFlightDate_ptr == NULL) {
+      if (lFlightDate_ptr == nullptr) {
         std::ostringstream oStr;
         oStr << "The flight-date corresponding to ("
              << DEFAULT_FLIGHT_NUMBER << ", "
@@ -467,14 +467,14 @@ namespace stdair {
         throw ObjectNotFoundException (oStr.str());
       }
     }
-    assert(lFlightDate_ptr != NULL);
+    assert(lFlightDate_ptr != nullptr);
 
     // Retrieve the LegDate
     const LegDateKey lLegDateKey (DEFAULT_ORIGIN);
     const LegDate* lLegDate_ptr =
       lFlightDate_ptr->getLegDate (lLegDateKey);
 
-    if (lLegDate_ptr == NULL) {
+    if (lLegDate_ptr == nullptr) {
       std::ostringstream oStr;
       oStr << "The leg-date corresponding to the '"
            << DEFAULT_ORIGIN << "' origin can not be found";
@@ -485,14 +485,14 @@ namespace stdair {
     const LegCabinKey lLegCabinKey (DEFAULT_CABIN_CODE);
     oLegCabin_ptr = lLegDate_ptr->getLegCabin (lLegCabinKey);
 
-    if (oLegCabin_ptr == NULL) {
+    if (oLegCabin_ptr == nullptr) {
       std::ostringstream oStr;
       oStr << "The leg-cabin corresponding to the '"
            << DEFAULT_CABIN_CODE << "' cabin code can not be found";
       throw ObjectNotFoundException (oStr.str());
     }
     
-    assert (oLegCabin_ptr != NULL);
+    assert (oLegCabin_ptr != nullptr);
     return *oLegCabin_ptr;
 
   }
@@ -502,13 +502,13 @@ namespace stdair {
   retrieveDummySegmentCabin (stdair::BomRoot& iBomRoot,
                              const bool isForFareFamilies) {
 
-    SegmentCabin* oSegmentCabin_ptr = NULL;
+    SegmentCabin* oSegmentCabin_ptr = nullptr;
 
     // Retrieve the Inventory
     const Inventory* lInventory_ptr = BomRetriever::
       retrieveInventoryFromKey (iBomRoot, DEFAULT_AIRLINE_CODE);
 
-    if (lInventory_ptr == NULL) {
+    if (lInventory_ptr == nullptr) {
       std::ostringstream oStr;
       oStr << "The inventory corresponding to the '"
            << DEFAULT_AIRLINE_CODE << "' airline can not be found";
@@ -516,13 +516,13 @@ namespace stdair {
     }
 
     // Retrieve the FlightDate
-    FlightDate* lFlightDate_ptr = NULL;
+    FlightDate* lFlightDate_ptr = nullptr;
     if (isForFareFamilies == true) {
       lFlightDate_ptr = BomRetriever::
         retrieveFlightDateFromKey (*lInventory_ptr, DEFAULT_FLIGHT_NUMBER_FF,
                                    DEFAULT_DEPARTURE_DATE);
       
-      if (lFlightDate_ptr == NULL) {
+      if (lFlightDate_ptr == nullptr) {
         std::ostringstream oStr;
         oStr << "The flight-date corresponding to ("
              << DEFAULT_FLIGHT_NUMBER_FF << ", "
@@ -534,7 +534,7 @@ namespace stdair {
         retrieveFlightDateFromKey (*lInventory_ptr, DEFAULT_FLIGHT_NUMBER,
                                    DEFAULT_DEPARTURE_DATE);
       
-      if (lFlightDate_ptr == NULL) {
+      if (lFlightDate_ptr == nullptr) {
         std::ostringstream oStr;
         oStr << "The flight-date corresponding to ("
              << DEFAULT_FLIGHT_NUMBER << ", "
@@ -542,14 +542,14 @@ namespace stdair {
         throw ObjectNotFoundException (oStr.str());
       }
     }
-    assert(lFlightDate_ptr != NULL);
+    assert(lFlightDate_ptr != nullptr);
 
     // Retrieve the SegmentDate
     const SegmentDateKey lSegmentDateKey (DEFAULT_ORIGIN, DEFAULT_DESTINATION);
     const SegmentDate* lSegmentDate_ptr =
       lFlightDate_ptr->getSegmentDate (lSegmentDateKey);
 
-    if (lSegmentDate_ptr == NULL) {
+    if (lSegmentDate_ptr == nullptr) {
       std::ostringstream oStr;
       oStr << "The segment-date corresponding to the '"
            << DEFAULT_ORIGIN << "' origin and '"
@@ -562,14 +562,14 @@ namespace stdair {
     oSegmentCabin_ptr =
       BomManager::getObjectPtr<SegmentCabin> (*lSegmentDate_ptr, lSegmentCabinKey.toString());
 
-    if (oSegmentCabin_ptr == NULL) {
+    if (oSegmentCabin_ptr == nullptr) {
       std::ostringstream oStr;
       oStr << "The segment-cabin corresponding to the '"
            << DEFAULT_CABIN_CODE << "' cabin code can not be found";
       throw ObjectNotFoundException (oStr.str());
     }
 
-    assert (oSegmentCabin_ptr != NULL);
+    assert (oSegmentCabin_ptr != nullptr);
     return *oSegmentCabin_ptr;
   } 
 
@@ -582,18 +582,18 @@ namespace stdair {
     // Get the parent flight date
     FlightDate* lFlightDate_ptr = 
       BomManager::getParentPtr<FlightDate>(iSegmentdate);
-    if (lFlightDate_ptr == NULL) { 
+    if (lFlightDate_ptr == nullptr) { 
       return lFullKeyStr.str();
     }
-    assert (lFlightDate_ptr != NULL);
+    assert (lFlightDate_ptr != nullptr);
 
     // Get the parent inventory
     Inventory* lInventory_ptr = 
       BomManager::getParentPtr<Inventory> (*lFlightDate_ptr);  
-    if (lInventory_ptr == NULL) { 
+    if (lInventory_ptr == nullptr) { 
       return lFullKeyStr.str();
     }
-    assert (lInventory_ptr != NULL);
+    assert (lInventory_ptr != nullptr);
     
     lFullKeyStr << lInventory_ptr->describeKey() 
 		<< DEFAULT_KEY_SUB_FLD_DELIMITER;	

@@ -1,12 +1,12 @@
 // //////////////////////////////////////////////////////////////////////
-#ifndef __STDAIR_BOM_OPTIMISATIONNOTIFICATIONTYPES_HPP
-#define __STDAIR_BOM_OPTIMISATIONNOTIFICATIONTYPES_HPP
+#ifndef STDAIR_BOM_OPTIMISATIONNOTIFICATIONTYPES_HPP
+#define STDAIR_BOM_OPTIMISATIONNOTIFICATIONTYPES_HPP
 
 // //////////////////////////////////////////////////////////////////////
 // Import section
 // //////////////////////////////////////////////////////////////////////
-// Boost
-#include <boost/shared_ptr.hpp>
+// STL
+#include <memory>
 
 namespace stdair {
 
@@ -15,9 +15,9 @@ namespace stdair {
   
   // ///////////// Type definitions //////////////
   /** Define the smart pointer to a optimisation notification. */
-  typedef boost::
-  shared_ptr<OptimisationNotificationStruct> OptimisationNotificationPtr_T;
+  using OptimisationNotificationPtr_T =
+    std::shared_ptr<OptimisationNotificationStruct>;
   
 }
-#endif // __STDAIR_BOM_OPTIMISATIONNOTIFICATIONTYPES_HPP
+#endif // STDAIR_BOM_OPTIMISATIONNOTIFICATIONTYPES_HPP
 

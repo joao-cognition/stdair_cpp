@@ -1,5 +1,5 @@
-#ifndef __STDAIR_BAS_BASCONST_TRAVELSOLUTION_HPP
-#define __STDAIR_BAS_BASCONST_TRAVELSOLUTION_HPP
+#ifndef STDAIR_BAS_BASCONST_TRAVELSOLUTION_HPP
+#define STDAIR_BAS_BASCONST_TRAVELSOLUTION_HPP
 
 // //////////////////////////////////////////////////////////////////////
 // Import section
@@ -48,4 +48,4 @@ namespace stdair {
   extern const Date_T DEFAULT_DICO_STUDIED_DATE;
     
 }
-#endif // __STDAIR_BAS_BASCONST_TRAVELSOLUTION_HPP
+#endif // STDAIR_BAS_BASCONST_TRAVELSOLUTION_HPP

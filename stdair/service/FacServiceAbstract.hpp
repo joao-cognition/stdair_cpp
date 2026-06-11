@@ -1,5 +1,5 @@
-#ifndef __STDAIR_SVC_FACSERVICEABSTRACT_HPP
-#define __STDAIR_SVC_FACSERVICEABSTRACT_HPP
+#ifndef STDAIR_SVC_FACSERVICEABSTRACT_HPP
+#define STDAIR_SVC_FACSERVICEABSTRACT_HPP
 
 // //////////////////////////////////////////////////////////////////////
 // Import section
@@ -17,7 +17,7 @@ namespace stdair {
   public:
     
     /** Define the list (pool) of Service objects. */
-    typedef std::vector<ServiceAbstract*> ServicePool_T;
+    using ServicePool_T = std::vector<ServiceAbstract*>;
     
     /** Destructor. */
     virtual ~FacServiceAbstract();
@@ -35,4 +35,4 @@ namespace stdair {
   };
     
 }
-#endif // __STDAIR_SVC_FACSERVICEABSTRACT_HPP
+#endif // STDAIR_SVC_FACSERVICEABSTRACT_HPP

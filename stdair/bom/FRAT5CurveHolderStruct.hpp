@@ -1,5 +1,5 @@
-#ifndef __STDAIR_BOM_FRAT5CURVEHOLDERSTRUCT_HPP
-#define __STDAIR_BOM_FRAT5CURVEHOLDERSTRUCT_HPP
+#ifndef STDAIR_BOM_FRAT5CURVEHOLDERSTRUCT_HPP
+#define STDAIR_BOM_FRAT5CURVEHOLDERSTRUCT_HPP
 
 // //////////////////////////////////////////////////////////////////////
 // Import section
@@ -13,7 +13,7 @@
 
 namespace stdair {
   // Type definition for the holder of Frat5 curves.
-  typedef std::map<const std::string, FRAT5Curve_T> FRAT5CurveHolder_T;
+  using FRAT5CurveHolder_T = std::map<const std::string, FRAT5Curve_T>;
 
   /** Structure holding the elements of a snapshot . */
   struct FRAT5CurveHolderStruct : public StructAbstract {
@@ -59,4 +59,4 @@ namespace stdair {
   };
 
 }
-#endif // __STDAIR_BOM_FRAT5CURVEHOLDERSTRUCT_HPP
+#endif // STDAIR_BOM_FRAT5CURVEHOLDERSTRUCT_HPP

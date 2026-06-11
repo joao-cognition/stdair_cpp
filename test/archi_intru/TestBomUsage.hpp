@@ -1,5 +1,5 @@
-#ifndef __INTRUSIVE_TST_TESTBOMUSAGE_HPP
-#define __INTRUSIVE_TST_TESTBOMUSAGE_HPP
+#ifndef INTRUSIVE_TST_TESTBOMUSAGE_HPP
+#define INTRUSIVE_TST_TESTBOMUSAGE_HPP
 
 // //////////////////////////////////////////////////////////////////////
 // Import section
@@ -44,4 +44,4 @@ private:
   stdair::BomRoot* _bomRoot;
 };
 
-#endif // __INTRUSIVE_TST_TESTBOMUSAGE_HPP
+#endif // INTRUSIVE_TST_TESTBOMUSAGE_HPP

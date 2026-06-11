@@ -1,5 +1,5 @@
-#ifndef __INTRUSIVE_BOM_BOMMANAGER_HPP
-#define __INTRUSIVE_BOM_BOMMANAGER_HPP
+#ifndef INTRUSIVE_BOM_BOMMANAGER_HPP
+#define INTRUSIVE_BOM_BOMMANAGER_HPP
 
 // //////////////////////////////////////////////////////////////////////
 // Import section
@@ -20,4 +20,4 @@ namespace stdair {
   };
 
 }
-#endif // __INTRUSIVE_BOM_BOMMANAGER_HPP
+#endif // INTRUSIVE_BOM_BOMMANAGER_HPP

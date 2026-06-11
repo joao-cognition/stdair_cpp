@@ -25,7 +25,7 @@ namespace stdair {
   /**
    * Boost Tokeniser.
    */
-  typedef boost::tokenizer<boost::char_separator<char> > Tokeniser_T;
+  using Tokeniser_T = boost::tokenizer<boost::char_separator<char> >;
 
   // ////////////////////////////////////////////////////////////////////
   ParsedKey BomKeyManager::extractKeys (const std::string& iFullKeyStr) {

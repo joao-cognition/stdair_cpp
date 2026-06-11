@@ -14,18 +14,18 @@ namespace stdair {
   // ////////////////////////////////////////////////////////////////////
   TimePeriod::TimePeriod()
     : _key (DEFAULT_EPSILON_DURATION, DEFAULT_EPSILON_DURATION),
-      _parent (NULL)  {
+      _parent (nullptr)  {
     // That constructor is used by the serialisation process
   }
 
   // ////////////////////////////////////////////////////////////////////
   TimePeriod::TimePeriod (const TimePeriod& iTimePeriod)
-    : _key (iTimePeriod.getKey()), _parent (NULL)  {
+    : BomAbstract(), _key (iTimePeriod.getKey()), _parent (nullptr)  {
   }
 
   // ////////////////////////////////////////////////////////////////////
   TimePeriod::TimePeriod (const Key_T& iKey)
-    : _key (iKey), _parent (NULL)  {
+    : _key (iKey), _parent (nullptr)  {
   }
 
   // ////////////////////////////////////////////////////////////////////

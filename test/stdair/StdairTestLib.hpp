@@ -1,5 +1,5 @@
-#ifndef __STDAIR_TST_STDAIR_TEST_LIB_HPP
-#define __STDAIR_TST_STDAIR_TEST_LIB_HPP
+#ifndef STDAIR_TST_STDAIR_TEST_LIB_HPP
+#define STDAIR_TST_STDAIR_TEST_LIB_HPP
 
 // //////////////////////////////////////////////////////////////////////
 // Import section
@@ -47,4 +47,4 @@ namespace stdair_test {
   };
 }
 
-#endif // __STDAIR_TST_STDAIR_TEST_LIB_HPP
+#endif // STDAIR_TST_STDAIR_TEST_LIB_HPP

@@ -1,5 +1,5 @@
-#ifndef __STDAIR_BOM_PARSEDKEY_HPP
-#define __STDAIR_BOM_PARSEDKEY_HPP
+#ifndef STDAIR_BOM_PARSEDKEY_HPP
+#define STDAIR_BOM_PARSEDKEY_HPP
 
 // //////////////////////////////////////////////////////////////////////
 // Import section
@@ -83,4 +83,4 @@ namespace stdair {
   };
   
 }
-#endif // __STDAIR_BOM_PARSEDKEY_HPP
+#endif // STDAIR_BOM_PARSEDKEY_HPP

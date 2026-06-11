@@ -1,5 +1,5 @@
-#ifndef __STDAIR_BOM_AIRLINESTRUCT_HPP
-#define __STDAIR_BOM_AIRLINESTRUCT_HPP
+#ifndef STDAIR_BOM_AIRLINESTRUCT_HPP
+#define STDAIR_BOM_AIRLINESTRUCT_HPP
 
 // //////////////////////////////////////////////////////////////////////
 // Import section
@@ -76,4 +76,4 @@ namespace stdair {
   };
   
 }
-#endif // __STDAIR_BOM_AIRLINESTRUCT_HPP
+#endif // STDAIR_BOM_AIRLINESTRUCT_HPP

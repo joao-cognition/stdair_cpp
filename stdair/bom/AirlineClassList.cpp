@@ -18,21 +18,21 @@ namespace stdair {
   // ////////////////////////////////////////////////////////////////////
   AirlineClassList::AirlineClassList()
     : _key (DEFAULT_AIRLINE_CODE_LIST, DEFAULT_CLASS_CODE_LIST),
-      _parent (NULL)  {
+      _parent (nullptr)  {
     assert (false);
   }
 
   // ////////////////////////////////////////////////////////////////////
   AirlineClassList::AirlineClassList (const AirlineClassList& iACL)
-    : _key (iACL._key),
-      _parent (NULL),
+    : BomAbstract(), _key (iACL._key),
+      _parent (nullptr),
       _yield(iACL._yield),
       _fare(iACL._fare) {
   }
 
   // ////////////////////////////////////////////////////////////////////
   AirlineClassList::AirlineClassList (const Key_T& iKey)
-    : _key (iKey), _parent (NULL)  {
+    : _key (iKey), _parent (nullptr)  {
   }
 
   // ////////////////////////////////////////////////////////////////////
@@ -63,7 +63,7 @@ namespace stdair {
   // ////////////////////////////////////////////////////////////////////
   template<class Archive>
   void AirlineClassList::serialize (Archive& ioArchive,
-                                    const unsigned int iFileVersion) {
+                                    const unsigned int /*iFileVersion*/) {
     ioArchive & _key & _yield & _fare;
   }
 

@@ -1,6 +1,6 @@
 // //////////////////////////////////////////////////////////////////////
-#ifndef __STDAIR_BOM_VIRTUALCLASSTYPES_HPP
-#define __STDAIR_BOM_VIRTUALCLASSTYPES_HPP
+#ifndef STDAIR_BOM_VIRTUALCLASSTYPES_HPP
+#define STDAIR_BOM_VIRTUALCLASSTYPES_HPP
 
 // //////////////////////////////////////////////////////////////////////
 // Import section
@@ -17,10 +17,10 @@ namespace stdair {
   struct VirtualClassStruct;
   
   /** Define the booking class list. */
-  typedef std::list<VirtualClassStruct> VirtualClassList_T;
+  using VirtualClassList_T = std::list<VirtualClassStruct>;
   
   /** Define the booking class map. */
-  typedef std::map<const YieldLevel_T, VirtualClassStruct> VirtualClassMap_T;
+  using VirtualClassMap_T = std::map<const YieldLevel_T, VirtualClassStruct>;
 }
-#endif // __STDAIR_BOM_VIRTUALCLASSTYPES_HPP
+#endif // STDAIR_BOM_VIRTUALCLASSTYPES_HPP
 

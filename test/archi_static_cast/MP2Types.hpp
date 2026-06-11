@@ -1,5 +1,5 @@
-#ifndef __MYPROVIDER_TYPES_HPP
-#define __MYPROVIDER_TYPES_HPP
+#ifndef MYPROVIDER_TYPES_HPP
+#define MYPROVIDER_TYPES_HPP
 
 // //////////////////////////////////////////////////////////////////////
 // Import section
@@ -17,4 +17,4 @@ namespace stdair {
 namespace myprovider {
   typedef std::map<const std::type_info*, stdair::BomAbstract*> HolderMap_T;  
 }  
-#endif // __MYPROVIDER_TYPES_HPP
+#endif // MYPROVIDER_TYPES_HPP

@@ -113,7 +113,7 @@ namespace stdair {
   }
 
   // ////////////////////////////////////////////////////////////////////
-  const bool DoWStruct::isValid () const {
+  bool DoWStruct::isValid () const {
     for (unsigned short i = 0; i < 7; ++i) {
       if (getDayOfWeek(i)) {
         return true;

@@ -1,5 +1,5 @@
-#ifndef __STDAIR_BOM_KEY_TYPES_HPP
-#define __STDAIR_BOM_KEY_TYPES_HPP
+#ifndef STDAIR_BOM_KEY_TYPES_HPP
+#define STDAIR_BOM_KEY_TYPES_HPP
 
 // //////////////////////////////////////////////////////////////////////
 // Import section
@@ -12,10 +12,10 @@ namespace stdair {
 
   // //////////////////// Type definitions ///////////
   /** Key of a STL map. */
-  typedef std::string MapKey_T;
+  using MapKey_T = std::string;
   
   /** List of keys. */
-  typedef std::list<std::string> KeyList_T;
+  using KeyList_T = std::list<std::string>;
 
 }
-#endif // __STDAIR_BOM_KEY_TYPES_HPP
+#endif // STDAIR_BOM_KEY_TYPES_HPP

@@ -1,5 +1,5 @@
-#ifndef __STDAIR_CMD_CMDBOMMANAGER_HPP
-#define __STDAIR_CMD_CMDBOMMANAGER_HPP
+#ifndef STDAIR_CMD_CMDBOMMANAGER_HPP
+#define STDAIR_CMD_CMDBOMMANAGER_HPP
 
 // //////////////////////////////////////////////////////////////////////
 // Import section
@@ -243,4 +243,4 @@ namespace stdair {
     
   };
 }
-#endif // ___STDAIR_CMD_CMDBOMMANAGER_HPP
+#endif // _STDAIR_CMD_CMDBOMMANAGER_HPP

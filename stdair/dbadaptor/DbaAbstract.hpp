@@ -1,5 +1,5 @@
-#ifndef __STDAIR_DBA_DBAABSTRACT_HPP
-#define __STDAIR_DBA_DBAABSTRACT_HPP
+#ifndef STDAIR_DBA_DBAABSTRACT_HPP
+#define STDAIR_DBA_DBAABSTRACT_HPP
 
 // //////////////////////////////////////////////////////////////////////
 // Import section
@@ -18,11 +18,11 @@ namespace stdair {
     
     /** Dump a Business Object into an output stream.
         @param ostream& the output stream. */
-    virtual void toStream (std::ostream& ioOut) const {}
+    virtual void toStream (std::ostream& /*ioOut*/) const {}
     
     /** Read a Business Object from an input stream.
         @param istream& the input stream. */
-    virtual void fromStream (std::istream& ioIn) {}
+    virtual void fromStream (std::istream& /*ioIn*/) {}
     
   protected:
     /** Protected Default Constructor to ensure this class is abtract. */
@@ -73,4 +73,4 @@ operator>> (std::basic_istream<charT, traits>& ioIn,
   return ioIn;
 }
 
-#endif // __STDAIR_DBA_DBAABSTRACT_HPP
+#endif // STDAIR_DBA_DBAABSTRACT_HPP

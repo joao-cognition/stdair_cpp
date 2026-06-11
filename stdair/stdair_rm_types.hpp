@@ -1,5 +1,5 @@
-#ifndef __STDAIR_STDAIR_RM_TYPES_HPP
-#define __STDAIR_STDAIR_RM_TYPES_HPP
+#ifndef STDAIR_STDAIR_RM_TYPES_HPP
+#define STDAIR_STDAIR_RM_TYPES_HPP
 
 // //////////////////////////////////////////////////////////////////////
 // Import section
@@ -18,63 +18,64 @@ namespace stdair {
 
   // //////// Type definitions /////////
   /** Mode of the forecaster. */
-  typedef std::string ForecasterMode_T;
+  using ForecasterMode_T = std::string;
 
   /** Limit of similar flight-dates used in the forecaster. */
-  typedef short HistoricalDataLimit_T;
+  using HistoricalDataLimit_T = short;
 
   /** Mode of the forecaster. */
-  typedef std::string OptimizerMode_T;
+  using OptimizerMode_T = std::string;
 
   /** Define the demand for a policy. */
-  typedef NbOfBookings_T PolicyDemand_T;
+  using PolicyDemand_T = NbOfBookings_T;
 
   /** Define the vector of generated demand (for MC integration use).
       <br> It is a vector of double. */
-  typedef std::vector<double> GeneratedDemandVector_T;
+  using GeneratedDemandVector_T = std::vector<double>;
 
   /** Define the holder of the generated demand vectors. */
-  typedef std::vector<GeneratedDemandVector_T> GeneratedDemandVectorHolder_T;
+  using GeneratedDemandVectorHolder_T = std::vector<GeneratedDemandVector_T>;
 
   /** Define the sellup probability.*/
-  typedef double SellupProbability_T;
+  using SellupProbability_T = double;
   
     /** Define the vector of historical unconstrained demand. */
-  typedef std::vector<NbOfRequests_T> UncDemVector_T;
+  using UncDemVector_T = std::vector<NbOfRequests_T>;
   
     /** Define the vector of historical bookings. */
-  typedef std::vector<NbOfBookings_T> BookingVector_T;
+  using BookingVector_T = std::vector<NbOfBookings_T>;
 
   /** Define the FRAT5 coefficient. */
-  typedef double FRAT5_T;
+  using FRAT5_T = double;
 
   /** Define the FRAT5 curve. */
-  typedef std::map<const DTD_T, FRAT5_T> FRAT5Curve_T;
+  using FRAT5Curve_T = std::map<const DTD_T, FRAT5_T>;
 
   /** Define the fare family disutility curve. */
-  typedef std::map<const DTD_T, double> FFDisutilityCurve_T;
+  using FFDisutilityCurve_T = std::map<const DTD_T, double>;
 
   /** Define the sell-up factor curve. */
-  typedef std::map<const DTD_T, double> SellUpCurve_T;
+  using SellUpCurve_T = std::map<const DTD_T, double>;
 
   /** Define the dispatching factor curve. */
-  typedef std::map<const DTD_T, double> DispatchingCurve_T;
+  using DispatchingCurve_T = std::map<const DTD_T, double>;
 
   /** Define the map between class and sell-up factor curve. */
-  typedef std::map<BookingClass*, SellUpCurve_T> BookingClassSellUpCurveMap_T;
+  using BookingClassSellUpCurveMap_T = std::map<BookingClass*, SellUpCurve_T>;
 
   /** Define the map between class and dispatching factor curve. */
-  typedef std::map<BookingClass*, DispatchingCurve_T> BookingClassDispatchingCurveMap_T;
+  using BookingClassDispatchingCurveMap_T =
+    std::map<BookingClass*, DispatchingCurve_T>;
 
   /** Define the map between the yield of a class and the demand forecast
       of this class within a policy. */
-  typedef std::map<const Yield_T, double> YieldDemandMap_T;
+  using YieldDemandMap_T = std::map<const Yield_T, double>;
 
   /** Define the revenue of a policy */
-  typedef double Revenue_T;
+  using Revenue_T = double;
 
   /** Define the number of samples for the generated demand of booking class */
-  typedef unsigned int NbOfSamples_T;
+  using NbOfSamples_T = unsigned int;
 
 }
-#endif // __STDAIR_STDAIR_RM_TYPES_HPP
+#endif // STDAIR_STDAIR_RM_TYPES_HPP

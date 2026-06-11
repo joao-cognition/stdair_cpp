@@ -1,5 +1,5 @@
-#ifndef __STDAIR_BOM_POSCHANNELKEY_HPP
-#define __STDAIR_BOM_POSCHANNELKEY_HPP
+#ifndef STDAIR_BOM_POSCHANNELKEY_HPP
+#define STDAIR_BOM_POSCHANNELKEY_HPP
 
 // //////////////////////////////////////////////////////////////////////
 // Import section
@@ -24,6 +24,8 @@ namespace stdair  {
      * Copy constructor.
      */
     PosChannelKey (const PosChannelKey&);
+    /** Default copy assignment operator. */
+    PosChannelKey& operator= (const PosChannelKey&) = default;
     /**
      * Destructor.
      */
@@ -87,4 +89,4 @@ namespace stdair  {
   };
 
 }
-#endif // __STDAIR_BOM_POSCHANNELKEY_HPP
+#endif // STDAIR_BOM_POSCHANNELKEY_HPP

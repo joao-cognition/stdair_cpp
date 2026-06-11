@@ -1,5 +1,5 @@
-#ifndef __STDAIR_BAS_BASCONST_DEFAULTOBJECT_HPP
-#define __STDAIR_BAS_BASCONST_DEFAULTOBJECT_HPP
+#ifndef STDAIR_BAS_BASCONST_DEFAULTOBJECT_HPP
+#define STDAIR_BAS_BASCONST_DEFAULTOBJECT_HPP
 
 // //////////////////////////////////////////////////////////////////////
 // Import section
@@ -80,4 +80,4 @@ namespace stdair {
   extern const Fare_T DEFAULT_OND_FARE_VALUE;
 
 }
-#endif // __STDAIR_BAS_BASCONST_DEFAULTOBJECT_HPP
+#endif // STDAIR_BAS_BASCONST_DEFAULTOBJECT_HPP

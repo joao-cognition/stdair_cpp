@@ -1,5 +1,5 @@
-#ifndef __STDAIR_BOM_BOMINIIMPORT_HPP
-#define __STDAIR_BOM_BOMINIIMPORT_HPP
+#ifndef STDAIR_BOM_BOMINIIMPORT_HPP
+#define STDAIR_BOM_BOMINIIMPORT_HPP
 
 // //////////////////////////////////////////////////////////////////////
 // Import section
@@ -31,4 +31,4 @@ namespace stdair {
     
   };
 }
-#endif // __STDAIR_BOM_BOMINIIMPORT_HPP
+#endif // STDAIR_BOM_BOMINIIMPORT_HPP

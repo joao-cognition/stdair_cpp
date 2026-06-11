@@ -1,5 +1,5 @@
-#ifndef __STDAIR_BOM_BOMJSONEXPORT_HPP
-#define __STDAIR_BOM_BOMJSONEXPORT_HPP
+#ifndef STDAIR_BOM_BOMJSONEXPORT_HPP
+#define STDAIR_BOM_BOMJSONEXPORT_HPP
 
 // //////////////////////////////////////////////////////////////////////
 // Import section
@@ -7,20 +7,12 @@
 // STL
 #include <iosfwd>
 // Boost Property Tree
-#if BOOST_VERSION_MACRO >= 104100
 #include <boost/property_tree/ptree.hpp>
 #include <boost/property_tree/json_parser.hpp>
-#endif // BOOST_VERSION_MACRO >= 104100
 // StdAir
 #include <stdair/bom/TravelSolutionTypes.hpp>
 
-#if BOOST_VERSION_MACRO >= 104100
   namespace bpt = boost::property_tree;
-#else // BOOST_VERSION_MACRO >= 104100
-  namespace bpt {
-    typedef char ptree;
-  }
-#endif // BOOST_VERSION_MACRO >= 104100
 
 namespace stdair {
 
@@ -195,4 +187,4 @@ namespace stdair {
   };
 
 }
-#endif // __STDAIR_BOM_BOMJSONEXPORT_HPP
+#endif // STDAIR_BOM_BOMJSONEXPORT_HPP

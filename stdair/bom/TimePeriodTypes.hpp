@@ -1,6 +1,6 @@
 // //////////////////////////////////////////////////////////////////////
-#ifndef __STDAIR_BOM_TIMEPERIODTYPES_HPP
-#define __STDAIR_BOM_TIMEPERIODTYPES_HPP
+#ifndef STDAIR_BOM_TIMEPERIODTYPES_HPP
+#define STDAIR_BOM_TIMEPERIODTYPES_HPP
 
 // //////////////////////////////////////////////////////////////////////
 // Import section
@@ -17,14 +17,14 @@ namespace stdair {
   class TimePeriod;
   
   /** Define the time-period list. */
-  typedef std::list<TimePeriod*> TimePeriodList_T;
+  using TimePeriodList_T = std::list<TimePeriod*>;
 
   /** Define the time-period  map. */
-  typedef std::map<const MapKey_T, TimePeriod*> TimePeriodMap_T;
+  using TimePeriodMap_T = std::map<const MapKey_T, TimePeriod*>;
 
   /** Define the list of pair<MapKey_T, TimePeriod>. */
-  typedef std::pair<MapKey_T, TimePeriod*> TimePeriodWithKey_T;
-  typedef std::list<TimePeriodWithKey_T> TimePeriodDetailedList_T;
+  using TimePeriodWithKey_T = std::pair<MapKey_T, TimePeriod*>;
+  using TimePeriodDetailedList_T = std::list<TimePeriodWithKey_T>;
 }
-#endif // __STDAIR_BOM_TIMEPERIODTYPES_HPP
+#endif // STDAIR_BOM_TIMEPERIODTYPES_HPP
 

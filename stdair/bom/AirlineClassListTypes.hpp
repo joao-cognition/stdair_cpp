@@ -1,6 +1,6 @@
 // //////////////////////////////////////////////////////////////////////
-#ifndef __STDAIR_BOM_AIRLINECLASSLISTTYPES_HPP
-#define __STDAIR_BOM_AIRLINECLASSLISTTYPES_HPP
+#ifndef STDAIR_BOM_AIRLINECLASSLISTTYPES_HPP
+#define STDAIR_BOM_AIRLINECLASSLISTTYPES_HPP
 
 // //////////////////////////////////////////////////////////////////////
 // Import section
@@ -17,13 +17,13 @@ namespace stdair {
   class AirlineClassList;
   
   /** Define the segment-features list. */
-  typedef std::list<AirlineClassList*> AirlineClassListList_T;
+  using AirlineClassListList_T = std::list<AirlineClassList*>;
 
   /** Define the segment-features map. */
-  typedef std::map<const MapKey_T, AirlineClassList*> AirlineClassListMap_T;
+  using AirlineClassListMap_T = std::map<const MapKey_T, AirlineClassList*>;
 
   /** Define the list of pair<MapKey_T, AirlineCodeList>. */
-  typedef std::pair<MapKey_T, AirlineClassList*> AirlineClassListWithKey_T;
-  typedef std::list<AirlineClassListWithKey_T> AirlineClassListDetailedList_T;
+  using AirlineClassListWithKey_T = std::pair<MapKey_T, AirlineClassList*>;
+  using AirlineClassListDetailedList_T = std::list<AirlineClassListWithKey_T>;
 }
-#endif // __STDAIR_BOM_AIRLINECLASSLISTTYPES_HPP
+#endif // STDAIR_BOM_AIRLINECLASSLISTTYPES_HPP

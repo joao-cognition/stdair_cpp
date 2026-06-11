@@ -1,5 +1,5 @@
-#ifndef __STDAIR_BOM_LEGDATEKEY_HPP
-#define __STDAIR_BOM_LEGDATEKEY_HPP
+#ifndef STDAIR_BOM_LEGDATEKEY_HPP
+#define STDAIR_BOM_LEGDATEKEY_HPP
 
 // //////////////////////////////////////////////////////////////////////
 // Import section
@@ -25,6 +25,8 @@ namespace stdair {
     LegDateKey (const AirportCode_T& iBoardingPoint);
     /** Default copy constructor. */
     LegDateKey (const LegDateKey&);
+    /** Default copy assignment operator. */
+    LegDateKey& operator= (const LegDateKey&) = default;
     /** Destructor. */
     ~LegDateKey();
     
@@ -60,4 +62,4 @@ namespace stdair {
   };
 
 }
-#endif // __STDAIR_BOM_LEGDATEKEY_HPP
+#endif // STDAIR_BOM_LEGDATEKEY_HPP

@@ -19,13 +19,13 @@
 namespace stdair {
 
   // ////////////////////////////////////////////////////////////////////
-  SegmentCabin::SegmentCabin() : _key (DEFAULT_CABIN_CODE), _parent (NULL) {
+  SegmentCabin::SegmentCabin() : _key (DEFAULT_CABIN_CODE), _parent (nullptr) {
     assert (false);
   }
 
   // ////////////////////////////////////////////////////////////////////
   SegmentCabin::SegmentCabin (const SegmentCabin& iSegmentCabin)
-    : _key (iSegmentCabin._key), _parent (NULL),
+    : BomAbstract(), _key (iSegmentCabin._key), _parent (nullptr),
       _capacity (iSegmentCabin._capacity),
       _blockSpace (iSegmentCabin._blockSpace),
       _bookingCounter (iSegmentCabin._bookingCounter),
@@ -37,7 +37,7 @@ namespace stdair {
 
   // ////////////////////////////////////////////////////////////////////
   SegmentCabin::SegmentCabin (const Key_T& iKey)
-    : _key (iKey), _parent (NULL),
+    : _key (iKey), _parent (nullptr),
       _capacity (DEFAULT_CABIN_CAPACITY),
       _blockSpace (DEFAULT_BLOCK_SPACE),
       _bookingCounter (DEFAULT_CLASS_NB_OF_BOOKINGS),
@@ -74,7 +74,7 @@ namespace stdair {
     for (PolicyList_T::const_iterator itP = _convexHull.begin();
         itP != _convexHull.end(); ++itP) {
       const Policy* lPolicy = *itP;
-      assert (lPolicy != NULL);
+      assert (lPolicy != nullptr);
       oStr << lPolicy->toString();
     }
     return oStr.str();

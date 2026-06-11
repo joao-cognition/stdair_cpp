@@ -1,5 +1,5 @@
-#ifndef __STDAIR_BAS_PARTNERSHIPTECHNIQUE_HPP
-#define __STDAIR_BAS_PARTNERSHIPTECHNIQUE_HPP
+#ifndef STDAIR_BAS_PARTNERSHIPTECHNIQUE_HPP
+#define STDAIR_BAS_PARTNERSHIPTECHNIQUE_HPP
 
 // //////////////////////////////////////////////////////////////////////
 // Import section
@@ -16,7 +16,7 @@ namespace stdair {
    */
   struct PartnershipTechnique : public StructAbstract {
   public:
-    typedef enum {
+    enum EN_PartnershipTechnique {
       NONE = 0,
       RAE_DA,
       RAE_YP,
@@ -26,7 +26,7 @@ namespace stdair {
       RMC,
       A_RMC,
       LAST_VALUE
-    } EN_PartnershipTechnique;
+    };
 
     /**
      * Get the label as a string (e.g., "RevenueManagementCooperation").
@@ -98,6 +98,8 @@ namespace stdair {
      * Default copy constructor.
      */
     PartnershipTechnique (const PartnershipTechnique&);
+    /** Default copy assignment operator. */
+    PartnershipTechnique& operator= (const PartnershipTechnique&) = default;
 
   private:
     /**
@@ -125,4 +127,4 @@ namespace stdair {
   };
 
 }
-#endif // __STDAIR_BAS_PARTNERSHIPTECHNIQUE_HPP
+#endif // STDAIR_BAS_PARTNERSHIPTECHNIQUE_HPP

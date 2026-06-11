@@ -14,18 +14,18 @@ namespace stdair {
   // ////////////////////////////////////////////////////////////////////
   AirportPair::AirportPair()
     : _key (DEFAULT_ORIGIN, DEFAULT_DESTINATION),
-      _parent (NULL)  {
+      _parent (nullptr)  {
     // That constructor is used by the serialisation process
   }
 
   // ////////////////////////////////////////////////////////////////////
   AirportPair::AirportPair (const AirportPair& iAirportPair)
-    : _key (iAirportPair.getKey()), _parent (NULL)  {
+    : BomAbstract(), _key (iAirportPair.getKey()), _parent (nullptr)  {
   }
 
   // ////////////////////////////////////////////////////////////////////
   AirportPair::AirportPair (const Key_T& iKey)
-    : _key (iKey), _parent (NULL)  {
+    : _key (iKey), _parent (nullptr)  {
   }
 
   // ////////////////////////////////////////////////////////////////////

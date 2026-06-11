@@ -1,6 +1,6 @@
 // //////////////////////////////////////////////////////////////////////
-#ifndef __STDAIR_BOM_FLIGHTPERIODTYPES_HPP
-#define __STDAIR_BOM_FLIGHTPERIODTYPES_HPP
+#ifndef STDAIR_BOM_FLIGHTPERIODTYPES_HPP
+#define STDAIR_BOM_FLIGHTPERIODTYPES_HPP
 
 // //////////////////////////////////////////////////////////////////////
 // Import section
@@ -17,10 +17,10 @@ namespace stdair {
   class FlightPeriod;
 
   /** Define the flight-period list. */
-  typedef std::list<FlightPeriod*> FlightPeriodList_T;
+  using FlightPeriodList_T = std::list<FlightPeriod*>;
 
   /** Define the flight-period map. */
-  typedef std::map<const MapKey_T, FlightPeriod*> FlightPeriodMap_T;
+  using FlightPeriodMap_T = std::map<const MapKey_T, FlightPeriod*>;
 }
-#endif // __STDAIR_BOM_FLIGHTPERIODTYPES_HPP
+#endif // STDAIR_BOM_FLIGHTPERIODTYPES_HPP
 

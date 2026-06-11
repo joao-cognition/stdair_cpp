@@ -1,5 +1,5 @@
-#ifndef __STDAIR_BOM_AIRPORTPAIRKEY_HPP
-#define __STDAIR_BOM_AIRPORTPAIRKEY_HPP
+#ifndef STDAIR_BOM_AIRPORTPAIRKEY_HPP
+#define STDAIR_BOM_AIRPORTPAIRKEY_HPP
 
 // //////////////////////////////////////////////////////////////////////
 // Import section
@@ -22,6 +22,8 @@ namespace stdair  {
                     const stdair::AirportCode_T&);
     /** Copy constructor. */
     AirportPairKey (const AirportPairKey&);
+    /** Default copy assignment operator. */
+    AirportPairKey& operator= (const AirportPairKey&) = default;
     /** Destructor. */
     ~AirportPairKey ();
   private:
@@ -80,4 +82,4 @@ namespace stdair  {
   };
 
 }
-#endif // __SIMFQT_BOM_AIRPORTPAIRKEY_HPP
+#endif // SIMFQT_BOM_AIRPORTPAIRKEY_HPP

@@ -11,13 +11,13 @@ namespace stdair {
 
   // ////////////////////////////////////////////////////////////////////
   SegmentPeriod::SegmentPeriod (const Key_T& iKey)
-    : _key (iKey), _parent (NULL),  _boardingDateOffset (0), _offDateOffset (0) {
+    : _key (iKey), _parent (nullptr),  _boardingDateOffset (0), _offDateOffset (0) {
   } 
 
   // ////////////////////////////////////////////////////////////////////
   SegmentPeriod::SegmentPeriod (const SegmentPeriod& iSegmentPeriod)
-    : _key (iSegmentPeriod.getKey()), 
-      _parent (NULL),  
+    : BomAbstract(), _key (iSegmentPeriod.getKey()), 
+      _parent (nullptr),  
       _boardingTime (iSegmentPeriod._boardingTime),
       _offTime (iSegmentPeriod._offTime),
       _boardingDateOffset (iSegmentPeriod._boardingDateOffset),

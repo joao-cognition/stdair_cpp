@@ -1,5 +1,5 @@
-#ifndef __STDAIR_BAS_PROGRESSSTATUS_HPP
-#define __STDAIR_BAS_PROGRESSSTATUS_HPP
+#ifndef STDAIR_BAS_PROGRESSSTATUS_HPP
+#define STDAIR_BAS_PROGRESSSTATUS_HPP
 
 // //////////////////////////////////////////////////////////////////////
 // Import section
@@ -46,7 +46,7 @@ namespace stdair {
     }
 
     /** Get the progress as a percentage. */
-    const ProgressPercentage_T progress() const {
+    ProgressPercentage_T progress() const {
       if (_actualNb == 0) {
         return 0;
       } 
@@ -141,6 +141,8 @@ namespace stdair {
      * Copy Constructor.
      */
     ProgressStatus (const ProgressStatus&);
+    /** Default copy assignment operator. */
+    ProgressStatus& operator= (const ProgressStatus&) = default;
     
   private:
     // //////////////// Attributes /////////////////
@@ -155,4 +157,4 @@ namespace stdair {
   };
 
 }
-#endif // __STDAIR_BAS_PROGRESSSTATUS_HPP
+#endif // STDAIR_BAS_PROGRESSSTATUS_HPP

@@ -1,5 +1,5 @@
-#ifndef __STDAIR_BAS_SAMPLETYPE_HPP
-#define __STDAIR_BAS_SAMPLETYPE_HPP
+#ifndef STDAIR_BAS_SAMPLETYPE_HPP
+#define STDAIR_BAS_SAMPLETYPE_HPP
 
 // //////////////////////////////////////////////////////////////////////
 // Import section
@@ -24,7 +24,7 @@ namespace stdair {
    */
   struct SampleType : public StructAbstract {
   public:
-    typedef enum { 
+    enum EN_SampleType { 
       ALL = 0,
       A4P,
       RMS,
@@ -37,7 +37,7 @@ namespace stdair {
       EVT,
       CCM,
       LAST_VALUE
-    } EN_SampleType;
+    };
 
     /**
      * Get the label as a string (e.g., "Inventory" or "Schedule").
@@ -122,4 +122,4 @@ namespace stdair {
   };
 
 }
-#endif // __STDAIR_BAS_SAMPLETYPE_HPP
+#endif // STDAIR_BAS_SAMPLETYPE_HPP

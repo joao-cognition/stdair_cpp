@@ -17,18 +17,18 @@ namespace stdair {
     
   // ////////////////////////////////////////////////////////////////////
   NestingNode::NestingNode () : 
-    _key (DEFAULT_NESTING_NODE_CODE), _parent (NULL) {
+    _key (DEFAULT_NESTING_NODE_CODE), _parent (nullptr) {
     assert (false);
   }
 
   // ////////////////////////////////////////////////////////////////////
-  NestingNode::NestingNode (const NestingNode& iNestingNode)
-  : _key (DEFAULT_NESTING_NODE_CODE), _parent (NULL) {
+  NestingNode::NestingNode (const NestingNode& /*iNestingNode*/)
+  : BomAbstract(), _key (DEFAULT_NESTING_NODE_CODE), _parent (nullptr) {
     assert (false);
   }
 
   // ////////////////////////////////////////////////////////////////////
-  NestingNode::NestingNode (const Key_T& iKey) : _key (iKey), _parent (NULL) {
+  NestingNode::NestingNode (const Key_T& iKey) : _key (iKey), _parent (nullptr) {
   }
     
   // ////////////////////////////////////////////////////////////////////

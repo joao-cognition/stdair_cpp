@@ -1,5 +1,5 @@
-#ifndef __STDAIR_BAS_BASDBPARAMS_HPP
-#define __STDAIR_BAS_BASDBPARAMS_HPP
+#ifndef STDAIR_BAS_BASDBPARAMS_HPP
+#define STDAIR_BAS_BASDBPARAMS_HPP
 
 // //////////////////////////////////////////////////////////////////////
 // Import section
@@ -116,6 +116,9 @@ namespace stdair {
      */
     BasDBParams (const BasDBParams&);
 
+    /** Default copy assignment operator. */
+    BasDBParams& operator= (const BasDBParams&) = default;
+
     /**
      * Destructor.
      */
@@ -137,4 +140,4 @@ namespace stdair {
   };
 
 }
-#endif // __STDAIR_BAS_BASDBPARAMS_HPP
+#endif // STDAIR_BAS_BASDBPARAMS_HPP

@@ -10,11 +10,11 @@
 
 namespace stdair {
 
-  FacSupervisor* FacSupervisor::_instance = NULL;
+  FacSupervisor* FacSupervisor::_instance = nullptr;
 
   // //////////////////////////////////////////////////////////////////////
   FacSupervisor& FacSupervisor::instance() {
-    if (_instance == NULL) {
+    if (_instance == nullptr) {
       _instance = new FacSupervisor();
     }
 
@@ -45,9 +45,9 @@ namespace stdair {
            _facPool.begin();
          itFactory != _facPool.end(); itFactory++) {
       const FacAbstract* currentFactory_ptr = *itFactory;
-      assert (currentFactory_ptr != NULL);
+      assert (currentFactory_ptr != nullptr);
 
-      delete (currentFactory_ptr); currentFactory_ptr = NULL;
+      delete (currentFactory_ptr); currentFactory_ptr = nullptr;
     }
 
     // Empty the pool of factories
@@ -60,9 +60,9 @@ namespace stdair {
            _facRelationShipRootPool.begin();
          itRS != _facRelationShipRootPool.end(); ++itRS) {
       const FacRelationShipRootAbstract* currentFacRelationShipRoot_ptr = *itRS;
-      assert (currentFacRelationShipRoot_ptr != NULL);
+      assert (currentFacRelationShipRoot_ptr != nullptr);
 
-      delete currentFacRelationShipRoot_ptr; currentFacRelationShipRoot_ptr = NULL;
+      delete currentFacRelationShipRoot_ptr; currentFacRelationShipRoot_ptr = nullptr;
     }
 
     // Empty the pool of relations ships
@@ -74,7 +74,7 @@ namespace stdair {
     // Clean the static instance of the FacSupervisor.
     // This in turn will invoke the destructor (~FacSupervisor() method)
     // of the static instance.
-    delete _instance; _instance = NULL;
+    delete _instance; _instance = nullptr;
   }
 
 }

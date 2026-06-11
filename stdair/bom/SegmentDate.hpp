@@ -1,5 +1,5 @@
-#ifndef __STDAIR_BOM_SEGMENTDATE_HPP
-#define __STDAIR_BOM_SEGMENTDATE_HPP
+#ifndef STDAIR_BOM_SEGMENTDATE_HPP
+#define STDAIR_BOM_SEGMENTDATE_HPP
 
 // //////////////////////////////////////////////////////////////////////
 // Import section
@@ -33,7 +33,7 @@ namespace stdair {
   class SegmentCabin; 
 
   // Define the routing leg keys list type.
-  typedef std::list<std::string> RoutingLegKeyList_T;
+  using RoutingLegKeyList_T = std::list<std::string>;
 
   /**
    * @brief Class representing the actual attributes for an airline
@@ -51,7 +51,7 @@ namespace stdair {
     /**
      * Definition allowing to retrieve the associated BOM key type.
      */
-    typedef SegmentDateKey Key_T;
+    using Key_T = SegmentDateKey;
 
 
   public:
@@ -66,7 +66,7 @@ namespace stdair {
     /**
      * Get the parent object.
      */
-    BomAbstract* const getParent() const {
+    BomAbstract* getParent() const {
       return _parent;
     }
     
@@ -246,7 +246,7 @@ namespace stdair {
      *
      * @param istream& the input stream.
      */
-    void fromStream (std::istream& ioIn) {
+    void fromStream (std::istream& /*ioIn*/) {
     }
 
     /**
@@ -376,5 +376,5 @@ namespace stdair {
   };
 
 }
-#endif // __STDAIR_BOM_SEGMENTDATE_HPP
+#endif // STDAIR_BOM_SEGMENTDATE_HPP
 

@@ -20,6 +20,7 @@ namespace stdair {
 
   // ////////////////////////////////////////////////////////////////////
   BomRoot::BomRoot (const BomRoot& iBomRoot) :
+    BomAbstract(),
     _key (iBomRoot._key), _frat5CurveHolder (iBomRoot._frat5CurveHolder),
     _ffDisutilityCurveHolder (iBomRoot._ffDisutilityCurveHolder) {
   }

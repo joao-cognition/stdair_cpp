@@ -1,5 +1,5 @@
-#ifndef __STDAIR_BOM_VIRTUALCLASSSTRUCT_HPP
-#define __STDAIR_BOM_VIRTUALCLASSSTRUCT_HPP
+#ifndef STDAIR_BOM_VIRTUALCLASSSTRUCT_HPP
+#define STDAIR_BOM_VIRTUALCLASSSTRUCT_HPP
 
 // //////////////////////////////////////////////////////////////////////
 // Import section
@@ -143,4 +143,4 @@ namespace stdair {
   };
 
 }
-#endif // __STDAIR_BOM_VIRTUALCLASSSTRUCT_HPP
+#endif // STDAIR_BOM_VIRTUALCLASSSTRUCT_HPP

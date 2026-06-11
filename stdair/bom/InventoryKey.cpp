@@ -39,7 +39,7 @@ namespace stdair {
   }
 
   // ////////////////////////////////////////////////////////////////////
-  void InventoryKey::fromStream (std::istream& ioIn) {
+  void InventoryKey::fromStream (std::istream& /*ioIn*/) {
   }
 
   // ////////////////////////////////////////////////////////////////////
@@ -66,7 +66,7 @@ namespace stdair {
   // ////////////////////////////////////////////////////////////////////
   template<class Archive>
   void InventoryKey::serialize (Archive& ioArchive,
-                                const unsigned int iFileVersion) {
+                                const unsigned int /*iFileVersion*/) {
     ioArchive & _airlineCode;
   }
 

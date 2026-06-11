@@ -1,5 +1,5 @@
-#ifndef __STDAIR_BAS_CONTINUOUSATTRIBUTELITE_HPP
-#define __STDAIR_BAS_CONTINUOUSATTRIBUTELITE_HPP
+#ifndef STDAIR_BAS_CONTINUOUSATTRIBUTELITE_HPP
+#define STDAIR_BAS_CONTINUOUSATTRIBUTELITE_HPP
 
 // //////////////////////////////////////////////////////////////////////
 // Import section
@@ -29,7 +29,7 @@ namespace stdair {
     /**
      * Type for the probability mass function.
      */
-    typedef std::map<T, stdair::Probability_T> ContinuousDistribution_T;
+    using ContinuousDistribution_T = std::map<T, stdair::Probability_T>;
     
   public:
     // ////////////////////// Business Methods ////////////////////
@@ -281,4 +281,4 @@ namespace stdair {
   };
   
 }
-#endif // __STDAIR_BAS_CONTINUOUSATTRIBUTELITE_HPP
+#endif // STDAIR_BAS_CONTINUOUSATTRIBUTELITE_HPP

@@ -4,8 +4,8 @@
  * @author Anh Quan Nguyen <quannaus@users.sourceforge.net>
  * @date 20/01/2010
  */
-#ifndef __STDAIR_BOM_BOMABSTRACT_HPP
-#define __STDAIR_BOM_BOMABSTRACT_HPP
+#ifndef STDAIR_BOM_BOMABSTRACT_HPP
+#define STDAIR_BOM_BOMABSTRACT_HPP
 
 // //////////////////////////////////////////////////////////////////////
 // Import section
@@ -60,7 +60,7 @@ namespace stdair {
   };
 
   /* Define the map of object holder type. */
-  typedef std::map<const std::type_info*, BomAbstract*> HolderMap_T;
+  using HolderMap_T = std::map<const std::type_info*, BomAbstract*>;
 }
 
 /**
@@ -106,4 +106,4 @@ operator>> (std::basic_istream<charT, traits>& ioIn,
   return ioIn;
 }
 
-#endif // __STDAIR_BOM_BOMABSTRACT_HPP
+#endif // STDAIR_BOM_BOMABSTRACT_HPP

@@ -1,5 +1,5 @@
-#ifndef __STDAIR_BAS_BASCONST_REQUEST_HPP
-#define __STDAIR_BAS_BASCONST_REQUEST_HPP
+#ifndef STDAIR_BAS_BASCONST_REQUEST_HPP
+#define STDAIR_BAS_BASCONST_REQUEST_HPP
 
 // //////////////////////////////////////////////////////////////////////
 // Import section
@@ -75,4 +75,4 @@ namespace stdair {
   extern const IntDuration_T HOUR_CONVERTED_IN_SECONDS;
 
 }
-#endif // __STDAIR_BAS_BASCONST_REQUEST_HPP
+#endif // STDAIR_BAS_BASCONST_REQUEST_HPP

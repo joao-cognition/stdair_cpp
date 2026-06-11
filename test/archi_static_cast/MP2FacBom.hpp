@@ -1,5 +1,5 @@
-#ifndef __MYPROVIDER_FACBOM_HPP
-#define __MYPROVIDER_FACBOM_HPP
+#ifndef MYPROVIDER_FACBOM_HPP
+#define MYPROVIDER_FACBOM_HPP
 
 // //////////////////////////////////////////////////////////////////////
 // Import section
@@ -47,13 +47,13 @@ namespace myprovider {
   };
 
   // ////////////////////////////////////////////////////////////////////
-  template <typename BOM> FacBom<BOM>* FacBom<BOM>::_instance = NULL;
+  template <typename BOM> FacBom<BOM>* FacBom<BOM>::_instance = nullptr;
   
   // ////////////////////////////////////////////////////////////////////
   template <typename BOM> FacBom<BOM>& FacBom<BOM>::instance () {
-    if (_instance == NULL) {
+    if (_instance == nullptr) {
       _instance = new FacBom ();
-      assert (_instance != NULL);
+      assert (_instance != nullptr);
     }
     return *_instance;
   }
@@ -64,15 +64,15 @@ namespace myprovider {
     for (typename BomPool_T::iterator itBom = _pool.begin();
          itBom != _pool.end(); ++itBom) {
       BOM* currentBom_ptr = *itBom;
-      assert (currentBom_ptr != NULL);
-      delete currentBom_ptr; currentBom_ptr = NULL;
+      assert (currentBom_ptr != nullptr);
+      delete currentBom_ptr; currentBom_ptr = nullptr;
     }
 
     // Empty the pool.
     _pool.clear();
 
     // Reset the static instance.
-    _instance = NULL;
+    _instance = nullptr;
   }
   
   // ////////////////////////////////////////////////////////////////////
@@ -85,10 +85,10 @@ namespace myprovider {
   template <typename BOM> BOM& FacBom<BOM>::
   create (const Key_T& iKey) {
     BOM* oBom_ptr = new BOM (iKey);
-    assert (oBom_ptr != NULL);
+    assert (oBom_ptr != nullptr);
     _pool.push_back (oBom_ptr);
     return *oBom_ptr;
   }
   
 }
-#endif // __MYPROVIDER_FACBOM_HPP
+#endif // MYPROVIDER_FACBOM_HPP

@@ -1,14 +1,14 @@
 // //////////////////////////////////////////////////////////////////////
-#ifndef __STDAIR_BOM_BREAKPOINTTYPES_HPP
-#define __STDAIR_BOM_BREAKPOINTTYPES_HPP
+#ifndef STDAIR_BOM_BREAKPOINTTYPES_HPP
+#define STDAIR_BOM_BREAKPOINTTYPES_HPP
 
 // //////////////////////////////////////////////////////////////////////
 // Import section
 // //////////////////////////////////////////////////////////////////////
 // STL
 #include <list>
-// Boost
-#include <boost/shared_ptr.hpp>
+// STL
+#include <memory>
 
 namespace stdair {
 
@@ -17,11 +17,11 @@ namespace stdair {
   
   // ///////////// Type definitions //////////////
   /** Define the smart pointer to a Break Point event . */
-  typedef boost::shared_ptr<BreakPointStruct> BreakPointPtr_T;
+  using BreakPointPtr_T = std::shared_ptr<BreakPointStruct>;
 
   /** Define the list of Break Points. */
-  typedef std::list<BreakPointStruct> BreakPointList_T;
+  using BreakPointList_T = std::list<BreakPointStruct>;
   
 }
-#endif // __STDAIR_BOM_BREAKPOINTTYPES_HPP
+#endif // STDAIR_BOM_BREAKPOINTTYPES_HPP
 

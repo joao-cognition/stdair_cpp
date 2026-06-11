@@ -1,5 +1,5 @@
-#ifndef __INTRUSIVE_BOM_RELATIONSHIPHOLDERSET_HPP
-#define __INTRUSIVE_BOM_RELATIONSHIPHOLDERSET_HPP
+#ifndef INTRUSIVE_BOM_RELATIONSHIPHOLDERSET_HPP
+#define INTRUSIVE_BOM_RELATIONSHIPHOLDERSET_HPP
 
 // //////////////////////////////////////////////////////////////////////
 // Import section
@@ -74,8 +74,8 @@ namespace stdair {
         parents/siblings. */
     SECOND_BOM* find (const FIRST_BOM& iFirstBom,
                       const std::string& iSecondBomKey) {
-      SECOND_BOM* oSecondBom_ptr = NULL;
-      RelationShipHolder_T* oRSH_ptr = NULL;
+      SECOND_BOM* oSecondBom_ptr = nullptr;
+      RelationShipHolder_T* oRSH_ptr = nullptr;
       
       typename RelationShipHolderSet_T::iterator itRSH =
         _relationShipHolderSet.find (iFirstBom.getKey(), StrExpComp<RelationShipHolder_T>());
@@ -113,4 +113,4 @@ namespace stdair {
   };
 
 }
-#endif // __INTRUSIVE_BOM_RELATIONSHIPHOLDERSET_HPP
+#endif // INTRUSIVE_BOM_RELATIONSHIPHOLDERSET_HPP

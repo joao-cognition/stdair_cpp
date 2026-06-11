@@ -1,5 +1,5 @@
-#ifndef __MYPROVIDER_BOMMANAGER_HPP
-#define __MYPROVIDER_BOMMANAGER_HPP
+#ifndef MYPROVIDER_BOMMANAGER_HPP
+#define MYPROVIDER_BOMMANAGER_HPP
 
 // //////////////////////////////////////////////////////////////////////
 // Import section
@@ -36,4 +36,4 @@ namespace myprovider {
   }
 }
 
-#endif // __MYPROVIDER_BOMMANAGER_HPP
+#endif // MYPROVIDER_BOMMANAGER_HPP

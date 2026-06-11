@@ -46,7 +46,7 @@ void TestIntrusive::initIntrusive() {
   for (stdair::FlightDateVector_T::iterator itFlight(_flightDateVector.begin()),
          itend (_flightDateVector.end()); itFlight != itend; ++itFlight) {
     stdair::FlightDate* lFlightDate_ptr = *itFlight;
-    assert (lFlightDate_ptr != NULL);
+    assert (lFlightDate_ptr != nullptr);
       
     _flightDateChildList.push_back (*lFlightDate_ptr);
     _flightDateChildSet.insert (*lFlightDate_ptr);
@@ -69,7 +69,7 @@ void TestIntrusive::clean() {
   
 // //////////////////////////////////////////////////////////////////////
 stdair::FlightDate* TestIntrusive::getFromSet (const std::string& iKey) {
-  stdair::FlightDate* oFlightDate_ptr = NULL;
+  stdair::FlightDate* oFlightDate_ptr = nullptr;
   stdair::FlightDateChildSet::iterator itFlight =
     _flightDateChildSet.find (iKey, StrExpComp<stdair::FlightDate>());
   if (itFlight == _flightDateChildSet.end()) {
@@ -92,7 +92,7 @@ bool TestIntrusive::testIntrusiveList() {
   for (itFlight = _flightDateVector.begin();
        itFlight != itend; ++itFlight, ++mit) {
     stdair::FlightDate* lFlightDate_ptr = *itFlight;
-    assert (lFlightDate_ptr != NULL);
+    assert (lFlightDate_ptr != nullptr);
 
     if (&*mit != lFlightDate_ptr) {
       oTestSuccessfull = false;
@@ -110,7 +110,7 @@ bool TestIntrusive::testIntrusiveIteratorTo() {
   stdair::FlightDateChildList::iterator itChild(_flightDateChildList.begin());
   for (int idx = 0; idx < 100; ++idx, ++itChild) {
     stdair::FlightDate* lFlightDate_ptr = _flightDateVector.at(idx);
-    assert (lFlightDate_ptr != NULL);
+    assert (lFlightDate_ptr != nullptr);
       
     if (_flightDateChildList.iterator_to (*lFlightDate_ptr) != itChild ||
         stdair::FlightDateChildList::s_iterator_to(*lFlightDate_ptr)!= itChild){
@@ -141,7 +141,7 @@ bool TestIntrusive::testIntrusiveSets() {
       << std::endl;
     */
 
-    if (retrievedFlightDate_ptr == NULL ||
+    if (retrievedFlightDate_ptr == nullptr ||
         _flightDateChildSet.iterator_to (lFlightDate) != itChild ||
         _flightDateChildSet.iterator_to (*retrievedFlightDate_ptr) != itChild ||
         stdair::FlightDateChildSet::s_iterator_to (lFlightDate) != itChild ||

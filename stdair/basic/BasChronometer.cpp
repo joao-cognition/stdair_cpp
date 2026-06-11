@@ -36,7 +36,7 @@ namespace stdair {
 
     // Derived the corresponding number of milliseconds
     const double lElapsedTimeInMicroSeconds =
-      static_cast<const double> (lElapsedTime.total_microseconds());
+      static_cast<double> (lElapsedTime.total_microseconds());
     
     // The elapsed time given in return is expressed in seconds
     return (lElapsedTimeInMicroSeconds / 1e6);

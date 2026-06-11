@@ -1,5 +1,5 @@
-#ifndef __STDAIR_BAS_FLOAT_UTILS_HPP
-#define __STDAIR_BAS_FLOAT_UTILS_HPP
+#ifndef STDAIR_BAS_FLOAT_UTILS_HPP
+#define STDAIR_BAS_FLOAT_UTILS_HPP
 
 // //////////////////////////////////////////////////////////////////////
 // Import section
@@ -21,4 +21,4 @@ namespace stdair {
    */
 
 }
-#endif // __STDAIR_BAS_FLOAT_UTILS_HPP
+#endif // STDAIR_BAS_FLOAT_UTILS_HPP

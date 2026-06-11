@@ -1,5 +1,5 @@
-#ifndef __STDAIR_BOM_RMEVENTSTRUCT_HPP
-#define __STDAIR_BOM_RMEVENTSTRUCT_HPP
+#ifndef STDAIR_BOM_RMEVENTSTRUCT_HPP
+#define STDAIR_BOM_RMEVENTSTRUCT_HPP
 
 // //////////////////////////////////////////////////////////////////////
 // Import section
@@ -78,4 +78,4 @@ namespace stdair {
   };
 
 }
-#endif // __STDAIR_BOM_RMEVENTSTRUCT_HPP
+#endif // STDAIR_BOM_RMEVENTSTRUCT_HPP

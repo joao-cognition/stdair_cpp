@@ -27,7 +27,7 @@ namespace stdair {
     for (NestingNodeList_T::const_iterator itNode = lNestingNodeList.begin();
          itNode != lNestingNodeList.end(); ++itNode) {
       stdair::NestingNode* lNode_ptr = *itNode;
-      assert (lNode_ptr != NULL);
+      assert (lNode_ptr != nullptr);
 
       lNode_ptr->setYield (-1.0);
 
@@ -44,7 +44,7 @@ namespace stdair {
       
       BomHolder<BookingClass>* lBomHolder_ptr = 
         static_cast<BomHolder<BookingClass>*> (itHolder->second);
-      assert (lBomHolder_ptr != NULL);
+      assert (lBomHolder_ptr != nullptr);
       
       BookingClassList_T& lBCList = lBomHolder_ptr->_bomList;
       lBCList.clear();

@@ -1,5 +1,5 @@
-#ifndef __STDAIR_BAS_BASCONST_PERIOD_BOM_HPP
-#define __STDAIR_BAS_BASCONST_PERIOD_BOM_HPP
+#ifndef STDAIR_BAS_BASCONST_PERIOD_BOM_HPP
+#define STDAIR_BAS_BASCONST_PERIOD_BOM_HPP
 
 // //////////////////////////////////////////////////////////////////////
 // Import section
@@ -26,4 +26,4 @@ namespace stdair {
   extern const DayDuration_T DEFAULT_DAY_DURATION;
 
 }
-#endif // __STDAIR_BAS_BASCONST_PERIOD_BOM_HPP
+#endif // STDAIR_BAS_BASCONST_PERIOD_BOM_HPP

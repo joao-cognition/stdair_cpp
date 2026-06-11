@@ -55,7 +55,7 @@ namespace stdair {
   }
 
   // ////////////////////////////////////////////////////////////////////
-  void FFDisutilityCurveHolderStruct::fromStream (std::istream& ioIn) {
+  void FFDisutilityCurveHolderStruct::fromStream (std::istream& /*ioIn*/) {
   }
   
   // ////////////////////////////////////////////////////////////////////

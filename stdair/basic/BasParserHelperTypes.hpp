@@ -1,5 +1,5 @@
-#ifndef __STDAIR_BAS_BASCOMPARSERHELPERTYPES_HPP
-#define __STDAIR_BAS_BASCOMPARSERHELPERTYPES_HPP
+#ifndef STDAIR_BAS_BASCOMPARSERHELPERTYPES_HPP
+#define STDAIR_BAS_BASCOMPARSERHELPERTYPES_HPP
 
 // //////////////////////////////////////////////////////////////////////
 // Import section
@@ -58,12 +58,12 @@ namespace stdair {
   }
 
   /** Type definitions for the date and time elements. */
-  typedef date_time_element<0, 23> hour_t;
-  typedef date_time_element<0, 59> minute_t;
-  typedef date_time_element<0, 59> second_t;
-  typedef date_time_element<1900, 2100> year_t;
-  typedef date_time_element<1, 12> month_t;
-  typedef date_time_element<1, 31> day_t;
+  using hour_t = date_time_element<0, 23>;
+  using minute_t = date_time_element<0, 59>;
+  using second_t = date_time_element<0, 59>;
+  using year_t = date_time_element<1900, 2100>;
+  using month_t = date_time_element<1, 12>;
+  using day_t = date_time_element<1, 31>;
   
 }
-#endif // __STDAIR_BAS_BASCOMPARSERHELPERTYPES_HPP
+#endif // STDAIR_BAS_BASCOMPARSERHELPERTYPES_HPP

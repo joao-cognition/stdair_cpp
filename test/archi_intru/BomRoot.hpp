@@ -1,5 +1,5 @@
-#ifndef __INTRUSIVE_BOM_BOMROOT_HPP
-#define __INTRUSIVE_BOM_BOMROOT_HPP
+#ifndef INTRUSIVE_BOM_BOMROOT_HPP
+#define INTRUSIVE_BOM_BOMROOT_HPP
 
 // //////////////////////////////////////////////////////////////////////
 // Import section
@@ -57,4 +57,4 @@ namespace stdair {
   };
 
 }
-#endif // __INTRUSIVE_BOM_BOMROOT_HPP
+#endif // INTRUSIVE_BOM_BOMROOT_HPP

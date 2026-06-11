@@ -8,7 +8,7 @@
 namespace stdair {
 
   // ////////////////////////////////////////////////////////////////////
-  const stdair::Probability_T DictionaryManager::
+  stdair::Probability_T DictionaryManager::
   keyToValue (const DictionaryKey_T iKey) {
     const float lValue =
       static_cast<float> (iKey) / DEFAULT_NUMBER_OF_SUBDIVISIONS;
@@ -17,7 +17,7 @@ namespace stdair {
   }
 
   // ////////////////////////////////////////////////////////////////////
-  const DictionaryKey_T DictionaryManager::
+  DictionaryKey_T DictionaryManager::
   valueToKey (const stdair::Probability_T iValue) {
     const unsigned short lValueMultipliedByThousand =
       static_cast<unsigned short> (iValue) * DEFAULT_NUMBER_OF_SUBDIVISIONS;

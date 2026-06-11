@@ -1,5 +1,5 @@
-#ifndef __STDAIR_BAS_EVENTTYPE_HPP
-#define __STDAIR_BAS_EVENTTYPE_HPP
+#ifndef STDAIR_BAS_EVENTTYPE_HPP
+#define STDAIR_BAS_EVENTTYPE_HPP
 
 // //////////////////////////////////////////////////////////////////////
 // Import section
@@ -14,7 +14,7 @@ namespace stdair {
   /** Enumeration of event types. */
   struct EventType : public StructAbstract {
   public:
-    typedef enum { 
+    enum EN_EventType { 
       BKG_REQ = 0,
       CX,
       OPT_NOT_4_FD,
@@ -24,7 +24,7 @@ namespace stdair {
       RM,
       BRK_PT,
       LAST_VALUE
-    } EN_EventType;
+    };
 
     /** Get the label as a string (e.g., "BookingRequest", "Cancellation", 
      * "OptimisationNotificationForFlightDate",
@@ -94,4 +94,4 @@ namespace stdair {
   };
 
 }
-#endif // __STDAIR_BAS_EVENTTYPE_HPP
+#endif // STDAIR_BAS_EVENTTYPE_HPP

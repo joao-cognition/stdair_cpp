@@ -1,5 +1,5 @@
-#ifndef __STDAIR_BOM_POLICY_HPP
-#define __STDAIR_BOM_POLICY_HPP
+#ifndef STDAIR_BOM_POLICY_HPP
+#define STDAIR_BOM_POLICY_HPP
 
 // //////////////////////////////////////////////////////////////////////
 // Import section
@@ -37,7 +37,7 @@ namespace stdair {
     /**
      * Definition allowing to retrieve the associated BOM key type.
      */
-    typedef PolicyKey Key_T;
+    using Key_T = PolicyKey;
       
   public:
     // /////////////////// Getters ////////////////////////
@@ -47,7 +47,7 @@ namespace stdair {
     }
 
     /** Get the parent object. */
-    BomAbstract* const getParent() const {
+    BomAbstract* getParent() const {
       return _parent;
     }
 
@@ -77,7 +77,7 @@ namespace stdair {
     }
 
     /** Get the total revenue of the policy. */
-    const Revenue_T getTotalRevenue () const;
+    Revenue_T getTotalRevenue () const;
     
   public:
     // ///////////////////// Setters /////////////////////
@@ -122,7 +122,7 @@ namespace stdair {
      *
      * @param istream& the input stream.
      */
-    void fromStream (std::istream& ioIn) {
+    void fromStream (std::istream& /*ioIn*/) {
     }
 
     /**
@@ -221,4 +221,4 @@ namespace stdair {
 
   };
 }
-#endif // __STDAIR_BOM_POLICY_HPP
+#endif // STDAIR_BOM_POLICY_HPP

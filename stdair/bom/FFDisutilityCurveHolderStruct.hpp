@@ -1,5 +1,5 @@
-#ifndef __STDAIR_BOM_FFDISUTILITYCURVEHOLDERSTRUCT_HPP
-#define __STDAIR_BOM_FFDISUTILITYCURVEHOLDERSTRUCT_HPP
+#ifndef STDAIR_BOM_FFDISUTILITYCURVEHOLDERSTRUCT_HPP
+#define STDAIR_BOM_FFDISUTILITYCURVEHOLDERSTRUCT_HPP
 
 // //////////////////////////////////////////////////////////////////////
 // Import section
@@ -13,7 +13,8 @@
 
 namespace stdair {
   // Type definition for the holder of disutility curves.
-  typedef std::map<const std::string, FFDisutilityCurve_T> FFDisutilityCurveHolder_T;
+  using FFDisutilityCurveHolder_T =
+    std::map<const std::string, FFDisutilityCurve_T>;
 
   /** Structure holding the elements of a snapshot . */
   struct FFDisutilityCurveHolderStruct : public StructAbstract {
@@ -59,4 +60,4 @@ namespace stdair {
   };
 
 }
-#endif // __STDAIR_BOM_FFDISUTILITYCURVEHOLDERSTRUCT_HPP
+#endif // STDAIR_BOM_FFDISUTILITYCURVEHOLDERSTRUCT_HPP

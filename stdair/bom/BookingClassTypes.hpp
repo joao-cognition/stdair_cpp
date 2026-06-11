@@ -1,6 +1,6 @@
 // //////////////////////////////////////////////////////////////////////
-#ifndef __STDAIR_BOM_BOOKINGCLASSTYPES_HPP
-#define __STDAIR_BOM_BOOKINGCLASSTYPES_HPP
+#ifndef STDAIR_BOM_BOOKINGCLASSTYPES_HPP
+#define STDAIR_BOM_BOOKINGCLASSTYPES_HPP
 
 // //////////////////////////////////////////////////////////////////////
 // Import section
@@ -17,10 +17,10 @@ namespace stdair {
   class BookingClass;
 
   /** Define the booking class list. */
-  typedef std::list<BookingClass*> BookingClassList_T;
+  using BookingClassList_T = std::list<BookingClass*>;
 
   /** Define the booking class map. */
-  typedef std::map<const MapKey_T, BookingClass*> BookingClassMap_T;      
+  using BookingClassMap_T = std::map<const MapKey_T, BookingClass*>;
 }
-#endif // __STDAIR_BOM_BOOKINGCLASSTYPES_HPP
+#endif // STDAIR_BOM_BOOKINGCLASSTYPES_HPP
 

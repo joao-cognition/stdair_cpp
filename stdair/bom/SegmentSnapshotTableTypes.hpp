@@ -1,6 +1,6 @@
 // //////////////////////////////////////////////////////////////////////
-#ifndef __STDAIR_BOM_SEGMENTSNAPSHOTTABLETYPES_HPP
-#define __STDAIR_BOM_SEGMENTSNAPSHOTTABLETYPES_HPP
+#ifndef STDAIR_BOM_SEGMENTSNAPSHOTTABLETYPES_HPP
+#define STDAIR_BOM_SEGMENTSNAPSHOTTABLETYPES_HPP
 
 // //////////////////////////////////////////////////////////////////////
 // Import section
@@ -22,17 +22,18 @@ namespace stdair {
 
   // //////////////////////// Type definitions /////////////////////////
   /** Define the guillotine-block list. */
-  typedef std::list<SegmentSnapshotTable*> SegmentSnapshotTableList_T;
+  using SegmentSnapshotTableList_T = std::list<SegmentSnapshotTable*>;
 
   /** Define the guillotine-block map. */
-  typedef std::map<const MapKey_T, SegmentSnapshotTable*> SegmentSnapshotTableMap_T;
+  using SegmentSnapshotTableMap_T =
+    std::map<const MapKey_T, SegmentSnapshotTable*>;
 
   /** Define the map between the segment-cabins and the segment data ID. */
-  typedef std::map<const SegmentCabin*, SegmentDataID_T> SegmentCabinIndexMap_T;
+  using SegmentCabinIndexMap_T = std::map<const SegmentCabin*, SegmentDataID_T>;
 
   /** Define the map between the class and their index. */
-  typedef std::map<const MapKey_T, ClassIndex_T> ClassIndexMap_T;
+  using ClassIndexMap_T = std::map<const MapKey_T, ClassIndex_T>;
 
 }
-#endif // __STDAIR_BOM_SEGMENTSNAPSHOTTABLETYPES_HPP
+#endif // STDAIR_BOM_SEGMENTSNAPSHOTTABLETYPES_HPP
 

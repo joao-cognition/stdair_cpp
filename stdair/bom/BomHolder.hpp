@@ -1,5 +1,5 @@
-#ifndef __STDAIR_BOM_BOMHOLDER_HPP
-#define __STDAIR_BOM_BOMHOLDER_HPP
+#ifndef STDAIR_BOM_BOMHOLDER_HPP
+#define STDAIR_BOM_BOMHOLDER_HPP
 
 // //////////////////////////////////////////////////////////////////////
 // Import section
@@ -31,17 +31,17 @@ namespace stdair {
     /**
      * Definition allowing to retrieve the associated BOM key type.
      */
-    typedef stdair::BomHolderKey Key_T;
+    using Key_T = stdair::BomHolderKey;
     
     /**
      * (STL) list of children.
      */
-    typedef std::list<BOM*> BomList_T;
+    using BomList_T = std::list<BOM*>;
 
     /**
      * (STL) map of children.
      */
-    typedef std::map<const MapKey_T, BOM*> BomMap_T;
+    using BomMap_T = std::map<const MapKey_T, BOM*>;
 
 
   public:
@@ -60,7 +60,7 @@ namespace stdair {
      *
      * @param istream& the input stream.
      */
-    void fromStream (std::istream& ioIn) {
+    void fromStream (std::istream& /*ioIn*/) {
     }
 
     /**
@@ -117,4 +117,4 @@ namespace stdair {
   };
   
 }  
-#endif // __STDAIR_BOM_BOMHOLDER_HPP
+#endif // STDAIR_BOM_BOMHOLDER_HPP

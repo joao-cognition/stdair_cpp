@@ -32,7 +32,7 @@ namespace stdair {
   // ////////////////////////////////////////////////////////////////////
   template <class Archive, class BOM_OBJECT1, class BOM_OBJECT2>
   void serialiseHelper (BOM_OBJECT1& ioObject1, Archive& ioArchive,
-                        const unsigned int iFileVersion) {
+                        const unsigned int /*iFileVersion*/) {
 
     /**
      * Retrieve the list of children (Inventory objects).
@@ -50,10 +50,10 @@ namespace stdair {
     BomHolder<BOM_OBJECT2>* lBomHolder_ptr =
       FacBomManager::getBomHolderPtr<BOM_OBJECT2> (ioObject1);
 
-    if (lBomHolder_ptr == NULL) {
+    if (lBomHolder_ptr == nullptr) {
       lBomHolder_ptr = &FacBomManager::addBomHolder<BOM_OBJECT2> (ioObject1);
     }
-    assert (lBomHolder_ptr != NULL);
+    assert (lBomHolder_ptr != nullptr);
 
     /**
      * Serialise the children (Inventory objects).
@@ -68,14 +68,14 @@ namespace stdair {
      * re-instantiated, the parent pointer is set to NULL. The upwards
      * link (from the BOM object to its parent) must therefore be re-set.
      */
-    typedef typename BomHolder<BOM_OBJECT2>::BomList_T BomList_T;
+    using BomList_T = typename BomHolder<BOM_OBJECT2>::BomList_T;
     const BomList_T& lBomList = lBomHolder_ptr->_bomList;
     for (typename BomList_T::const_iterator itObject = lBomList.begin();
          itObject != lBomList.end(); ++itObject) {
       BOM_OBJECT2* lObject2_ptr = *itObject;
-      assert (lObject2_ptr != NULL);
+      assert (lObject2_ptr != nullptr);
 
-      if (lObject2_ptr->getParent() == NULL) {
+      if (lObject2_ptr->getParent() == nullptr) {
         /**
          * Since the pointer on the parent object is NULL, it means
          * that we are parsing the backup file/stream and
@@ -93,16 +93,16 @@ namespace stdair {
      * of the objects to their parents are not re-set by the above
      * code. We need to browse the BomMap_T to do the job.
      */
-    typedef typename BomHolder<BOM_OBJECT2>::BomMap_T BomMap_T;
+    using BomMap_T = typename BomHolder<BOM_OBJECT2>::BomMap_T;
     const BomMap_T& lBomMap = lBomHolder_ptr->_bomMap;
     if (lBomList.empty() == true && lBomMap.empty() == false) {
 
       for (typename BomMap_T::const_iterator itObject = lBomMap.begin();
            itObject != lBomMap.end(); ++itObject) {
         BOM_OBJECT2* lObject2_ptr = itObject->second;
-        assert (lObject2_ptr != NULL);
+        assert (lObject2_ptr != nullptr);
 
-        if (lObject2_ptr->getParent() == NULL) {
+        if (lObject2_ptr->getParent() == nullptr) {
           /**
            * Since the pointer on the parent object is NULL, it means
            * that we are parsing the backup file/stream and
@@ -185,7 +185,7 @@ namespace stdair {
   // ////////////////////////////////////////////////////////////////////
   template<class Archive>
   void FlightDate::serialize (Archive& ioArchive,
-                             const unsigned int iFileVersion) {
+                             const unsigned int /*iFileVersion*/) {
     ioArchive & _key;
   }
 
@@ -206,7 +206,7 @@ namespace stdair {
   // ////////////////////////////////////////////////////////////////////
   template<class Archive>
   void SegmentDate::serialize (Archive& ioArchive,
-                             const unsigned int iFileVersion) {
+                             const unsigned int /*iFileVersion*/) {
     ioArchive & _key;
   }
 
@@ -227,7 +227,7 @@ namespace stdair {
   // ////////////////////////////////////////////////////////////////////
   template<class Archive>
   void SegmentCabin::serialize (Archive& ioArchive,
-                                const unsigned int iFileVersion) {
+                                const unsigned int /*iFileVersion*/) {
     ioArchive & _key;
   }
 

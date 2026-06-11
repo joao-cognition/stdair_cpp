@@ -1,5 +1,5 @@
-#ifndef __STDAIR_BOM_BOMJSONIMPORT_HPP
-#define __STDAIR_BOM_BOMJSONIMPORT_HPP
+#ifndef STDAIR_BOM_BOMJSONIMPORT_HPP
+#define STDAIR_BOM_BOMJSONIMPORT_HPP
 
 // //////////////////////////////////////////////////////////////////////
 // Import section
@@ -98,4 +98,4 @@ namespace stdair {
   };
 
 }
-#endif // __STDAIR_BOM_BOMJSONIMPORT_HPP
+#endif // STDAIR_BOM_BOMJSONIMPORT_HPP

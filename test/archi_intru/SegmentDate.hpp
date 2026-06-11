@@ -1,5 +1,5 @@
-#ifndef __INTRUSIVE_BOM_SEGMENTDATE_HPP
-#define __INTRUSIVE_BOM_SEGMENTDATE_HPP
+#ifndef INTRUSIVE_BOM_SEGMENTDATE_HPP
+#define INTRUSIVE_BOM_SEGMENTDATE_HPP
 
 // //////////////////////////////////////////////////////////////////////
 // Import section
@@ -61,4 +61,4 @@ namespace stdair {
                    SegmentDateSiblingMemberOption> SegmentDateSiblings;
 
 }
-#endif // __INTRUSIVE_BOM_SEGMENTDATE_HPP
+#endif // INTRUSIVE_BOM_SEGMENTDATE_HPP

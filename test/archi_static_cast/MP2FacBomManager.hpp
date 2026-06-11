@@ -1,5 +1,5 @@
-#ifndef __MYPROVIDER_FACBOMMANAGER_HPP
-#define __MYPROVIDER_FACBOMMANAGER_HPP
+#ifndef MYPROVIDER_FACBOMMANAGER_HPP
+#define MYPROVIDER_FACBOMMANAGER_HPP
 
 // //////////////////////////////////////////////////////////////////////
 // Import section
@@ -36,11 +36,11 @@ namespace myprovider {
     } else {
       BomHolder<CHILD>* lHolder_ptr =
         static_cast<BomHolder<CHILD>* > (itHolder->second);
-      assert (lHolder_ptr != NULL);
+      assert (lHolder_ptr != nullptr);
       lHolder_ptr->_bomList.push_back (&ioChild);
     }
   }
 
 }
 
-#endif // __MYPROVIDER_FACBOMMANAGER_HPP
+#endif // MYPROVIDER_FACBOMMANAGER_HPP

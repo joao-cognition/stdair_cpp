@@ -1,5 +1,5 @@
-#ifndef __STDAIR_BAS_STRUCTABSTRACT_HPP
-#define __STDAIR_BAS_STRUCTABSTRACT_HPP
+#ifndef STDAIR_BAS_STRUCTABSTRACT_HPP
+#define STDAIR_BAS_STRUCTABSTRACT_HPP
 
 // //////////////////////////////////////////////////////////////////////
 // Import section
@@ -35,7 +35,7 @@ namespace stdair {
      *
      * @param istream& the input stream.
      */
-    virtual void fromStream (std::istream& ioIn) {}
+    virtual void fromStream (std::istream& /*ioIn*/) {}
 
     /**
      * Display of the structure.
@@ -93,4 +93,4 @@ operator>> (std::basic_istream<charT, traits>& ioIn,
   return ioIn;
 
 }
-#endif // __STDAIR_BAS_STRUCTABSTRACT_HPP
+#endif // STDAIR_BAS_STRUCTABSTRACT_HPP

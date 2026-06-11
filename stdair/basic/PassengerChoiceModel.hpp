@@ -1,5 +1,5 @@
-#ifndef __STDAIR_BAS_PASSENGERCHOICEMODEL_HPP
-#define __STDAIR_BAS_PASSENGERCHOICEMODEL_HPP
+#ifndef STDAIR_BAS_PASSENGERCHOICEMODEL_HPP
+#define STDAIR_BAS_PASSENGERCHOICEMODEL_HPP
 
 // //////////////////////////////////////////////////////////////////////
 // Import section
@@ -14,12 +14,12 @@ namespace stdair {
   /** Enumeration of passenger choice models. */
   struct PassengerChoiceModel : public stdair::StructAbstract {
   public:
-    typedef enum {
+    enum EN_PassengerChoiceModel {
       HARD_RESTRICTION = 0,
       PRICE_ORIENTED,
       HYBRID,
       LAST_VALUE
-    } EN_PassengerChoiceModel;
+    };
 
     /** Get the label as a string (e.g., HardRestrictionModel",
         "PriceOrientedModel" or "HybridModel"). */
@@ -75,4 +75,4 @@ namespace stdair {
   };
 }
   
-#endif // __STDAIR_BAS_PASSENGERCHOICEMODEL_HPP
+#endif // STDAIR_BAS_PASSENGERCHOICEMODEL_HPP

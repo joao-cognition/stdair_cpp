@@ -1,5 +1,5 @@
-#ifndef __STDAIR_BOM_YIELDSTOREKEY_HPP
-#define __STDAIR_BOM_YIELDSTOREKEY_HPP
+#ifndef STDAIR_BOM_YIELDSTOREKEY_HPP
+#define STDAIR_BOM_YIELDSTOREKEY_HPP
 
 // //////////////////////////////////////////////////////////////////////
 // Import section
@@ -54,4 +54,4 @@ namespace stdair {
   };
 
 }
-#endif // __STDAIR_BOM_YIELDSTOREKEY_HPP
+#endif // STDAIR_BOM_YIELDSTOREKEY_HPP

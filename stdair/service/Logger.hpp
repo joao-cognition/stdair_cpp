@@ -1,5 +1,5 @@
-#ifndef __STDAIR_SVC_LOGGER_HPP
-#define __STDAIR_SVC_LOGGER_HPP
+#ifndef STDAIR_SVC_LOGGER_HPP
+#define STDAIR_SVC_LOGGER_HPP
 
 // //////////////////////////////////////////////////////////////////////
 // Import section
@@ -56,11 +56,11 @@ namespace stdair {
      * Main log entry.
      */
     template <typename T>
-    void log (const LOG::EN_LogLevel iLevel, const int iLineNumber,
+    void log (const LogLevel iLevel, const int iLineNumber,
               const std::string& iFileName, const T& iToBeLogged) {
-      assert (_logStream != NULL);
+      assert (_logStream != nullptr);
       if (iLevel <= _level) {
-        *_logStream << "[" << LOG::_logLevels[iLevel] << "]" << iFileName << ":"
+        *_logStream << "[" << getLogLevelLabel (iLevel) << "]" << iFileName << ":"
                     << iLineNumber << ": " << iToBeLogged << std::endl;
       }
     }
@@ -83,7 +83,7 @@ namespace stdair {
     /**
      * Set the log level (e.g., Debug, Notification, Error, etc.).
      */
-    void setLevel (const LOG::EN_LogLevel& iLevel) {
+    void setLevel (const LogLevel& iLevel) {
       _level = iLevel;
     }
 
@@ -138,7 +138,7 @@ namespace stdair {
     /**
      * Log level.
      */
-    LOG::EN_LogLevel _level;
+    LogLevel _level;
     
     /**
      * Stream dedicated to the logs.
@@ -152,5 +152,5 @@ namespace stdair {
   };
   
 }
-#endif // __STDAIR_SVC_LOGGER_HPP
+#endif // STDAIR_SVC_LOGGER_HPP
 

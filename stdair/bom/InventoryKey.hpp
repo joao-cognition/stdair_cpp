@@ -1,5 +1,5 @@
-#ifndef __STDAIR_BOM_INVENTORYKEY_HPP
-#define __STDAIR_BOM_INVENTORYKEY_HPP
+#ifndef STDAIR_BOM_INVENTORYKEY_HPP
+#define STDAIR_BOM_INVENTORYKEY_HPP
 
 // //////////////////////////////////////////////////////////////////////
 // Import section
@@ -114,4 +114,4 @@ namespace stdair {
   };
 
 }
-#endif // __STDAIR_BOM_INVENTORYKEY_HPP
+#endif // STDAIR_BOM_INVENTORYKEY_HPP

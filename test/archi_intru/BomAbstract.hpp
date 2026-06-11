@@ -1,5 +1,5 @@
-#ifndef __INTRUSIVE_BOM_BOMABSTRACT_HPP
-#define __INTRUSIVE_BOM_BOMABSTRACT_HPP
+#ifndef INTRUSIVE_BOM_BOMABSTRACT_HPP
+#define INTRUSIVE_BOM_BOMABSTRACT_HPP
 
 // //////////////////////////////////////////////////////////////////////
 // Import section
@@ -121,4 +121,4 @@ operator>> (std::basic_istream<charT, traits>& ioIn,
   return ioIn;
 }
 
-#endif // __INTRUSIVE_BOM_BOMABSTRACT_HPP
+#endif // INTRUSIVE_BOM_BOMABSTRACT_HPP

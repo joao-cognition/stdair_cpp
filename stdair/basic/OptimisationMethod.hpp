@@ -1,5 +1,5 @@
-#ifndef __STDAIR_BAS_OPTIMISATIONMETHOD_HPP
-#define __STDAIR_BAS_OPTIMISATIONMETHOD_HPP
+#ifndef STDAIR_BAS_OPTIMISATIONMETHOD_HPP
+#define STDAIR_BAS_OPTIMISATIONMETHOD_HPP
 
 // //////////////////////////////////////////////////////////////////////
 // Import section
@@ -14,11 +14,11 @@ namespace stdair {
   /** Enumeration of Optimisation methods. */
   struct OptimisationMethod : public StructAbstract {
   public:
-    typedef enum {
+    enum EN_OptimisationMethod {
       LEG_BASED_MC = 0,
       LEG_BASED_EMSR_B,
       LAST_VALUE
-    } EN_OptimisationMethod;
+    };
 
     /** Get the label as a string (e.g., "Leg based Monte Carlo" or 
      * "Leg based EMSRb"). */
@@ -54,6 +54,8 @@ namespace stdair {
     OptimisationMethod (const char iMethod);
     /** Default copy constructor. */
     OptimisationMethod (const OptimisationMethod&);
+    /** Default copy assignment operator. */
+    OptimisationMethod& operator= (const OptimisationMethod&) = default;
 
   private:
     /** Default constructor. */
@@ -74,4 +76,4 @@ namespace stdair {
   };
 
 }
-#endif // __STDAIR_BAS_OPTIMISATIONMETHOD_HPP
+#endif // STDAIR_BAS_OPTIMISATIONMETHOD_HPP

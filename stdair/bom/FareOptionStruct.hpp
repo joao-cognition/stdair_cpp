@@ -1,5 +1,5 @@
-#ifndef __STDAIR_BOM_FAREOPTIONSTRUCT_HPP
-#define __STDAIR_BOM_FAREOPTIONSTRUCT_HPP
+#ifndef STDAIR_BOM_FAREOPTIONSTRUCT_HPP
+#define STDAIR_BOM_FAREOPTIONSTRUCT_HPP
 
 // //////////////////////////////////////////////////////////////////////
 // Import section
@@ -36,17 +36,17 @@ namespace stdair {
     }
     
     /** Get the change fees. */
-    const ChangeFees_T getChangeFees() const {
+    ChangeFees_T getChangeFees() const {
       return _changeFee;
     }
 
     /** State whether the ticket is refundable. */
-    const NonRefundable_T getNonRefundable() const {
+    NonRefundable_T getNonRefundable() const {
       return _nonRefundable;
     }
 
     /** State whether there is a condition on the saturday night stay. */
-    const SaturdayStay_T getSaturdayStay() const {
+    SaturdayStay_T getSaturdayStay() const {
       return _saturdayStay;
     }
 
@@ -171,4 +171,4 @@ namespace stdair {
   };
 
 }
-#endif // __STDAIR_BOM_FAREOPTIONSTRUCT_HPP
+#endif // STDAIR_BOM_FAREOPTIONSTRUCT_HPP

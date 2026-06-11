@@ -1,6 +1,6 @@
 // //////////////////////////////////////////////////////////////////////
-#ifndef __STDAIR_BOM_YIELDFEATURESTYPES_HPP
-#define __STDAIR_BOM_YIELDFEATURESTYPES_HPP
+#ifndef STDAIR_BOM_YIELDFEATURESTYPES_HPP
+#define STDAIR_BOM_YIELDFEATURESTYPES_HPP
 
 // //////////////////////////////////////////////////////////////////////
 // Import section
@@ -17,14 +17,14 @@ namespace stdair {
   class YieldFeatures;
   
   /** Define the date-period list. */
-  typedef std::list<YieldFeatures*> YieldFeaturesList_T;
+  using YieldFeaturesList_T = std::list<YieldFeatures*>;
 
   /** Define the date-period  map. */
-  typedef std::map<const MapKey_T, YieldFeatures*> YieldFeaturesMap_T;
+  using YieldFeaturesMap_T = std::map<const MapKey_T, YieldFeatures*>;
 
   /** Define the list of pair<MapKey_T, YieldFeatures>. */
-  typedef std::pair<MapKey_T, YieldFeatures*> YieldFeaturesWithKey_T;
-  typedef std::list<YieldFeaturesWithKey_T> YieldFeaturesDetailedList_T;
+  using YieldFeaturesWithKey_T = std::pair<MapKey_T, YieldFeatures*>;
+  using YieldFeaturesDetailedList_T = std::list<YieldFeaturesWithKey_T>;
 }
-#endif // __STDAIR_BOM_YIELDFEATURESTYPES_HPP
+#endif // STDAIR_BOM_YIELDFEATURESTYPES_HPP
 

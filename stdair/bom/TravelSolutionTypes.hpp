@@ -1,6 +1,6 @@
 // //////////////////////////////////////////////////////////////////////
-#ifndef __STDAIR_BOM_TRAVELSOLUTIONTYPES_HPP
-#define __STDAIR_BOM_TRAVELSOLUTIONTYPES_HPP
+#ifndef STDAIR_BOM_TRAVELSOLUTIONTYPES_HPP
+#define STDAIR_BOM_TRAVELSOLUTIONTYPES_HPP
 
 // //////////////////////////////////////////////////////////////////////
 // Import section
@@ -20,34 +20,34 @@ namespace stdair {
   struct TravelSolutionStruct;
   
   /** Define the booking class list. */
-  typedef std::list<TravelSolutionStruct> TravelSolutionList_T;
+  using TravelSolutionList_T = std::list<TravelSolutionStruct>;
 
   /** Define the segment path key. */
-  typedef KeyList_T SegmentPath_T;
+  using SegmentPath_T = KeyList_T;
 
   /** Define the list of segment paths. */
-  typedef std::list<SegmentPath_T> SegmentPathList_T;
+  using SegmentPathList_T = std::list<SegmentPath_T>;
 
   /** Define booking class - object ID map. */
-  typedef std::map<const ClassCode_T, BookingClassID_T> ClassObjectIDMap_T;
+  using ClassObjectIDMap_T = std::map<const ClassCode_T, BookingClassID_T>;
 
   /** Define list of boking class - object ID maps.*/
-  typedef std::list<ClassObjectIDMap_T> ClassObjectIDMapHolder_T;
+  using ClassObjectIDMapHolder_T = std::list<ClassObjectIDMap_T>;
   
   /** Define booking class - yield map. */
-  typedef std::map<const ClassCode_T, YieldValue_T> ClassYieldMap_T;
+  using ClassYieldMap_T = std::map<const ClassCode_T, YieldValue_T>;
 
   /** Define list of booking class - yield maps. */
-  typedef std::list<ClassYieldMap_T> ClassYieldMapHolder_T;
+  using ClassYieldMapHolder_T = std::list<ClassYieldMap_T>;
 
   /** Define list of bid price vectors. */
-  typedef std::list<BidPriceVector_T> BidPriceVectorHolder_T;
+  using BidPriceVectorHolder_T = std::list<BidPriceVector_T>;
 
   /** Define booking class - bid price reference map. */
-  typedef std::map<const ClassCode_T, const BidPriceVector_T*> ClassBpvMap_T;
+  using ClassBpvMap_T = std::map<const ClassCode_T, const BidPriceVector_T*>;
 
   /** Define list of booking class - bid price reference maps. */
-  typedef std::list<ClassBpvMap_T> ClassBpvMapHolder_T;
+  using ClassBpvMapHolder_T = std::list<ClassBpvMap_T>;
 }
-#endif // __STDAIR_BOM_TRAVELSOLUTIONTYPES_HPP
+#endif // STDAIR_BOM_TRAVELSOLUTIONTYPES_HPP
 

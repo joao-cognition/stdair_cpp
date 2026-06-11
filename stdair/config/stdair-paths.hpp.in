@@ -1,5 +1,5 @@
-#ifndef __STDAIR_PATHS_HPP__
-#define __STDAIR_PATHS_HPP__
+#ifndef STDAIR_PATHS_HPP__
+#define STDAIR_PATHS_HPP__
 
 #define PACKAGE "@PACKAGE@"
 #define PACKAGE_NAME "@PACKAGE_NAME@"
@@ -21,4 +21,4 @@
 #define PDFDIR "@pdfdir@"
 #define STDAIR_SAMPLE_DIR "@sampledir@"
 
-#endif // __STDAIR_PATHS_HPP__
+#endif // STDAIR_PATHS_HPP__
