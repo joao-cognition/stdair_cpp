@@ -53,6 +53,7 @@ Largest uncovered files at baseline: `bom/BomJSONExport.cpp`,
 | Baseline                                      | 42.0%  | 51.5%     |
 | + `BasicTypesTestSuite.cpp` (`stdair/basic`)  | 51.9%  | 59.1%     |
 | + `BomSerialisationTestSuite.cpp`, `BomStructsTestSuite.cpp` | 81.5%\* | 78.8%\* |
+| + `BomTreeTestSuite.cpp`                      | 91.5%\* | 88.3%\* |
 
 \* From this step on, `make coverage` captures the whole build tree instead
 of the library objects only, so inline/template code of the library headers
