@@ -52,3 +52,9 @@ Largest uncovered files at baseline: `bom/BomJSONExport.cpp`,
 |-----------------------------------------------|--------|-----------|
 | Baseline                                      | 42.0%  | 51.5%     |
 | + `BasicTypesTestSuite.cpp` (`stdair/basic`)  | 51.9%  | 59.1%     |
+| + `BomSerialisationTestSuite.cpp`, `BomStructsTestSuite.cpp` | 81.5%\* | 78.8%\* |
+
+\* From this step on, `make coverage` captures the whole build tree instead
+of the library objects only, so inline/template code of the library headers
+instantiated in the test binaries is counted too (8,872 instrumented library
+lines instead of 8,540).

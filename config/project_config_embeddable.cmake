@@ -2549,8 +2549,9 @@ macro (gcov_task)
     set (GCOV_TEST_INFO "${GCOV_OUTPUT_DIR}/coverage_test.info")
     set (GCOV_RAW_INFO "${GCOV_OUTPUT_DIR}/coverage_raw.info")
     set (GCOV_INFO "${GCOV_OUTPUT_DIR}/coverage.info")
-    set (GCDA_GCNO_PATH
-	  "${CMAKE_BINARY_DIR}/${PROJECT_NAME}/CMakeFiles/${PROJECT_NAME}lib.dir")
+    # The whole build tree is captured, so that inline/template code from the
+    # library headers instantiated in the test binaries is counted as well.
+    set (GCDA_GCNO_PATH "${CMAKE_BINARY_DIR}")
     set (_lcov_opts --quiet --gcov-tool ${GCOV_EXECUTABLE})
 
     set (GCOV_REPORT_COMMANDS
