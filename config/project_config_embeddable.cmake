@@ -2533,12 +2533,20 @@ endmacro (doc_add_man_pages)
 #   ${CMAKE_BINARY_DIR}/gcov/index.html (HTML pages) and a per-file
 #   summary on the standard output.
 # * 'make check' also produces that report, once the tests have been run.
+# Library files that no test enters are still reported (at 0%), thanks to
+# an initial, zero-count capture merged with the test-run capture.
 # Excluded from the report: the test sources themselves, the command-line
 # binaries (batches/) and the interactive readline UI (ui/cmdline/), none of
 # which is part of the library.
 macro (gcov_task)
-  if (${RUN_GCOV} STREQUAL "ON")
+  if (${RUN_GCOV} STREQUAL "ON" AND NOT (Boost_FOUND AND ENABLE_TEST))
+    message (WARNING "RUN_GCOV=ON requires the unit tests (ENABLE_TEST=ON and"
+      " Boost found): no 'coverage' target will be created")
+  endif ()
+  if (${RUN_GCOV} STREQUAL "ON" AND Boost_FOUND AND ENABLE_TEST)
     set (GCOV_OUTPUT_DIR "${CMAKE_BINARY_DIR}/gcov")
+    set (GCOV_BASE_INFO "${GCOV_OUTPUT_DIR}/coverage_base.info")
+    set (GCOV_TEST_INFO "${GCOV_OUTPUT_DIR}/coverage_test.info")
     set (GCOV_RAW_INFO "${GCOV_OUTPUT_DIR}/coverage_raw.info")
     set (GCOV_INFO "${GCOV_OUTPUT_DIR}/coverage.info")
     set (GCDA_GCNO_PATH
@@ -2547,8 +2555,12 @@ macro (gcov_task)
 
     set (GCOV_REPORT_COMMANDS
       COMMAND ${CMAKE_COMMAND} -E make_directory ${GCOV_OUTPUT_DIR}
+      COMMAND ${LCOV_EXECUTABLE} ${_lcov_opts} --capture --initial
+        --directory ${GCDA_GCNO_PATH} --output-file ${GCOV_BASE_INFO}
       COMMAND ${LCOV_EXECUTABLE} ${_lcov_opts} --capture
-        --directory ${GCDA_GCNO_PATH} --output-file ${GCOV_RAW_INFO}
+        --directory ${GCDA_GCNO_PATH} --output-file ${GCOV_TEST_INFO}
+      COMMAND ${LCOV_EXECUTABLE} ${_lcov_opts} --add-tracefile ${GCOV_BASE_INFO}
+        --add-tracefile ${GCOV_TEST_INFO} --output-file ${GCOV_RAW_INFO}
       COMMAND ${LCOV_EXECUTABLE} ${_lcov_opts} --extract ${GCOV_RAW_INFO}
         "${CMAKE_SOURCE_DIR}/${PROJECT_NAME}/*" --output-file ${GCOV_INFO}
       COMMAND ${LCOV_EXECUTABLE} ${_lcov_opts} --remove ${GCOV_INFO}
@@ -2575,7 +2587,7 @@ macro (gcov_task)
       ${GCOV_REPORT_COMMANDS}
       WORKING_DIRECTORY ${CMAKE_BINARY_DIR}
       VERBATIM)
-  endif (${RUN_GCOV} STREQUAL "ON")
+  endif ()
 endmacro (gcov_task)
 
 
