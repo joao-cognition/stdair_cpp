@@ -1,0 +1,73 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  build-test-coverage:
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y build-essential libboost-all-dev libsoci-dev \
+            libsqlite3-dev libpq-dev libmysqlclient-dev libreadline-dev \
+            pkg-config lcov doxygen
+
+      - name: Install CMake 3.31.10
+        run: |
+          pip install cmake==3.31.10
+          cmake --version
+
+      - name: Configure
+        run: cmake -S . -B build -DRUN_GCOV=ON -DCMAKE_BUILD_TYPE=Debug
+
+      - name: Build
+        working-directory: build
+        run: make -j"$(nproc)"
+
+      - name: CTest
+        working-directory: build
+        run: ctest --output-on-failure
+
+      - name: make check
+        working-directory: build
+        run: make check
+
+      - name: make coverage
+        working-directory: build
+        run: make coverage
+
+      - name: Coverage summary
+        if: always()
+        working-directory: build
+        run: |
+          if [ -f gcov/coverage.info ]; then
+            {
+              echo "## Line coverage"
+              echo '```'
+              lcov --summary gcov/coverage.info 2>&1
+              echo '```'
+              echo "<details><summary>Per-file coverage</summary>"
+              echo
+              echo '```'
+              lcov --list gcov/coverage.info 2>&1
+              echo '```'
+              echo "</details>"
+            } >> "$GITHUB_STEP_SUMMARY"
+          else
+            echo "No coverage data produced" >> "$GITHUB_STEP_SUMMARY"
+          fi
+
+      - name: Upload coverage report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: coverage-report
+          path: build/gcov
+          if-no-files-found: warn

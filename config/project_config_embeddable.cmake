@@ -452,30 +452,20 @@ endmacro (get_git)
 
 # ~~~~~~~~~~ Gcov ~~~~~~~~~~
 macro (get_gcov)
-  if (${RUN_GCOV} STREQUAL "ON")	
+  if (${RUN_GCOV} STREQUAL "ON")
     message (STATUS "Requires gcov without specifying any version")
 
-    find_package (GCOV)
-    if (GCOV_FOUND)
-      GCOV_WC_INFO (${CMAKE_CURRENT_SOURCE_DIR} PROJ)
-      set (GCOV_REVISION ${PROJ_WC_REVISION_HASH})
-      message (STATUS "Current gcov revision name: ${PROJ_WC_REVISION_NAME}")
-    endif (GCOV_FOUND)
+    find_package (GCOV REQUIRED)
   endif (${RUN_GCOV} STREQUAL "ON")
 endmacro (get_gcov)
 
 # ~~~~~~~~~~ Lcov ~~~~~~~~~~
 macro (get_lcov)
-  if (${RUN_GCOV} STREQUAL "ON")	
+  if (${RUN_GCOV} STREQUAL "ON")
     message (STATUS "Requires lcov without specifying any version")
 
-    find_package (LCOV)
-    if (LCOV_FOUND)
-      LCOV_WC_INFO (${CMAKE_CURRENT_SOURCE_DIR} PROJ)
-      set (LCOV_REVISION ${PROJ_WC_REVISION_HASH})
-      message (STATUS "Current lcov revision name: ${PROJ_WC_REVISION_NAME}")
-    endif (LCOV_FOUND)
-  endif (${RUN_GCOV} STREQUAL "ON")	
+    find_package (LCOV REQUIRED)
+  endif (${RUN_GCOV} STREQUAL "ON")
 endmacro (get_lcov)
 
 # ~~~~~~~~~~ Python ~~~~~~~~~
@@ -2535,45 +2525,70 @@ endmacro (doc_add_man_pages)
 ##                            GCOV                               ##
 ###################################################################
 
+##
+# Code coverage (enabled with -DRUN_GCOV=ON).
+# * 'make coverage' resets the counters, builds and runs all the test suites
+#   through CTest, and produces an lcov report restricted to the library
+#   sources: ${CMAKE_BINARY_DIR}/gcov/coverage.info (tracefile),
+#   ${CMAKE_BINARY_DIR}/gcov/index.html (HTML pages) and a per-file
+#   summary on the standard output.
+# * 'make check' also produces that report, once the tests have been run.
+# Library files that no test enters are still reported (at 0%), thanks to
+# an initial, zero-count capture merged with the test-run capture.
+# Excluded from the report: the test sources themselves, the command-line
+# binaries (batches/) and the interactive readline UI (ui/cmdline/), none of
+# which is part of the library.
 macro (gcov_task)
-  if (${RUN_GCOV} STREQUAL "ON")
-    set (GCDA_GCNO_PATH
-	  "${CMAKE_BINARY_DIR}/${PROJECT_NAME}/CMakeFiles/${PROJECT_NAME}lib.dir")
-    set (GCDA_FILE "${GCDA_GCNO_PATH}/command/CmdBomSerialiser.cpp.gcda")
-    set (GCNO_FILE "${GCDA_GCNO_PATH}/command/CmdBomSerialiser.cpp.gcno")
-	# Removed generated gcda and gcno files relative to the CmdBomSerialiser
-	# object: gcov failed processing the CmdBomSerialiser.cpp.gcda file
-	# without displaying a clear message
-    add_custom_command (TARGET check
-	  # This task is post-build and post-check
-      POST_BUILD  
-      # Because the "-f" option is given, the commands do not fail
-	  # when the files are missing
-	  COMMAND "rm" "-f" "${GCDA_FILE}"
-      COMMAND "rm" "-f" "${GCNO_FILE}"
-      ) 
-	# Build a coverage report info and html pages using gcda and gcno files
-    add_custom_command (TARGET check
-      # This task is post-build and post-check
-      POST_BUILD 
-      # Create a directory for the gcov reports
-      COMMAND "mkdir" "-p" "${CMAKE_BINARY_DIR}/gcov" 
-      # Generate a global gcov report using the directory containing
-	  # the gcda/gcno files
-      COMMAND "geninfo" "${GCDA_GCNO_PATH}" "-o"
-	  "${CMAKE_BINARY_DIR}/gcov/gcov_tmp_report.info"	
-      # Extract from the global report the data relative to the module files
-	  # (i, e remove external libraries) and copy them in a second report
-	  COMMAND "lcov" "-e" "${CMAKE_BINARY_DIR}/gcov/gcov_tmp_report.info"
-	  "'${CMAKE_CURRENT_SOURCE_DIR}/*'" ">>"
-	  "${CMAKE_BINARY_DIR}/gcov/gcov_report.info"
-      # Generate html documentation about the module files coverage
-      COMMAND "genhtml" "-o" "${CMAKE_BINARY_DIR}/gcov" "-p"
-	  "${CMAKE_CURRENT_SOURCE_DIR}*" "${CMAKE_BINARY_DIR}/gcov/gcov_report.info"
-      # Delete heavy .info files
-      COMMAND "rm" "${CMAKE_BINARY_DIR}/gcov/*.info"
-	  )
-  endif (${RUN_GCOV} STREQUAL "ON")
+  if (${RUN_GCOV} STREQUAL "ON" AND NOT (Boost_FOUND AND ENABLE_TEST))
+    message (WARNING "RUN_GCOV=ON requires the unit tests (ENABLE_TEST=ON and"
+      " Boost found): no 'coverage' target will be created")
+  endif ()
+  if (${RUN_GCOV} STREQUAL "ON" AND Boost_FOUND AND ENABLE_TEST)
+    set (GCOV_OUTPUT_DIR "${CMAKE_BINARY_DIR}/gcov")
+    set (GCOV_BASE_INFO "${GCOV_OUTPUT_DIR}/coverage_base.info")
+    set (GCOV_TEST_INFO "${GCOV_OUTPUT_DIR}/coverage_test.info")
+    set (GCOV_RAW_INFO "${GCOV_OUTPUT_DIR}/coverage_raw.info")
+    set (GCOV_INFO "${GCOV_OUTPUT_DIR}/coverage.info")
+    # The whole build tree is captured, so that inline/template code from the
+    # library headers instantiated in the test binaries is counted as well.
+    set (GCDA_GCNO_PATH "${CMAKE_BINARY_DIR}")
+    set (_lcov_opts --quiet --gcov-tool ${GCOV_EXECUTABLE})
+
+    set (GCOV_REPORT_COMMANDS
+      COMMAND ${CMAKE_COMMAND} -E make_directory ${GCOV_OUTPUT_DIR}
+      COMMAND ${LCOV_EXECUTABLE} ${_lcov_opts} --capture --initial
+        --directory ${GCDA_GCNO_PATH} --output-file ${GCOV_BASE_INFO}
+      COMMAND ${LCOV_EXECUTABLE} ${_lcov_opts} --capture
+        --directory ${GCDA_GCNO_PATH} --output-file ${GCOV_TEST_INFO}
+      COMMAND ${LCOV_EXECUTABLE} ${_lcov_opts} --add-tracefile ${GCOV_BASE_INFO}
+        --add-tracefile ${GCOV_TEST_INFO} --output-file ${GCOV_RAW_INFO}
+      COMMAND ${LCOV_EXECUTABLE} ${_lcov_opts} --extract ${GCOV_RAW_INFO}
+        "${CMAKE_SOURCE_DIR}/${PROJECT_NAME}/*" --output-file ${GCOV_INFO}
+      COMMAND ${LCOV_EXECUTABLE} ${_lcov_opts} --remove ${GCOV_INFO}
+        "*/test/*" "*/batches/*" "*/ui/*" --output-file ${GCOV_INFO}
+      COMMAND ${GENHTML_EXECUTABLE} --quiet --output-directory ${GCOV_OUTPUT_DIR}
+        --prefix ${CMAKE_SOURCE_DIR} --title "${PROJECT_NAME} coverage"
+        ${GCOV_INFO}
+      COMMAND ${LCOV_EXECUTABLE} --list ${GCOV_INFO}
+      COMMAND ${LCOV_EXECUTABLE} --summary ${GCOV_INFO}
+      COMMAND ${CMAKE_COMMAND} -E echo
+        "HTML coverage report: ${GCOV_OUTPUT_DIR}/index.html")
+
+    add_custom_target (coverage
+      COMMAND ${LCOV_EXECUTABLE} ${_lcov_opts} --zerocounters
+        --directory ${GCDA_GCNO_PATH}
+      COMMAND ${CMAKE_CTEST_COMMAND} --output-on-failure
+      ${GCOV_REPORT_COMMANDS}
+      WORKING_DIRECTORY ${CMAKE_BINARY_DIR}
+      COMMENT "Running the test suites and generating the coverage report"
+      VERBATIM)
+    add_dependencies (coverage ${PROJ_ALL_TST_TARGETS})
+
+    add_custom_command (TARGET check POST_BUILD
+      ${GCOV_REPORT_COMMANDS}
+      WORKING_DIRECTORY ${CMAKE_BINARY_DIR}
+      VERBATIM)
+  endif ()
 endmacro (gcov_task)
 
 
@@ -2677,8 +2692,6 @@ macro (display_gcov)
     message (STATUS "* gcov:")
     message (STATUS "  - GCOV_VERSION .................. : ${GCOV_VERSION}")
     message (STATUS "  - GCOV_EXECUTABLE ............... : ${GCOV_EXECUTABLE}")
-    message (STATUS "  - GCOV_DOT_EXECUTABLE ........... : ${GCOV_DOT_EXECUTABLE}")
-    message (STATUS "  - GCOV_DOT_PATH ................. : ${GCOV_DOT_PATH}")
   endif (${RUN_GCOV} STREQUAL "ON")
 endmacro (display_gcov)
 
@@ -2689,8 +2702,7 @@ macro (display_lcov)
     message (STATUS "* lcov:")
     message (STATUS "  - LCOV_VERSION .................. : ${LCOV_VERSION}")
     message (STATUS "  - LCOV_EXECUTABLE ............... : ${LCOV_EXECUTABLE}")
-    message (STATUS "  - LCOV_DOT_EXECUTABLE ........... : ${LCOV_DOT_EXECUTABLE}")
-    message (STATUS "  - LCOV_DOT_PATH ................. : ${LCOV_DOT_PATH}")
+    message (STATUS "  - GENHTML_EXECUTABLE ............ : ${GENHTML_EXECUTABLE}")
   endif (${RUN_GCOV} STREQUAL "ON")
 endmacro (display_lcov)
 
