@@ -54,8 +54,28 @@ Largest uncovered files at baseline: `bom/BomJSONExport.cpp`,
 | + `BasicTypesTestSuite.cpp` (`stdair/basic`)  | 51.9%  | 59.1%     |
 | + `BomSerialisationTestSuite.cpp`, `BomStructsTestSuite.cpp` | 81.5%\* | 78.8%\* |
 | + `BomTreeTestSuite.cpp`                      | 91.5%\* | 88.3%\* |
+| + `ServiceDbTestSuite.cpp` (service/command/dbadaptor, SQLite) | 93.8%\* | 90.2%\* |
 
 \* From this step on, `make coverage` captures the whole build tree instead
 of the library objects only, so inline/template code of the library headers
 instantiated in the test binaries is counted too (8,872 instrumented library
 lines instead of 8,540).
+
+## Remaining gaps
+
+The remaining uncovered lines are mostly unreachable from tests without
+changing library sources: default/copy constructors whose body is
+`assert (false)` or that are private, the private
+`serialisationImplementationExport/Import()` hooks of the `*Key` classes, and
+`catch` branches of `boost::archive` I/O.
+
+## Library issues found while writing the tests (not fixed)
+
+- `ConfigHolderStruct::updateAirlineFeatures()` looks up
+  `config.config.<airline>.*`, so airline sections imported through
+  `importINIConfig` / `jsonImportConfiguration` are never applied.
+- `VirtualClassStruct`'s copy constructor does not copy
+  `_cumulatedBookingLimit` / `_cumulatedProtection`.
+- `BomArchive::restore()` ignores its input string and always throws.
+- `BomJSONImport::jsonImportBreakPoints()` throws on malformed dates instead of
+  returning `false`.
